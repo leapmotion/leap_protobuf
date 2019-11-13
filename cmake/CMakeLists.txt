@@ -1,7 +1,7 @@
 # Minimum CMake required
 cmake_minimum_required(VERSION 3.1.3)
 
-if(protobuf_VERBOSE)
+if(leap_protobuf_VERBOSE)
   message(STATUS "Protocol Buffers Configuring...")
 endif()
 
@@ -13,7 +13,7 @@ if(POLICY CMP0048)
 endif()
 
 # Project
-project(protobuf C CXX)
+project(leap_protobuf C CXX)
 
 # Add c++11 flags
 if (CYGWIN)
@@ -25,67 +25,67 @@ else()
 endif()
 
 # Options
-option(protobuf_BUILD_TESTS "Build tests" ON)
-option(protobuf_BUILD_EXAMPLES "Build examples" OFF)
-option(protobuf_BUILD_PROTOC_BINARIES "Build libprotoc and protoc compiler" ON)
+option(leap_protobuf_BUILD_TESTS "Build tests" ON)
+option(leap_protobuf_BUILD_EXAMPLES "Build examples" OFF)
+option(leap_protobuf_BUILD_PROTOC_BINARIES "Build libprotoc and protoc compiler" ON)
 if (BUILD_SHARED_LIBS)
-  set(protobuf_BUILD_SHARED_LIBS_DEFAULT ON)
+  set(leap_protobuf_BUILD_SHARED_LIBS_DEFAULT ON)
 else (BUILD_SHARED_LIBS)
-  set(protobuf_BUILD_SHARED_LIBS_DEFAULT OFF)
+  set(leap_protobuf_BUILD_SHARED_LIBS_DEFAULT OFF)
 endif (BUILD_SHARED_LIBS)
-option(protobuf_BUILD_SHARED_LIBS "Build Shared Libraries" ${protobuf_BUILD_SHARED_LIBS_DEFAULT})
+option(leap_protobuf_BUILD_SHARED_LIBS "Build Shared Libraries" ${leap_protobuf_BUILD_SHARED_LIBS_DEFAULT})
 include(CMakeDependentOption)
-cmake_dependent_option(protobuf_MSVC_STATIC_RUNTIME "Link static runtime libraries" ON
-  "NOT protobuf_BUILD_SHARED_LIBS" OFF)
-set(protobuf_WITH_ZLIB_DEFAULT ON)
-option(protobuf_WITH_ZLIB "Build with zlib support" ${protobuf_WITH_ZLIB_DEFAULT})
-set(protobuf_DEBUG_POSTFIX "d"
+cmake_dependent_option(leap_protobuf_MSVC_STATIC_RUNTIME "Link static runtime libraries" ON
+  "NOT leap_protobuf_BUILD_SHARED_LIBS" OFF)
+set(leap_protobuf_WITH_ZLIB_DEFAULT ON)
+option(leap_protobuf_WITH_ZLIB "Build with zlib support" ${leap_protobuf_WITH_ZLIB_DEFAULT})
+set(leap_protobuf_DEBUG_POSTFIX "d"
   CACHE STRING "Default debug postfix")
-mark_as_advanced(protobuf_DEBUG_POSTFIX)
+mark_as_advanced(leap_protobuf_DEBUG_POSTFIX)
 # User options
-include(protobuf-options.cmake)
+include(leap_protobuf-options.cmake)
 
 # Path to main configure script
-set(protobuf_CONFIGURE_SCRIPT "../configure.ac")
+set(leap_protobuf_CONFIGURE_SCRIPT "../configure.ac")
 
 # Parse configure script
-set(protobuf_AC_INIT_REGEX
+set(leap_protobuf_AC_INIT_REGEX
   "^AC_INIT\\(\\[([^]]+)\\],\\[([^]]+)\\],\\[([^]]+)\\],\\[([^]]+)\\]\\)$")
-file(STRINGS "${protobuf_CONFIGURE_SCRIPT}" protobuf_AC_INIT_LINE
+file(STRINGS "${leap_protobuf_CONFIGURE_SCRIPT}" leap_protobuf_AC_INIT_LINE
   LIMIT_COUNT 1 REGEX "^AC_INIT")
 # Description
-string(REGEX REPLACE        "${protobuf_AC_INIT_REGEX}" "\\1"
-    protobuf_DESCRIPTION    "${protobuf_AC_INIT_LINE}")
+string(REGEX REPLACE        "${leap_protobuf_AC_INIT_REGEX}" "\\1"
+    leap_protobuf_DESCRIPTION    "${leap_protobuf_AC_INIT_LINE}")
 # Version
-string(REGEX REPLACE        "${protobuf_AC_INIT_REGEX}" "\\2"
-    protobuf_VERSION_STRING "${protobuf_AC_INIT_LINE}")
+string(REGEX REPLACE        "${leap_protobuf_AC_INIT_REGEX}" "\\2"
+    leap_protobuf_VERSION_STRING "${leap_protobuf_AC_INIT_LINE}")
 # Contact
-string(REGEX REPLACE        "${protobuf_AC_INIT_REGEX}" "\\3"
-    protobuf_CONTACT        "${protobuf_AC_INIT_LINE}")
+string(REGEX REPLACE        "${leap_protobuf_AC_INIT_REGEX}" "\\3"
+    leap_protobuf_CONTACT        "${leap_protobuf_AC_INIT_LINE}")
 # Parse version tweaks
-set(protobuf_VERSION_REGEX "^([0-9]+)\\.([0-9]+)\\.([0-9]+)-?(.*)$")
-string(REGEX REPLACE     "${protobuf_VERSION_REGEX}" "\\1"
-  protobuf_VERSION_MAJOR "${protobuf_VERSION_STRING}")
-string(REGEX REPLACE     "${protobuf_VERSION_REGEX}" "\\2"
-  protobuf_VERSION_MINOR "${protobuf_VERSION_STRING}")
-string(REGEX REPLACE     "${protobuf_VERSION_REGEX}" "\\3"
-  protobuf_VERSION_PATCH "${protobuf_VERSION_STRING}")
-string(REGEX REPLACE     "${protobuf_VERSION_REGEX}" "\\4"
-  protobuf_VERSION_PRERELEASE "${protobuf_VERSION_STRING}")
+set(leap_protobuf_VERSION_REGEX "^([0-9]+)\\.([0-9]+)\\.([0-9]+)-?(.*)$")
+string(REGEX REPLACE     "${leap_protobuf_VERSION_REGEX}" "\\1"
+  leap_protobuf_VERSION_MAJOR "${leap_protobuf_VERSION_STRING}")
+string(REGEX REPLACE     "${leap_protobuf_VERSION_REGEX}" "\\2"
+  leap_protobuf_VERSION_MINOR "${leap_protobuf_VERSION_STRING}")
+string(REGEX REPLACE     "${leap_protobuf_VERSION_REGEX}" "\\3"
+  leap_protobuf_VERSION_PATCH "${leap_protobuf_VERSION_STRING}")
+string(REGEX REPLACE     "${leap_protobuf_VERSION_REGEX}" "\\4"
+  leap_protobuf_VERSION_PRERELEASE "${leap_protobuf_VERSION_STRING}")
 
 # Package version
-set(protobuf_VERSION
-  "${protobuf_VERSION_MAJOR}.${protobuf_VERSION_MINOR}.${protobuf_VERSION_PATCH}")
+set(leap_protobuf_VERSION
+  "${leap_protobuf_VERSION_MAJOR}.${leap_protobuf_VERSION_MINOR}.${leap_protobuf_VERSION_PATCH}")
 
-if(protobuf_VERSION_PRERELEASE)
-  set(protobuf_VERSION "${protobuf_VERSION}-${protobuf_VERSION_PRERELEASE}")
+if(leap_protobuf_VERSION_PRERELEASE)
+  set(leap_protobuf_VERSION "${leap_protobuf_VERSION}-${leap_protobuf_VERSION_PRERELEASE}")
 endif()
 
-if(protobuf_VERBOSE)
+if(leap_protobuf_VERBOSE)
   message(STATUS "Configuration script parsing status [")
-  message(STATUS "  Description : ${protobuf_DESCRIPTION}")
-  message(STATUS "  Version     : ${protobuf_VERSION} (${protobuf_VERSION_STRING})")
-  message(STATUS "  Contact     : ${protobuf_CONTACT}")
+  message(STATUS "  Description : ${leap_protobuf_DESCRIPTION}")
+  message(STATUS "  Version     : ${leap_protobuf_VERSION} (${leap_protobuf_VERSION_STRING})")
+  message(STATUS "  Contact     : ${leap_protobuf_CONTACT}")
   message(STATUS "]")
 endif()
 
@@ -96,8 +96,8 @@ if (CMAKE_USE_PTHREADS_INIT)
   add_definitions(-DHAVE_PTHREAD)
 endif (CMAKE_USE_PTHREADS_INIT)
 
-set(_protobuf_FIND_ZLIB)
-if (protobuf_WITH_ZLIB)
+set(_leap_protobuf_FIND_ZLIB)
+if (leap_protobuf_WITH_ZLIB)
   find_package(ZLIB)
   if (ZLIB_FOUND)
     set(HAVE_ZLIB 1)
@@ -107,7 +107,7 @@ if (protobuf_WITH_ZLIB)
     # Using imported target if exists
     if (TARGET ZLIB::ZLIB)
       set(ZLIB_LIBRARIES ZLIB::ZLIB)
-      set(_protobuf_FIND_ZLIB "if(NOT ZLIB_FOUND)\n  find_package(ZLIB)\nendif()")
+      set(_leap_protobuf_FIND_ZLIB "if(NOT ZLIB_FOUND)\n  find_package(ZLIB)\nendif()")
     endif (TARGET ZLIB::ZLIB)
   else (ZLIB_FOUND)
     set(HAVE_ZLIB 0)
@@ -116,22 +116,22 @@ if (protobuf_WITH_ZLIB)
     set(ZLIB_INCLUDE_DIRECTORIES)
     set(ZLIB_LIBRARIES)
   endif (ZLIB_FOUND)
-endif (protobuf_WITH_ZLIB)
+endif (leap_protobuf_WITH_ZLIB)
 
 if (HAVE_ZLIB)
   add_definitions(-DHAVE_ZLIB)
 endif (HAVE_ZLIB)
 
-if (protobuf_BUILD_SHARED_LIBS)
-  set(protobuf_SHARED_OR_STATIC "SHARED")
-else (protobuf_BUILD_SHARED_LIBS)
-  set(protobuf_SHARED_OR_STATIC "STATIC")
+if (leap_protobuf_BUILD_SHARED_LIBS)
+  set(leap_protobuf_SHARED_OR_STATIC "SHARED")
+else (leap_protobuf_BUILD_SHARED_LIBS)
+  set(leap_protobuf_SHARED_OR_STATIC "STATIC")
   # In case we are building static libraries, link also the runtime library statically
   # so that MSVCR*.DLL is not required at runtime.
   # https://msdn.microsoft.com/en-us/library/2kzt1wy3.aspx
   # This is achieved by replacing msvc option /MD with /MT and /MDd with /MTd
   # http://www.cmake.org/Wiki/CMake_FAQ#How_can_I_build_my_MSVC_application_with_a_static_runtime.3F
-  if (MSVC AND protobuf_MSVC_STATIC_RUNTIME)
+  if (MSVC AND leap_protobuf_MSVC_STATIC_RUNTIME)
     foreach(flag_var
         CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
         CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
@@ -139,8 +139,8 @@ else (protobuf_BUILD_SHARED_LIBS)
         string(REGEX REPLACE "/MD" "/MT" ${flag_var} "${${flag_var}}")
       endif(${flag_var} MATCHES "/MD")
     endforeach(flag_var)
-  endif (MSVC AND protobuf_MSVC_STATIC_RUNTIME)
-endif (protobuf_BUILD_SHARED_LIBS)
+  endif (MSVC AND leap_protobuf_MSVC_STATIC_RUNTIME)
+endif (leap_protobuf_BUILD_SHARED_LIBS)
 
 if (MSVC)
   # Build with multiple processes
@@ -164,20 +164,20 @@ if (MSVC)
   )
   # Allow big object
   add_definitions(/bigobj)
-  string(REPLACE "/" "\\" PROTOBUF_SOURCE_WIN32_PATH ${protobuf_SOURCE_DIR})
-  string(REPLACE "/" "\\" PROTOBUF_BINARY_WIN32_PATH ${protobuf_BINARY_DIR})
-  configure_file(extract_includes.bat.in extract_includes.bat)
+  string(REPLACE "/" "\\" PROTOBUF_SOURCE_WIN32_PATH ${leap_protobuf_SOURCE_DIR})
+  string(REPLACE "/" "\\" PROTOBUF_BINARY_WIN32_PATH ${leap_protobuf_BINARY_DIR})
+  configure_file(leap_extract_includes.bat.in leap_extract_includes.bat)
 
   # Suppress linker warnings about files with no symbols defined.
   set(CMAKE_STATIC_LINKER_FLAGS /ignore:4221)
 endif (MSVC)
 
-get_filename_component(protobuf_source_dir ${protobuf_SOURCE_DIR} PATH)
+get_filename_component(leap_protobuf_source_dir ${leap_protobuf_SOURCE_DIR} PATH)
 
 include_directories(
   ${ZLIB_INCLUDE_DIRECTORIES}
-  ${protobuf_BINARY_DIR}
-  ${protobuf_source_dir}/src)
+  ${leap_protobuf_BINARY_DIR}
+  ${leap_protobuf_source_dir}/src)
 
 if (MSVC)
   # Add the "lib" prefix for generated .lib outputs.
@@ -188,27 +188,27 @@ else (MSVC)
   set(LIB_PREFIX)
 endif (MSVC)
 
-if (protobuf_UNICODE)
+if (leap_protobuf_UNICODE)
   add_definitions(-DUNICODE -D_UNICODE)
-endif (protobuf_UNICODE)
+endif (leap_protobuf_UNICODE)
 
-include(libprotobuf-lite.cmake)
-include(libprotobuf.cmake)
-if (protobuf_BUILD_PROTOC_BINARIES)
+include(libleap_protobuf-lite.cmake)
+include(libleap_protobuf.cmake)
+if (leap_protobuf_BUILD_PROTOC_BINARIES)
   include(libprotoc.cmake)
   include(protoc.cmake)
-endif (protobuf_BUILD_PROTOC_BINARIES)
+endif (leap_protobuf_BUILD_PROTOC_BINARIES)
 
-if (protobuf_BUILD_TESTS)
+if (leap_protobuf_BUILD_TESTS)
   include(tests.cmake)
-endif (protobuf_BUILD_TESTS)
+endif (leap_protobuf_BUILD_TESTS)
 
 include(install.cmake)
 
-if (protobuf_BUILD_EXAMPLES)
+if (leap_protobuf_BUILD_EXAMPLES)
   include(examples.cmake)
-endif (protobuf_BUILD_EXAMPLES)
+endif (leap_protobuf_BUILD_EXAMPLES)
 
-if(protobuf_VERBOSE)
+if(leap_protobuf_VERBOSE)
     message(STATUS "Protocol Buffers Configuring done")
 endif()

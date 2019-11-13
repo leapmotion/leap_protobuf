@@ -72,7 +72,7 @@ TEST_PLUGIN_SOURCES=$(get_source_files $MAKEFILE test_plugin_SOURCES)
 ################################################################################
 
 CMAKE_DIR=cmake
-EXTRACT_INCLUDES_BAT=cmake/extract_includes.bat.in
+EXTRACT_INCLUDES_BAT=cmake/leap_extract_includes.bat.in
 [ -d "$CMAKE_DIR" ] || {
   echo "Cannot find: $CMAKE_DIR"
   exit 1

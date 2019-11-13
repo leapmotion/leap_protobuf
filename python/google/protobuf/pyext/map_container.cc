@@ -30,19 +30,19 @@
 
 // Author: haberman@google.com (Josh Haberman)
 
-#include <google/protobuf/pyext/map_container.h>
+#include <google/leap_protobuf/pyext/map_container.h>
 
 #include <memory>
 
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/map_field.h>
-#include <google/protobuf/map.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/pyext/message_factory.h>
-#include <google/protobuf/pyext/message.h>
-#include <google/protobuf/pyext/repeated_composite_container.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/leap_protobuf/stubs/logging.h>
+#include <google/leap_protobuf/stubs/common.h>
+#include <google/leap_protobuf/map_field.h>
+#include <google/leap_protobuf/map.h>
+#include <google/leap_protobuf/message.h>
+#include <google/leap_protobuf/pyext/message_factory.h>
+#include <google/leap_protobuf/pyext/message.h>
+#include <google/leap_protobuf/pyext/repeated_composite_container.h>
+#include <google/leap_protobuf/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #define PyInt_FromLong PyLong_FromLong
@@ -50,7 +50,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 // Functions that need access to map reflection functionality.
@@ -1071,5 +1071,5 @@ bool InitMapContainers() {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google

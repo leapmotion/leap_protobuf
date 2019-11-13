@@ -90,10 +90,10 @@ namespace Google.Protobuf.Reflection
         [Test]
         public void FileDescriptor_NonRootPath()
         {
-            // unittest_proto3.proto used to be in google/protobuf. Now it's in the C#-specific location,
+            // unittest_proto3.proto used to be in google/leap_protobuf. Now it's in the C#-specific location,
             // let's test something that's still in a directory.
             FileDescriptor file = UnittestWellKnownTypesReflection.Descriptor;
-            Assert.AreEqual("google/protobuf/unittest_well_known_types.proto", file.Name);
+            Assert.AreEqual("google/leap_protobuf/unittest_well_known_types.proto", file.Name);
             Assert.AreEqual("protobuf_unittest", file.Package);
         }
 
@@ -263,7 +263,7 @@ namespace Google.Protobuf.Reflection
         public void DescriptorProtoFileDescriptor()
         {
             var descriptor = Google.Protobuf.Reflection.FileDescriptor.DescriptorProtoFileDescriptor;
-            Assert.AreEqual("google/protobuf/descriptor.proto", descriptor.Name);
+            Assert.AreEqual("google/leap_protobuf/descriptor.proto", descriptor.Name);
         }
     }
 }

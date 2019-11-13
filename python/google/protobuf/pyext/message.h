@@ -39,11 +39,11 @@
 #include <memory>
 #include <string>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/pyext/thread_unsafe_shared_ptr.h>
+#include <google/leap_protobuf/stubs/common.h>
+#include <google/leap_protobuf/pyext/thread_unsafe_shared_ptr.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 
 class Message;
 class Reflection;
@@ -353,7 +353,7 @@ extern template bool CheckAndGetInteger<uint64>(PyObject*, uint64*);
 #endif
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__

@@ -31,7 +31,7 @@
 #include <Python.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 // Version constant.
@@ -125,5 +125,5 @@ extern "C" {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google

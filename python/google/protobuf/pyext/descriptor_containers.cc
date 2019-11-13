@@ -33,7 +33,7 @@
 //
 // They avoid the allocation of a full dictionary or a full list: they simply
 // store a pointer to the parent descriptor, use the C++ Descriptor methods (see
-// google/protobuf/descriptor.h) to retrieve other descriptors, and create
+// google/leap_protobuf/descriptor.h) to retrieve other descriptors, and create
 // Python objects on the fly.
 //
 // The containers fully conform to abc.Mapping and abc.Sequence, and behave just
@@ -51,11 +51,11 @@
 
 #include <Python.h>
 
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/pyext/descriptor_containers.h>
-#include <google/protobuf/pyext/descriptor_pool.h>
-#include <google/protobuf/pyext/descriptor.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/leap_protobuf/descriptor.h>
+#include <google/leap_protobuf/pyext/descriptor_containers.h>
+#include <google/leap_protobuf/pyext/descriptor_pool.h>
+#include <google/leap_protobuf/pyext/descriptor.h>
+#include <google/leap_protobuf/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #define PyString_FromStringAndSize PyUnicode_FromStringAndSize
@@ -71,7 +71,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 struct PyContainer;
@@ -1784,5 +1784,5 @@ bool InitDescriptorMappingTypes() {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google

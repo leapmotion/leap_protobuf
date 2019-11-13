@@ -33,12 +33,12 @@
 
 #include <Python.h>
 
-#include <google/protobuf/stubs/hash.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/pyext/descriptor_pool.h>
+#include <google/leap_protobuf/stubs/hash.h>
+#include <google/leap_protobuf/descriptor.h>
+#include <google/leap_protobuf/pyext/descriptor_pool.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 class MessageFactory;
 
 namespace python {
@@ -97,7 +97,7 @@ CMessageClass* GetOrCreateMessageClass(PyMessageFactory* self,
 bool InitMessageFactory();
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_FACTORY_H__

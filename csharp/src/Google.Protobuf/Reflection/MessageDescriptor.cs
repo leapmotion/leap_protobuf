@@ -48,16 +48,16 @@ namespace Google.Protobuf.Reflection
     {
         private static readonly HashSet<string> WellKnownTypeNames = new HashSet<string>
         {
-            "google/protobuf/any.proto",
-            "google/protobuf/api.proto",
-            "google/protobuf/duration.proto",
-            "google/protobuf/empty.proto",
-            "google/protobuf/wrappers.proto",
-            "google/protobuf/timestamp.proto",
-            "google/protobuf/field_mask.proto",
-            "google/protobuf/source_context.proto",
-            "google/protobuf/struct.proto",
-            "google/protobuf/type.proto",
+            "google/leap_protobuf/any.proto",
+            "google/leap_protobuf/api.proto",
+            "google/leap_protobuf/duration.proto",
+            "google/leap_protobuf/empty.proto",
+            "google/leap_protobuf/wrappers.proto",
+            "google/leap_protobuf/timestamp.proto",
+            "google/leap_protobuf/field_mask.proto",
+            "google/leap_protobuf/source_context.proto",
+            "google/leap_protobuf/struct.proto",
+            "google/leap_protobuf/type.proto",
         };
 
         private readonly IList<FieldDescriptor> fieldsInDeclarationOrder;
@@ -170,7 +170,7 @@ namespace Google.Protobuf.Reflection
         /// Returns whether this message is one of the "wrapper types" used for fields which represent primitive values
         /// with the addition of presence.
         /// </summary>
-        internal bool IsWrapperType => File.Package == "google.protobuf" && File.Name == "google/protobuf/wrappers.proto";
+        internal bool IsWrapperType => File.Package == "google.protobuf" && File.Name == "google/leap_protobuf/wrappers.proto";
 
         /// <value>
         /// If this is a nested type, get the outer descriptor, otherwise null.

@@ -1,11 +1,11 @@
-#include "google/protobuf/compiler/code_generator.h"
-#include "google/protobuf/io/zero_copy_stream.h"
-#include "google/protobuf/io/printer.h"
-#include "google/protobuf/descriptor.h"
-#include "google/protobuf/descriptor.pb.h"
+#include "google/leap_protobuf/compiler/code_generator.h"
+#include "google/leap_protobuf/io/zero_copy_stream.h"
+#include "google/leap_protobuf/io/printer.h"
+#include "google/leap_protobuf/descriptor.h"
+#include "google/leap_protobuf/descriptor.pb.h"
 #include "schema_proto2_to_proto3_util.h"
 
-#include "google/protobuf/compiler/plugin.h"
+#include "google/leap_protobuf/compiler/plugin.h"
 
 using google::protobuf::FileDescriptorProto;
 using google::protobuf::FileDescriptor;
@@ -15,7 +15,7 @@ using google::protobuf::util::SchemaGroupStripper;
 using google::protobuf::util::SchemaAddZeroEnumValue;
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace compiler {
 
 namespace {
@@ -94,7 +94,7 @@ class GoGoProtoGenerator : public CodeGenerator {
 };
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google
 
 int main(int argc, char* argv[]) {

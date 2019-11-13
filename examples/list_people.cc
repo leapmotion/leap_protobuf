@@ -1,7 +1,7 @@
 // See README.txt for information and build instructions.
 
 #include <fstream>
-#include <google/protobuf/util/time_util.h>
+#include <google/leap_protobuf/util/time_util.h>
 #include <iostream>
 #include <string>
 

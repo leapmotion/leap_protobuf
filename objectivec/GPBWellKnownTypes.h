@@ -41,9 +41,9 @@
  #import <Protobuf/Duration.pbobjc.h>
  #import <Protobuf/Timestamp.pbobjc.h>
 #else
- #import "google/protobuf/Any.pbobjc.h"
- #import "google/protobuf/Duration.pbobjc.h"
- #import "google/protobuf/Timestamp.pbobjc.h"
+ #import "google/leap_protobuf/Any.pbobjc.h"
+ #import "google/leap_protobuf/Duration.pbobjc.h"
+ #import "google/leap_protobuf/Timestamp.pbobjc.h"
 #endif
 
 NS_ASSUME_NONNULL_BEGIN

@@ -37,7 +37,7 @@
 #include <Python.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 
 class Descriptor;
 class FileDescriptor;
@@ -103,7 +103,7 @@ PyObject* NewServiceMethodsByName(const ServiceDescriptor* descriptor);
 
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__

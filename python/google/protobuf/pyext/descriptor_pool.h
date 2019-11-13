@@ -33,11 +33,11 @@
 
 #include <Python.h>
 
-#include <google/protobuf/stubs/hash.h>
-#include <google/protobuf/descriptor.h>
+#include <google/leap_protobuf/stubs/hash.h>
+#include <google/leap_protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 struct PyMessageFactory;
@@ -139,7 +139,7 @@ PyDescriptorPool* GetDescriptorPool_FromPool(const DescriptorPool* pool);
 bool InitDescriptorPool();
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_POOL_H__

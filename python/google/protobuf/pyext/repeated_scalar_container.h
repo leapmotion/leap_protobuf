@@ -38,11 +38,11 @@
 
 #include <memory>
 
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/pyext/message.h>
+#include <google/leap_protobuf/descriptor.h>
+#include <google/leap_protobuf/pyext/message.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 typedef struct RepeatedScalarContainer {
@@ -103,7 +103,7 @@ void SetOwner(RepeatedScalarContainer* self,
 
 }  // namespace repeated_scalar_container
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__

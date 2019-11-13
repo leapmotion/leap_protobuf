@@ -1,0 +1,189 @@
+# This file contains backwards compatibility patches for various legacy functions and variables
+# Functions
+
+function(LEAP_PROTOBUF_GENERATE_CPP SRCS HDRS)
+  cmake_parse_arguments(leap_protobuf_generate_cpp "" "EXPORT_MACRO" "" ${ARGN})
+
+  set(_proto_files "${leap_protobuf_generate_cpp_UNPARSED_ARGUMENTS}")
+  if(NOT _proto_files)
+    message(SEND_ERROR "Error: LEAP_PROTOBUF_GENERATE_CPP() called without any proto files")
+    return()
+  endif()
+
+  if(LEAP_PROTOBUF_GENERATE_CPP_APPEND_PATH)
+    set(_append_arg APPEND_PATH)
+  endif()
+
+  if(DEFINED LeapProtobuf_IMPORT_DIRS)
+    set(_import_arg IMPORT_DIRS ${LeapProtobuf_IMPORT_DIRS})
+  endif()
+
+  set(_outvar)
+  leap_protobuf_generate(${_append_arg} LANGUAGE cpp EXPORT_MACRO ${leap_protobuf_generate_cpp_EXPORT_MACRO} OUT_VAR _outvar ${_import_arg} PROTOS ${_proto_files})
+
+  set(${SRCS})
+  set(${HDRS})
+  foreach(_file ${_outvar})
+    if(_file MATCHES "cc$")
+      list(APPEND ${SRCS} ${_file})
+    else()
+      list(APPEND ${HDRS} ${_file})
+    endif()
+  endforeach()
+  set(${SRCS} ${${SRCS}} PARENT_SCOPE)
+  set(${HDRS} ${${HDRS}} PARENT_SCOPE)
+endfunction()
+
+function(LEAP_PROTOBUF_GENERATE_PYTHON SRCS)
+  if(NOT ARGN)
+    message(SEND_ERROR "Error: LEAP_PROTOBUF_GENERATE_PYTHON() called without any proto files")
+    return()
+  endif()
+
+  if(LEAP_PROTOBUF_GENERATE_CPP_APPEND_PATH)
+    set(_append_arg APPEND_PATH)
+  endif()
+
+  if(DEFINED LeapProtobuf_IMPORT_DIRS)
+    set(_import_arg IMPORT_DIRS ${LeapProtobuf_IMPORT_DIRS})
+  endif()
+
+  set(_outvar)
+  leap_protobuf_generate(${_append_arg} LANGUAGE python OUT_VAR _outvar ${_import_arg} PROTOS ${ARGN})
+  set(${SRCS} ${_outvar} PARENT_SCOPE)
+endfunction()
+
+# Environment
+
+# Backwards compatibility
+# Define camel case versions of input variables
+foreach(UPPER
+    LEAP_PROTOBUF_SRC_ROOT_FOLDER
+    LEAP_PROTOBUF_IMPORT_DIRS
+    LEAP_PROTOBUF_DEBUG
+    LEAP_PROTOBUF_LIBRARY
+    LEAP_PROTOBUF_PROTOC_LIBRARY
+    LEAP_PROTOBUF_INCLUDE_DIR
+    LEAP_PROTOBUF_PROTOC_EXECUTABLE
+    LEAP_PROTOBUF_LIBRARY_DEBUG
+    LEAP_PROTOBUF_PROTOC_LIBRARY_DEBUG
+    LEAP_PROTOBUF_LITE_LIBRARY
+    LEAP_PROTOBUF_LITE_LIBRARY_DEBUG
+    )
+    if (DEFINED ${UPPER})
+        string(REPLACE "LEAP_PROTOBUF_" "LeapProtobuf_" Camel ${UPPER})
+        if (NOT DEFINED ${Camel})
+            set(${Camel} ${${UPPER}})
+        endif()
+    endif()
+endforeach()
+
+if(DEFINED LeapProtobuf_SRC_ROOT_FOLDER)
+  message(AUTHOR_WARNING "Variable LeapProtobuf_SRC_ROOT_FOLDER defined, but not"
+    " used in CONFIG mode")
+endif()
+
+include(SelectLibraryConfigurations)
+
+# Internal function: search for normal library as well as a debug one
+#    if the debug one is specified also include debug/optimized keywords
+#    in *_LIBRARIES variable
+function(_leap_protobuf_find_libraries name filename)
+  if(${name}_LIBRARIES)
+    # Use result recorded by a previous call.
+  elseif(${name}_LIBRARY)
+    # Honor cache entry used by CMake 3.5 and lower.
+    set(${name}_LIBRARIES "${${name}_LIBRARY}" PARENT_SCOPE)
+  else()
+    get_target_property(${name}_LIBRARY_RELEASE protobuf::lib${filename}
+      LOCATION_RELEASE)
+    get_target_property(${name}_LIBRARY_DEBUG protobuf::lib${filename}
+      LOCATION_DEBUG)
+
+    select_library_configurations(${name})
+    set(${name}_LIBRARY ${${name}_LIBRARY} PARENT_SCOPE)
+    set(${name}_LIBRARIES ${${name}_LIBRARIES} PARENT_SCOPE)
+  endif()
+endfunction()
+
+# Internal function: find threads library
+function(_leap_protobuf_find_threads)
+    set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+    find_package(Threads)
+    if(Threads_FOUND)
+        list(APPEND LEAP_PROTOBUF_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
+        set(LEAP_PROTOBUF_LIBRARIES "${LEAP_PROTOBUF_LIBRARIES}" PARENT_SCOPE)
+    endif()
+endfunction()
+
+#
+# Main.
+#
+
+# By default have LEAP_PROTOBUF_GENERATE_CPP macro pass -I to protoc
+# for each directory where a proto file is referenced.
+if(NOT DEFINED LEAP_PROTOBUF_GENERATE_CPP_APPEND_PATH)
+  set(LEAP_PROTOBUF_GENERATE_CPP_APPEND_PATH TRUE)
+endif()
+
+# The LeapProtobuf library
+_leap_protobuf_find_libraries(LeapProtobuf protobuf)
+
+# The LeapProtobuf Lite library
+_leap_protobuf_find_libraries(LeapProtobuf_LITE protobuf-lite)
+
+# The LeapProtobuf Protoc Library
+_leap_protobuf_find_libraries(LeapProtobuf_PROTOC protoc)
+
+if(UNIX)
+  _leap_protobuf_find_threads()
+endif()
+
+# Set the include directory
+get_target_property(LeapProtobuf_INCLUDE_DIRS protobuf::libprotobuf
+  INTERFACE_INCLUDE_DIRECTORIES)
+
+# Set the protoc Executable
+get_target_property(LeapProtobuf_PROTOC_EXECUTABLE protobuf::protoc
+  IMPORTED_LOCATION_RELEASE)
+if(NOT EXISTS "${LeapProtobuf_PROTOC_EXECUTABLE}")
+  get_target_property(LeapProtobuf_PROTOC_EXECUTABLE protobuf::protoc
+    IMPORTED_LOCATION_DEBUG)
+endif()
+if(NOT EXISTS "${LeapProtobuf_PROTOC_EXECUTABLE}")
+  get_target_property(LeapProtobuf_PROTOC_EXECUTABLE protobuf::protoc
+    IMPORTED_LOCATION_NOCONFIG)
+endif()
+
+# Version info variable
+set(LeapProtobuf_VERSION "@leap_protobuf_VERSION@")
+
+include(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(LeapProtobuf
+    REQUIRED_VARS LeapProtobuf_PROTOC_EXECUTABLE LeapProtobuf_LIBRARIES LeapProtobuf_INCLUDE_DIRS
+    VERSION_VAR LeapProtobuf_VERSION
+)
+
+# Backwards compatibility
+# Define upper case versions of output variables
+foreach(Camel
+    LeapProtobuf_VERSION
+    LeapProtobuf_SRC_ROOT_FOLDER
+    LeapProtobuf_IMPORT_DIRS
+    LeapProtobuf_DEBUG
+    LeapProtobuf_INCLUDE_DIRS
+    LeapProtobuf_LIBRARIES
+    LeapProtobuf_PROTOC_LIBRARIES
+    LeapProtobuf_LITE_LIBRARIES
+    LeapProtobuf_LIBRARY
+    LeapProtobuf_PROTOC_LIBRARY
+    LeapProtobuf_INCLUDE_DIR
+    LeapProtobuf_PROTOC_EXECUTABLE
+    LeapProtobuf_LIBRARY_DEBUG
+    LeapProtobuf_PROTOC_LIBRARY_DEBUG
+    LeapProtobuf_LITE_LIBRARY
+    LeapProtobuf_LITE_LIBRARY_DEBUG
+    )
+    string(TOUPPER ${Camel} UPPER)
+    set(${UPPER} ${${Camel}})
+endforeach()

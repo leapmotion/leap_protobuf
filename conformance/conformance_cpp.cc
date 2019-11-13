@@ -33,11 +33,11 @@
 #include <unistd.h>
 
 #include "conformance.pb.h"
-#include <google/protobuf/test_messages_proto3.pb.h>
-#include <google/protobuf/test_messages_proto2.pb.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/util/json_util.h>
-#include <google/protobuf/util/type_resolver_util.h>
+#include <google/leap_protobuf/test_messages_proto3.pb.h>
+#include <google/leap_protobuf/test_messages_proto2.pb.h>
+#include <google/leap_protobuf/message.h>
+#include <google/leap_protobuf/util/json_util.h>
+#include <google/leap_protobuf/util/type_resolver_util.h>
 
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;

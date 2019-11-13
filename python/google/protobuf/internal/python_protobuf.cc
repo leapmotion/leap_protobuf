@@ -30,10 +30,10 @@
 
 // Author: qrczak@google.com (Marcin Kowalczyk)
 
-#include <google/protobuf/python/python_protobuf.h>
+#include <google/leap_protobuf/python/python_protobuf.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 static const Message* GetCProtoInsidePyProtoStub(PyObject* msg) {
@@ -59,5 +59,5 @@ Message* MutableCProtoInsidePyProto(PyObject* msg) {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google

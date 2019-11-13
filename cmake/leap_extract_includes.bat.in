@@ -1,0 +1,125 @@
+mkdir include
+mkdir include\google
+mkdir include\google\leap_protobuf
+mkdir include\google\leap_protobuf\compiler
+mkdir include\google\leap_protobuf\compiler\cpp
+mkdir include\google\leap_protobuf\compiler\csharp
+mkdir include\google\leap_protobuf\compiler\java
+mkdir include\google\leap_protobuf\compiler\js
+mkdir include\google\leap_protobuf\compiler\objectivec
+mkdir include\google\leap_protobuf\compiler\php
+mkdir include\google\leap_protobuf\compiler\python
+mkdir include\google\leap_protobuf\compiler\ruby
+mkdir include\google\leap_protobuf\io
+mkdir include\google\leap_protobuf\stubs
+mkdir include\google\leap_protobuf\util
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\any.h" include\google\leap_protobuf\any.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\any.pb.h" include\google\leap_protobuf\any.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\api.pb.h" include\google\leap_protobuf\api.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\arena.h" include\google\leap_protobuf\arena.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\arena_impl.h" include\google\leap_protobuf\arena_impl.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\arenastring.h" include\google\leap_protobuf\arenastring.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\code_generator.h" include\google\leap_protobuf\compiler\code_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\command_line_interface.h" include\google\leap_protobuf\compiler\command_line_interface.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\cpp\cpp_generator.h" include\google\leap_protobuf\compiler\cpp\cpp_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\csharp\csharp_generator.h" include\google\leap_protobuf\compiler\csharp\csharp_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\csharp\csharp_names.h" include\google\leap_protobuf\compiler\csharp\csharp_names.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\importer.h" include\google\leap_protobuf\compiler\importer.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\java\java_generator.h" include\google\leap_protobuf\compiler\java\java_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\java\java_names.h" include\google\leap_protobuf\compiler\java\java_names.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\js\js_generator.h" include\google\leap_protobuf\compiler\js\js_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\js\well_known_types_embed.h" include\google\leap_protobuf\compiler\js\well_known_types_embed.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\objectivec\objectivec_generator.h" include\google\leap_protobuf\compiler\objectivec\objectivec_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\objectivec\objectivec_helpers.h" include\google\leap_protobuf\compiler\objectivec\objectivec_helpers.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\parser.h" include\google\leap_protobuf\compiler\parser.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\php\php_generator.h" include\google\leap_protobuf\compiler\php\php_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\plugin.h" include\google\leap_protobuf\compiler\plugin.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\plugin.pb.h" include\google\leap_protobuf\compiler\plugin.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\python\python_generator.h" include\google\leap_protobuf\compiler\python\python_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\ruby\ruby_generator.h" include\google\leap_protobuf\compiler\ruby\ruby_generator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\descriptor.h" include\google\leap_protobuf\descriptor.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\descriptor.pb.h" include\google\leap_protobuf\descriptor.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\descriptor_database.h" include\google\leap_protobuf\descriptor_database.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\duration.pb.h" include\google\leap_protobuf\duration.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\dynamic_message.h" include\google\leap_protobuf\dynamic_message.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\empty.pb.h" include\google\leap_protobuf\empty.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\extension_set.h" include\google\leap_protobuf\extension_set.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\field_mask.pb.h" include\google\leap_protobuf\field_mask.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\generated_enum_reflection.h" include\google\leap_protobuf\generated_enum_reflection.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\generated_enum_util.h" include\google\leap_protobuf\generated_enum_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\generated_message_reflection.h" include\google\leap_protobuf\generated_message_reflection.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\generated_message_table_driven.h" include\google\leap_protobuf\generated_message_table_driven.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\generated_message_util.h" include\google\leap_protobuf\generated_message_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\has_bits.h" include\google\leap_protobuf\has_bits.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\implicit_weak_message.h" include\google\leap_protobuf\implicit_weak_message.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\inlined_string_field.h" include\google\leap_protobuf\inlined_string_field.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\coded_stream.h" include\google\leap_protobuf\io\coded_stream.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\gzip_stream.h" include\google\leap_protobuf\io\gzip_stream.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\printer.h" include\google\leap_protobuf\io\printer.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\strtod.h" include\google\leap_protobuf\io\strtod.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\tokenizer.h" include\google\leap_protobuf\io\tokenizer.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\zero_copy_stream.h" include\google\leap_protobuf\io\zero_copy_stream.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\zero_copy_stream_impl.h" include\google\leap_protobuf\io\zero_copy_stream_impl.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\io\zero_copy_stream_impl_lite.h" include\google\leap_protobuf\io\zero_copy_stream_impl_lite.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\map.h" include\google\leap_protobuf\map.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\map_entry.h" include\google\leap_protobuf\map_entry.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\map_entry_lite.h" include\google\leap_protobuf\map_entry_lite.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\map_field.h" include\google\leap_protobuf\map_field.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\map_field_inl.h" include\google\leap_protobuf\map_field_inl.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\map_field_lite.h" include\google\leap_protobuf\map_field_lite.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\map_type_handler.h" include\google\leap_protobuf\map_type_handler.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\message.h" include\google\leap_protobuf\message.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\message_lite.h" include\google\leap_protobuf\message_lite.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\metadata.h" include\google\leap_protobuf\metadata.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\metadata_lite.h" include\google\leap_protobuf\metadata_lite.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\reflection.h" include\google\leap_protobuf\reflection.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\reflection_ops.h" include\google\leap_protobuf\reflection_ops.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\repeated_field.h" include\google\leap_protobuf\repeated_field.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\service.h" include\google\leap_protobuf\service.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\source_context.pb.h" include\google\leap_protobuf\source_context.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\struct.pb.h" include\google\leap_protobuf\struct.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\bytestream.h" include\google\leap_protobuf\stubs\bytestream.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\callback.h" include\google\leap_protobuf\stubs\callback.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\casts.h" include\google\leap_protobuf\stubs\casts.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\common.h" include\google\leap_protobuf\stubs\common.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\fastmem.h" include\google\leap_protobuf\stubs\fastmem.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\hash.h" include\google\leap_protobuf\stubs\hash.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\logging.h" include\google\leap_protobuf\stubs\logging.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\macros.h" include\google\leap_protobuf\stubs\macros.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\mutex.h" include\google\leap_protobuf\stubs\mutex.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\once.h" include\google\leap_protobuf\stubs\once.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\platform_macros.h" include\google\leap_protobuf\stubs\platform_macros.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\port.h" include\google\leap_protobuf\stubs\port.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\singleton.h" include\google\leap_protobuf\stubs\singleton.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\status.h" include\google\leap_protobuf\stubs\status.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\stl_util.h" include\google\leap_protobuf\stubs\stl_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\stringpiece.h" include\google\leap_protobuf\stubs\stringpiece.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\stubs\template_util.h" include\google\leap_protobuf\stubs\template_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\text_format.h" include\google\leap_protobuf\text_format.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\timestamp.pb.h" include\google\leap_protobuf\timestamp.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\type.pb.h" include\google\leap_protobuf\type.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\unknown_field_set.h" include\google\leap_protobuf\unknown_field_set.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\delimited_message_util.h" include\google\leap_protobuf\util\delimited_message_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\field_comparator.h" include\google\leap_protobuf\util\field_comparator.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\field_mask_util.h" include\google\leap_protobuf\util\field_mask_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\json_util.h" include\google\leap_protobuf\util\json_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\message_differencer.h" include\google\leap_protobuf\util\message_differencer.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\time_util.h" include\google\leap_protobuf\util\time_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\type_resolver.h" include\google\leap_protobuf\util\type_resolver.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\util\type_resolver_util.h" include\google\leap_protobuf\util\type_resolver_util.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\wire_format.h" include\google\leap_protobuf\wire_format.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\wire_format_lite.h" include\google\leap_protobuf\wire_format_lite.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\wire_format_lite_inl.h" include\google\leap_protobuf\wire_format_lite_inl.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\wrappers.pb.h" include\google\leap_protobuf\wrappers.pb.h
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\any.proto" include\google\leap_protobuf\any.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\api.proto" include\google\leap_protobuf\api.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\compiler\plugin.proto" include\google\leap_protobuf\compiler\plugin.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\descriptor.proto" include\google\leap_protobuf\descriptor.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\duration.proto" include\google\leap_protobuf\duration.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\empty.proto" include\google\leap_protobuf\empty.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\field_mask.proto" include\google\leap_protobuf\field_mask.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\source_context.proto" include\google\leap_protobuf\source_context.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\struct.proto" include\google\leap_protobuf\struct.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\timestamp.proto" include\google\leap_protobuf\timestamp.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\type.proto" include\google\leap_protobuf\type.proto
+copy "${PROTOBUF_SOURCE_WIN32_PATH}\..\src\google\leap_protobuf\wrappers.proto" include\google\leap_protobuf\wrappers.proto

@@ -5,8 +5,8 @@
 #include "datasets/google_message3/benchmark_message3.pb.h"
 #include "datasets/google_message4/benchmark_message4.pb.h"
 
-#include "google/protobuf/message.h"
-#include "google/protobuf/descriptor.h"
+#include "google/leap_protobuf/message.h"
+#include "google/leap_protobuf/descriptor.h"
 
 #include <fstream>
 

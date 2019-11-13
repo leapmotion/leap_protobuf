@@ -33,11 +33,11 @@
 #ifndef GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
 #define GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
 
-#include <google/protobuf/stubs/common.h>
+#include <google/leap_protobuf/stubs/common.h>
 
 #include <Python.h>
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 // Owns a python object and decrements the reference count on destruction.
@@ -100,6 +100,6 @@ class ScopedPythonPtr {
 typedef ScopedPythonPtr<PyObject> ScopedPyObjectPtr;
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__

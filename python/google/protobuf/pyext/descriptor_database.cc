@@ -31,16 +31,16 @@
 // This file defines a C++ DescriptorDatabase, which wraps a Python Database
 // and delegate all its operations to Python methods.
 
-#include <google/protobuf/pyext/descriptor_database.h>
+#include <google/leap_protobuf/pyext/descriptor_database.h>
 
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/descriptor.pb.h>
-#include <google/protobuf/pyext/message.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/leap_protobuf/stubs/logging.h>
+#include <google/leap_protobuf/stubs/common.h>
+#include <google/leap_protobuf/descriptor.pb.h>
+#include <google/leap_protobuf/pyext/message.h>
+#include <google/leap_protobuf/pyext/scoped_pyobject_ptr.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 PyDescriptorDatabase::PyDescriptorDatabase(PyObject* py_database)
@@ -144,5 +144,5 @@ bool PyDescriptorDatabase::FindFileContainingExtension(
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google

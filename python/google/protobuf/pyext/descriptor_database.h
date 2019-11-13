@@ -33,10 +33,10 @@
 
 #include <Python.h>
 
-#include <google/protobuf/descriptor_database.h>
+#include <google/leap_protobuf/descriptor_database.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 class PyDescriptorDatabase : public DescriptorDatabase {
@@ -69,7 +69,7 @@ class PyDescriptorDatabase : public DescriptorDatabase {
 };
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_DATABASE_H__

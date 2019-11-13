@@ -35,10 +35,10 @@
 
 #include <Python.h>
 
-#include <google/protobuf/descriptor.h>
+#include <google/leap_protobuf/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 extern PyTypeObject PyMessageDescriptor_Type;
@@ -99,7 +99,7 @@ bool _CalledFromGeneratedFile(int stacklevel);
 bool InitDescriptor();
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__

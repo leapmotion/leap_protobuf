@@ -920,7 +920,7 @@ namespace Google.Protobuf
             }
         }
         
-        // Ported from src/google/protobuf/util/internal/utility.cc
+        // Ported from src/google/leap_protobuf/util/internal/utility.cc
         private static string ToSnakeCase(string text)
         {
             var builder = new StringBuilder(text.Length * 2);

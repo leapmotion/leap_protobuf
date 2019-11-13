@@ -30,9 +30,9 @@
 
 #include <Python.h>
 
-#include <google/protobuf/pyext/message.h>
+#include <google/leap_protobuf/pyext/message.h>
 
-#include <google/protobuf/message_lite.h>
+#include <google/leap_protobuf/message_lite.h>
 
 static PyObject* GetPythonProto3PreserveUnknownsDefault(
     PyObject* /*m*/, PyObject* /*args*/) {

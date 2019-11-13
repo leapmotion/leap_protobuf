@@ -31,7 +31,7 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#include <google/protobuf/pyext/message.h>
+#include <google/leap_protobuf/pyext/message.h>
 
 #include <map>
 #include <memory>
@@ -45,25 +45,25 @@
 #ifndef Py_TYPE
 #define Py_TYPE(ob) (((PyObject*)(ob))->ob_type)
 #endif
-#include <google/protobuf/descriptor.pb.h>
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/io/zero_copy_stream_impl_lite.h>
-#include <google/protobuf/util/message_differencer.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/text_format.h>
-#include <google/protobuf/unknown_field_set.h>
-#include <google/protobuf/pyext/descriptor.h>
-#include <google/protobuf/pyext/descriptor_pool.h>
-#include <google/protobuf/pyext/extension_dict.h>
-#include <google/protobuf/pyext/repeated_composite_container.h>
-#include <google/protobuf/pyext/repeated_scalar_container.h>
-#include <google/protobuf/pyext/map_container.h>
-#include <google/protobuf/pyext/message_factory.h>
-#include <google/protobuf/pyext/safe_numerics.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/leap_protobuf/descriptor.pb.h>
+#include <google/leap_protobuf/stubs/common.h>
+#include <google/leap_protobuf/stubs/logging.h>
+#include <google/leap_protobuf/io/coded_stream.h>
+#include <google/leap_protobuf/io/zero_copy_stream_impl_lite.h>
+#include <google/leap_protobuf/util/message_differencer.h>
+#include <google/leap_protobuf/descriptor.h>
+#include <google/leap_protobuf/message.h>
+#include <google/leap_protobuf/text_format.h>
+#include <google/leap_protobuf/unknown_field_set.h>
+#include <google/leap_protobuf/pyext/descriptor.h>
+#include <google/leap_protobuf/pyext/descriptor_pool.h>
+#include <google/leap_protobuf/pyext/extension_dict.h>
+#include <google/leap_protobuf/pyext/repeated_composite_container.h>
+#include <google/leap_protobuf/pyext/repeated_scalar_container.h>
+#include <google/leap_protobuf/pyext/map_container.h>
+#include <google/leap_protobuf/pyext/message_factory.h>
+#include <google/leap_protobuf/pyext/safe_numerics.h>
+#include <google/leap_protobuf/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #define PyInt_AsLong PyLong_AsLong
@@ -85,7 +85,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 static PyObject* kDESCRIPTOR;
@@ -99,7 +99,7 @@ namespace message_meta {
 static int InsertEmptyWeakref(PyTypeObject* base);
 
 namespace {
-// Copied oveer from internal 'google/protobuf/stubs/strutil.h'.
+// Copied oveer from internal 'google/leap_protobuf/stubs/strutil.h'.
 inline void UpperString(string * s) {
   string::iterator end = s->end();
   for (string::iterator i = s->begin(); i != end; ++i) {
@@ -3062,5 +3062,5 @@ bool InitProto2MessageModule(PyObject *m) {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google

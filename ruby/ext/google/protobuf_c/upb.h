@@ -7391,7 +7391,7 @@ UPB_END_EXTERN_C
 
 namespace upbdefs {
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 
 class DescriptorProto : public ::upb::reffed_ptr<const ::upb::MessageDef> {
  public:
@@ -7739,7 +7739,7 @@ class UninterpretedOption : public ::upb::reffed_ptr<const ::upb::MessageDef> {
   };
 };
 
-}  /* namespace protobuf */
+}  /* namespace leap_protobuf */
 }  /* namespace google */
 }  /* namespace upbdefs */
 

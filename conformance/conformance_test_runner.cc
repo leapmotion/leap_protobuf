@@ -61,7 +61,7 @@
 #include <unistd.h>
 #include <vector>
 
-#include <google/protobuf/stubs/stringprintf.h>
+#include <google/leap_protobuf/stubs/stringprintf.h>
 
 #include "conformance.pb.h"
 #include "conformance_test.h"
@@ -135,7 +135,7 @@ class ForkPipeRunner : public google::protobuf::ConformanceTestRunner {
   // UNIX-specific APIs.
   //
   // There is a platform-agnostic API in
-  //    src/google/protobuf/compiler/subprocess.h
+  //    src/google/leap_protobuf/compiler/subprocess.h
   //
   // However that API only supports sending a single message to the subprocess.
   // We really want to be able to send messages and receive responses one at a

@@ -40,10 +40,10 @@
 #include <string>
 #include <vector>
 
-#include <google/protobuf/pyext/message.h>
+#include <google/leap_protobuf/pyext/message.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 
 class FieldDescriptor;
 class Message;
@@ -160,7 +160,7 @@ void ReleaseLastTo(CMessage* parent,
 
 }  // namespace repeated_composite_container
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__

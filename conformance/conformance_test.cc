@@ -34,17 +34,17 @@
 
 #include "conformance.pb.h"
 #include "conformance_test.h"
-#include <google/protobuf/test_messages_proto3.pb.h>
-#include <google/protobuf/test_messages_proto2.pb.h>
+#include <google/leap_protobuf/test_messages_proto3.pb.h>
+#include <google/leap_protobuf/test_messages_proto2.pb.h>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/stringprintf.h>
-#include <google/protobuf/text_format.h>
-#include <google/protobuf/util/field_comparator.h>
-#include <google/protobuf/util/json_util.h>
-#include <google/protobuf/util/message_differencer.h>
-#include <google/protobuf/util/type_resolver_util.h>
-#include <google/protobuf/wire_format_lite.h>
+#include <google/leap_protobuf/stubs/common.h>
+#include <google/leap_protobuf/stubs/stringprintf.h>
+#include <google/leap_protobuf/text_format.h>
+#include <google/leap_protobuf/util/field_comparator.h>
+#include <google/leap_protobuf/util/json_util.h>
+#include <google/leap_protobuf/util/message_differencer.h>
+#include <google/leap_protobuf/util/type_resolver_util.h>
+#include <google/leap_protobuf/wire_format_lite.h>
 
 #include "third_party/jsoncpp/json.h"
 
@@ -189,7 +189,7 @@ string UpperCase(string str) {
 }  // anonymous namespace
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 
 void ConformanceTestSuite::ReportSuccess(const string& test_name) {
   if (expected_to_fail_.erase(test_name) != 0) {
@@ -2580,5 +2580,5 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
   return ok;
 }
 
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google

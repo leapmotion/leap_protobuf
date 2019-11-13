@@ -48,11 +48,11 @@ namespace Google.Protobuf.Reflection
         {
             FileDescriptor file = UnittestProto3Reflection.Descriptor;
 
-            Assert.AreEqual("google/protobuf/unittest_proto3.proto", file.Name);
+            Assert.AreEqual("google/leap_protobuf/unittest_proto3.proto", file.Name);
             Assert.AreEqual("protobuf_unittest", file.Package);
 
             Assert.AreEqual("UnittestProto", file.Proto.Options.JavaOuterClassname);
-            Assert.AreEqual("google/protobuf/unittest_proto3.proto", file.Proto.Name);
+            Assert.AreEqual("google/leap_protobuf/unittest_proto3.proto", file.Proto.Name);
 
             // unittest.proto doesn't have any public imports, but unittest_import.proto does.
             Assert.AreEqual(0, file.PublicDependencies.Count);
@@ -253,7 +253,7 @@ namespace Google.Protobuf.Reflection
         public void DescriptorProtoFileDescriptor()
         {
             var descriptor = Google.Protobuf.Reflection.FileDescriptor.DescriptorProtoFileDescriptor;
-            Assert.AreEqual("google/protobuf/descriptor.proto", descriptor.Name);
+            Assert.AreEqual("google/leap_protobuf/descriptor.proto", descriptor.Name);
         }
     }
 }

@@ -40,9 +40,9 @@
 
 #include <functional>
 #include <string>
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/util/type_resolver.h>
-#include <google/protobuf/wire_format_lite.h>
+#include <google/leap_protobuf/stubs/common.h>
+#include <google/leap_protobuf/util/type_resolver.h>
+#include <google/leap_protobuf/wire_format_lite.h>
 
 #include "third_party/jsoncpp/json.h"
 
@@ -51,14 +51,14 @@ class ConformanceRequest;
 class ConformanceResponse;
 }  // namespace conformance
 
-namespace protobuf_test_messages {
+namespace leap_protobuf_test_messages {
 namespace proto3 {
 class TestAllTypesProto3;
 }  // namespace proto3
-}  // namespace protobuf_test_messages
+}  // namespace leap_protobuf_test_messages
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 
 class ConformanceTestRunner {
  public:
@@ -260,7 +260,7 @@ class ConformanceTestSuite {
   std::string type_url_;
 };
 
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google
 
 #endif  // CONFORMANCE_CONFORMANCE_TEST_H

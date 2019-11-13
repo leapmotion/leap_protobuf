@@ -1,9 +1,9 @@
 #ifndef PROTOBUF_BENCHMARKS_UTIL_SCHEMA_PROTO2_TO_PROTO3_UTIL_H_
 #define PROTOBUF_BENCHMARKS_UTIL_SCHEMA_PROTO2_TO_PROTO3_UTIL_H_
 
-#include "google/protobuf/message.h"
-#include "google/protobuf/descriptor.h"
-#include "google/protobuf/descriptor.pb.h"
+#include "google/leap_protobuf/message.h"
+#include "google/leap_protobuf/descriptor.h"
+#include "google/leap_protobuf/descriptor.pb.h"
 
 #include <sstream>
 #include <algorithm>
@@ -16,7 +16,7 @@ using google::protobuf::Message;
 using google::protobuf::EnumValueDescriptorProto;
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace util {
 
 class SchemaGroupStripper {
@@ -131,7 +131,7 @@ class SchemaAddZeroEnumValue {
 };
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google
 
 #endif  // PROTOBUF_BENCHMARKS_UTIL_SCHEMA_PROTO2_TO_PROTO3_UTIL_H_

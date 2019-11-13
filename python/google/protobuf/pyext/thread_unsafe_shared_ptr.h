@@ -36,11 +36,11 @@
 #include <algorithm>
 #include <utility>
 
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/stubs/common.h>
+#include <google/leap_protobuf/stubs/logging.h>
+#include <google/leap_protobuf/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 template <typename T>
@@ -98,7 +98,7 @@ class ThreadUnsafeSharedPtr {
 };
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 
 }  // namespace google
 #endif  // GOOGLE_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__

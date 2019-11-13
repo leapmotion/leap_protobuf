@@ -1,11 +1,11 @@
 include(GNUInstallDirs)
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/protobuf.pc.cmake
-               ${CMAKE_CURRENT_BINARY_DIR}/protobuf.pc @ONLY)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/protobuf-lite.pc.cmake
-               ${CMAKE_CURRENT_BINARY_DIR}/protobuf-lite.pc @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/leap_protobuf.pc.cmake
+               ${CMAKE_CURRENT_BINARY_DIR}/leap_protobuf.pc @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/leap_protobuf-lite.pc.cmake
+               ${CMAKE_CURRENT_BINARY_DIR}/leap_protobuf-lite.pc @ONLY)
 
-set(_protobuf_libraries libprotobuf-lite libprotobuf)
+set(_protobuf_libraries libleap_protobuf-lite libleap_protobuf)
 if (protobuf_BUILD_PROTOC_BINARIES)
     list(APPEND _protobuf_libraries libprotoc)
 endif (protobuf_BUILD_PROTOC_BINARIES)
@@ -15,20 +15,20 @@ foreach(_library ${_protobuf_libraries})
     PROPERTY INTERFACE_INCLUDE_DIRECTORIES
     $<BUILD_INTERFACE:${protobuf_source_dir}/src>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-  install(TARGETS ${_library} EXPORT protobuf-targets
+  install(TARGETS ${_library} EXPORT leap_protobuf-targets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT ${_library}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT ${_library}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT ${_library})
 endforeach()
 
 if (protobuf_BUILD_PROTOC_BINARIES)
-  install(TARGETS protoc EXPORT protobuf-targets
+  install(TARGETS protoc EXPORT leap_protobuf-targets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT protoc)
 endif (protobuf_BUILD_PROTOC_BINARIES)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/protobuf.pc ${CMAKE_CURRENT_BINARY_DIR}/protobuf-lite.pc DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/leap_protobuf.pc ${CMAKE_CURRENT_BINARY_DIR}/leap_protobuf-lite.pc DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
 
-file(STRINGS extract_includes.bat.in _extract_strings
+file(STRINGS leap_extract_includes.bat.in _extract_strings
   REGEX "^copy")
 foreach(_extract_string ${_extract_strings})
   string(REGEX REPLACE "^.* .+ include\\\\(.+)$" "\\1"
@@ -40,7 +40,7 @@ foreach(_extract_string ${_extract_strings})
   if(EXISTS "${_extract_from}")
     install(FILES "${_extract_from}"
       DESTINATION "${_extract_to}"
-      COMPONENT protobuf-headers
+      COMPONENT leap_protobuf-headers
       RENAME "${_extract_name}")
   else()
     message(AUTHOR_WARNING "The file \"${_extract_from}\" is listed in "
@@ -77,7 +77,7 @@ foreach(_file ${nobase_dist_proto_DATA})
   if(EXISTS "${_file_from}")
     install(FILES "${_file_from}"
       DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${_file_path}"
-      COMPONENT protobuf-protos
+      COMPONENT leap_protobuf-protos
       RENAME "${_file_name}")
   else()
     message(AUTHOR_WARNING "The file \"${_file_from}\" is listed in "
@@ -89,48 +89,48 @@ endforeach()
 # Install configuration
 set(_cmakedir_desc "Directory relative to CMAKE_INSTALL to install the cmake configuration files")
 if(NOT MSVC)
-  set(CMAKE_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/protobuf" CACHE STRING "${_cmakedir_desc}")
+  set(CMAKE_INSTALL_CMAKEDIR "${CMAKE_INSTALL_LIBDIR}/cmake/leap_protobuf" CACHE STRING "${_cmakedir_desc}")
 else()
   set(CMAKE_INSTALL_CMAKEDIR "cmake" CACHE STRING "${_cmakedir_desc}")
 endif()
 mark_as_advanced(CMAKE_INSTALL_CMAKEDIR)
 
-configure_file(protobuf-config.cmake.in
-  ${CMAKE_INSTALL_CMAKEDIR}/protobuf-config.cmake @ONLY)
-configure_file(protobuf-config-version.cmake.in
-  ${CMAKE_INSTALL_CMAKEDIR}/protobuf-config-version.cmake @ONLY)
-configure_file(protobuf-module.cmake.in
-  ${CMAKE_INSTALL_CMAKEDIR}/protobuf-module.cmake @ONLY)
-configure_file(protobuf-options.cmake
-  ${CMAKE_INSTALL_CMAKEDIR}/protobuf-options.cmake @ONLY)
+configure_file(leap_protobuf-config.cmake.in
+  ${CMAKE_INSTALL_CMAKEDIR}/leap_protobuf-config.cmake @ONLY)
+configure_file(leap_protobuf-config-version.cmake.in
+  ${CMAKE_INSTALL_CMAKEDIR}/leap_protobuf-config-version.cmake @ONLY)
+configure_file(leap_protobuf-module.cmake.in
+  ${CMAKE_INSTALL_CMAKEDIR}/leap_protobuf-module.cmake @ONLY)
+configure_file(leap_protobuf-options.cmake
+  ${CMAKE_INSTALL_CMAKEDIR}/leap_protobuf-options.cmake @ONLY)
 
 # Allows the build directory to be used as a find directory.
 
 if (protobuf_BUILD_PROTOC_BINARIES)
-  export(TARGETS libprotobuf-lite libprotobuf libprotoc protoc
+  export(TARGETS libleap_protobuf-lite libleap_protobuf libprotoc protoc
     NAMESPACE protobuf::
-    FILE ${CMAKE_INSTALL_CMAKEDIR}/protobuf-targets.cmake
+    FILE ${CMAKE_INSTALL_CMAKEDIR}/leap_protobuf-targets.cmake
   )
 else (protobuf_BUILD_PROTOC_BINARIES)
-  export(TARGETS libprotobuf-lite libprotobuf
+  export(TARGETS libleap_protobuf-lite libleap_protobuf
     NAMESPACE protobuf::
-    FILE ${CMAKE_INSTALL_CMAKEDIR}/protobuf-targets.cmake
+    FILE ${CMAKE_INSTALL_CMAKEDIR}/leap_protobuf-targets.cmake
   )
 endif (protobuf_BUILD_PROTOC_BINARIES)
 
-install(EXPORT protobuf-targets
+install(EXPORT leap_protobuf-targets
   DESTINATION "${CMAKE_INSTALL_CMAKEDIR}"
   NAMESPACE protobuf::
-  COMPONENT protobuf-export)
+  COMPONENT leap_protobuf-export)
 
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_INSTALL_CMAKEDIR}/
   DESTINATION "${CMAKE_INSTALL_CMAKEDIR}"
-  COMPONENT protobuf-export
-  PATTERN protobuf-targets.cmake EXCLUDE
+  COMPONENT leap_protobuf-export
+  PATTERN leap_protobuf-targets.cmake EXCLUDE
 )
 
 option(protobuf_INSTALL_EXAMPLES "Install the examples folder" OFF)
 if(protobuf_INSTALL_EXAMPLES)
   install(DIRECTORY ../examples/ DESTINATION examples
-    COMPONENT protobuf-examples)
+    COMPONENT leap_protobuf-examples)
 endif()

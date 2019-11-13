@@ -30,11 +30,11 @@
 
 #include <Python.h>
 
-#include <google/protobuf/dynamic_message.h>
-#include <google/protobuf/pyext/descriptor.h>
-#include <google/protobuf/pyext/message.h>
-#include <google/protobuf/pyext/message_factory.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/leap_protobuf/dynamic_message.h>
+#include <google/leap_protobuf/pyext/descriptor.h>
+#include <google/leap_protobuf/pyext/message.h>
+#include <google/leap_protobuf/pyext/message_factory.h>
+#include <google/leap_protobuf/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #if PY_VERSION_HEX < 0x03030000
@@ -47,7 +47,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace leap_protobuf {
 namespace python {
 
 namespace message_factory {
@@ -279,5 +279,5 @@ bool InitMessageFactory() {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace leap_protobuf
 }  // namespace google
