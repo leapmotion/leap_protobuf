@@ -48,17 +48,17 @@
 
 int main(int argc, char* argv[]) {
 
-  google::protobuf::compiler::CommandLineInterface cli;
+  google::leap_protobuf::compiler::CommandLineInterface cli;
   cli.AllowPlugins("protoc-");
 
   // Proto2 C++
-  google::protobuf::compiler::cpp::CppGenerator cpp_generator;
+  google::leap_protobuf::compiler::cpp::CppGenerator cpp_generator;
   cli.RegisterGenerator("--cpp_out", "--cpp_opt", &cpp_generator,
                         "Generate C++ header and source.");
 
 #ifndef OPENSOURCE_PROTOBUF_CPP_BOOTSTRAP
   // Proto2 Java
-  google::protobuf::compiler::java::JavaGenerator java_generator;
+  google::leap_protobuf::compiler::java::JavaGenerator java_generator;
   cli.RegisterGenerator("--java_out", "--java_opt", &java_generator,
                         "Generate Java source file.");
 #endif  // !OPENSOURCE_PROTOBUF_CPP_BOOTSTRAP
@@ -66,32 +66,32 @@ int main(int argc, char* argv[]) {
 
 #ifndef OPENSOURCE_PROTOBUF_CPP_BOOTSTRAP
   // Proto2 Python
-  google::protobuf::compiler::python::Generator py_generator;
+  google::leap_protobuf::compiler::python::Generator py_generator;
   cli.RegisterGenerator("--python_out", &py_generator,
                         "Generate Python source file.");
 
   // PHP
-  google::protobuf::compiler::php::Generator php_generator;
+  google::leap_protobuf::compiler::php::Generator php_generator;
   cli.RegisterGenerator("--php_out", &php_generator,
                         "Generate PHP source file.");
 
   // Ruby
-  google::protobuf::compiler::ruby::Generator rb_generator;
+  google::leap_protobuf::compiler::ruby::Generator rb_generator;
   cli.RegisterGenerator("--ruby_out", &rb_generator,
                         "Generate Ruby source file.");
 
   // CSharp
-  google::protobuf::compiler::csharp::Generator csharp_generator;
+  google::leap_protobuf::compiler::csharp::Generator csharp_generator;
   cli.RegisterGenerator("--csharp_out", "--csharp_opt", &csharp_generator,
                         "Generate C# source file.");
 
   // Objective C
-  google::protobuf::compiler::objectivec::ObjectiveCGenerator objc_generator;
+  google::leap_protobuf::compiler::objectivec::ObjectiveCGenerator objc_generator;
   cli.RegisterGenerator("--objc_out", "--objc_opt", &objc_generator,
                         "Generate Objective C header and source.");
 
   // JavaScript
-  google::protobuf::compiler::js::Generator js_generator;
+  google::leap_protobuf::compiler::js::Generator js_generator;
   cli.RegisterGenerator("--js_out", &js_generator,
                         "Generate JavaScript source.");
 #endif  // !OPENSOURCE_PROTOBUF_CPP_BOOTSTRAP

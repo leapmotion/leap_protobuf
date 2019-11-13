@@ -46,7 +46,7 @@
 
 
 namespace google {
-using google::protobuf::internal::ArenaStringPtr;
+using google::leap_protobuf::internal::ArenaStringPtr;
 
 namespace leap_protobuf {
 
@@ -81,7 +81,7 @@ TEST(ArenaStringPtrTest, ArenaStringPtrOnHeap) {
 }
 
 TEST(ArenaStringPtrTest, ArenaStringPtrOnArena) {
-  google::protobuf::Arena arena;
+  google::leap_protobuf::Arena arena;
   ArenaStringPtr field;
   ::std::string default_value = "default";
   field.UnsafeSetDefault(&default_value);
@@ -107,7 +107,7 @@ TEST(ArenaStringPtrTest, ArenaStringPtrOnArena) {
 }
 
 TEST(ArenaStringPtrTest, ArenaStringPtrOnArenaNoSSO) {
-  google::protobuf::Arena arena;
+  google::leap_protobuf::Arena arena;
   ArenaStringPtr field;
   ::std::string default_value = "default";
   field.UnsafeSetDefault(&default_value);

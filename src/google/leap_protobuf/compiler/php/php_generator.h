@@ -42,7 +42,7 @@ namespace compiler {
 namespace php {
 
 class LIBPROTOC_EXPORT Generator
-    : public google::protobuf::compiler::CodeGenerator {
+    : public google::leap_protobuf::compiler::CodeGenerator {
   virtual bool Generate(
       const FileDescriptor* file,
       const string& parameter,
@@ -54,11 +54,11 @@ class LIBPROTOC_EXPORT Generator
 // Other code generators may need following API to figure out the actual
 // classname.
 LIBPROTOC_EXPORT std::string GeneratedClassName(
-    const google::protobuf::Descriptor* desc);
+    const google::leap_protobuf::Descriptor* desc);
 LIBPROTOC_EXPORT std::string GeneratedClassName(
-    const google::protobuf::EnumDescriptor* desc);
+    const google::leap_protobuf::EnumDescriptor* desc);
 LIBPROTOC_EXPORT std::string GeneratedClassName(
-    const google::protobuf::ServiceDescriptor* desc);
+    const google::leap_protobuf::ServiceDescriptor* desc);
 
 }  // namespace php
 }  // namespace compiler

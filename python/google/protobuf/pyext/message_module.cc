@@ -36,7 +36,7 @@
 
 static PyObject* GetPythonProto3PreserveUnknownsDefault(
     PyObject* /*m*/, PyObject* /*args*/) {
-  if (google::protobuf::internal::GetProto3PreserveUnknownsDefault()) {
+  if (google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault()) {
     Py_RETURN_TRUE;
   } else {
     Py_RETURN_FALSE;
@@ -51,7 +51,7 @@ static PyObject* SetPythonProto3PreserveUnknownsDefault(
         "Argument to SetPythonProto3PreserveUnknownsDefault must be boolean");
     return NULL;
   }
-  google::protobuf::internal::SetProto3PreserveUnknownsDefault(PyObject_IsTrue(arg));
+  google::leap_protobuf::internal::SetProto3PreserveUnknownsDefault(PyObject_IsTrue(arg));
   Py_RETURN_NONE;
 }
 
@@ -64,7 +64,7 @@ static const char module_docstring[] =
 
 static PyMethodDef ModuleMethods[] = {
   {"SetAllowOversizeProtos",
-    (PyCFunction)google::protobuf::python::cmessage::SetAllowOversizeProtos,
+    (PyCFunction)google::leap_protobuf::python::cmessage::SetAllowOversizeProtos,
     METH_O, "Enable/disable oversize proto parsing."},
   // DO NOT USE: For migration and testing only.
   {"GetPythonProto3PreserveUnknownsDefault",
@@ -109,7 +109,7 @@ extern "C" {
       return INITFUNC_ERRORVAL;
     }
 
-    if (!google::protobuf::python::InitProto2MessageModule(m)) {
+    if (!google::leap_protobuf::python::InitProto2MessageModule(m)) {
       Py_DECREF(m);
       return INITFUNC_ERRORVAL;
     }

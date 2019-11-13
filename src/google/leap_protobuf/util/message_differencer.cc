@@ -533,9 +533,9 @@ bool MessageDifferencer::Compare(
   bool unknown_compare_result = true;
   // Ignore unknown fields in EQUIVALENT mode
   if (message_field_comparison_ != EQUIVALENT) {
-    const google::protobuf::UnknownFieldSet* unknown_field_set1 =
+    const google::leap_protobuf::UnknownFieldSet* unknown_field_set1 =
         &reflection1->GetUnknownFields(message1);
-    const google::protobuf::UnknownFieldSet* unknown_field_set2 =
+    const google::leap_protobuf::UnknownFieldSet* unknown_field_set2 =
         &reflection2->GetUnknownFields(message2);
     if (!CompareUnknownFields(message1, message2,
                               *unknown_field_set1, *unknown_field_set2,
@@ -1078,7 +1078,7 @@ bool MessageDifferencer::UnpackAny(const Message& any,
     return false;
   }
 
-  const google::protobuf::Descriptor* desc =
+  const google::leap_protobuf::Descriptor* desc =
       any.GetDescriptor()->file()->pool()->FindMessageTypeByName(
           full_type_name);
   if (desc == NULL) {
@@ -1100,8 +1100,8 @@ bool MessageDifferencer::UnpackAny(const Message& any,
 
 bool MessageDifferencer::CompareUnknownFields(
     const Message& message1, const Message& message2,
-    const google::protobuf::UnknownFieldSet& unknown_field_set1,
-    const google::protobuf::UnknownFieldSet& unknown_field_set2,
+    const google::leap_protobuf::UnknownFieldSet& unknown_field_set1,
+    const google::leap_protobuf::UnknownFieldSet& unknown_field_set2,
     std::vector<SpecificField>* parent_field) {
   // Ignore unknown fields in EQUIVALENT mode.
   if (message_field_comparison_ == EQUIVALENT) return true;
@@ -1443,7 +1443,7 @@ bool MessageDifferencer::MatchRepeatedFieldIndices(
       // algorithm will fail to find a maximum matching.
       // Here we use the argumenting path algorithm.
       MaximumMatcher::NodeMatchCallback* callback =
-          ::google::protobuf::NewPermanentCallback(
+          ::google::leap_protobuf::NewPermanentCallback(
               this, &MessageDifferencer::IsMatch,
               repeated_field, key_comparator,
               &message1, &message2, parent_fields);

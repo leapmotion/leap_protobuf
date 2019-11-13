@@ -45,7 +45,7 @@ class LiteArenaTest : public testing::Test {
     arena_.reset(new Arena(options));
     // Trigger the allocation of the first arena block, so that further use of
     // the arena will not require any heap allocations.
-    google::protobuf::Arena::CreateArray<char>(arena_.get(), 1);
+    google::leap_protobuf::Arena::CreateArray<char>(arena_.get(), 1);
   }
 
   std::unique_ptr<Arena> arena_;
@@ -58,23 +58,23 @@ TEST_F(LiteArenaTest, MapNoHeapAllocation) {
   {
     // TODO(teboring): Enable no heap check when ArenaStringPtr is used in
     // Map.
-    // google::protobuf::internal::NoHeapChecker no_heap;
+    // google::leap_protobuf::internal::NoHeapChecker no_heap;
 
     protobuf_unittest::TestArenaMapLite* from =
         Arena::CreateMessage<protobuf_unittest::TestArenaMapLite>(arena_.get());
-    google::protobuf::MapLiteTestUtil::SetArenaMapFields(from);
+    google::leap_protobuf::MapLiteTestUtil::SetArenaMapFields(from);
     from->SerializeToString(&data);
 
     protobuf_unittest::TestArenaMapLite* to =
         Arena::CreateMessage<protobuf_unittest::TestArenaMapLite>(arena_.get());
     to->ParseFromString(data);
-    google::protobuf::MapLiteTestUtil::ExpectArenaMapFieldsSet(*to);
+    google::leap_protobuf::MapLiteTestUtil::ExpectArenaMapFieldsSet(*to);
   }
 }
 
 TEST_F(LiteArenaTest, UnknownFieldMemLeak) {
   protobuf_unittest::ForeignMessageArenaLite* message =
-      google::protobuf::Arena::CreateMessage<protobuf_unittest::ForeignMessageArenaLite>(
+      google::leap_protobuf::Arena::CreateMessage<protobuf_unittest::ForeignMessageArenaLite>(
           arena_.get());
   string data = "\012\000";
   int original_capacity = data.capacity();

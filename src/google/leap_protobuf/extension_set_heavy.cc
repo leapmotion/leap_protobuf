@@ -244,7 +244,7 @@ ExtensionSet::Extension* ExtensionSet::MaybeNewRepeatedExtension(const FieldDesc
     GOOGLE_DCHECK_EQ(cpp_type(extension->type), FieldDescriptor::CPPTYPE_MESSAGE);
     extension->is_repeated = true;
     extension->repeated_message_value =
-        ::google::protobuf::Arena::CreateMessage<RepeatedPtrField<MessageLite> >(arena_);
+        ::google::leap_protobuf::Arena::CreateMessage<RepeatedPtrField<MessageLite> >(arena_);
   } else {
     GOOGLE_DCHECK_TYPE(*extension, REPEATED, MESSAGE);
   }
@@ -258,7 +258,7 @@ MessageLite* ExtensionSet::AddMessage(const FieldDescriptor* descriptor,
   // RepeatedPtrField<Message> does not know how to Add() since it cannot
   // allocate an abstract object, so we have to be tricky.
   MessageLite* result =
-      reinterpret_cast<::google::protobuf::internal::RepeatedPtrFieldBase*>(
+      reinterpret_cast<::google::leap_protobuf::internal::RepeatedPtrFieldBase*>(
           extension->repeated_message_value)
           ->AddFromCleared<GenericTypeHandler<MessageLite> >();
   if (result == NULL) {
@@ -388,7 +388,7 @@ size_t ExtensionSet::Extension::SpaceUsedExcludingSelfLong() const {
         total_size +=
             sizeof(*repeated_message_value) +
             RepeatedMessage_SpaceUsedExcludingSelfLong(
-                reinterpret_cast<::google::protobuf::internal::RepeatedPtrFieldBase*>(
+                reinterpret_cast<::google::leap_protobuf::internal::RepeatedPtrFieldBase*>(
                     repeated_message_value));
         break;
     }
@@ -420,14 +420,14 @@ uint8* ExtensionSet::SerializeWithCachedSizesToArray(int start_field_number,
                                                      uint8* target) const {
   return InternalSerializeWithCachedSizesToArray(
       start_field_number, end_field_number,
-      google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(),
+      google::leap_protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(),
       target);
 }
 
 uint8* ExtensionSet::SerializeMessageSetWithCachedSizesToArray(
     uint8* target) const {
   return InternalSerializeMessageSetWithCachedSizesToArray(
-      google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(),
+      google::leap_protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(),
       target);
 }
 

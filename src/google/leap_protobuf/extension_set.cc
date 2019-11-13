@@ -97,7 +97,7 @@ void InitRegistry() {
 // safety.
 void Register(const MessageLite* containing_type,
               int number, ExtensionInfo info) {
-  ::google::protobuf::GoogleOnceInit(&registry_init_, &InitRegistry);
+  ::google::leap_protobuf::GoogleOnceInit(&registry_init_, &InitRegistry);
 
   if (!InsertIfNotPresent(registry_, std::make_pair(containing_type, number),
                           info)) {
@@ -179,12 +179,12 @@ void ExtensionSet::RegisterMessageExtension(const MessageLite* containing_type,
 // ===================================================================
 // Constructors and basic methods.
 
-ExtensionSet::ExtensionSet(::google::protobuf::Arena* arena)
+ExtensionSet::ExtensionSet(::google::leap_protobuf::Arena* arena)
     : arena_(arena),
       flat_capacity_(0),
       flat_size_(0),
       map_{flat_capacity_ == 0 ? NULL
-                               : ::google::protobuf::Arena::CreateArray<KeyValue>(
+                               : ::google::leap_protobuf::Arena::CreateArray<KeyValue>(
                                      arena_, flat_capacity_)} {}
 
 ExtensionSet::ExtensionSet()
@@ -192,7 +192,7 @@ ExtensionSet::ExtensionSet()
       flat_capacity_(0),
       flat_size_(0),
       map_{flat_capacity_ == 0 ? NULL
-                               : ::google::protobuf::Arena::CreateArray<KeyValue>(
+                               : ::google::leap_protobuf::Arena::CreateArray<KeyValue>(
                                      arena_, flat_capacity_)} {}
 
 ExtensionSet::~ExtensionSet() {
@@ -605,7 +605,7 @@ void ExtensionSet::SetAllocatedMessage(int number, FieldType type,
     ClearExtension(number);
     return;
   }
-  ::google::protobuf::Arena* message_arena = message->GetArena();
+  ::google::leap_protobuf::Arena* message_arena = message->GetArena();
   Extension* extension;
   if (MaybeNewExtension(number, descriptor, &extension)) {
     extension->type = type;
@@ -758,7 +758,7 @@ MessageLite* ExtensionSet::AddMessage(int number, FieldType type,
   // RepeatedPtrField<MessageLite> does not know how to Add() since it cannot
   // allocate an abstract object, so we have to be tricky.
   MessageLite* result =
-      reinterpret_cast<::google::protobuf::internal::RepeatedPtrFieldBase*>(
+      reinterpret_cast<::google::leap_protobuf::internal::RepeatedPtrFieldBase*>(
           extension->repeated_message_value)
           ->AddFromCleared<GenericTypeHandler<MessageLite> >();
   if (result == NULL) {
@@ -956,7 +956,7 @@ void ExtensionSet::InternalExtensionMergeFrom(
         for (int i = 0; i < other_repeated_message->size(); i++) {
           const MessageLite& other_message = other_repeated_message->Get(i);
           MessageLite* target =
-              reinterpret_cast<::google::protobuf::internal::RepeatedPtrFieldBase*>(
+              reinterpret_cast<::google::leap_protobuf::internal::RepeatedPtrFieldBase*>(
                   extension->repeated_message_value)
                   ->AddFromCleared<GenericTypeHandler<MessageLite> >();
           if (target == NULL) {
@@ -1878,14 +1878,14 @@ void ExtensionSet::GrowCapacity(size_t minimum_new_capacity) {
   const KeyValue* end = flat_end();
   if (flat_capacity_ > kMaximumFlatCapacity) {
     // Switch to LargeMap
-    map_.large = ::google::protobuf::Arena::Create<LargeMap>(arena_);
+    map_.large = ::google::leap_protobuf::Arena::Create<LargeMap>(arena_);
     LargeMap::iterator hint = map_.large->begin();
     for (const KeyValue* it = begin; it != end; ++it) {
       hint = map_.large->insert(hint, {it->first, it->second});
     }
     flat_size_ = 0;
   } else {
-    map_.flat = ::google::protobuf::Arena::CreateArray<KeyValue>(arena_, flat_capacity_);
+    map_.flat = ::google::leap_protobuf::Arena::CreateArray<KeyValue>(arena_, flat_capacity_);
     std::copy(begin, end, map_.flat);
   }
   if (arena_ == NULL) delete[] begin;

@@ -259,8 +259,8 @@ class DynamicMessage : public Message {
   // implements Message ----------------------------------------------
 
   Message* New() const;
-  Message* New(::google::protobuf::Arena* arena) const;
-  ::google::protobuf::Arena* GetArena() const { return arena_; }
+  Message* New(::google::leap_protobuf::Arena* arena) const;
+  ::google::leap_protobuf::Arena* GetArena() const { return arena_; }
 
   int GetCachedSize() const;
   void SetCachedSize(int size) const;
@@ -279,7 +279,7 @@ class DynamicMessage : public Message {
 #endif  // !_MSC_VER
 
  private:
-  DynamicMessage(const TypeInfo* type_info, ::google::protobuf::Arena* arena);
+  DynamicMessage(const TypeInfo* type_info, ::google::leap_protobuf::Arena* arena);
 
   void SharedCtor(bool lock_factory);
 
@@ -310,7 +310,7 @@ DynamicMessage::DynamicMessage(const TypeInfo* type_info)
 }
 
 DynamicMessage::DynamicMessage(const TypeInfo* type_info,
-                               ::google::protobuf::Arena* arena)
+                               ::google::leap_protobuf::Arena* arena)
     : type_info_(type_info), arena_(arena), cached_byte_size_(0) {
   SharedCtor(true);
 }
@@ -579,7 +579,7 @@ void DynamicMessage::CrossLinkPrototypes() {
 
 Message* DynamicMessage::New() const { return New(NULL); }
 
-Message* DynamicMessage::New(::google::protobuf::Arena* arena) const {
+Message* DynamicMessage::New(::google::leap_protobuf::Arena* arena) const {
   if (arena != NULL) {
     void* new_base = Arena::CreateArray<char>(arena, type_info_->size);
     memset(new_base, 0, type_info_->size);

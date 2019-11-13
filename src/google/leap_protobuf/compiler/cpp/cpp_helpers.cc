@@ -222,8 +222,8 @@ string ReferenceFunctionName(const Descriptor* descriptor) {
 
 string SuperClassName(const Descriptor* descriptor, const Options& options) {
   return HasDescriptorMethods(descriptor->file(), options)
-             ? "::google::protobuf::Message"
-             : "::google::protobuf::MessageLite";
+             ? "::google::leap_protobuf::Message"
+             : "::google::leap_protobuf::MessageLite";
 }
 
 string FieldName(const FieldDescriptor* field) {
@@ -299,10 +299,10 @@ string StripProto(const string& filename) {
 
 const char* PrimitiveTypeName(FieldDescriptor::CppType type) {
   switch (type) {
-    case FieldDescriptor::CPPTYPE_INT32  : return "::google::protobuf::int32";
-    case FieldDescriptor::CPPTYPE_INT64  : return "::google::protobuf::int64";
-    case FieldDescriptor::CPPTYPE_UINT32 : return "::google::protobuf::uint32";
-    case FieldDescriptor::CPPTYPE_UINT64 : return "::google::protobuf::uint64";
+    case FieldDescriptor::CPPTYPE_INT32  : return "::google::leap_protobuf::int32";
+    case FieldDescriptor::CPPTYPE_INT64  : return "::google::leap_protobuf::int64";
+    case FieldDescriptor::CPPTYPE_UINT32 : return "::google::leap_protobuf::uint32";
+    case FieldDescriptor::CPPTYPE_UINT64 : return "::google::leap_protobuf::uint64";
     case FieldDescriptor::CPPTYPE_DOUBLE : return "double";
     case FieldDescriptor::CPPTYPE_FLOAT  : return "float";
     case FieldDescriptor::CPPTYPE_BOOL   : return "bool";
@@ -382,11 +382,11 @@ string DefaultValue(const FieldDescriptor* field) {
     case FieldDescriptor::CPPTYPE_DOUBLE: {
       double value = field->default_value_double();
       if (value == std::numeric_limits<double>::infinity()) {
-        return "::google::protobuf::internal::Infinity()";
+        return "::google::leap_protobuf::internal::Infinity()";
       } else if (value == -std::numeric_limits<double>::infinity()) {
-        return "-::google::protobuf::internal::Infinity()";
+        return "-::google::leap_protobuf::internal::Infinity()";
       } else if (value != value) {
-        return "::google::protobuf::internal::NaN()";
+        return "::google::leap_protobuf::internal::NaN()";
       } else {
         return SimpleDtoa(value);
       }
@@ -395,11 +395,11 @@ string DefaultValue(const FieldDescriptor* field) {
       {
         float value = field->default_value_float();
         if (value == std::numeric_limits<float>::infinity()) {
-          return "static_cast<float>(::google::protobuf::internal::Infinity())";
+          return "static_cast<float>(::google::leap_protobuf::internal::Infinity())";
         } else if (value == -std::numeric_limits<float>::infinity()) {
-          return "static_cast<float>(-::google::protobuf::internal::Infinity())";
+          return "static_cast<float>(-::google::leap_protobuf::internal::Infinity())";
         } else if (value != value) {
-          return "static_cast<float>(::google::protobuf::internal::NaN())";
+          return "static_cast<float>(::google::leap_protobuf::internal::NaN())";
         } else {
           string float_value = SimpleFtoa(value);
           // If floating point value contains a period (.) or an exponent
@@ -595,14 +595,14 @@ static void GenerateUtf8CheckCode(const FieldDescriptor* field,
         printer->Print("DO_(");
       }
       printer->Print(
-          "::google::protobuf::internal::WireFormatLite::$function$(\n",
+          "::google::leap_protobuf::internal::WireFormatLite::$function$(\n",
           "function", strict_function);
       printer->Indent();
       printer->Print(variables, parameters);
       if (for_parse) {
-        printer->Print("::google::protobuf::internal::WireFormatLite::PARSE,\n");
+        printer->Print("::google::leap_protobuf::internal::WireFormatLite::PARSE,\n");
       } else {
-        printer->Print("::google::protobuf::internal::WireFormatLite::SERIALIZE,\n");
+        printer->Print("::google::leap_protobuf::internal::WireFormatLite::SERIALIZE,\n");
       }
       printer->Print("\"$full_name$\")", "full_name", field->full_name());
       if (for_parse) {
@@ -614,14 +614,14 @@ static void GenerateUtf8CheckCode(const FieldDescriptor* field,
     }
     case VERIFY: {
       printer->Print(
-          "::google::protobuf::internal::WireFormat::$function$(\n",
+          "::google::leap_protobuf::internal::WireFormat::$function$(\n",
           "function", verify_function);
       printer->Indent();
       printer->Print(variables, parameters);
       if (for_parse) {
-        printer->Print("::google::protobuf::internal::WireFormat::PARSE,\n");
+        printer->Print("::google::leap_protobuf::internal::WireFormat::PARSE,\n");
       } else {
-        printer->Print("::google::protobuf::internal::WireFormat::SERIALIZE,\n");
+        printer->Print("::google::leap_protobuf::internal::WireFormat::SERIALIZE,\n");
       }
       printer->Print("\"$full_name$\");\n", "full_name", field->full_name());
       printer->Outdent();

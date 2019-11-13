@@ -748,7 +748,7 @@ template <int N> class upb::InlinedEnvironment : public upb::Environment {
 ** upb::Message is a representation for protobuf messages.
 **
 ** However it differs from other common representations like
-** google::protobuf::Message in one key way: it does not prescribe any
+** google::leap_protobuf::Message in one key way: it does not prescribe any
 ** ownership between messages and submessages, and it relies on the
 ** client to delete each message/submessage/array/map at the appropriate
 ** time.

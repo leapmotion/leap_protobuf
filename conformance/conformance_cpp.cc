@@ -41,15 +41,15 @@
 
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
-using google::protobuf::Descriptor;
-using google::protobuf::DescriptorPool;
-using google::protobuf::Message;
-using google::protobuf::MessageFactory;
-using google::protobuf::util::BinaryToJsonString;
-using google::protobuf::util::JsonToBinaryString;
-using google::protobuf::util::NewTypeResolverForDescriptorPool;
-using google::protobuf::util::Status;
-using google::protobuf::util::TypeResolver;
+using google::leap_protobuf::Descriptor;
+using google::leap_protobuf::DescriptorPool;
+using google::leap_protobuf::Message;
+using google::leap_protobuf::MessageFactory;
+using google::leap_protobuf::util::BinaryToJsonString;
+using google::leap_protobuf::util::JsonToBinaryString;
+using google::leap_protobuf::util::NewTypeResolverForDescriptorPool;
+using google::leap_protobuf::util::Status;
+using google::leap_protobuf::util::TypeResolver;
 using protobuf_test_messages::proto3::TestAllTypesProto3;
 using protobuf_test_messages::proto2::TestAllTypesProto2;
 using std::string;

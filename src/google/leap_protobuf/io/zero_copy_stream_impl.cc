@@ -58,11 +58,11 @@ namespace io {
 #define lseek(fd, offset, origin) ((off_t)-1)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::internal::win32::access;
-using google::protobuf::internal::win32::close;
-using google::protobuf::internal::win32::open;
-using google::protobuf::internal::win32::read;
-using google::protobuf::internal::win32::write;
+using google::leap_protobuf::internal::win32::access;
+using google::leap_protobuf::internal::win32::close;
+using google::leap_protobuf::internal::win32::open;
+using google::leap_protobuf::internal::win32::read;
+using google::leap_protobuf::internal::win32::write;
 #endif
 
 namespace {

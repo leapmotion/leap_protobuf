@@ -512,7 +512,7 @@ void ExtractDebugString(
   debug_strings->push_back(std::make_pair(file->name(), file->DebugString()));
 }
 
-class SimpleErrorCollector : public google::protobuf::io::ErrorCollector {
+class SimpleErrorCollector : public google::leap_protobuf::io::ErrorCollector {
  public:
   // implements ErrorCollector ---------------------------------------
   void AddError(int line, int column, const string& message) {
@@ -542,10 +542,10 @@ TEST_F(FileDescriptorTest, DebugStringRoundTrip) {
   for (int i = 0; i < debug_strings.size(); ++i) {
     const string& name = debug_strings[i].first;
     const string& content = debug_strings[i].second;
-    google::protobuf::io::ArrayInputStream input_stream(content.data(), content.size());
+    google::leap_protobuf::io::ArrayInputStream input_stream(content.data(), content.size());
     SimpleErrorCollector error_collector;
-    google::protobuf::io::Tokenizer tokenizer(&input_stream, &error_collector);
-    google::protobuf::compiler::Parser parser;
+    google::leap_protobuf::io::Tokenizer tokenizer(&input_stream, &error_collector);
+    google::leap_protobuf::compiler::Parser parser;
     parser.RecordErrorsTo(&error_collector);
     FileDescriptorProto proto;
     ASSERT_TRUE(parser.Parse(&tokenizer, &proto))
@@ -7890,7 +7890,7 @@ TEST_F(LazilyBuildDependenciesTest, GeneratedFile) {
   // Verify custom options work when defined in an import that isn't loaded,
   // and that a non-default value of a custom option doesn't load the file
   // where that enum is defined.
-  const google::protobuf::MessageOptions& options =
+  const google::leap_protobuf::MessageOptions& options =
       protobuf_unittest::lazy_imports::MessageCustomOption::descriptor()
           ->options();
   protobuf_unittest::lazy_imports::LazyEnum custom_option_value =
@@ -7902,7 +7902,7 @@ TEST_F(LazilyBuildDependenciesTest, GeneratedFile) {
       "google/leap_protobuf/unittest_lazy_dependencies_enum.proto"));
   EXPECT_EQ(custom_option_value, protobuf_unittest::lazy_imports::LAZY_ENUM_1);
 
-  const google::protobuf::MessageOptions& options2 =
+  const google::leap_protobuf::MessageOptions& options2 =
       protobuf_unittest::lazy_imports::MessageCustomOption2::descriptor()
           ->options();
   custom_option_value =

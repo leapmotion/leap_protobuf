@@ -51,11 +51,11 @@ class ConformanceRequest;
 class ConformanceResponse;
 }  // namespace conformance
 
-namespace leap_protobuf_test_messages {
+namespace protobuf_test_messages {
 namespace proto3 {
 class TestAllTypesProto3;
 }  // namespace proto3
-}  // namespace leap_protobuf_test_messages
+}  // namespace protobuf_test_messages
 
 namespace google {
 namespace leap_protobuf {
@@ -88,7 +88,7 @@ class ConformanceTestRunner {
 //
 //    int main() {
 //      MyConformanceTestRunner runner;
-//      google::protobuf::ConformanceTestSuite suite;
+//      google::leap_protobuf::ConformanceTestSuite suite;
 //
 //      std::string output;
 //      suite.RunSuite(&runner, &output);
@@ -218,7 +218,7 @@ class ConformanceTestSuite {
   void ExpectHardParseFailureForProto(const std::string& proto,
                                       const std::string& test_name,
                                       ConformanceLevel level);
-  void TestPrematureEOFForType(google::protobuf::FieldDescriptor::Type type);
+  void TestPrematureEOFForType(google::leap_protobuf::FieldDescriptor::Type type);
   void TestIllegalTags();
   template <class MessageType>
   void TestOneofMessage (MessageType &message,
@@ -227,7 +227,7 @@ class ConformanceTestSuite {
   void TestUnknownMessage (MessageType &message,
                            bool isProto3);
   void TestValidDataForType(
-      google::protobuf::FieldDescriptor::Type,
+      google::leap_protobuf::FieldDescriptor::Type,
       std::vector<std::pair<std::string, std::string>> values);
   bool CheckSetEmpty(const std::set<string>& set_to_check,
                      const std::string& write_to_file, const std::string& msg);
@@ -256,7 +256,7 @@ class ConformanceTestSuite {
   // The set of tests that the testee opted out of;
   std::set<std::string> skipped_;
 
-  std::unique_ptr<google::protobuf::util::TypeResolver> type_resolver_;
+  std::unique_ptr<google::leap_protobuf::util::TypeResolver> type_resolver_;
   std::string type_url_;
 };
 

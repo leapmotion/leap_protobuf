@@ -101,7 +101,7 @@ void ReportReflectionUsageError(
     const char* method, const char* description) {
   GOOGLE_LOG(FATAL)
     << "Protocol Buffer reflection usage error:\n"
-       "  Method      : google::protobuf::Reflection::" << method << "\n"
+       "  Method      : google::leap_protobuf::Reflection::" << method << "\n"
        "  Message type: " << descriptor->full_name() << "\n"
        "  Field       : " << field->full_name() << "\n"
        "  Problem     : " << description;
@@ -127,7 +127,7 @@ static void ReportReflectionUsageTypeError(
     FieldDescriptor::CppType expected_type) {
   GOOGLE_LOG(FATAL)
     << "Protocol Buffer reflection usage error:\n"
-       "  Method      : google::protobuf::Reflection::" << method << "\n"
+       "  Method      : google::leap_protobuf::Reflection::" << method << "\n"
        "  Message type: " << descriptor->full_name() << "\n"
        "  Field       : " << field->full_name() << "\n"
        "  Problem     : Field is not the right type for this message:\n"
@@ -140,7 +140,7 @@ static void ReportReflectionUsageEnumTypeError(
     const char* method, const EnumValueDescriptor* value) {
   GOOGLE_LOG(FATAL)
     << "Protocol Buffer reflection usage error:\n"
-       "  Method      : google::protobuf::Reflection::" << method << "\n"
+       "  Method      : google::leap_protobuf::Reflection::" << method << "\n"
        "  Message type: " << descriptor->full_name() << "\n"
        "  Field       : " << field->full_name() << "\n"
        "  Problem     : Enum value did not match field type:\n"
@@ -371,12 +371,12 @@ void GeneratedMessageReflection::SwapField(
         if (IsMapFieldInApi(field)) {
           MutableRaw<MapFieldBase>(message1, field)->
             MutableRepeatedField()->
-              Swap<GenericTypeHandler<google::protobuf::Message> >(
+              Swap<GenericTypeHandler<google::leap_protobuf::Message> >(
                 MutableRaw<MapFieldBase>(message2, field)->
                   MutableRepeatedField());
         } else {
           MutableRaw<RepeatedPtrFieldBase>(message1, field)->
-            Swap<GenericTypeHandler<google::protobuf::Message> >(
+            Swap<GenericTypeHandler<google::leap_protobuf::Message> >(
               MutableRaw<RepeatedPtrFieldBase>(message2, field));
         }
         break;
@@ -2298,7 +2298,7 @@ class AssignDescriptorsHelper {
         descriptor,
         MigrationToReflectionSchema(default_instance_data_, offsets_,
                                     *schemas_),
-        ::google::protobuf::DescriptorPool::generated_pool(), factory_);
+        ::google::leap_protobuf::DescriptorPool::generated_pool(), factory_);
     for (int i = 0; i < descriptor->enum_type_count(); i++) {
       AssignEnumDescriptor(descriptor->enum_type(i));
     }
@@ -2367,8 +2367,8 @@ void AssignDescriptors(
     Metadata* file_level_metadata,
     const EnumDescriptor** file_level_enum_descriptors,
     const ServiceDescriptor** file_level_service_descriptors) {
-  const ::google::protobuf::FileDescriptor* file =
-      ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(filename);
+  const ::google::leap_protobuf::FileDescriptor* file =
+      ::google::leap_protobuf::DescriptorPool::generated_pool()->FindFileByName(filename);
   GOOGLE_CHECK(file != NULL);
 
   MessageFactory* factory = MessageFactory::generated_factory();
@@ -2400,7 +2400,7 @@ void RegisterAllTypesInternal(const Metadata* file_level_metadata, int size) {
            file_level_metadata[i].reflection);
     if (reflection) {
       // It's not a map type
-      ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      ::google::leap_protobuf::MessageFactory::InternalRegisterGeneratedMessage(
           file_level_metadata[i].descriptor,
           reflection->schema_.default_instance_);
     }
@@ -2413,12 +2413,12 @@ void RegisterAllTypes(const Metadata* file_level_metadata, int size) {
 
 void UnknownFieldSetSerializer(const uint8* base, uint32 offset, uint32 tag,
                                uint32 has_offset,
-                               ::google::protobuf::io::CodedOutputStream* output) {
+                               ::google::leap_protobuf::io::CodedOutputStream* output) {
   const void* ptr = base + offset;
   const InternalMetadataWithArena* metadata =
       static_cast<const InternalMetadataWithArena*>(ptr);
   if (metadata->have_unknown_fields()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+    ::google::leap_protobuf::internal::WireFormat::SerializeUnknownFields(
         metadata->unknown_fields(), output);
   }
 }

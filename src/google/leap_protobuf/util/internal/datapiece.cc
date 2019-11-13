@@ -43,8 +43,8 @@ namespace leap_protobuf {
 namespace util {
 namespace converter {
 
-using google::protobuf::EnumDescriptor;
-using google::protobuf::EnumValueDescriptor;
+using google::leap_protobuf::EnumDescriptor;
+using google::leap_protobuf::EnumValueDescriptor;
 ;
 ;
 ;
@@ -271,22 +271,22 @@ StatusOr<string> DataPiece::ToBytes() const {
   }
 }
 
-StatusOr<int> DataPiece::ToEnum(const google::protobuf::Enum* enum_type,
+StatusOr<int> DataPiece::ToEnum(const google::leap_protobuf::Enum* enum_type,
                                 bool use_lower_camel_for_enums,
                                 bool ignore_unknown_enum_values) const {
-  if (type_ == TYPE_NULL) return google::protobuf::NULL_VALUE;
+  if (type_ == TYPE_NULL) return google::leap_protobuf::NULL_VALUE;
 
   if (type_ == TYPE_STRING) {
     // First try the given value as a name.
     string enum_name = str_.ToString();
-    const google::protobuf::EnumValue* value =
+    const google::leap_protobuf::EnumValue* value =
         FindEnumValueByNameOrNull(enum_type, enum_name);
     if (value != nullptr) return value->number();
 
     // Check if int version of enum is sent as string.
     StatusOr<int32> int_value = ToInt32();
     if (int_value.ok()) {
-      if (const google::protobuf::EnumValue* enum_value =
+      if (const google::leap_protobuf::EnumValue* enum_value =
               FindEnumValueByNumberOrNull(enum_type, int_value.ValueOrDie())) {
         return enum_value->number();
       }

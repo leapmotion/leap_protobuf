@@ -67,17 +67,17 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
   // a is the parent message field of b), then the vector should contain { "a",
   // "b", "c" }.
   //
-  // The Field* should point to the google::protobuf::Field of "c".
+  // The Field* should point to the google::leap_protobuf::Field of "c".
   typedef ResultCallback2<bool /*return*/,
                           const std::vector<string>& /*path of the field*/,
-                          const google::protobuf::Field* /*field*/>
+                          const google::leap_protobuf::Field* /*field*/>
       FieldScrubCallBack;
 
   // A unique pointer to a DefaultValueObjectWriter::FieldScrubCallBack.
   typedef std::unique_ptr<FieldScrubCallBack> FieldScrubCallBackPtr;
 
   DefaultValueObjectWriter(TypeResolver* type_resolver,
-                           const google::protobuf::Type& type,
+                           const google::leap_protobuf::Type& type,
                            ObjectWriter* ow);
 
   virtual ~DefaultValueObjectWriter();
@@ -146,11 +146,11 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
   // DefaultValueObjectWriter.
   class LIBPROTOBUF_EXPORT Node {
    public:
-    Node(const string& name, const google::protobuf::Type* type, NodeKind kind,
+    Node(const string& name, const google::leap_protobuf::Type* type, NodeKind kind,
          const DataPiece& data, bool is_placeholder,
          const std::vector<string>& path, bool suppress_empty_list,
          FieldScrubCallBack* field_scrub_callback);
-    Node(const string& name, const google::protobuf::Type* type, NodeKind kind,
+    Node(const string& name, const google::leap_protobuf::Type* type, NodeKind kind,
          const DataPiece& data, bool is_placeholder,
          const std::vector<string>& path, bool suppress_empty_list,
          bool preserve_proto_field_names, bool use_ints_for_enums,
@@ -182,9 +182,9 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
     const std::vector<string>& path() const { return path_; }
 
-    const google::protobuf::Type* type() const { return type_; }
+    const google::leap_protobuf::Type* type() const { return type_; }
 
-    void set_type(const google::protobuf::Type* type) { type_ = type; }
+    void set_type(const google::leap_protobuf::Type* type) { type_ = type; }
 
     NodeKind kind() const { return kind_; }
 
@@ -203,16 +203,16 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
    protected:
     // Returns the Value Type of a map given the Type of the map entry and a
     // TypeInfo instance.
-    const google::protobuf::Type* GetMapValueType(
-        const google::protobuf::Type& entry_type, const TypeInfo* typeinfo);
+    const google::leap_protobuf::Type* GetMapValueType(
+        const google::leap_protobuf::Type& entry_type, const TypeInfo* typeinfo);
 
     // Calls WriteTo() on every child in children_.
     void WriteChildren(ObjectWriter* ow);
 
     // The name of this node.
     string name_;
-    // google::protobuf::Type of this node. Owned by TypeInfo.
-    const google::protobuf::Type* type_;
+    // google::leap_protobuf::Type of this node. Owned by TypeInfo.
+    const google::leap_protobuf::Type* type_;
     // The kind of this node.
     NodeKind kind_;
     // Whether this is a node for "Any".
@@ -249,7 +249,7 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
   // Creates a new Node and returns it. Caller owns memory of returned object.
   virtual Node* CreateNewNode(const string& name,
-                              const google::protobuf::Type* type, NodeKind kind,
+                              const google::leap_protobuf::Type* type, NodeKind kind,
                               const DataPiece& data, bool is_placeholder,
                               const std::vector<string>& path,
                               bool suppress_empty_list,
@@ -257,7 +257,7 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
   // Creates a new Node and returns it. Caller owns memory of returned object.
   virtual Node* CreateNewNode(const string& name,
-                              const google::protobuf::Type* type, NodeKind kind,
+                              const google::leap_protobuf::Type* type, NodeKind kind,
                               const DataPiece& data, bool is_placeholder,
                               const std::vector<string>& path,
                               bool suppress_empty_list,
@@ -267,7 +267,7 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
 
   // Creates a DataPiece containing the default value of the type of the field.
   static DataPiece CreateDefaultDataPieceForField(
-      const google::protobuf::Field& field, const TypeInfo* typeinfo, bool use_ints_for_enums);
+      const google::leap_protobuf::Field& field, const TypeInfo* typeinfo, bool use_ints_for_enums);
 
  protected:
   // Returns a pointer to current Node in tree.
@@ -288,17 +288,17 @@ class LIBPROTOBUF_EXPORT DefaultValueObjectWriter : public ObjectWriter {
   // Returns the default enum value as a DataPiece, or the first enum value if
   // there is no default. For proto3, where we cannot specify an explicit
   // default, a zero value will always be returned.
-  static DataPiece FindEnumDefault(const google::protobuf::Field& field,
+  static DataPiece FindEnumDefault(const google::leap_protobuf::Field& field,
                                    const TypeInfo* typeinfo,
                                    bool use_ints_for_enums);
 
   // Type information for all the types used in the descriptor. Used to find
-  // google::protobuf::Type of nested messages/enums.
+  // google::leap_protobuf::Type of nested messages/enums.
   const TypeInfo* typeinfo_;
   // Whether the TypeInfo object is owned by this class.
   bool own_typeinfo_;
-  // google::protobuf::Type of the root message type.
-  const google::protobuf::Type& type_;
+  // google::leap_protobuf::Type of the root message type.
+  const google::leap_protobuf::Type& type_;
   // Holds copies of strings passed to RenderString.
   std::vector<string*> string_values_;
 

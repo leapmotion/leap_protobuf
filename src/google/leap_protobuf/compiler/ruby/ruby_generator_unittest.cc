@@ -59,7 +59,7 @@ string FindRubyTestDir() {
 TEST(RubyGeneratorTest, GeneratorTest) {
   string ruby_tests = FindRubyTestDir();
 
-  google::protobuf::compiler::CommandLineInterface cli;
+  google::leap_protobuf::compiler::CommandLineInterface cli;
   cli.SetInputsAreProtoPathRelative(true);
 
   ruby::Generator ruby_generator;

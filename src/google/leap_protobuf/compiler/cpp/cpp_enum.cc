@@ -46,7 +46,7 @@ namespace cpp {
 
 namespace {
 // The GOOGLE_ARRAYSIZE constant is the max enum value plus 1. If the max enum value
-// is ::google::protobuf::kint32max, GOOGLE_ARRAYSIZE will overflow. In such cases we should omit the
+// is ::google::leap_protobuf::kint32max, GOOGLE_ARRAYSIZE will overflow. In such cases we should omit the
 // generation of the GOOGLE_ARRAYSIZE constant.
 bool ShouldGenerateArraySize(const EnumDescriptor* descriptor) {
   int32 max_value = descriptor->value(0)->number();
@@ -55,7 +55,7 @@ bool ShouldGenerateArraySize(const EnumDescriptor* descriptor) {
       max_value = descriptor->value(i)->number();
     }
   }
-  return max_value != ::google::protobuf::kint32max;
+  return max_value != ::google::leap_protobuf::kint32max;
 }
 }  // namespace
 
@@ -124,8 +124,8 @@ void EnumGenerator::GenerateDefinition(io::Printer* printer) {
     // INT32_MIN and INT32_MAX
     if (descriptor_->value_count() > 0) printer->Print(",\n");
     printer->Print(vars,
-        "$classname$_$prefix$INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,\n"
-        "$classname$_$prefix$INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max");
+        "$classname$_$prefix$INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32min,\n"
+        "$classname$_$prefix$INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32max");
   }
 
   printer->Outdent();
@@ -159,18 +159,18 @@ void EnumGenerator::GenerateDefinition(io::Printer* printer) {
 
   if (HasDescriptorMethods(descriptor_->file(), options_)) {
     printer->Print(vars,
-      "$dllexport$const ::google::protobuf::EnumDescriptor* $classname$_descriptor();\n");
+      "$dllexport$const ::google::leap_protobuf::EnumDescriptor* $classname$_descriptor();\n");
     // The _Name and _Parse methods
     printer->Print(
         vars,
         "inline const ::std::string& $classname$_Name($classname$ value) {\n"
-        "  return ::google::protobuf::internal::NameOfEnum(\n"
+        "  return ::google::leap_protobuf::internal::NameOfEnum(\n"
         "    $classname$_descriptor(), value);\n"
         "}\n");
     printer->Print(vars,
       "inline bool $classname$_Parse(\n"
       "    const ::std::string& name, $classname$* value) {\n"
-      "  return ::google::protobuf::internal::ParseNamedEnum<$classname$>(\n"
+      "  return ::google::leap_protobuf::internal::ParseNamedEnum<$classname$>(\n"
       "    $classname$_descriptor(), name, value);\n"
       "}\n");
   }
@@ -231,7 +231,7 @@ void EnumGenerator::GenerateSymbolImports(io::Printer* printer) {
 
   if (HasDescriptorMethods(descriptor_->file(), options_)) {
     printer->Print(vars,
-      "static inline const ::google::protobuf::EnumDescriptor*\n"
+      "static inline const ::google::leap_protobuf::EnumDescriptor*\n"
       "$nested_name$_descriptor() {\n"
       "  return $classname$_descriptor();\n"
       "}\n");
@@ -259,7 +259,7 @@ void EnumGenerator::GenerateMethods(int idx, io::Printer* printer) {
   if (HasDescriptorMethods(descriptor_->file(), options_)) {
     printer->Print(
         vars,
-        "const ::google::protobuf::EnumDescriptor* $classname$_descriptor() {\n"
+        "const ::google::leap_protobuf::EnumDescriptor* $classname$_descriptor() {\n"
         "  $file_namespace$::protobuf_AssignDescriptorsOnce();\n"
         "  return "
         "$file_namespace$::file_level_enum_descriptors[$index_in_metadata$];\n"

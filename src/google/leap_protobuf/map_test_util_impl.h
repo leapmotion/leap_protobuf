@@ -37,7 +37,7 @@
 
 
 namespace google {
-namespace leap_protobuf_unittest {}  // forward declaration
+namespace protobuf_unittest {}  // forward declaration
 
 namespace leap_protobuf {
 

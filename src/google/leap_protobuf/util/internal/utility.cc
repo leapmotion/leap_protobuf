@@ -49,9 +49,9 @@ namespace util {
 namespace converter {
 
 bool GetBoolOptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, bool default_value) {
-  const google::protobuf::Option* opt = FindOptionOrNull(options, option_name);
+  const google::leap_protobuf::Option* opt = FindOptionOrNull(options, option_name);
   if (opt == nullptr) {
     return default_value;
   }
@@ -59,9 +59,9 @@ bool GetBoolOptionOrDefault(
 }
 
 int64 GetInt64OptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, int64 default_value) {
-  const google::protobuf::Option* opt = FindOptionOrNull(options, option_name);
+  const google::leap_protobuf::Option* opt = FindOptionOrNull(options, option_name);
   if (opt == nullptr) {
     return default_value;
   }
@@ -69,9 +69,9 @@ int64 GetInt64OptionOrDefault(
 }
 
 double GetDoubleOptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, double default_value) {
-  const google::protobuf::Option* opt = FindOptionOrNull(options, option_name);
+  const google::leap_protobuf::Option* opt = FindOptionOrNull(options, option_name);
   if (opt == nullptr) {
     return default_value;
   }
@@ -79,9 +79,9 @@ double GetDoubleOptionOrDefault(
 }
 
 string GetStringOptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, const string& default_value) {
-  const google::protobuf::Option* opt = FindOptionOrNull(options, option_name);
+  const google::leap_protobuf::Option* opt = FindOptionOrNull(options, option_name);
   if (opt == nullptr) {
     return default_value;
   }
@@ -95,26 +95,26 @@ void ParseFromAny(const string& data, T* result) {
 
 // Returns a boolean value contained in Any type.
 // TODO(skarvaje): Add type checking & error messages here.
-bool GetBoolFromAny(const google::protobuf::Any& any) {
-  google::protobuf::BoolValue b;
+bool GetBoolFromAny(const google::leap_protobuf::Any& any) {
+  google::leap_protobuf::BoolValue b;
   ParseFromAny(any.value(), &b);
   return b.value();
 }
 
-int64 GetInt64FromAny(const google::protobuf::Any& any) {
-  google::protobuf::Int64Value i;
+int64 GetInt64FromAny(const google::leap_protobuf::Any& any) {
+  google::leap_protobuf::Int64Value i;
   ParseFromAny(any.value(), &i);
   return i.value();
 }
 
-double GetDoubleFromAny(const google::protobuf::Any& any) {
-  google::protobuf::DoubleValue i;
+double GetDoubleFromAny(const google::leap_protobuf::Any& any) {
+  google::leap_protobuf::DoubleValue i;
   ParseFromAny(any.value(), &i);
   return i.value();
 }
 
-string GetStringFromAny(const google::protobuf::Any& any) {
-  google::protobuf::StringValue s;
+string GetStringFromAny(const google::leap_protobuf::Any& any) {
+  google::leap_protobuf::StringValue s;
   ParseFromAny(any.value(), &s);
   return s.value();
 }
@@ -135,11 +135,11 @@ const string GetFullTypeWithUrl(StringPiece simple_type) {
   return StrCat(kTypeServiceBaseUrl, "/", simple_type);
 }
 
-const google::protobuf::Option* FindOptionOrNull(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+const google::leap_protobuf::Option* FindOptionOrNull(
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name) {
   for (int i = 0; i < options.size(); ++i) {
-    const google::protobuf::Option& opt = options.Get(i);
+    const google::leap_protobuf::Option& opt = options.Get(i);
     if (opt.name() == option_name) {
       return &opt;
     }
@@ -147,11 +147,11 @@ const google::protobuf::Option* FindOptionOrNull(
   return nullptr;
 }
 
-const google::protobuf::Field* FindFieldInTypeOrNull(
-    const google::protobuf::Type* type, StringPiece field_name) {
+const google::leap_protobuf::Field* FindFieldInTypeOrNull(
+    const google::leap_protobuf::Type* type, StringPiece field_name) {
   if (type != nullptr) {
     for (int i = 0; i < type->fields_size(); ++i) {
-      const google::protobuf::Field& field = type->fields(i);
+      const google::leap_protobuf::Field& field = type->fields(i);
       if (field.name() == field_name) {
         return &field;
       }
@@ -160,11 +160,11 @@ const google::protobuf::Field* FindFieldInTypeOrNull(
   return nullptr;
 }
 
-const google::protobuf::Field* FindJsonFieldInTypeOrNull(
-    const google::protobuf::Type* type, StringPiece json_name) {
+const google::leap_protobuf::Field* FindJsonFieldInTypeOrNull(
+    const google::leap_protobuf::Type* type, StringPiece json_name) {
   if (type != nullptr) {
     for (int i = 0; i < type->fields_size(); ++i) {
-      const google::protobuf::Field& field = type->fields(i);
+      const google::leap_protobuf::Field& field = type->fields(i);
       if (field.json_name() == json_name) {
         return &field;
       }
@@ -173,11 +173,11 @@ const google::protobuf::Field* FindJsonFieldInTypeOrNull(
   return nullptr;
 }
 
-const google::protobuf::Field* FindFieldInTypeByNumberOrNull(
-    const google::protobuf::Type* type, int32 number) {
+const google::leap_protobuf::Field* FindFieldInTypeByNumberOrNull(
+    const google::leap_protobuf::Type* type, int32 number) {
   if (type != nullptr) {
     for (int i = 0; i < type->fields_size(); ++i) {
-      const google::protobuf::Field& field = type->fields(i);
+      const google::leap_protobuf::Field& field = type->fields(i);
       if (field.number() == number) {
         return &field;
       }
@@ -186,11 +186,11 @@ const google::protobuf::Field* FindFieldInTypeByNumberOrNull(
   return nullptr;
 }
 
-const google::protobuf::EnumValue* FindEnumValueByNameOrNull(
-    const google::protobuf::Enum* enum_type, StringPiece enum_name) {
+const google::leap_protobuf::EnumValue* FindEnumValueByNameOrNull(
+    const google::leap_protobuf::Enum* enum_type, StringPiece enum_name) {
   if (enum_type != nullptr) {
     for (int i = 0; i < enum_type->enumvalue_size(); ++i) {
-      const google::protobuf::EnumValue& enum_value = enum_type->enumvalue(i);
+      const google::leap_protobuf::EnumValue& enum_value = enum_type->enumvalue(i);
       if (enum_value.name() == enum_name) {
         return &enum_value;
       }
@@ -199,11 +199,11 @@ const google::protobuf::EnumValue* FindEnumValueByNameOrNull(
   return nullptr;
 }
 
-const google::protobuf::EnumValue* FindEnumValueByNumberOrNull(
-    const google::protobuf::Enum* enum_type, int32 value) {
+const google::leap_protobuf::EnumValue* FindEnumValueByNumberOrNull(
+    const google::leap_protobuf::Enum* enum_type, int32 value) {
   if (enum_type != nullptr) {
     for (int i = 0; i < enum_type->enumvalue_size(); ++i) {
-      const google::protobuf::EnumValue& enum_value = enum_type->enumvalue(i);
+      const google::leap_protobuf::EnumValue& enum_value = enum_type->enumvalue(i);
       if (enum_value.number() == value) {
         return &enum_value;
       }
@@ -212,11 +212,11 @@ const google::protobuf::EnumValue* FindEnumValueByNumberOrNull(
   return nullptr;
 }
 
-const google::protobuf::EnumValue* FindEnumValueByNameWithoutUnderscoreOrNull(
-    const google::protobuf::Enum* enum_type, StringPiece enum_name) {
+const google::leap_protobuf::EnumValue* FindEnumValueByNameWithoutUnderscoreOrNull(
+    const google::leap_protobuf::Enum* enum_type, StringPiece enum_name) {
   if (enum_type != nullptr) {
     for (int i = 0; i < enum_type->enumvalue_size(); ++i) {
-      const google::protobuf::EnumValue& enum_value = enum_type->enumvalue(i);
+      const google::leap_protobuf::EnumValue& enum_value = enum_type->enumvalue(i);
       string enum_name_without_underscore = enum_value.name();
 
       // Remove underscore from the name.
@@ -341,7 +341,7 @@ void InitWellKnownTypes() {
   for (int i = 0; i < GOOGLE_ARRAYSIZE(well_known_types_name_array_); ++i) {
     well_known_types_->insert(well_known_types_name_array_[i]);
   }
-  google::protobuf::internal::OnShutdown(&DeleteWellKnownTypes);
+  google::leap_protobuf::internal::OnShutdown(&DeleteWellKnownTypes);
 }
 
 bool IsWellKnownType(const string& type_name) {
@@ -354,17 +354,17 @@ bool IsValidBoolString(const string& bool_string) {
          bool_string == "1" || bool_string == "0";
 }
 
-bool IsMap(const google::protobuf::Field& field,
-           const google::protobuf::Type& type) {
+bool IsMap(const google::leap_protobuf::Field& field,
+           const google::leap_protobuf::Type& type) {
   return field.cardinality() ==
-             google::protobuf::Field_Cardinality_CARDINALITY_REPEATED &&
+             google::leap_protobuf::Field_Cardinality_CARDINALITY_REPEATED &&
          (GetBoolOptionOrDefault(type.options(), "map_entry", false) ||
           GetBoolOptionOrDefault(type.options(),
                                  "google.protobuf.MessageOptions.map_entry",
                                  false));
 }
 
-bool IsMessageSetWireFormat(const google::protobuf::Type& type) {
+bool IsMessageSetWireFormat(const google::leap_protobuf::Type& type) {
   return GetBoolOptionOrDefault(type.options(), "message_set_wire_format",
                                 false) ||
          GetBoolOptionOrDefault(

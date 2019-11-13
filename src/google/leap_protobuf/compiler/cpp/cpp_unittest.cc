@@ -75,7 +75,7 @@ namespace cpp {
 // Can't use an anonymous namespace here due to brokenness of Tru64 compiler.
 namespace cpp_unittest {
 
-namespace leap_protobuf_unittest = ::protobuf_unittest;
+namespace protobuf_unittest = ::protobuf_unittest;
 
 TEST(GENERATED_MESSAGE_TEST_NAME, TestConflictingSymbolNames) {
   // test_bad_identifiers.proto successfully compiled, then it works.  The

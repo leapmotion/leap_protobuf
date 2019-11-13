@@ -52,16 +52,16 @@ using std::string;
 
 namespace {
 // Helper methods to test parsing merge behavior.
-void ExpectMessageMerged(const google::protobuf::unittest::TestAllTypesLite& message) {
+void ExpectMessageMerged(const google::leap_protobuf::unittest::TestAllTypesLite& message) {
   EXPECT_EQ(message.optional_int32(), 3);
   EXPECT_EQ(message.optional_int64(), 2);
   EXPECT_EQ(message.optional_string(), "hello");
 }
 
 void AssignParsingMergeMessages(
-    google::protobuf::unittest::TestAllTypesLite* msg1,
-    google::protobuf::unittest::TestAllTypesLite* msg2,
-    google::protobuf::unittest::TestAllTypesLite* msg3) {
+    google::leap_protobuf::unittest::TestAllTypesLite* msg1,
+    google::leap_protobuf::unittest::TestAllTypesLite* msg2,
+    google::leap_protobuf::unittest::TestAllTypesLite* msg3) {
   msg1->set_optional_int32(1);
   msg2->set_optional_int64(2);
   msg3->set_optional_int32(3);
@@ -69,18 +69,18 @@ void AssignParsingMergeMessages(
 }
 
 void SetAllTypesInEmptyMessageUnknownFields(
-    google::protobuf::unittest::TestEmptyMessageLite* empty_message) {
+    google::leap_protobuf::unittest::TestEmptyMessageLite* empty_message) {
   protobuf_unittest::TestAllTypesLite message;
-  google::protobuf::TestUtilLite::ExpectClear(message);
-  google::protobuf::TestUtilLite::SetAllFields(&message);
+  google::leap_protobuf::TestUtilLite::ExpectClear(message);
+  google::leap_protobuf::TestUtilLite::SetAllFields(&message);
   string data = message.SerializeAsString();
   empty_message->ParseFromString(data);
 }
 
 void SetSomeTypesInEmptyMessageUnknownFields(
-    google::protobuf::unittest::TestEmptyMessageLite* empty_message) {
+    google::leap_protobuf::unittest::TestEmptyMessageLite* empty_message) {
   protobuf_unittest::TestAllTypesLite message;
-  google::protobuf::TestUtilLite::ExpectClear(message);
+  google::leap_protobuf::TestUtilLite::ExpectClear(message);
   message.set_optional_int32(101);
   message.set_optional_int64(102);
   message.set_optional_uint32(103);
@@ -96,18 +96,18 @@ TEST(Lite, AllLite1) {
 
   {
     protobuf_unittest::TestAllTypesLite message, message2, message3;
-    google::protobuf::TestUtilLite::ExpectClear(message);
-    google::protobuf::TestUtilLite::SetAllFields(&message);
+    google::leap_protobuf::TestUtilLite::ExpectClear(message);
+    google::leap_protobuf::TestUtilLite::SetAllFields(&message);
     message2.CopyFrom(message);
     data = message.SerializeAsString();
     message3.ParseFromString(data);
-    google::protobuf::TestUtilLite::ExpectAllFieldsSet(message);
-    google::protobuf::TestUtilLite::ExpectAllFieldsSet(message2);
-    google::protobuf::TestUtilLite::ExpectAllFieldsSet(message3);
-    google::protobuf::TestUtilLite::ModifyRepeatedFields(&message);
-    google::protobuf::TestUtilLite::ExpectRepeatedFieldsModified(message);
+    google::leap_protobuf::TestUtilLite::ExpectAllFieldsSet(message);
+    google::leap_protobuf::TestUtilLite::ExpectAllFieldsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectAllFieldsSet(message3);
+    google::leap_protobuf::TestUtilLite::ModifyRepeatedFields(&message);
+    google::leap_protobuf::TestUtilLite::ExpectRepeatedFieldsModified(message);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectClear(message);
   }
 }
 
@@ -115,18 +115,18 @@ TEST(Lite, AllLite2) {
   string data;
   {
     protobuf_unittest::TestAllExtensionsLite message, message2, message3;
-    google::protobuf::TestUtilLite::ExpectExtensionsClear(message);
-    google::protobuf::TestUtilLite::SetAllExtensions(&message);
+    google::leap_protobuf::TestUtilLite::ExpectExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::SetAllExtensions(&message);
     message2.CopyFrom(message);
     string extensions_data = message.SerializeAsString();
     message3.ParseFromString(extensions_data);
-    google::protobuf::TestUtilLite::ExpectAllExtensionsSet(message);
-    google::protobuf::TestUtilLite::ExpectAllExtensionsSet(message2);
-    google::protobuf::TestUtilLite::ExpectAllExtensionsSet(message3);
-    google::protobuf::TestUtilLite::ModifyRepeatedExtensions(&message);
-    google::protobuf::TestUtilLite::ExpectRepeatedExtensionsModified(message);
+    google::leap_protobuf::TestUtilLite::ExpectAllExtensionsSet(message);
+    google::leap_protobuf::TestUtilLite::ExpectAllExtensionsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectAllExtensionsSet(message3);
+    google::leap_protobuf::TestUtilLite::ModifyRepeatedExtensions(&message);
+    google::leap_protobuf::TestUtilLite::ExpectRepeatedExtensionsModified(message);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectExtensionsClear(message);
   }
 }
 
@@ -135,35 +135,35 @@ TEST(Lite, AllLite3) {
 
   {
     protobuf_unittest::TestPackedTypesLite message, message2, message3;
-    google::protobuf::TestUtilLite::ExpectPackedClear(message);
-    google::protobuf::TestUtilLite::SetPackedFields(&message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedClear(message);
+    google::leap_protobuf::TestUtilLite::SetPackedFields(&message);
     message2.CopyFrom(message);
     packed_data = message.SerializeAsString();
     message3.ParseFromString(packed_data);
-    google::protobuf::TestUtilLite::ExpectPackedFieldsSet(message);
-    google::protobuf::TestUtilLite::ExpectPackedFieldsSet(message2);
-    google::protobuf::TestUtilLite::ExpectPackedFieldsSet(message3);
-    google::protobuf::TestUtilLite::ModifyPackedFields(&message);
-    google::protobuf::TestUtilLite::ExpectPackedFieldsModified(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedFieldsSet(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedFieldsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectPackedFieldsSet(message3);
+    google::leap_protobuf::TestUtilLite::ModifyPackedFields(&message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedFieldsModified(message);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectPackedClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedClear(message);
   }
 
   {
     protobuf_unittest::TestPackedExtensionsLite message, message2, message3;
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
-    google::protobuf::TestUtilLite::SetPackedExtensions(&message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::SetPackedExtensions(&message);
     message2.CopyFrom(message);
     string packed_extensions_data = message.SerializeAsString();
     EXPECT_EQ(packed_extensions_data, packed_data);
     message3.ParseFromString(packed_extensions_data);
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsSet(message);
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsSet(message2);
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsSet(message3);
-    google::protobuf::TestUtilLite::ModifyPackedExtensions(&message);
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsModified(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsSet(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsSet(message3);
+    google::leap_protobuf::TestUtilLite::ModifyPackedExtensions(&message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsModified(message);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
   }
 }
 
@@ -173,10 +173,10 @@ TEST(Lite, AllLite5) {
   {
     // Test that if an optional or required message/group field appears multiple
     // times in the input, they need to be merged.
-    google::protobuf::unittest::TestParsingMergeLite::RepeatedFieldsGenerator generator;
-    google::protobuf::unittest::TestAllTypesLite* msg1;
-    google::protobuf::unittest::TestAllTypesLite* msg2;
-    google::protobuf::unittest::TestAllTypesLite* msg3;
+    google::leap_protobuf::unittest::TestParsingMergeLite::RepeatedFieldsGenerator generator;
+    google::leap_protobuf::unittest::TestAllTypesLite* msg1;
+    google::leap_protobuf::unittest::TestAllTypesLite* msg2;
+    google::leap_protobuf::unittest::TestAllTypesLite* msg3;
 
 #define ASSIGN_REPEATED_FIELD(FIELD)                \
   msg1 = generator.add_##FIELD();                   \
@@ -204,7 +204,7 @@ TEST(Lite, AllLite5) {
 
     string buffer;
     generator.SerializeToString(&buffer);
-    google::protobuf::unittest::TestParsingMergeLite parsing_merge;
+    google::leap_protobuf::unittest::TestParsingMergeLite parsing_merge;
     parsing_merge.ParseFromString(buffer);
 
     // Required and optional fields should be merged.
@@ -213,13 +213,13 @@ TEST(Lite, AllLite5) {
     ExpectMessageMerged(
         parsing_merge.optionalgroup().optional_group_all_types());
     ExpectMessageMerged(parsing_merge.GetExtension(
-        google::protobuf::unittest::TestParsingMergeLite::optional_ext));
+        google::leap_protobuf::unittest::TestParsingMergeLite::optional_ext));
 
     // Repeated fields should not be merged.
     EXPECT_EQ(parsing_merge.repeated_all_types_size(), 3);
     EXPECT_EQ(parsing_merge.repeatedgroup_size(), 3);
     EXPECT_EQ(parsing_merge.ExtensionSize(
-                  google::protobuf::unittest::TestParsingMergeLite::repeated_ext),
+                  google::leap_protobuf::unittest::TestParsingMergeLite::repeated_ext),
               3);
   }
 }
@@ -231,17 +231,17 @@ TEST(Lite, AllLite6) {
   {
     protobuf_unittest::TestAllTypesLite message, message2;
     protobuf_unittest::TestEmptyMessageLite empty_message;
-    google::protobuf::TestUtilLite::ExpectClear(message);
-    google::protobuf::TestUtilLite::SetAllFields(&message);
+    google::leap_protobuf::TestUtilLite::ExpectClear(message);
+    google::leap_protobuf::TestUtilLite::SetAllFields(&message);
     data = message.SerializeAsString();
     empty_message.ParseFromString(data);
     data.clear();
     data = empty_message.SerializeAsString();
     message2.ParseFromString(data);
     data = message2.SerializeAsString();
-    google::protobuf::TestUtilLite::ExpectAllFieldsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectAllFieldsSet(message2);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectClear(message);
   }
 }
 
@@ -251,17 +251,17 @@ TEST(Lite, AllLite7) {
   {
     protobuf_unittest::TestAllExtensionsLite message, message2;
     protobuf_unittest::TestEmptyMessageLite empty_message;
-    google::protobuf::TestUtilLite::ExpectExtensionsClear(message);
-    google::protobuf::TestUtilLite::SetAllExtensions(&message);
+    google::leap_protobuf::TestUtilLite::ExpectExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::SetAllExtensions(&message);
     data = message.SerializeAsString();
     empty_message.ParseFromString(data);
     data.clear();
     data = empty_message.SerializeAsString();
     message2.ParseFromString(data);
     data = message2.SerializeAsString();
-    google::protobuf::TestUtilLite::ExpectAllExtensionsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectAllExtensionsSet(message2);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectExtensionsClear(message);
   }
 }
 
@@ -271,17 +271,17 @@ TEST(Lite, AllLite8) {
   {
     protobuf_unittest::TestPackedTypesLite message, message2;
     protobuf_unittest::TestEmptyMessageLite empty_message;
-    google::protobuf::TestUtilLite::ExpectPackedClear(message);
-    google::protobuf::TestUtilLite::SetPackedFields(&message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedClear(message);
+    google::leap_protobuf::TestUtilLite::SetPackedFields(&message);
     data = message.SerializeAsString();
     empty_message.ParseFromString(data);
     data.clear();
     data = empty_message.SerializeAsString();
     message2.ParseFromString(data);
     data = message2.SerializeAsString();
-    google::protobuf::TestUtilLite::ExpectPackedFieldsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectPackedFieldsSet(message2);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectPackedClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedClear(message);
   }
 }
 
@@ -291,17 +291,17 @@ TEST(Lite, AllLite9) {
   {
     protobuf_unittest::TestPackedExtensionsLite message, message2;
     protobuf_unittest::TestEmptyMessageLite empty_message;
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
-    google::protobuf::TestUtilLite::SetPackedExtensions(&message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::SetPackedExtensions(&message);
     data = message.SerializeAsString();
     empty_message.ParseFromString(data);
     data.clear();
     data = empty_message.SerializeAsString();
     message2.ParseFromString(data);
     data = message2.SerializeAsString();
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsSet(message2);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsSet(message2);
     message.Clear();
-    google::protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
+    google::leap_protobuf::TestUtilLite::ExpectPackedExtensionsClear(message);
   }
 }
 
@@ -343,10 +343,10 @@ TEST(Lite, AllLite12) {
     protobuf_unittest::TestEmptyMessageLite empty_message, empty_message2;
     message.set_optional_int32(101);
     message.add_repeated_int32(201);
-    message.set_optional_nested_enum(google::protobuf::unittest::TestAllTypesLite::BAZ);
+    message.set_optional_nested_enum(google::leap_protobuf::unittest::TestAllTypesLite::BAZ);
     message2.set_optional_int64(102);
     message2.add_repeated_int64(202);
-    message2.set_optional_foreign_enum(google::protobuf::unittest::FOREIGN_LITE_BAZ);
+    message2.set_optional_foreign_enum(google::leap_protobuf::unittest::FOREIGN_LITE_BAZ);
 
     data = message.SerializeAsString();
     empty_message.ParseFromString(data);
@@ -372,15 +372,15 @@ TEST(Lite, AllLite13) {
     protobuf_unittest::TestAllTypesLite message;
     string buffer;
     {
-      google::protobuf::io::StringOutputStream output_stream(&buffer);
-      google::protobuf::io::CodedOutputStream coded_output(&output_stream);
-      google::protobuf::internal::WireFormatLite::WriteTag(
+      google::leap_protobuf::io::StringOutputStream output_stream(&buffer);
+      google::leap_protobuf::io::CodedOutputStream coded_output(&output_stream);
+      google::leap_protobuf::internal::WireFormatLite::WriteTag(
           protobuf_unittest::TestAllTypesLite::kOptionalNestedEnumFieldNumber,
-          google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT, &coded_output);
+          google::leap_protobuf::internal::WireFormatLite::WIRETYPE_VARINT, &coded_output);
       coded_output.WriteVarint32(10);
-      google::protobuf::internal::WireFormatLite::WriteTag(
+      google::leap_protobuf::internal::WireFormatLite::WriteTag(
           protobuf_unittest::TestAllTypesLite::kRepeatedNestedEnumFieldNumber,
-          google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT, &coded_output);
+          google::leap_protobuf::internal::WireFormatLite::WIRETYPE_VARINT, &coded_output);
       coded_output.WriteVarint32(20);
     }
     message.ParseFromString(buffer);
@@ -410,11 +410,11 @@ TEST(Lite, AllLite15) {
     // Accessors
     protobuf_unittest::TestMapLite message;
 
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message);
 
-    google::protobuf::MapLiteTestUtil::ModifyMapFields(&message);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsModified(message);
+    google::leap_protobuf::MapLiteTestUtil::ModifyMapFields(&message);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsModified(message);
   }
 }
 
@@ -425,8 +425,8 @@ TEST(Lite, AllLite16) {
     // SetMapFieldsInitialized
     protobuf_unittest::TestMapLite message;
 
-    google::protobuf::MapLiteTestUtil::SetMapFieldsInitialized(&message);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSetInitialized(message);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFieldsInitialized(&message);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSetInitialized(message);
   }
 }
 
@@ -437,9 +437,9 @@ TEST(Lite, AllLite17) {
     // Clear
     protobuf_unittest::TestMapLite message;
 
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message);
     message.Clear();
-    google::protobuf::MapLiteTestUtil::ExpectClear(message);
+    google::leap_protobuf::MapLiteTestUtil::ExpectClear(message);
   }
 }
 
@@ -451,7 +451,7 @@ TEST(Lite, AllLite18) {
     protobuf_unittest::TestMessageMapLite message;
 
     // Creates a TestAllTypes with default value
-    google::protobuf::TestUtilLite::ExpectClear(
+    google::leap_protobuf::TestUtilLite::ExpectClear(
         (*message.mutable_map_int32_message())[0]);
   }
 }
@@ -463,13 +463,13 @@ TEST(Lite, AllLite19) {
     // CopyFrom
     protobuf_unittest::TestMapLite message1, message2;
 
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
     message2.CopyFrom(message1);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
 
     // Copying from self should be a no-op.
     message2.CopyFrom(message2);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
   }
 }
 
@@ -498,13 +498,13 @@ TEST(Lite, AllLite21) {
     // SwapWithEmpty
     protobuf_unittest::TestMapLite message1, message2;
 
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message1);
-    google::protobuf::MapLiteTestUtil::ExpectClear(message2);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message1);
+    google::leap_protobuf::MapLiteTestUtil::ExpectClear(message2);
 
     message1.Swap(&message2);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
-    google::protobuf::MapLiteTestUtil::ExpectClear(message1);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectClear(message1);
   }
 }
 
@@ -515,11 +515,11 @@ TEST(Lite, AllLite22) {
     // SwapWithSelf
     protobuf_unittest::TestMapLite message;
 
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message);
 
     message.Swap(&message);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message);
   }
 }
 
@@ -530,13 +530,13 @@ TEST(Lite, AllLite23) {
     // SwapWithOther
     protobuf_unittest::TestMapLite message1, message2;
 
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message2);
-    google::protobuf::MapLiteTestUtil::ModifyMapFields(&message2);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message2);
+    google::leap_protobuf::MapLiteTestUtil::ModifyMapFields(&message2);
 
     message1.Swap(&message2);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsModified(message1);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsModified(message1);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
   }
 }
 
@@ -546,10 +546,10 @@ TEST(Lite, AllLite24) {
   {
     // CopyConstructor
     protobuf_unittest::TestMapLite message1;
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
 
     protobuf_unittest::TestMapLite message2(message1);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
   }
 }
 
@@ -559,15 +559,15 @@ TEST(Lite, AllLite25) {
   {
     // CopyAssignmentOperator
     protobuf_unittest::TestMapLite message1;
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
 
     protobuf_unittest::TestMapLite message2;
     message2 = message1;
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
 
     // Make sure that self-assignment does something sane.
     message2.operator=(message2);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
   }
 }
 
@@ -578,7 +578,7 @@ TEST(Lite, AllLite26) {
     // NonEmptyMergeFrom
     protobuf_unittest::TestMapLite message1, message2;
 
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
 
     // This field will test merging into an empty spot.
     (*message2.mutable_map_int32_int32())[1] = 1;
@@ -589,7 +589,7 @@ TEST(Lite, AllLite26) {
     (*message1.mutable_map_int32_double())[1] = 2;
 
     message1.MergeFrom(message2);
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message1);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message1);
   }
 }
 
@@ -618,14 +618,14 @@ TEST(Lite, AllLite28) {
     // Test the generated SerializeWithCachedSizesToArray()
     protobuf_unittest::TestMapLite message1, message2;
     string data;
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
     int size = message1.ByteSize();
     data.resize(size);
-    ::google::protobuf::uint8* start = reinterpret_cast<::google::protobuf::uint8*>(::google::protobuf::string_as_array(&data));
-    ::google::protobuf::uint8* end = message1.SerializeWithCachedSizesToArray(start);
+    ::google::leap_protobuf::uint8* start = reinterpret_cast<::google::leap_protobuf::uint8*>(::google::leap_protobuf::string_as_array(&data));
+    ::google::leap_protobuf::uint8* end = message1.SerializeWithCachedSizesToArray(start);
     EXPECT_EQ(size, end - start);
     EXPECT_TRUE(message2.ParseFromString(data));
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
   }
 }
 
@@ -635,21 +635,21 @@ TEST(Lite, AllLite29) {
   {
     // Test the generated SerializeWithCachedSizes()
     protobuf_unittest::TestMapLite message1, message2;
-    google::protobuf::MapLiteTestUtil::SetMapFields(&message1);
+    google::leap_protobuf::MapLiteTestUtil::SetMapFields(&message1);
     int size = message1.ByteSize();
     string data;
     data.resize(size);
     {
       // Allow the output stream to buffer only one byte at a time.
-      google::protobuf::io::ArrayOutputStream array_stream(
-          ::google::protobuf::string_as_array(&data), size, 1);
-      google::protobuf::io::CodedOutputStream output_stream(&array_stream);
+      google::leap_protobuf::io::ArrayOutputStream array_stream(
+          ::google::leap_protobuf::string_as_array(&data), size, 1);
+      google::leap_protobuf::io::CodedOutputStream output_stream(&array_stream);
       message1.SerializeWithCachedSizes(&output_stream);
       EXPECT_FALSE(output_stream.HadError());
       EXPECT_EQ(size, output_stream.ByteCount());
     }
     EXPECT_TRUE(message2.ParseFromString(data));
-    google::protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
+    google::leap_protobuf::MapLiteTestUtil::ExpectMapFieldsSet(message2);
   }
 }
 
@@ -875,8 +875,8 @@ TEST(Lite, AllLite43) {
   {
     protobuf_unittest::TestOneofParsingLite message2;
     message2.mutable_oneof_submessage();
-    google::protobuf::io::CodedInputStream input_stream(
-        reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()), serialized.size());
+    google::leap_protobuf::io::CodedInputStream input_stream(
+        reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()), serialized.size());
     EXPECT_TRUE(message2.MergeFromCodedStream(&input_stream));
     EXPECT_EQ(17, message2.oneof_int32());
   }
@@ -885,8 +885,8 @@ TEST(Lite, AllLite43) {
   {
     protobuf_unittest::TestOneofParsingLite message2;
     message2.set_oneof_string("string");
-    google::protobuf::io::CodedInputStream input_stream(
-        reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()), serialized.size());
+    google::leap_protobuf::io::CodedInputStream input_stream(
+        reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()), serialized.size());
     EXPECT_TRUE(message2.MergeFromCodedStream(&input_stream));
     EXPECT_EQ(17, message2.oneof_int32());
   }
@@ -895,8 +895,8 @@ TEST(Lite, AllLite43) {
   {
     protobuf_unittest::TestOneofParsingLite message2;
     message2.set_oneof_bytes("bytes");
-    google::protobuf::io::CodedInputStream input_stream(
-        reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()), serialized.size());
+    google::leap_protobuf::io::CodedInputStream input_stream(
+        reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()), serialized.size());
     EXPECT_TRUE(message2.MergeFromCodedStream(&input_stream));
     EXPECT_EQ(17, message2.oneof_int32());
   }
@@ -914,8 +914,8 @@ TEST(Lite, AllLite44) {
     EXPECT_TRUE(original.SerializeToString(&serialized));
     protobuf_unittest::TestOneofParsingLite parsed;
     for (int i = 0; i < 2; ++i) {
-      google::protobuf::io::CodedInputStream input_stream(
-          reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()),
+      google::leap_protobuf::io::CodedInputStream input_stream(
+          reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()),
           serialized.size());
       EXPECT_TRUE(parsed.MergeFromCodedStream(&input_stream));
       EXPECT_EQ(17, parsed.oneof_int32());
@@ -930,8 +930,8 @@ TEST(Lite, AllLite44) {
     EXPECT_TRUE(original.SerializeToString(&serialized));
     protobuf_unittest::TestOneofParsingLite parsed;
     for (int i = 0; i < 2; ++i) {
-      google::protobuf::io::CodedInputStream input_stream(
-          reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()),
+      google::leap_protobuf::io::CodedInputStream input_stream(
+          reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()),
           serialized.size());
       EXPECT_TRUE(parsed.MergeFromCodedStream(&input_stream));
       EXPECT_EQ(5, parsed.oneof_submessage().optional_int32());
@@ -946,8 +946,8 @@ TEST(Lite, AllLite44) {
     EXPECT_TRUE(original.SerializeToString(&serialized));
     protobuf_unittest::TestOneofParsingLite parsed;
     for (int i = 0; i < 2; ++i) {
-      google::protobuf::io::CodedInputStream input_stream(
-          reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()),
+      google::leap_protobuf::io::CodedInputStream input_stream(
+          reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()),
           serialized.size());
       EXPECT_TRUE(parsed.MergeFromCodedStream(&input_stream));
       EXPECT_EQ("string", parsed.oneof_string());
@@ -962,8 +962,8 @@ TEST(Lite, AllLite44) {
     EXPECT_TRUE(original.SerializeToString(&serialized));
     protobuf_unittest::TestOneofParsingLite parsed;
     for (int i = 0; i < 2; ++i) {
-      google::protobuf::io::CodedInputStream input_stream(
-          reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()),
+      google::leap_protobuf::io::CodedInputStream input_stream(
+          reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()),
           serialized.size());
       EXPECT_TRUE(parsed.MergeFromCodedStream(&input_stream));
       EXPECT_EQ("bytes", parsed.oneof_bytes());
@@ -978,8 +978,8 @@ TEST(Lite, AllLite44) {
     EXPECT_TRUE(original.SerializeToString(&serialized));
     protobuf_unittest::TestOneofParsingLite parsed;
     for (int i = 0; i < 2; ++i) {
-      google::protobuf::io::CodedInputStream input_stream(
-          reinterpret_cast<const ::google::protobuf::uint8*>(serialized.data()),
+      google::leap_protobuf::io::CodedInputStream input_stream(
+          reinterpret_cast<const ::google::leap_protobuf::uint8*>(serialized.data()),
           serialized.size());
       EXPECT_TRUE(parsed.MergeFromCodedStream(&input_stream));
       EXPECT_EQ(protobuf_unittest::V2_SECOND, parsed.oneof_enum());
@@ -995,8 +995,8 @@ TEST(Lite, AllLite45) {
 
   protobuf_unittest::ForeignMessageLite a;
   EXPECT_TRUE(a.ParseFromString(data));
-  google::protobuf::io::CodedInputStream input_stream(
-      reinterpret_cast<const ::google::protobuf::uint8*>(data.data()), data.size());
+  google::leap_protobuf::io::CodedInputStream input_stream(
+      reinterpret_cast<const ::google::leap_protobuf::uint8*>(data.data()), data.size());
   EXPECT_TRUE(a.MergePartialFromCodedStream(&input_stream));
 
   string serialized = a.SerializeAsString();

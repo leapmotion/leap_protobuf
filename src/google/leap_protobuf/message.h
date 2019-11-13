@@ -201,7 +201,7 @@ class LIBPROTOBUF_EXPORT Message : public MessageLite {
   // Construct a new instance on the arena. Ownership is passed to the caller
   // if arena is a NULL. Default implementation allows for API compatibility
   // during the Arena transition.
-  virtual Message* New(::google::protobuf::Arena* arena) const {
+  virtual Message* New(::google::leap_protobuf::Arena* arena) const {
     Message* message = New();
     if (arena != NULL) {
       arena->Own(message);
@@ -328,7 +328,7 @@ class LIBPROTOBUF_EXPORT Message : public MessageLite {
   // Introspection ---------------------------------------------------
 
   // Typedef for backwards-compatibility.
-  typedef google::protobuf::Reflection Reflection;
+  typedef google::leap_protobuf::Reflection Reflection;
 
   // Get a non-owning pointer to a Descriptor for this message's type.  This
   // describes what fields the message contains, the types of those fields, etc.
@@ -778,7 +778,7 @@ class LIBPROTOBUF_EXPORT Reflection {
   //   CPPTYPE_BOOL         bool
   //   CPPTYPE_ENUM         generated enum type or int32
   //   CPPTYPE_STRING       string
-  //   CPPTYPE_MESSAGE      generated message type or google::protobuf::Message
+  //   CPPTYPE_MESSAGE      generated message type or google::leap_protobuf::Message
   //
   // A RepeatedFieldRef object can be copied and the resulted object will point
   // to the same repeated field in the same message. The object can be used as
@@ -829,8 +829,8 @@ class LIBPROTOBUF_EXPORT Reflection {
 
   // DEPRECATED. Please use GetRepeatedFieldRef().
   //
-  // for T = string, google::protobuf::internal::StringPieceField
-  //         google::protobuf::Message & descendants.
+  // for T = string, google::leap_protobuf::internal::StringPieceField
+  //         google::leap_protobuf::Message & descendants.
   template<typename T>
   PROTOBUF_RUNTIME_DEPRECATED("Please use GetRepeatedFieldRef() instead")
   const RepeatedPtrField<T>& GetRepeatedPtrField(
@@ -838,8 +838,8 @@ class LIBPROTOBUF_EXPORT Reflection {
 
   // DEPRECATED. Please use GetMutableRepeatedFieldRef().
   //
-  // for T = string, google::protobuf::internal::StringPieceField
-  //         google::protobuf::Message & descendants.
+  // for T = string, google::leap_protobuf::internal::StringPieceField
+  //         google::leap_protobuf::Message & descendants.
   template<typename T>
   PROTOBUF_RUNTIME_DEPRECATED("Please use GetMutableRepeatedFieldRef() instead")
   RepeatedPtrField<T>* MutableRepeatedPtrField(
@@ -893,7 +893,7 @@ class LIBPROTOBUF_EXPORT Reflection {
   // useful for determining if a message is a generated message or not, for
   // example:
   //   if (message->GetReflection()->GetMessageFactory() ==
-  //       google::protobuf::MessageFactory::generated_factory()) {
+  //       google::leap_protobuf::MessageFactory::generated_factory()) {
   //     // This is a generated message.
   //   }
   // It can also be used to create more messages of this type, though
@@ -952,9 +952,9 @@ class LIBPROTOBUF_EXPORT Reflection {
   friend class RepeatedFieldRef;
   template<typename T, typename Enable>
   friend class MutableRepeatedFieldRef;
-  friend class ::google::protobuf::python::MapReflectionFriend;
+  friend class ::google::leap_protobuf::python::MapReflectionFriend;
 #define GOOGLE_PROTOBUF_HAS_CEL_MAP_REFLECTION_FRIEND
-  friend class ::google::protobuf::expr::CelMapReflectionFriend;
+  friend class ::google::leap_protobuf::expr::CelMapReflectionFriend;
   friend class internal::MapFieldReflectionTest;
   friend class internal::MapKeySorter;
   friend class internal::WireFormat;
@@ -1117,8 +1117,8 @@ DECLARE_GET_REPEATED_FIELD(bool)
 // Implementation details for {Get,Mutable}RawRepeatedPtrField.  We provide
 // specializations for <string>, <StringPieceField> and <Message> and handle
 // everything else with the default template which will match any type having
-// a method with signature "static const google::protobuf::Descriptor* descriptor()".
-// Such a type presumably is a descendant of google::protobuf::Message.
+// a method with signature "static const google::leap_protobuf::Descriptor* descriptor()".
+// Such a type presumably is a descendant of google::leap_protobuf::Message.
 
 template<>
 inline const RepeatedPtrField<string>& Reflection::GetRepeatedPtrField<string>(

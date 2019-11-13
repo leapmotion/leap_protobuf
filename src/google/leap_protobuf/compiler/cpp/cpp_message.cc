@@ -209,9 +209,9 @@ void CollectMapInfo(const Descriptor* descriptor,
     default:
       vars["val_cpp"] = PrimitiveTypeName(val->cpp_type());
   }
-  vars["key_wire_type"] = "::google::protobuf::internal::WireFormatLite::TYPE_" +
+  vars["key_wire_type"] = "::google::leap_protobuf::internal::WireFormatLite::TYPE_" +
                           ToUpper(DeclaredTypeMethodName(key->type()));
-  vars["val_wire_type"] = "::google::protobuf::internal::WireFormatLite::TYPE_" +
+  vars["val_wire_type"] = "::google::leap_protobuf::internal::WireFormatLite::TYPE_" +
                           ToUpper(DeclaredTypeMethodName(val->type()));
   if (descriptor->file()->syntax() != FileDescriptor::SYNTAX_PROTO3 &&
       val->type() == FieldDescriptor::TYPE_ENUM) {
@@ -283,7 +283,7 @@ void SetUnknkownFieldsVariable(const Descriptor* descriptor,
                                const Options& options,
                                std::map<string, string>* variables) {
   if (UseUnknownFieldSet(descriptor->file(), options)) {
-    (*variables)["unknown_fields_type"] = "::google::protobuf::UnknownFieldSet";
+    (*variables)["unknown_fields_type"] = "::google::leap_protobuf::UnknownFieldSet";
   } else {
     (*variables)["unknown_fields_type"] = "::std::string";
   }
@@ -294,9 +294,9 @@ void SetUnknkownFieldsVariable(const Descriptor* descriptor,
   } else {
     (*variables)["have_unknown_fields"] =
         "(_internal_metadata_.have_unknown_fields() && "
-        " ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())";
+        " ::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault())";
     (*variables)["unknown_fields"] =
-        "(::google::protobuf::internal::GetProto3PreserveUnknownsDefault()"
+        "(::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault()"
         "   ? _internal_metadata_.unknown_fields()"
         "   : _internal_metadata_.default_instance())";
   }
@@ -788,27 +788,27 @@ GenerateClassDefinition(io::Printer* printer) {
     printer->Print(
         vars,
         "class $classname$ : public "
-        "::google::protobuf::internal::MapEntry$lite$<$classname$, \n"
+        "::google::leap_protobuf::internal::MapEntry$lite$<$classname$, \n"
         "    $key_cpp$, $val_cpp$,\n"
         "    $key_wire_type$,\n"
         "    $val_wire_type$,\n"
         "    $default_enum_value$ > {\n"
         "public:\n"
-        "  typedef ::google::protobuf::internal::MapEntry$lite$<$classname$, \n"
+        "  typedef ::google::leap_protobuf::internal::MapEntry$lite$<$classname$, \n"
         "    $key_cpp$, $val_cpp$,\n"
         "    $key_wire_type$,\n"
         "    $val_wire_type$,\n"
         "    $default_enum_value$ > SuperType;\n"
         "  $classname$();\n"
-        "  $classname$(::google::protobuf::Arena* arena);\n"
+        "  $classname$(::google::leap_protobuf::Arena* arena);\n"
         "  void MergeFrom(const $classname$& other);\n"
         "  static const $classname$* internal_default_instance() { return "
         "reinterpret_cast<const "
         "$classname$*>(&_$classname$_default_instance_); }\n");
     if (HasDescriptorMethods(descriptor_->file(), options_)) {
       printer->Print(
-          "  void MergeFrom(const ::google::protobuf::Message& other) final;\n"
-          "  ::google::protobuf::Metadata GetMetadata() const;\n"
+          "  void MergeFrom(const ::google::leap_protobuf::Message& other) final;\n"
+          "  ::google::leap_protobuf::Metadata GetMetadata() const;\n"
           "};\n");
     } else {
       printer->Print("};\n");
@@ -892,7 +892,7 @@ GenerateClassDefinition(io::Printer* printer) {
     // virtual method version of GetArenaNoVirtual(), required for generic dispatch given a
     // MessageLite* (e.g., in RepeatedField::AddAllocated()).
     printer->Print(
-        "inline ::google::protobuf::Arena* GetArena() const final {\n"
+        "inline ::google::leap_protobuf::Arena* GetArena() const final {\n"
         "  return GetArenaNoVirtual();\n"
         "}\n"
         "inline void* GetMaybeArenaPointer() const final {\n"
@@ -904,7 +904,7 @@ GenerateClassDefinition(io::Printer* printer) {
   if (HasDescriptorMethods(descriptor_->file(), options_) &&
       !descriptor_->options().no_standard_descriptor_accessor()) {
     printer->Print(vars,
-      "static const ::google::protobuf::Descriptor* descriptor();\n");
+      "static const ::google::leap_protobuf::Descriptor* descriptor();\n");
   }
 
   printer->Print(vars,
@@ -960,10 +960,10 @@ GenerateClassDefinition(io::Printer* printer) {
     printer->Print(vars,
       "// implements Any -----------------------------------------------\n"
       "\n"
-      "void PackFrom(const ::google::protobuf::Message& message);\n"
-      "void PackFrom(const ::google::protobuf::Message& message,\n"
+      "void PackFrom(const ::google::leap_protobuf::Message& message);\n"
+      "void PackFrom(const ::google::leap_protobuf::Message& message,\n"
       "              const ::std::string& type_url_prefix);\n"
-      "bool UnpackTo(::google::protobuf::Message* message) const;\n"
+      "bool UnpackTo(::google::leap_protobuf::Message* message) const;\n"
       "template<typename T> bool Is() const {\n"
       "  return _any_metadata_.Is<T>();\n"
       "}\n"
@@ -986,7 +986,7 @@ GenerateClassDefinition(io::Printer* printer) {
     "  return CreateMaybeMessage<$classname$>(NULL);\n"
     "}\n"
     "\n"
-    "$classname$* New(::google::protobuf::Arena* arena) const$new_final$ {\n"
+    "$classname$* New(::google::leap_protobuf::Arena* arena) const$new_final$ {\n"
     "  return CreateMaybeMessage<$classname$>(arena);\n"
     "}\n");
 
@@ -998,11 +998,11 @@ GenerateClassDefinition(io::Printer* printer) {
   if (HasGeneratedMethods(descriptor_->file(), options_)) {
     if (HasDescriptorMethods(descriptor_->file(), options_)) {
       printer->Print(vars,
-        "void CopyFrom(const ::google::protobuf::Message& from) final;\n"
-        "void MergeFrom(const ::google::protobuf::Message& from) final;\n");
+        "void CopyFrom(const ::google::leap_protobuf::Message& from) final;\n"
+        "void MergeFrom(const ::google::leap_protobuf::Message& from) final;\n");
     } else {
       printer->Print(vars,
-        "void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from)\n"
+        "void CheckTypeAndMergeFrom(const ::google::leap_protobuf::MessageLite& from)\n"
         "  final;\n");
     }
 
@@ -1019,12 +1019,12 @@ GenerateClassDefinition(io::Printer* printer) {
         "\n"
         "size_t ByteSizeLong() const final;\n"
         "bool MergePartialFromCodedStream(\n"
-        "    ::google::protobuf::io::CodedInputStream* input)$merge_partial_final$;\n");
+        "    ::google::leap_protobuf::io::CodedInputStream* input)$merge_partial_final$;\n");
     if (!options_.table_driven_serialization ||
         descriptor_->options().message_set_wire_format()) {
       printer->Print(
           "void SerializeWithCachedSizes(\n"
-          "    ::google::protobuf::io::CodedOutputStream* output) const "
+          "    ::google::leap_protobuf::io::CodedOutputStream* output) const "
           "final;\n");
     }
     // DiscardUnknownFields() is implemented in message.cc using reflections. We
@@ -1036,8 +1036,8 @@ GenerateClassDefinition(io::Printer* printer) {
     }
     if (HasFastArraySerialization(descriptor_->file(), options_)) {
       printer->Print(
-        "::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(\n"
-        "    bool deterministic, ::google::protobuf::uint8* target) const final;\n");
+        "::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(\n"
+        "    bool deterministic, ::google::leap_protobuf::uint8* target) const final;\n");
     }
   }
 
@@ -1055,17 +1055,17 @@ GenerateClassDefinition(io::Printer* printer) {
       // protos to give access to this constructor, breaking the invariants
       // we rely on.
       "protected:\n"
-      "explicit $classname$(::google::protobuf::Arena* arena);\n"
+      "explicit $classname$(::google::leap_protobuf::Arena* arena);\n"
       "private:\n"
       "static void ArenaDtor(void* object);\n"
-      "inline void RegisterArenaDtor(::google::protobuf::Arena* arena);\n",
+      "inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);\n",
       "classname", classname_);
   }
 
   if (SupportsArenas(descriptor_)) {
     printer->Print(
       "private:\n"
-      "inline ::google::protobuf::Arena* GetArenaNoVirtual() const {\n"
+      "inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {\n"
       "  return _internal_metadata_.arena();\n"
       "}\n"
       "inline void* MaybeArenaPtr() const {\n"
@@ -1074,7 +1074,7 @@ GenerateClassDefinition(io::Printer* printer) {
   } else {
     printer->Print(
       "private:\n"
-      "inline ::google::protobuf::Arena* GetArenaNoVirtual() const {\n"
+      "inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {\n"
       "  return NULL;\n"
       "}\n"
       "inline void* MaybeArenaPtr() const {\n"
@@ -1088,7 +1088,7 @@ GenerateClassDefinition(io::Printer* printer) {
 
   if (HasDescriptorMethods(descriptor_->file(), options_)) {
     printer->Print(
-      "::google::protobuf::Metadata GetMetadata() const final;\n"
+      "::google::leap_protobuf::Metadata GetMetadata() const final;\n"
       "\n");
   } else {
     printer->Print(
@@ -1189,11 +1189,11 @@ GenerateClassDefinition(io::Printer* printer) {
   bool need_to_emit_cached_size = true;
   // TODO(kenton):  Make _cached_size_ an atomic<int> when C++ supports it.
   const string cached_size_decl =
-      "mutable ::google::protobuf::internal::CachedSize _cached_size_;\n";
+      "mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;\n";
 
   const size_t sizeof_has_bits = HasBitsSize();
   const string has_bits_decl = sizeof_has_bits == 0 ? "" :
-      "::google::protobuf::internal::HasBits<" + SimpleItoa(sizeof_has_bits / 4) +
+      "::google::leap_protobuf::internal::HasBits<" + SimpleItoa(sizeof_has_bits / 4) +
       "> _has_bits_;\n";
 
   // To minimize padding, data members are divided into three sections:
@@ -1206,22 +1206,22 @@ GenerateClassDefinition(io::Printer* printer) {
 
   if (descriptor_->extension_range_count() > 0) {
     printer->Print(
-      "::google::protobuf::internal::ExtensionSet _extensions_;\n"
+      "::google::leap_protobuf::internal::ExtensionSet _extensions_;\n"
       "\n");
   }
 
   if (UseUnknownFieldSet(descriptor_->file(), options_)) {
     printer->Print(
-      "::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;\n");
+      "::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;\n");
   } else {
     printer->Print(
-        "::google::protobuf::internal::InternalMetadataWithArenaLite "
+        "::google::leap_protobuf::internal::InternalMetadataWithArenaLite "
         "_internal_metadata_;\n");
   }
 
   if (SupportsArenas(descriptor_)) {
     printer->Print(
-      "template <typename T> friend class ::google::protobuf::Arena::InternalHelper;\n"
+      "template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;\n"
       "typedef void InternalArenaConstructable_;\n"
       "typedef void DestructorSkippable_;\n");
   }
@@ -1283,18 +1283,18 @@ GenerateClassDefinition(io::Printer* printer) {
   // Generate _oneof_case_.
   if (descriptor_->oneof_decl_count() > 0) {
     printer->Print(vars,
-      "::google::protobuf::uint32 _oneof_case_[$oneof_decl_count$];\n"
+      "::google::leap_protobuf::uint32 _oneof_case_[$oneof_decl_count$];\n"
       "\n");
   }
 
   if (num_weak_fields_) {
     printer->Print(
-        "::google::protobuf::internal::WeakFieldMap _weak_field_map_;\n");
+        "::google::leap_protobuf::internal::WeakFieldMap _weak_field_map_;\n");
   }
   // Generate _any_metadata_ for the Any type.
   if (IsAnyMessage(descriptor_)) {
     printer->Print(vars,
-      "::google::protobuf::internal::AnyMetadata _any_metadata_;\n");
+      "::google::leap_protobuf::internal::AnyMetadata _any_metadata_;\n");
   }
 
   // The TableStruct struct needs access to the private parts, in order to
@@ -1352,7 +1352,7 @@ GenerateExtraDefaultFields(io::Printer* printer) {
       const FieldDescriptor* field = descriptor_->field(i);
       if (field->options().weak()) {
         printer->Print(
-            "  const ::google::protobuf::Message* $name$_;\n", "name", FieldName(field));
+            "  const ::google::leap_protobuf::Message* $name$_;\n", "name", FieldName(field));
       }
     }
   }
@@ -1560,10 +1560,10 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
       }
       printer->Print(vars,
                      "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
-                     "::google::protobuf::internal::MapEntryHelper<$classname$::"
+                     "::google::leap_protobuf::internal::MapEntryHelper<$classname$::"
                      "SuperType>, $field_name$_), $tag$,"
                      "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
-                     "::google::protobuf::internal::MapEntryHelper<$classname$::"
+                     "::google::leap_protobuf::internal::MapEntryHelper<$classname$::"
                      "SuperType>, _has_bits_) * 8 + $hasbit$, $type$, "
                      "$ptr$},\n");
     }
@@ -1589,9 +1589,9 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
       printer->Print(
           "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
           "_extensions_), $start$, $end$, "
-          "::google::protobuf::internal::FieldMetadata::kSpecial, "
+          "::google::leap_protobuf::internal::FieldMetadata::kSpecial, "
           "reinterpret_cast<const "
-          "void*>(::google::protobuf::internal::ExtensionSerializer)},\n",
+          "void*>(::google::leap_protobuf::internal::ExtensionSerializer)},\n",
           "classname", full_classname, "start", SimpleItoa(range->start), "end",
           SimpleItoa(range->end));
     }
@@ -1621,11 +1621,11 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
         printer->Print(vars,
                        "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                        "classname$, $field_name$_), $tag$, $idx$, "
-                       "::google::protobuf::internal::FieldMetadata::kSpecial, "
+                       "::google::leap_protobuf::internal::FieldMetadata::kSpecial, "
                        "reinterpret_cast<const void*>(static_cast< "
-                       "::google::protobuf::internal::SpecialSerializer>("
-                       "::google::protobuf::internal::MapFieldSerializer< "
-                       "::google::protobuf::internal::MapEntryToMapField<"
+                       "::google::leap_protobuf::internal::SpecialSerializer>("
+                       "::google::leap_protobuf::internal::MapFieldSerializer< "
+                       "::google::leap_protobuf::internal::MapEntryToMapField<"
                        "$fieldclassname$>::MapFieldType, "
                        "TableStruct::serialization_table>))},\n");
         continue;
@@ -1646,9 +1646,9 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
       printer->Print(vars,
                      "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                      "classname$, _weak_field_map_), $tag$, $tag$, "
-                     "::google::protobuf::internal::FieldMetadata::kSpecial, "
+                     "::google::leap_protobuf::internal::FieldMetadata::kSpecial, "
                      "reinterpret_cast<const "
-                     "void*>(::google::protobuf::internal::WeakFieldSerializer)},\n");
+                     "void*>(::google::leap_protobuf::internal::WeakFieldSerializer)},\n");
     } else if (field->containing_oneof()) {
       vars["oneofoffset"] =
           SimpleItoa(sizeof(uint32) * field->containing_oneof()->index());
@@ -1677,12 +1677,12 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
   int num_field_metadata = 1 + sorted.size() + sorted_extensions.size();
   num_field_metadata++;
   string serializer = UseUnknownFieldSet(descriptor_->file(), options_)
-                          ? "::google::protobuf::internal::UnknownFieldSetSerializer"
-                          : "::google::protobuf::internal::UnknownFieldSerializerLite";
+                          ? "::google::leap_protobuf::internal::UnknownFieldSetSerializer"
+                          : "::google::leap_protobuf::internal::UnknownFieldSerializerLite";
   printer->Print(
       "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
       "_internal_metadata_), 0, ~0u, "
-      "::google::protobuf::internal::FieldMetadata::kSpecial, reinterpret_cast<const "
+      "::google::leap_protobuf::internal::FieldMetadata::kSpecial, reinterpret_cast<const "
       "void*>($serializer$)},\n",
       "classname", full_classname, "serializer", serializer);
   return num_field_metadata;
@@ -1738,7 +1738,7 @@ GenerateClassMethods(io::Printer* printer) {
   if (IsMapEntryMessage(descriptor_)) {
     printer->Print(
         "$classname$::$classname$() {}\n"
-        "$classname$::$classname$(::google::protobuf::Arena* arena) : "
+        "$classname$::$classname$(::google::leap_protobuf::Arena* arena) : "
         "SuperType(arena) {}\n"
         "void $classname$::MergeFrom(const $classname$& other) {\n"
         "  MergeFromInternal(other);\n"
@@ -1746,13 +1746,13 @@ GenerateClassMethods(io::Printer* printer) {
         "classname", classname_);
     if (HasDescriptorMethods(descriptor_->file(), options_)) {
       printer->Print(
-          "::google::protobuf::Metadata $classname$::GetMetadata() const {\n"
+          "::google::leap_protobuf::Metadata $classname$::GetMetadata() const {\n"
           "  ::$file_namespace$::protobuf_AssignDescriptorsOnce();\n"
           "  return ::$file_namespace$::file_level_metadata[$index$];\n"
           "}\n"
           "void $classname$::MergeFrom(\n"
-          "    const ::google::protobuf::Message& other) {\n"
-          "  ::google::protobuf::Message::MergeFrom(other);\n"
+          "    const ::google::leap_protobuf::Message& other) {\n"
+          "  ::google::leap_protobuf::Message::MergeFrom(other);\n"
           "}\n"
           "\n",
           "file_namespace", FileLevelNamespace(descriptor_),
@@ -1773,21 +1773,21 @@ GenerateClassMethods(io::Printer* printer) {
 
   if (IsAnyMessage(descriptor_)) {
     printer->Print(
-      "void $classname$::PackFrom(const ::google::protobuf::Message& message) {\n"
+      "void $classname$::PackFrom(const ::google::leap_protobuf::Message& message) {\n"
       "  _any_metadata_.PackFrom(message);\n"
       "}\n"
       "\n"
-      "void $classname$::PackFrom(const ::google::protobuf::Message& message,\n"
+      "void $classname$::PackFrom(const ::google::leap_protobuf::Message& message,\n"
       "                           const ::std::string& type_url_prefix) {\n"
       "  _any_metadata_.PackFrom(message, type_url_prefix);\n"
       "}\n"
       "\n"
-      "bool $classname$::UnpackTo(::google::protobuf::Message* message) const {\n"
+      "bool $classname$::UnpackTo(::google::leap_protobuf::Message* message) const {\n"
       "  return _any_metadata_.UnpackTo(message);\n"
       "}\n"
       "bool $classname$::ParseAnyTypeUrl(const string& type_url,\n"
       "                                  string* full_type_name) {\n"
-      "  return ::google::protobuf::internal::ParseAnyTypeUrl(type_url,\n"
+      "  return ::google::leap_protobuf::internal::ParseAnyTypeUrl(type_url,\n"
       "                                             full_type_name);\n"
       "}\n"
       "\n",
@@ -1873,7 +1873,7 @@ GenerateClassMethods(io::Printer* printer) {
   }
   if (HasDescriptorMethods(descriptor_->file(), options_)) {
     printer->Print(
-        "::google::protobuf::Metadata $classname$::GetMetadata() const {\n"
+        "::google::leap_protobuf::Metadata $classname$::GetMetadata() const {\n"
         "  $file_namespace$::protobuf_AssignDescriptorsOnce();\n"
         "  return ::"
         "$file_namespace$::file_level_metadata[kIndexInFileMessages];\n"
@@ -1900,7 +1900,7 @@ size_t MessageGenerator::GenerateParseOffsets(io::Printer* printer) {
 
   // Field "0" is special:  We use it in our switch statement of processing
   // types to handle the successful end tag case.
-  printer->Print("{0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},\n");
+  printer->Print("{0, 0, 0, ::google::leap_protobuf::internal::kInvalidMask, 0, 0},\n");
   int last_field_number = 1;
 
   std::vector<const FieldDescriptor*> ordered_fields =
@@ -1912,8 +1912,8 @@ size_t MessageGenerator::GenerateParseOffsets(io::Printer* printer) {
 
     for (; last_field_number < field->number(); last_field_number++) {
       printer->Print(
-          "{ 0, 0, ::google::protobuf::internal::kInvalidMask,\n"
-          "  ::google::protobuf::internal::kInvalidMask, 0, 0 },\n");
+          "{ 0, 0, ::google::leap_protobuf::internal::kInvalidMask,\n"
+          "  ::google::leap_protobuf::internal::kInvalidMask, 0, 0 },\n");
     }
     last_field_number++;
 
@@ -1981,7 +1981,7 @@ size_t MessageGenerator::GenerateParseOffsets(io::Printer* printer) {
       "{\n"
       "  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
       "    $classname$, $name$_),\n"
-      "  static_cast<::google::protobuf::uint32>($presence$),\n"
+      "  static_cast<::google::leap_protobuf::uint32>($presence$),\n"
       "  $nwtype$, $pwtype$, $ptype$, $tag_size$\n"
       "},\n");
   }
@@ -1997,14 +1997,14 @@ size_t MessageGenerator::GenerateParseAuxTable(io::Printer* printer) {
   std::vector<const FieldDescriptor*> ordered_fields =
       SortFieldsByNumber(descriptor_);
 
-  printer->Print("::google::protobuf::internal::AuxillaryParseTableField(),\n");
+  printer->Print("::google::leap_protobuf::internal::AuxillaryParseTableField(),\n");
   int last_field_number = 1;
   for (int i = 0; i < descriptor_->field_count(); i++) {
     const FieldDescriptor* field = ordered_fields[i];
 
     GOOGLE_CHECK_GE(field->number(), last_field_number);
     for (; last_field_number < field->number(); last_field_number++) {
-      printer->Print("::google::protobuf::internal::AuxillaryParseTableField(),\n");
+      printer->Print("::google::leap_protobuf::internal::AuxillaryParseTableField(),\n");
     }
 
     std::map<string, string> vars;
@@ -2015,7 +2015,7 @@ size_t MessageGenerator::GenerateParseAuxTable(io::Printer* printer) {
         vars["type"] = ClassName(field->enum_type(), true);
         printer->Print(
             vars,
-            "{::google::protobuf::internal::AuxillaryParseTableField::enum_aux{"
+            "{::google::leap_protobuf::internal::AuxillaryParseTableField::enum_aux{"
             "$type$_IsValid}},\n");
         last_field_number++;
         break;
@@ -2023,8 +2023,8 @@ size_t MessageGenerator::GenerateParseAuxTable(io::Printer* printer) {
         if (field->is_map()) {
           vars["classname"] = QualifiedClassName(field->message_type());
           printer->Print(vars,
-                         "{::google::protobuf::internal::AuxillaryParseTableField::map_"
-                         "aux{&::google::protobuf::internal::ParseMap<$classname$>}},\n");
+                         "{::google::leap_protobuf::internal::AuxillaryParseTableField::map_"
+                         "aux{&::google::leap_protobuf::internal::ParseMap<$classname$>}},\n");
           last_field_number++;
           break;
         } else {
@@ -2037,7 +2037,7 @@ size_t MessageGenerator::GenerateParseAuxTable(io::Printer* printer) {
 
         printer->Print(
             vars,
-            "{::google::protobuf::internal::AuxillaryParseTableField::message_aux{\n"
+            "{::google::leap_protobuf::internal::AuxillaryParseTableField::message_aux{\n"
             "  &$ns$::_$classname$_default_instance_}},\n");
         last_field_number++;
         break;
@@ -2047,7 +2047,7 @@ size_t MessageGenerator::GenerateParseAuxTable(io::Printer* printer) {
           case FieldOptions::STRING:
             vars["default"] =
                 field->default_value_string().empty()
-                    ? "&::google::protobuf::internal::fixed_address_empty_string"
+                    ? "&::google::leap_protobuf::internal::fixed_address_empty_string"
                     : "&" + Namespace(field) + " ::" + classname_ +
                           "::" + MakeDefaultName(field);
             break;
@@ -2059,7 +2059,7 @@ size_t MessageGenerator::GenerateParseAuxTable(io::Printer* printer) {
         }
         vars["full_name"] = field->full_name();
         printer->Print(vars,
-            "{::google::protobuf::internal::AuxillaryParseTableField::string_aux{\n"
+            "{::google::leap_protobuf::internal::AuxillaryParseTableField::string_aux{\n"
             "  $default$,\n"
             "  \"$full_name$\"\n"
             "}},\n");
@@ -2272,7 +2272,7 @@ GenerateArenaDestructorCode(io::Printer* printer) {
 
   if (need_registration) {
     printer->Print(
-        "inline void $classname$::RegisterArenaDtor(::google::protobuf::Arena* arena) {\n"
+        "inline void $classname$::RegisterArenaDtor(::google::leap_protobuf::Arena* arena) {\n"
         "  if (arena != NULL) {\n"
         "    arena->OwnCustomDestructor(this, &$classname$::ArenaDtor);\n"
         "  }\n"
@@ -2280,7 +2280,7 @@ GenerateArenaDestructorCode(io::Printer* printer) {
         "classname", classname_);
   } else {
     printer->Print(
-        "void $classname$::RegisterArenaDtor(::google::protobuf::Arena* arena) {\n"
+        "void $classname$::RegisterArenaDtor(::google::leap_protobuf::Arena* arena) {\n"
         "}\n",
         "classname", classname_);
   }
@@ -2397,7 +2397,7 @@ GenerateStructors(io::Printer* printer) {
   printer->Print(
       "$classname$::$classname$()\n"
       "  : $initializer$ {\n"
-      "  ::google::protobuf::internal::InitSCC(\n"
+      "  ::google::leap_protobuf::internal::InitSCC(\n"
       "      &$file_namespace$::scc_info_$scc_name$.base);\n"
       "  SharedCtor();\n"
       "  // @@protoc_insertion_point(constructor:$full_name$)\n"
@@ -2408,10 +2408,10 @@ GenerateStructors(io::Printer* printer) {
 
   if (SupportsArenas(descriptor_)) {
     printer->Print(
-        "$classname$::$classname$(::google::protobuf::Arena* arena)\n"
+        "$classname$::$classname$(::google::leap_protobuf::Arena* arena)\n"
         "  : $initializer$ {\n"
         "  "
-        "::google::protobuf::internal::InitSCC(&$file_namespace$::scc_info_$scc_name$."
+        "::google::leap_protobuf::internal::InitSCC(&$file_namespace$::scc_info_$scc_name$."
         "base);\n"
         "  SharedCtor();\n"
         "  RegisterArenaDtor(arena);\n"
@@ -2560,7 +2560,7 @@ GenerateStructors(io::Printer* printer) {
   if (HasDescriptorMethods(descriptor_->file(), options_) &&
       !descriptor_->options().no_standard_descriptor_accessor()) {
     printer->Print(
-        "const ::google::protobuf::Descriptor* $classname$::descriptor() {\n"
+        "const ::google::leap_protobuf::Descriptor* $classname$::descriptor() {\n"
         "  ::$file_namespace$::protobuf_AssignDescriptorsOnce();\n"
         "  return ::"
         "$file_namespace$::file_level_metadata[kIndexInFileMessages]."
@@ -2574,7 +2574,7 @@ GenerateStructors(io::Printer* printer) {
   printer->Print(
       "const $classname$& $classname$::default_instance() {\n"
       "  "
-      "::google::protobuf::internal::InitSCC(&$file_namespace$::scc_info_$scc_name$.base)"
+      "::google::leap_protobuf::internal::InitSCC(&$file_namespace$::scc_info_$scc_name$.base)"
       ";\n"
       "  return *internal_default_instance();\n"
       "}\n\n",
@@ -2633,7 +2633,7 @@ GenerateClear(io::Printer* printer) {
   printer->Print(
       // TODO(jwb): It would be better to avoid emitting this if it is not used,
       // rather than emitting a workaround for the resulting warning.
-      "::google::protobuf::uint32 cached_has_bits = 0;\n"
+      "::google::leap_protobuf::uint32 cached_has_bits = 0;\n"
       "// Prevent compiler warnings about cached_has_bits being unused\n"
       "(void) cached_has_bits;\n\n");
 
@@ -2981,7 +2981,7 @@ GenerateMergeFrom(io::Printer* printer) {
     // Generate the generalized MergeFrom (aka that which takes in the Message
     // base class as a parameter).
     printer->Print(
-        "void $classname$::MergeFrom(const ::google::protobuf::Message& from) {\n"
+        "void $classname$::MergeFrom(const ::google::leap_protobuf::Message& from) {\n"
         "// @@protoc_insertion_point(generalized_merge_from_start:"
         "$full_name$)\n"
         "  GOOGLE_DCHECK_NE(&from, this);\n",
@@ -2994,12 +2994,12 @@ GenerateMergeFrom(io::Printer* printer) {
     // for each message.
     printer->Print(
       "const $classname$* source =\n"
-      "    ::google::protobuf::internal::DynamicCastToGenerated<const $classname$>(\n"
+      "    ::google::leap_protobuf::internal::DynamicCastToGenerated<const $classname$>(\n"
       "        &from);\n"
       "if (source == NULL) {\n"
       "// @@protoc_insertion_point(generalized_merge_from_cast_fail:"
       "$full_name$)\n"
-      "  ::google::protobuf::internal::ReflectionOps::Merge(from, this);\n"
+      "  ::google::leap_protobuf::internal::ReflectionOps::Merge(from, this);\n"
       "} else {\n"
       "// @@protoc_insertion_point(generalized_merge_from_cast_success:"
       "$full_name$)\n"
@@ -3013,8 +3013,8 @@ GenerateMergeFrom(io::Printer* printer) {
     // Generate CheckTypeAndMergeFrom().
     printer->Print(
       "void $classname$::CheckTypeAndMergeFrom(\n"
-      "    const ::google::protobuf::MessageLite& from) {\n"
-      "  MergeFrom(*::google::protobuf::down_cast<const $classname$*>(&from));\n"
+      "    const ::google::leap_protobuf::MessageLite& from) {\n"
+      "  MergeFrom(*::google::leap_protobuf::down_cast<const $classname$*>(&from));\n"
       "}\n"
       "\n",
       "classname", classname_);
@@ -3035,7 +3035,7 @@ GenerateMergeFrom(io::Printer* printer) {
 
   printer->Print(
     "_internal_metadata_.MergeFrom(from._internal_metadata_);\n"
-    "::google::protobuf::uint32 cached_has_bits = 0;\n"
+    "::google::leap_protobuf::uint32 cached_has_bits = 0;\n"
     "(void) cached_has_bits;\n\n");
 
   // cached_has_bit_index maintains that:
@@ -3228,7 +3228,7 @@ GenerateCopyFrom(io::Printer* printer) {
     // Generate the generalized CopyFrom (aka that which takes in the Message
     // base class as a parameter).
     printer->Print(
-        "void $classname$::CopyFrom(const ::google::protobuf::Message& from) {\n"
+        "void $classname$::CopyFrom(const ::google::leap_protobuf::Message& from) {\n"
         "// @@protoc_insertion_point(generalized_copy_from_start:"
         "$full_name$)\n",
         "classname", classname_, "full_name", descriptor_->full_name());
@@ -3269,7 +3269,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
     vars["classname"] = classname_;
     printer->Print(vars,
       "bool $classname$::MergePartialFromCodedStream(\n"
-      "    ::google::protobuf::io::CodedInputStream* input) {\n"
+      "    ::google::leap_protobuf::io::CodedInputStream* input) {\n"
       "  return _extensions_.ParseMessageSet(input,\n"
       "      internal_default_instance(), $mutable_unknown_fields$);\n"
       "}\n");
@@ -3280,7 +3280,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
 
   printer->Print(
     "bool $classname$::MergePartialFromCodedStream(\n"
-    "    ::google::protobuf::io::CodedInputStream* input) {\n",
+    "    ::google::leap_protobuf::io::CodedInputStream* input) {\n",
     "classname", classname_);
 
   if (table_driven_) {
@@ -3290,7 +3290,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
         "" : "Lite";
 
     printer->Print(
-        "return ::google::protobuf::internal::MergePartialFromCodedStream$lite$(\n"
+        "return ::google::leap_protobuf::internal::MergePartialFromCodedStream$lite$(\n"
         "    this,\n"
         "    ::$file_namespace$::TableStruct::schema[\n"
         "      $classname$::kIndexInFileMessages],\n"
@@ -3310,7 +3310,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
       const FieldGenerator& field_generator = field_generators_.get(field);
       if (field_generator.MergeFromCodedStreamNeedsArena()) {
         printer->Print(
-          "  ::google::protobuf::Arena* arena = GetArenaNoVirtual();\n");
+          "  ::google::leap_protobuf::Arena* arena = GetArenaNoVirtual();\n");
         break;
       }
     }
@@ -3319,15 +3319,15 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
   printer->Print(
       "#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto "
       "failure\n"
-      "  ::google::protobuf::uint32 tag;\n");
+      "  ::google::leap_protobuf::uint32 tag;\n");
 
   if (!UseUnknownFieldSet(descriptor_->file(), options_)) {
     printer->Print(
-        "  ::google::protobuf::internal::LiteUnknownFieldSetter unknown_fields_setter(\n"
+        "  ::google::leap_protobuf::internal::LiteUnknownFieldSetter unknown_fields_setter(\n"
         "      &_internal_metadata_);\n"
-        "  ::google::protobuf::io::StringOutputStream unknown_fields_output(\n"
+        "  ::google::leap_protobuf::io::StringOutputStream unknown_fields_output(\n"
         "      unknown_fields_setter.buffer());\n"
-        "  ::google::protobuf::io::CodedOutputStream unknown_fields_stream(\n"
+        "  ::google::leap_protobuf::io::CodedOutputStream unknown_fields_stream(\n"
         "      &unknown_fields_output, false);\n",
         "classname", classname_);
   }
@@ -3383,7 +3383,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
     }
   }
 
-  printer->Print("::std::pair<::google::protobuf::uint32, bool> p = "
+  printer->Print("::std::pair<::google::leap_protobuf::uint32, bool> p = "
                  "input->ReadTagWithCutoffNoLastTag($max$u);\n"
                  "tag = p.first;\n"
                  "if (!p.second) goto handle_unusual;\n",
@@ -3407,7 +3407,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
     // inserts branches that may fail (especially for real world protos that
     // interleave--in field number order--hot and cold fields).  Loadtests
     // confirmed that removing this optimization is performance neutral.
-    printer->Print("switch (::google::protobuf::internal::WireFormatLite::"
+    printer->Print("switch (::google::leap_protobuf::internal::WireFormatLite::"
                    "GetTagFieldNumber(tag)) {\n");
 
     printer->Indent();
@@ -3425,8 +3425,8 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
 
       // Emit code to parse the common, expected case.
       printer->Print(
-        "if (static_cast< ::google::protobuf::uint8>(tag) ==\n"
-        "    static_cast< ::google::protobuf::uint8>($truncated$u /* $full$ & 0xFF */)) {\n",
+        "if (static_cast< ::google::leap_protobuf::uint8>(tag) ==\n"
+        "    static_cast< ::google::leap_protobuf::uint8>($truncated$u /* $full$ & 0xFF */)) {\n",
         "truncated", SimpleItoa(WireFormat::MakeTag(field) & 0xFF),
         "full", SimpleItoa(WireFormat::MakeTag(field)));
 
@@ -3446,8 +3446,8 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
             field->number(), wiretype);
         printer->Print(
             "} else if (\n"
-            "    static_cast< ::google::protobuf::uint8>(tag) ==\n"
-            "    static_cast< ::google::protobuf::uint8>($truncated$u /* $full$ & 0xFF */)) {\n",
+            "    static_cast< ::google::leap_protobuf::uint8>(tag) ==\n"
+            "    static_cast< ::google::leap_protobuf::uint8>($truncated$u /* $full$ & 0xFF */)) {\n",
             "truncated", SimpleItoa(tag & 0xFF),
             "full", SimpleItoa(tag));
 
@@ -3462,8 +3462,8 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
 
         printer->Print(
             "} else if (\n"
-            "    static_cast< ::google::protobuf::uint8>(tag) ==\n"
-            "    static_cast< ::google::protobuf::uint8>($truncated$u /* $full$ & 0xFF */)) {\n",
+            "    static_cast< ::google::leap_protobuf::uint8>(tag) ==\n"
+            "    static_cast< ::google::leap_protobuf::uint8>($truncated$u /* $full$ & 0xFF */)) {\n",
             "truncated", SimpleItoa(tag & 0xFF),
             "full", SimpleItoa(tag));
         printer->Indent();
@@ -3493,8 +3493,8 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
   if (capture_last_tag) {
     printer->Print(
       "if (tag == 0 ||\n"
-      "    ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==\n"
-      "    ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {\n"
+      "    ::google::leap_protobuf::internal::WireFormatLite::GetTagWireType(tag) ==\n"
+      "    ::google::leap_protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {\n"
       "  input->SetLastTag(tag);\n"
       "  goto success;\n"
       "}\n");
@@ -3550,11 +3550,11 @@ GenerateMergeFromCodedStream(io::Printer* printer) {
   // We really don't recognize this tag.  Skip it.
   if (UseUnknownFieldSet(descriptor_->file(), options_)) {
     printer->Print(vars,
-        "DO_(::google::protobuf::internal::WireFormat::SkipField(\n"
+        "DO_(::google::leap_protobuf::internal::WireFormat::SkipField(\n"
         "      input, tag, $mutable_unknown_fields$));\n");
   } else {
     printer->Print(
-        "DO_(::google::protobuf::internal::WireFormatLite::SkipField(\n"
+        "DO_(::google::leap_protobuf::internal::WireFormatLite::SkipField(\n"
         "    input, tag, &unknown_fields_stream));\n");
   }
 
@@ -3688,14 +3688,14 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) {
     // Special-case MessageSet.
     printer->Print(
       "void $classname$::SerializeWithCachedSizes(\n"
-      "    ::google::protobuf::io::CodedOutputStream* output) const {\n"
+      "    ::google::leap_protobuf::io::CodedOutputStream* output) const {\n"
       "  _extensions_.SerializeMessageSetWithCachedSizes(output);\n",
       "classname", classname_);
     GOOGLE_CHECK(UseUnknownFieldSet(descriptor_->file(), options_));
     std::map<string, string> vars;
     SetUnknkownFieldsVariable(descriptor_, options_, &vars);
     printer->Print(vars,
-      "  ::google::protobuf::internal::WireFormat::SerializeUnknownMessageSetItems(\n"
+      "  ::google::leap_protobuf::internal::WireFormat::SerializeUnknownMessageSetItems(\n"
       "      $unknown_fields$, output);\n");
     printer->Print(
       "}\n");
@@ -3705,7 +3705,7 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) {
 
   printer->Print(
     "void $classname$::SerializeWithCachedSizes(\n"
-    "    ::google::protobuf::io::CodedOutputStream* output) const {\n",
+    "    ::google::leap_protobuf::io::CodedOutputStream* output) const {\n",
     "classname", classname_);
   printer->Indent();
 
@@ -3729,8 +3729,8 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) {
   if (descriptor_->options().message_set_wire_format()) {
     // Special-case MessageSet.
     printer->Print(
-      "::google::protobuf::uint8* $classname$::InternalSerializeWithCachedSizesToArray(\n"
-      "    bool deterministic, ::google::protobuf::uint8* target) const {\n"
+      "::google::leap_protobuf::uint8* $classname$::InternalSerializeWithCachedSizesToArray(\n"
+      "    bool deterministic, ::google::leap_protobuf::uint8* target) const {\n"
       "  target = _extensions_."
       "InternalSerializeMessageSetWithCachedSizesToArray(\n"
       "               deterministic, target);\n",
@@ -3739,7 +3739,7 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) {
     std::map<string, string> vars;
     SetUnknkownFieldsVariable(descriptor_, options_, &vars);
     printer->Print(vars,
-      "  target = ::google::protobuf::internal::WireFormat::\n"
+      "  target = ::google::leap_protobuf::internal::WireFormat::\n"
       "             SerializeUnknownMessageSetItemsToArray(\n"
       "               $unknown_fields$, target);\n");
     printer->Print(
@@ -3749,8 +3749,8 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) {
   }
 
   printer->Print(
-    "::google::protobuf::uint8* $classname$::InternalSerializeWithCachedSizesToArray(\n"
-    "    bool deterministic, ::google::protobuf::uint8* target) const {\n",
+    "::google::leap_protobuf::uint8* $classname$::InternalSerializeWithCachedSizesToArray(\n"
+    "    bool deterministic, ::google::leap_protobuf::uint8* target) const {\n",
     "classname", classname_);
   printer->Indent();
 
@@ -3861,12 +3861,12 @@ GenerateSerializeWithCachedSizesBody(io::Printer* printer, bool to_array) {
             ExtensionRangeSorter());
   if (num_weak_fields_) {
     printer->Print(
-        "::google::protobuf::internal::WeakFieldMap::FieldWriter field_writer("
+        "::google::leap_protobuf::internal::WeakFieldMap::FieldWriter field_writer("
         "_weak_field_map_);\n");
   }
 
   printer->Print(
-      "::google::protobuf::uint32 cached_has_bits = 0;\n"
+      "::google::leap_protobuf::uint32 cached_has_bits = 0;\n"
       "(void) cached_has_bits;\n\n");
 
   // Merge the fields and the extension ranges, both sorted by field number.
@@ -3915,11 +3915,11 @@ GenerateSerializeWithCachedSizesBody(io::Printer* printer, bool to_array) {
     if (to_array) {
       printer->Print(vars,
         "target = "
-        "::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(\n"
+        "::google::leap_protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(\n"
         "    $unknown_fields$, target);\n");
     } else {
       printer->Print(vars,
-        "::google::protobuf::internal::WireFormat::SerializeUnknownFields(\n"
+        "::google::leap_protobuf::internal::WireFormat::SerializeUnknownFields(\n"
         "    $unknown_fields$, output);\n");
     }
     printer->Outdent();
@@ -3984,10 +3984,10 @@ GenerateByteSize(io::Printer* printer) {
         "// @@protoc_insertion_point(message_set_byte_size_start:$full_name$)\n"
         "  size_t total_size = _extensions_.MessageSetByteSize();\n"
         "  if ($have_unknown_fields$) {\n"
-        "    total_size += ::google::protobuf::internal::WireFormat::\n"
+        "    total_size += ::google::leap_protobuf::internal::WireFormat::\n"
         "        ComputeUnknownMessageSetItemsSize($unknown_fields$);\n"
         "  }\n"
-        "  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);\n"
+        "  int cached_size = ::google::leap_protobuf::internal::ToCachedSize(total_size);\n"
         "  SetCachedSize(cached_size);\n"
         "  return total_size;\n"
         "}\n");
@@ -4044,7 +4044,7 @@ GenerateByteSize(io::Printer* printer) {
     printer->Print(vars,
       "if ($have_unknown_fields$) {\n"
       "  total_size +=\n"
-      "    ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(\n"
+      "    ::google::leap_protobuf::internal::WireFormat::ComputeUnknownFieldsSize(\n"
       "      $unknown_fields$);\n"
       "}\n");
   } else {
@@ -4231,7 +4231,7 @@ GenerateByteSize(io::Printer* printer) {
   // memory order might have perf impact to replace it with ordinary loads and
   // stores.
   printer->Print(
-      "int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);\n"
+      "int cached_size = ::google::leap_protobuf::internal::ToCachedSize(total_size);\n"
       "SetCachedSize(cached_size);\n"
       "return total_size;\n");
 
@@ -4284,12 +4284,12 @@ GenerateIsInitialized(io::Printer* printer) {
       if (field->is_repeated()) {
         if (IsImplicitWeakField(field, options_, scc_analyzer_)) {
           printer->Print(
-            "if (!::google::protobuf::internal::AllAreInitializedWeak(this->$name$_))"
+            "if (!::google::leap_protobuf::internal::AllAreInitializedWeak(this->$name$_))"
             " return false;\n",
             "name", FieldName(field));
         } else {
           printer->Print(
-            "if (!::google::protobuf::internal::AllAreInitialized(this->$name$()))"
+            "if (!::google::leap_protobuf::internal::AllAreInitialized(this->$name$()))"
             " return false;\n",
             "name", FieldName(field));
         }

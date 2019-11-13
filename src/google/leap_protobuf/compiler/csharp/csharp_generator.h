@@ -47,7 +47,7 @@ namespace csharp {
 // it to support C# output, you can do so by registering an instance of this
 // CodeGenerator with the CommandLineInterface in your main() function.
 class LIBPROTOC_EXPORT Generator
-    : public google::protobuf::compiler::CodeGenerator {
+    : public google::leap_protobuf::compiler::CodeGenerator {
 public:
   virtual bool Generate(
       const FileDescriptor* file,

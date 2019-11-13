@@ -153,7 +153,7 @@ inline bool InlineParsePartialFromArray(
 }  // namespace
 
 
-MessageLite* MessageLite::New(::google::protobuf::Arena* arena) const {
+MessageLite* MessageLite::New(::google::leap_protobuf::Arena* arena) const {
   MessageLite* message = New();
   if (arena != NULL) {
     arena->Own(message);
@@ -380,7 +380,7 @@ uint8* MessageLite::InternalSerializeWithCachedSizesToArray(
 namespace internal {
 template<>
 MessageLite* GenericTypeHandler<MessageLite>::NewFromPrototype(
-    const MessageLite* prototype, google::protobuf::Arena* arena) {
+    const MessageLite* prototype, google::leap_protobuf::Arena* arena) {
   return prototype->New(arena);
 }
 template <>

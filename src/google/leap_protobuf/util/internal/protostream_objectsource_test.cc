@@ -57,31 +57,31 @@ namespace leap_protobuf {
 namespace util {
 namespace converter {
 
-using google::protobuf::Descriptor;
-using google::protobuf::DescriptorPool;
-using google::protobuf::FileDescriptorProto;
-using google::protobuf::Message;
-using google::protobuf::io::ArrayInputStream;
-using google::protobuf::io::CodedInputStream;
+using google::leap_protobuf::Descriptor;
+using google::leap_protobuf::DescriptorPool;
+using google::leap_protobuf::FileDescriptorProto;
+using google::leap_protobuf::Message;
+using google::leap_protobuf::io::ArrayInputStream;
+using google::leap_protobuf::io::CodedInputStream;
 using util::Status;
-using google::protobuf::testing::AnyM;
-using google::protobuf::testing::AnyOut;
-using google::protobuf::testing::Author;
-using google::protobuf::testing::BadAuthor;
-using google::protobuf::testing::BadNestedBook;
-using google::protobuf::testing::Book;
-using google::protobuf::testing::Book_Label;
-using google::protobuf::testing::Cyclic;
-using google::protobuf::testing::FieldMaskTest;
-using google::protobuf::testing::MapOut;
-using google::protobuf::testing::MapOutWireFormat;
-using google::protobuf::testing::NestedBook;
-using google::protobuf::testing::NestedFieldMask;
-using google::protobuf::testing::PackedPrimitive;
-using google::protobuf::testing::Primitive;
-using google::protobuf::testing::Proto3Message;
-using google::protobuf::testing::StructType;
-using google::protobuf::testing::TimestampDuration;
+using google::leap_protobuf::testing::AnyM;
+using google::leap_protobuf::testing::AnyOut;
+using google::leap_protobuf::testing::Author;
+using google::leap_protobuf::testing::BadAuthor;
+using google::leap_protobuf::testing::BadNestedBook;
+using google::leap_protobuf::testing::Book;
+using google::leap_protobuf::testing::Book_Label;
+using google::leap_protobuf::testing::Cyclic;
+using google::leap_protobuf::testing::FieldMaskTest;
+using google::leap_protobuf::testing::MapOut;
+using google::leap_protobuf::testing::MapOutWireFormat;
+using google::leap_protobuf::testing::NestedBook;
+using google::leap_protobuf::testing::NestedFieldMask;
+using google::leap_protobuf::testing::PackedPrimitive;
+using google::leap_protobuf::testing::Primitive;
+using google::leap_protobuf::testing::Proto3Message;
+using google::leap_protobuf::testing::StructType;
+using google::leap_protobuf::testing::TimestampDuration;
 using ::testing::_;
 
 
@@ -732,7 +732,7 @@ class ProtostreamObjectSourceAnysTest : public ProtostreamObjectSourceTest {
  protected:
   ProtostreamObjectSourceAnysTest() {
     helper_.ResetTypeInfo(AnyOut::descriptor(),
-                          google::protobuf::Any::descriptor());
+                          google::leap_protobuf::Any::descriptor());
   }
 };
 
@@ -752,7 +752,7 @@ INSTANTIATE_TEST_CASE_P(DifferentTypeInfoSourceTest,
 // }
 TEST_P(ProtostreamObjectSourceAnysTest, BasicAny) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::leap_protobuf::Any* any = out.mutable_any();
 
   AnyM m;
   m.set_foo("foovalue");
@@ -771,10 +771,10 @@ TEST_P(ProtostreamObjectSourceAnysTest, BasicAny) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, RecursiveAny) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::leap_protobuf::Any* any = out.mutable_any();
   any->set_type_url("type.googleapis.com/google.protobuf.Any");
 
-  ::google::protobuf::Any nested_any;
+  ::google::leap_protobuf::Any nested_any;
   nested_any.set_type_url("type.googleapis.com/google.protobuf.testing.AnyM");
 
   AnyM m;
@@ -799,13 +799,13 @@ TEST_P(ProtostreamObjectSourceAnysTest, RecursiveAny) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, DoubleRecursiveAny) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::leap_protobuf::Any* any = out.mutable_any();
   any->set_type_url("type.googleapis.com/google.protobuf.Any");
 
-  ::google::protobuf::Any nested_any;
+  ::google::leap_protobuf::Any nested_any;
   nested_any.set_type_url("type.googleapis.com/google.protobuf.Any");
 
-  ::google::protobuf::Any second_nested_any;
+  ::google::leap_protobuf::Any second_nested_any;
   second_nested_any.set_type_url(
       "type.googleapis.com/google.protobuf.testing.AnyM");
 
@@ -856,7 +856,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, EmptyWithTypeAndNoValueOutputsType) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, MissingTypeUrlError) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::leap_protobuf::Any* any = out.mutable_any();
 
   AnyM m;
   m.set_foo("foovalue");
@@ -871,7 +871,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, MissingTypeUrlError) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, UnknownTypeServiceError) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::leap_protobuf::Any* any = out.mutable_any();
   any->set_type_url("foo.googleapis.com/my.own.Type");
 
   AnyM m;
@@ -887,7 +887,7 @@ TEST_P(ProtostreamObjectSourceAnysTest, UnknownTypeServiceError) {
 
 TEST_P(ProtostreamObjectSourceAnysTest, UnknownTypeError) {
   AnyOut out;
-  ::google::protobuf::Any* any = out.mutable_any();
+  ::google::leap_protobuf::Any* any = out.mutable_any();
   any->set_type_url("type.googleapis.com/unknown.Type");
 
   AnyM m;
@@ -905,7 +905,7 @@ class ProtostreamObjectSourceStructTest : public ProtostreamObjectSourceTest {
  protected:
   ProtostreamObjectSourceStructTest() {
     helper_.ResetTypeInfo(StructType::descriptor(),
-                          google::protobuf::Struct::descriptor());
+                          google::leap_protobuf::Struct::descriptor());
   }
 };
 
@@ -922,7 +922,7 @@ INSTANTIATE_TEST_CASE_P(DifferentTypeInfoSourceTest,
 //  }
 TEST_P(ProtostreamObjectSourceStructTest, StructRenderSuccess) {
   StructType out;
-  google::protobuf::Struct* s = out.mutable_object();
+  google::leap_protobuf::Struct* s = out.mutable_object();
   s->mutable_fields()->operator[]("k1").set_number_value(123);
   s->mutable_fields()->operator[]("k2").set_bool_value(true);
 
@@ -938,7 +938,7 @@ TEST_P(ProtostreamObjectSourceStructTest, StructRenderSuccess) {
 
 TEST_P(ProtostreamObjectSourceStructTest, MissingValueSkipsField) {
   StructType out;
-  google::protobuf::Struct* s = out.mutable_object();
+  google::leap_protobuf::Struct* s = out.mutable_object();
   s->mutable_fields()->operator[]("k1");
 
   ow_.StartObject("")->StartObject("object")->EndObject()->EndObject();
@@ -951,7 +951,7 @@ class ProtostreamObjectSourceFieldMaskTest
  protected:
   ProtostreamObjectSourceFieldMaskTest() {
     helper_.ResetTypeInfo(FieldMaskTest::descriptor(),
-                          google::protobuf::FieldMask::descriptor());
+                          google::leap_protobuf::FieldMask::descriptor());
   }
 };
 
@@ -965,7 +965,7 @@ TEST_P(ProtostreamObjectSourceFieldMaskTest, FieldMaskRenderSuccess) {
   out.set_id("1");
   out.mutable_single_mask()->add_paths("path1");
   out.mutable_single_mask()->add_paths("snake_case_path2");
-  ::google::protobuf::FieldMask* mask = out.add_repeated_mask();
+  ::google::leap_protobuf::FieldMask* mask = out.add_repeated_mask();
   mask->add_paths("path3");
   mask = out.add_repeated_mask();
   mask->add_paths("snake_case_path4");
@@ -1025,7 +1025,7 @@ INSTANTIATE_TEST_CASE_P(DifferentTypeInfoSourceTest,
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampBelowMinTest) {
   TimestampDuration out;
-  google::protobuf::Timestamp* ts = out.mutable_ts();
+  google::leap_protobuf::Timestamp* ts = out.mutable_ts();
   // Min allowed seconds - 1
   ts->set_seconds(kTimestampMinSeconds - 1);
   ow_.StartObject("");
@@ -1036,7 +1036,7 @@ TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampBelowMinTest) {
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampAboveMaxTest) {
   TimestampDuration out;
-  google::protobuf::Timestamp* ts = out.mutable_ts();
+  google::leap_protobuf::Timestamp* ts = out.mutable_ts();
   // Max allowed seconds + 1
   ts->set_seconds(kTimestampMaxSeconds + 1);
   ow_.StartObject("");
@@ -1047,7 +1047,7 @@ TEST_P(ProtostreamObjectSourceTimestampTest, InvalidTimestampAboveMaxTest) {
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidDurationBelowMinTest) {
   TimestampDuration out;
-  google::protobuf::Duration* dur = out.mutable_dur();
+  google::leap_protobuf::Duration* dur = out.mutable_dur();
   // Min allowed seconds - 1
   dur->set_seconds(kDurationMinSeconds - 1);
   ow_.StartObject("");
@@ -1058,7 +1058,7 @@ TEST_P(ProtostreamObjectSourceTimestampTest, InvalidDurationBelowMinTest) {
 
 TEST_P(ProtostreamObjectSourceTimestampTest, InvalidDurationAboveMaxTest) {
   TimestampDuration out;
-  google::protobuf::Duration* dur = out.mutable_dur();
+  google::leap_protobuf::Duration* dur = out.mutable_dur();
   // Min allowed seconds + 1
   dur->set_seconds(kDurationMaxSeconds + 1);
   ow_.StartObject("");

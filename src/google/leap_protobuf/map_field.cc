@@ -43,14 +43,14 @@ MapFieldBase::~MapFieldBase() {
 
 const RepeatedPtrFieldBase& MapFieldBase::GetRepeatedField() const {
   SyncRepeatedFieldWithMap();
-  return *reinterpret_cast<::google::protobuf::internal::RepeatedPtrFieldBase*>(
+  return *reinterpret_cast<::google::leap_protobuf::internal::RepeatedPtrFieldBase*>(
       repeated_field_);
 }
 
 RepeatedPtrFieldBase* MapFieldBase::MutableRepeatedField() {
   SyncRepeatedFieldWithMap();
   SetRepeatedDirty();
-  return reinterpret_cast<::google::protobuf::internal::RepeatedPtrFieldBase*>(
+  return reinterpret_cast<::google::leap_protobuf::internal::RepeatedPtrFieldBase*>(
       repeated_field_);
 }
 
@@ -180,7 +180,7 @@ bool DynamicMapField::InsertOrLookupMapValue(
     // default value.
     switch (val_des->cpp_type()) {
 #define HANDLE_TYPE(CPPTYPE, TYPE)                              \
-      case google::protobuf::FieldDescriptor::CPPTYPE_##CPPTYPE: {        \
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_##CPPTYPE: {        \
         TYPE * value = new TYPE();                              \
         map_val.SetValue(value);                                \
         break;                                                  \
@@ -195,7 +195,7 @@ bool DynamicMapField::InsertOrLookupMapValue(
       HANDLE_TYPE(STRING, string);
       HANDLE_TYPE(ENUM, int32);
 #undef HANDLE_TYPE
-      case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
         const Message& message = default_entry_->GetReflection()->GetMessage(
             *default_entry_, val_des);
         Message* value = message.New();
@@ -269,61 +269,61 @@ void DynamicMapField::SyncRepeatedFieldWithMapNoLock() const {
     MapFieldBase::repeated_field_->AddAllocated(new_entry);
     const MapKey& map_key = it->first;
     switch (key_des->cpp_type()) {
-      case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_STRING:
         reflection->SetString(new_entry, key_des, map_key.GetStringValue());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_INT64:
         reflection->SetInt64(new_entry, key_des, map_key.GetInt64Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_INT32:
         reflection->SetInt32(new_entry, key_des, map_key.GetInt32Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_UINT64:
         reflection->SetUInt64(new_entry, key_des, map_key.GetUInt64Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_UINT32:
         reflection->SetUInt32(new_entry, key_des, map_key.GetUInt32Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_BOOL:
         reflection->SetBool(new_entry, key_des, map_key.GetBoolValue());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
-      case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
-      case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
-      case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_ENUM:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
         GOOGLE_LOG(FATAL) << "Can't get here.";
         break;
     }
     const MapValueRef& map_val = it->second;
     switch (val_des->cpp_type()) {
-      case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_STRING:
         reflection->SetString(new_entry, val_des, map_val.GetStringValue());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_INT64:
         reflection->SetInt64(new_entry, val_des, map_val.GetInt64Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_INT32:
         reflection->SetInt32(new_entry, val_des, map_val.GetInt32Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_UINT64:
         reflection->SetUInt64(new_entry, val_des, map_val.GetUInt64Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_UINT32:
         reflection->SetUInt32(new_entry, val_des, map_val.GetUInt32Value());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_BOOL:
         reflection->SetBool(new_entry, val_des, map_val.GetBoolValue());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
         reflection->SetDouble(new_entry, val_des, map_val.GetDoubleValue());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_FLOAT:
         reflection->SetFloat(new_entry, val_des, map_val.GetFloatValue());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_ENUM:
         reflection->SetEnumValue(new_entry, val_des, map_val.GetEnumValue());
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
         const Message& message = map_val.GetMessageValue();
         reflection->MutableMessage(new_entry, val_des)->CopyFrom(message);
         break;
@@ -351,28 +351,28 @@ void DynamicMapField::SyncMapWithRepeatedFieldNoLock() const {
        it != MapFieldBase::repeated_field_->end(); ++it) {
     MapKey map_key;
     switch (key_des->cpp_type()) {
-      case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_STRING:
         map_key.SetStringValue(reflection->GetString(*it, key_des));
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_INT64:
         map_key.SetInt64Value(reflection->GetInt64(*it, key_des));
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_INT32:
         map_key.SetInt32Value(reflection->GetInt32(*it, key_des));
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_UINT64:
         map_key.SetUInt64Value(reflection->GetUInt64(*it, key_des));
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_UINT32:
         map_key.SetUInt32Value(reflection->GetUInt32(*it, key_des));
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_BOOL:
         map_key.SetBoolValue(reflection->GetBool(*it, key_des));
         break;
-      case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
-      case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
-      case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
-      case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_ENUM:
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
         GOOGLE_LOG(FATAL) << "Can't get here.";
         break;
     }
@@ -387,7 +387,7 @@ void DynamicMapField::SyncMapWithRepeatedFieldNoLock() const {
     map_val.SetType(val_des->cpp_type());
     switch (val_des->cpp_type()) {
 #define HANDLE_TYPE(CPPTYPE, TYPE, METHOD)                      \
-      case google::protobuf::FieldDescriptor::CPPTYPE_##CPPTYPE: {        \
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_##CPPTYPE: {        \
         TYPE * value = new TYPE;                                \
         *value = reflection->Get##METHOD(*it, val_des);         \
             map_val.SetValue(value);                            \
@@ -403,7 +403,7 @@ void DynamicMapField::SyncMapWithRepeatedFieldNoLock() const {
       HANDLE_TYPE(STRING, string, String);
       HANDLE_TYPE(ENUM, int32, EnumValue);
 #undef HANDLE_TYPE
-      case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
         const Message& message = reflection->GetMessage(*it, val_des);
         Message* value = message.New();
         value->CopyFrom(message);
@@ -426,13 +426,13 @@ size_t DynamicMapField::SpaceUsedExcludingSelfNoLock() const {
     size += sizeof(it->first) * map_size;
     size += sizeof(it->second) * map_size;
     // If key is string, add the allocated space.
-    if (it->first.type() == google::protobuf::FieldDescriptor::CPPTYPE_STRING) {
+    if (it->first.type() == google::leap_protobuf::FieldDescriptor::CPPTYPE_STRING) {
       size += sizeof(string) * map_size;
     }
     // Add the allocated space in MapValueRef.
     switch (it->second.type()) {
 #define HANDLE_TYPE(CPPTYPE, TYPE)                              \
-      case google::protobuf::FieldDescriptor::CPPTYPE_##CPPTYPE: {        \
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_##CPPTYPE: {        \
         size += sizeof(TYPE) * map_size;                        \
         break;                                                  \
       }
@@ -446,7 +446,7 @@ size_t DynamicMapField::SpaceUsedExcludingSelfNoLock() const {
       HANDLE_TYPE(STRING, string);
       HANDLE_TYPE(ENUM, int32);
 #undef HANDLE_TYPE
-      case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
+      case google::leap_protobuf::FieldDescriptor::CPPTYPE_MESSAGE: {
         while (it != map_.end()) {
           const Message& message = it->second.GetMessageValue();
           size += message.GetReflection()->SpaceUsedLong(message);

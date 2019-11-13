@@ -57,7 +57,7 @@ void SetStringVariables(const FieldDescriptor* descriptor,
   (*variables)["default_variable_name"] = default_variable_string;
   (*variables)["default_variable"] =
       descriptor->default_value_string().empty()
-          ? "&::google::protobuf::internal::GetEmptyStringAlreadyInited()"
+          ? "&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited()"
           : "&" + Namespace(descriptor) + "::" + (*variables)["classname"] +
                 "::" + default_variable_string + ".get()";
   (*variables)["pointer_type"] =
@@ -109,7 +109,7 @@ void StringFieldGenerator::
 GeneratePrivateMembers(io::Printer* printer) const {
   if (inlined_) {
     printer->Print(variables_,
-                   "::google::protobuf::internal::InlinedStringField $name$_;\n");
+                   "::google::leap_protobuf::internal::InlinedStringField $name$_;\n");
   } else {
     // N.B. that we continue to use |ArenaStringPtr| instead of |string*| for
     // string fields, even when SupportArenas(descriptor_) == false. Why?  The
@@ -123,7 +123,7 @@ GeneratePrivateMembers(io::Printer* printer) const {
     // conditionals. It's simpler to stick with this but use lightweight
     // accessors that assume arena == NULL.  There should be very little
     // overhead anyway because it's just a tagged pointer in-memory.
-    printer->Print(variables_, "::google::protobuf::internal::ArenaStringPtr $name$_;\n");
+    printer->Print(variables_, "::google::leap_protobuf::internal::ArenaStringPtr $name$_;\n");
   }
 }
 
@@ -134,7 +134,7 @@ GenerateStaticMembers(io::Printer* printer) const {
     // non-friend code.
     printer->Print(variables_,
                    "public:\n"
-                   "static ::google::protobuf::internal::ExplicitlyConstructed< ::std::string>"
+                   "static ::google::leap_protobuf::internal::ExplicitlyConstructed< ::std::string>"
                    " $default_variable_name$;\n"
                    "private:\n");
   }
@@ -395,7 +395,7 @@ GenerateNonInlineAccessorDefinitions(io::Printer* printer) const {
   if (!descriptor_->default_value_string().empty()) {
     // Initialized in GenerateDefaultInstanceAllocator.
     printer->Print(variables_,
-                   "::google::protobuf::internal::ExplicitlyConstructed<::std::string> "
+                   "::google::leap_protobuf::internal::ExplicitlyConstructed<::std::string> "
                    "$classname$::$default_variable_name$;\n");
   }
 }
@@ -583,7 +583,7 @@ GenerateDefaultInstanceAllocator(io::Printer* printer) const {
         "$ns$::$classname$::$default_variable_name$.DefaultConstruct();\n"
         "*$ns$::$classname$::$default_variable_name$.get_mutable() = "
         "::std::string($default$, $default_length$);\n"
-        "::google::protobuf::internal::OnShutdownDestroyString(\n"
+        "::google::leap_protobuf::internal::OnShutdownDestroyString(\n"
         "    $ns$::$classname$::$default_variable_name$.get_mutable());\n"
     );
   }
@@ -592,7 +592,7 @@ GenerateDefaultInstanceAllocator(io::Printer* printer) const {
 void StringFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
   printer->Print(variables_,
-    "DO_(::google::protobuf::internal::WireFormatLite::Read$declared_type$(\n"
+    "DO_(::google::leap_protobuf::internal::WireFormatLite::Read$declared_type$(\n"
     "      input, this->mutable_$name$()));\n");
 
   if (descriptor_->type() == FieldDescriptor::TYPE_STRING) {
@@ -617,7 +617,7 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) const {
         printer);
   }
   printer->Print(variables_,
-    "::google::protobuf::internal::WireFormatLite::Write$declared_type$MaybeAliased(\n"
+    "::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$MaybeAliased(\n"
     "  $number$, this->$name$(), output);\n");
 }
 
@@ -631,7 +631,7 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
   }
   printer->Print(variables_,
     "target =\n"
-    "  ::google::protobuf::internal::WireFormatLite::Write$declared_type$ToArray(\n"
+    "  ::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$ToArray(\n"
     "    $number$, this->$name$(), target);\n");
 }
 
@@ -639,7 +639,7 @@ void StringFieldGenerator::
 GenerateByteSize(io::Printer* printer) const {
   printer->Print(variables_,
     "total_size += $tag_size$ +\n"
-    "  ::google::protobuf::internal::WireFormatLite::$declared_type$Size(\n"
+    "  ::google::leap_protobuf::internal::WireFormatLite::$declared_type$Size(\n"
     "    this->$name$());\n");
 }
 
@@ -907,7 +907,7 @@ GenerateDestructorCode(io::Printer* printer) const {
 void StringOneofFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
     printer->Print(variables_,
-      "DO_(::google::protobuf::internal::WireFormatLite::Read$declared_type$(\n"
+      "DO_(::google::leap_protobuf::internal::WireFormatLite::Read$declared_type$(\n"
       "      input, this->mutable_$name$()));\n");
 
   if (descriptor_->type() == FieldDescriptor::TYPE_STRING) {
@@ -932,7 +932,7 @@ RepeatedStringFieldGenerator::~RepeatedStringFieldGenerator() {}
 void RepeatedStringFieldGenerator::
 GeneratePrivateMembers(io::Printer* printer) const {
   printer->Print(variables_,
-    "::google::protobuf::RepeatedPtrField< ::std::string> $name$_;\n");
+    "::google::leap_protobuf::RepeatedPtrField< ::std::string> $name$_;\n");
 }
 
 void RepeatedStringFieldGenerator::
@@ -998,11 +998,11 @@ GenerateAccessorDeclarations(io::Printer* printer) const {
   printer->Annotate("{", "}", descriptor_);
   printer->Print(
       variables_,
-      "$deprecated_attr$const ::google::protobuf::RepeatedPtrField< ::std::string>& $name$() "
+      "$deprecated_attr$const ::google::leap_protobuf::RepeatedPtrField< ::std::string>& $name$() "
       "const;\n");
   printer->Annotate("name", descriptor_);
   printer->Print(variables_,
-                 "$deprecated_attr$::google::protobuf::RepeatedPtrField< ::std::string>* "
+                 "$deprecated_attr$::google::leap_protobuf::RepeatedPtrField< ::std::string>* "
                  "${$mutable_$name$$}$()"
                  ";\n");
   printer->Annotate("{", "}", descriptor_);
@@ -1021,7 +1021,7 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
       "inline const ::std::string& $classname$::$name$(int index) const {\n"
       "  // @@protoc_insertion_point(field_get:$full_name$)\n"
       "  return $name$_.InternalCheckedGet(\n"
-      "      index, ::google::protobuf::internal::GetEmptyStringAlreadyInited());\n"
+      "      index, ::google::leap_protobuf::internal::GetEmptyStringAlreadyInited());\n"
       "}\n");
   } else {
     printer->Print(variables_,
@@ -1081,12 +1081,12 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
     "  $name$_.Add()->assign(reinterpret_cast<const char*>(value), size);\n"
     "  // @@protoc_insertion_point(field_add_pointer:$full_name$)\n"
     "}\n"
-    "inline const ::google::protobuf::RepeatedPtrField< ::std::string>&\n"
+    "inline const ::google::leap_protobuf::RepeatedPtrField< ::std::string>&\n"
     "$classname$::$name$() const {\n"
     "  // @@protoc_insertion_point(field_list:$full_name$)\n"
     "  return $name$_;\n"
     "}\n"
-    "inline ::google::protobuf::RepeatedPtrField< ::std::string>*\n"
+    "inline ::google::leap_protobuf::RepeatedPtrField< ::std::string>*\n"
     "$classname$::mutable_$name$() {\n"
     "  // @@protoc_insertion_point(field_mutable_list:$full_name$)\n"
     "  return &$name$_;\n"
@@ -1122,7 +1122,7 @@ GenerateCopyConstructorCode(io::Printer* printer) const {
 void RepeatedStringFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
   printer->Print(variables_,
-    "DO_(::google::protobuf::internal::WireFormatLite::Read$declared_type$(\n"
+    "DO_(::google::leap_protobuf::internal::WireFormatLite::Read$declared_type$(\n"
     "      input, this->add_$name$()));\n");
   if (descriptor_->type() == FieldDescriptor::TYPE_STRING) {
     GenerateUtf8CheckCodeForString(
@@ -1146,7 +1146,7 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) const {
   }
   printer->Outdent();
   printer->Print(variables_,
-    "  ::google::protobuf::internal::WireFormatLite::Write$declared_type$(\n"
+    "  ::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$(\n"
     "    $number$, this->$name$(i), output);\n"
     "}\n");
 }
@@ -1164,7 +1164,7 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
   }
   printer->Outdent();
   printer->Print(variables_,
-    "  target = ::google::protobuf::internal::WireFormatLite::\n"
+    "  target = ::google::leap_protobuf::internal::WireFormatLite::\n"
     "    Write$declared_type$ToArray($number$, this->$name$(i), target);\n"
     "}\n");
 }
@@ -1173,9 +1173,9 @@ void RepeatedStringFieldGenerator::
 GenerateByteSize(io::Printer* printer) const {
   printer->Print(variables_,
     "total_size += $tag_size$ *\n"
-    "    ::google::protobuf::internal::FromIntSize(this->$name$_size());\n"
+    "    ::google::leap_protobuf::internal::FromIntSize(this->$name$_size());\n"
     "for (int i = 0, n = this->$name$_size(); i < n; i++) {\n"
-    "  total_size += ::google::protobuf::internal::WireFormatLite::$declared_type$Size(\n"
+    "  total_size += ::google::leap_protobuf::internal::WireFormatLite::$declared_type$Size(\n"
     "    this->$name$(i));\n"
     "}\n");
 }

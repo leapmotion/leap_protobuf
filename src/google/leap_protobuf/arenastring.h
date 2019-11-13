@@ -65,7 +65,7 @@ class TaggedPtr {
 
 struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   inline void Set(const ::std::string* default_value,
-                  const ::std::string& value, ::google::protobuf::Arena* arena) {
+                  const ::std::string& value, ::google::leap_protobuf::Arena* arena) {
     if (ptr_ == default_value) {
       CreateInstance(arena, &value);
     } else {
@@ -75,7 +75,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
 
   inline void SetLite(const ::std::string* default_value,
                       const ::std::string& value,
-                      ::google::protobuf::Arena* arena) {
+                      ::google::leap_protobuf::Arena* arena) {
     Set(default_value, value, arena);
   }
 
@@ -83,7 +83,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   inline const ::std::string& Get() const { return *ptr_; }
 
   inline ::std::string* Mutable(const ::std::string* default_value,
-                           ::google::protobuf::Arena* arena) {
+                           ::google::leap_protobuf::Arena* arena) {
     if (ptr_ == default_value) {
       CreateInstance(arena, default_value);
     }
@@ -95,7 +95,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   // retains ownership. Clears this field back to NULL state. Used to implement
   // release_<field>() methods on generated classes.
   inline ::std::string* Release(const ::std::string* default_value,
-                           ::google::protobuf::Arena* arena) {
+                           ::google::leap_protobuf::Arena* arena) {
     if (ptr_ == default_value) {
       return NULL;
     }
@@ -104,7 +104,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
 
   // Similar to Release, but ptr_ cannot be the default_value.
   inline ::std::string* ReleaseNonDefault(
-      const ::std::string* default_value, ::google::protobuf::Arena* arena) {
+      const ::std::string* default_value, ::google::leap_protobuf::Arena* arena) {
     GOOGLE_DCHECK(!IsDefault(default_value));
     ::std::string* released = NULL;
     if (arena != NULL) {
@@ -124,7 +124,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   // state. Used to implement unsafe_arena_release_<field>() methods on
   // generated classes.
   inline ::std::string* UnsafeArenaRelease(const ::std::string* default_value,
-                                      ::google::protobuf::Arena* /* arena */) {
+                                      ::google::leap_protobuf::Arena* /* arena */) {
     if (ptr_ == default_value) {
       return NULL;
     }
@@ -137,7 +137,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   // destructor is registered with the arena. Used to implement
   // set_allocated_<field> in generated classes.
   inline void SetAllocated(const ::std::string* default_value,
-                           ::std::string* value, ::google::protobuf::Arena* arena) {
+                           ::std::string* value, ::google::leap_protobuf::Arena* arena) {
     if (arena == NULL && ptr_ != default_value) {
       Destroy(default_value, arena);
     }
@@ -157,7 +157,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   // to implement unsafe_arena_set_allocated_<field> in generated classes.
   inline void UnsafeArenaSetAllocated(const ::std::string* default_value,
                                       ::std::string* value,
-                                      ::google::protobuf::Arena* /* arena */) {
+                                      ::google::leap_protobuf::Arena* /* arena */) {
     if (value != NULL) {
       ptr_ = value;
     } else {
@@ -197,7 +197,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
 
   // Frees storage (if not on an arena).
   inline void Destroy(const ::std::string* default_value,
-                      ::google::protobuf::Arena* arena) {
+                      ::google::leap_protobuf::Arena* arena) {
     if (arena == NULL && ptr_ != default_value) {
       delete ptr_;
     }
@@ -208,7 +208,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   // the user) will always be the empty string. Assumes that |default_value|
   // is an empty string.
   inline void ClearToEmpty(const ::std::string* default_value,
-                           ::google::protobuf::Arena* /* arena */) {
+                           ::google::leap_protobuf::Arena* /* arena */) {
     if (ptr_ == default_value) {
       // Already set to default (which is empty) -- do nothing.
     } else {
@@ -229,7 +229,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   // overhead of heap operations. After this returns, the content (as seen by
   // the user) will always be equal to |default_value|.
   inline void ClearToDefault(const ::std::string* default_value,
-                             ::google::protobuf::Arena* /* arena */) {
+                             ::google::leap_protobuf::Arena* /* arena */) {
     if (ptr_ == default_value) {
       // Already set to default -- do nothing.
     } else {
@@ -365,7 +365,7 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   ::std::string* ptr_;
 
   GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
-  void CreateInstance(::google::protobuf::Arena* arena,
+  void CreateInstance(::google::leap_protobuf::Arena* arena,
                       const ::std::string* initial_value) {
     GOOGLE_DCHECK(initial_value != NULL);
     // uses "new ::std::string" when arena is nullptr

@@ -108,7 +108,7 @@ class LIBPROTOBUF_EXPORT ProtoStreamObjectWriter : public ProtoWriter {
 
 // Constructor. Does not take ownership of any parameter passed in.
   ProtoStreamObjectWriter(TypeResolver* type_resolver,
-                          const google::protobuf::Type& type,
+                          const google::leap_protobuf::Type& type,
                           strings::ByteSink* output, ErrorListener* listener,
                           const ProtoStreamObjectWriter::Options& options =
                               ProtoStreamObjectWriter::Options::Defaults());
@@ -313,23 +313,23 @@ class LIBPROTOBUF_EXPORT ProtoStreamObjectWriter : public ProtoWriter {
   };
 
   ProtoStreamObjectWriter(const TypeInfo* typeinfo,
-                          const google::protobuf::Type& type,
+                          const google::leap_protobuf::Type& type,
                           strings::ByteSink* output, ErrorListener* listener);
 
   // Returns true if the field is a map.
-  inline bool IsMap(const google::protobuf::Field& field);
+  inline bool IsMap(const google::leap_protobuf::Field& field);
 
   // Returns true if the field is an any.
-  inline bool IsAny(const google::protobuf::Field& field);
+  inline bool IsAny(const google::leap_protobuf::Field& field);
 
   // Returns true if the field is google.protobuf.Struct.
-  inline bool IsStruct(const google::protobuf::Field& field);
+  inline bool IsStruct(const google::leap_protobuf::Field& field);
 
   // Returns true if the field is google.protobuf.Value.
-  inline bool IsStructValue(const google::protobuf::Field& field);
+  inline bool IsStructValue(const google::leap_protobuf::Field& field);
 
   // Returns true if the field is google.protobuf.ListValue.
-  inline bool IsStructListValue(const google::protobuf::Field& field);
+  inline bool IsStructListValue(const google::leap_protobuf::Field& field);
 
   // Renders google.protobuf.Value in struct.proto. It picks the right oneof
   // type based on value's type.
@@ -389,7 +389,7 @@ class LIBPROTOBUF_EXPORT ProtoStreamObjectWriter : public ProtoWriter {
 
   // Variables for describing the structure of the input tree:
   // master_type_: descriptor for the whole protobuf message.
-  const google::protobuf::Type& master_type_;
+  const google::leap_protobuf::Type& master_type_;
 
   // The current element, variable for internal state processing.
   std::unique_ptr<Item> current_;

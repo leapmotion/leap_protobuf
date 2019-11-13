@@ -127,7 +127,7 @@ TEST(Proto3ArenaTest, Parsing) {
 }
 
 TEST(Proto3ArenaTest, UnknownFieldsDefaultDrop) {
-  ::google::protobuf::internal::SetProto3PreserveUnknownsDefault(false);
+  ::google::leap_protobuf::internal::SetProto3PreserveUnknownsDefault(false);
   TestAllTypes original;
   SetAllFields(&original);
 
@@ -149,7 +149,7 @@ TEST(Proto3ArenaTest, UnknownFieldsDefaultDrop) {
 }
 
 TEST(Proto3ArenaTest, UnknownFieldsDefaultPreserve) {
-  ::google::protobuf::internal::SetProto3PreserveUnknownsDefault(true);
+  ::google::leap_protobuf::internal::SetProto3PreserveUnknownsDefault(true);
   TestAllTypes original;
   SetAllFields(&original);
 

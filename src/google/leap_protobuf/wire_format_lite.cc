@@ -301,7 +301,7 @@ bool WireFormatLite::ReadPackedEnumNoInline(io::CodedInputStream* input,
   io::CodedInputStream::Limit limit = input->PushLimit(length);
   while (input->BytesUntilLimit() > 0) {
     int value;
-    if (!google::protobuf::internal::WireFormatLite::ReadPrimitive<
+    if (!google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<
         int, WireFormatLite::TYPE_ENUM>(input, &value)) {
       return false;
     }
@@ -324,7 +324,7 @@ bool WireFormatLite::ReadPackedEnumPreserveUnknowns(
   io::CodedInputStream::Limit limit = input->PushLimit(length);
   while (input->BytesUntilLimit() > 0) {
     int value;
-    if (!google::protobuf::internal::WireFormatLite::ReadPrimitive<
+    if (!google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<
         int, WireFormatLite::TYPE_ENUM>(input, &value)) {
       return false;
     }
@@ -597,7 +597,7 @@ bool WireFormatLite::ReadBytes(io::CodedInputStream* input, string* value) {
 }
 
 bool WireFormatLite::ReadBytes(io::CodedInputStream* input, string** p) {
-  if (*p == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+  if (*p == &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited()) {
     *p = new ::std::string();
   }
   return ReadBytesToString(input, *p);

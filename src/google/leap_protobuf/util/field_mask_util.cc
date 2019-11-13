@@ -38,7 +38,7 @@ namespace google {
 namespace leap_protobuf {
 namespace util {
 
-using google::protobuf::FieldMask;
+using google::leap_protobuf::FieldMask;
 
 string FieldMaskUtil::ToString(const FieldMask& mask) {
   return Join(mask.paths(), ",");

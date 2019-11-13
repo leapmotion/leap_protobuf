@@ -58,11 +58,11 @@ namespace leap_protobuf {
 #endif
 
 #ifdef _WIN32
-using google::protobuf::internal::win32::access;
-using google::protobuf::internal::win32::chdir;
-using google::protobuf::internal::win32::fopen;
-using google::protobuf::internal::win32::mkdir;
-using google::protobuf::internal::win32::stat;
+using google::leap_protobuf::internal::win32::access;
+using google::leap_protobuf::internal::win32::chdir;
+using google::leap_protobuf::internal::win32::fopen;
+using google::leap_protobuf::internal::win32::mkdir;
+using google::leap_protobuf::internal::win32::stat;
 #endif
 
 bool File::Exists(const string& name) {

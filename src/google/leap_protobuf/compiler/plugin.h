@@ -36,7 +36,7 @@
 // CodeGenerator, then create a main() function like:
 //   int main(int argc, char* argv[]) {
 //     MyCodeGenerator generator;
-//     return google::protobuf::compiler::PluginMain(argc, argv, &generator);
+//     return google::leap_protobuf::compiler::PluginMain(argc, argv, &generator);
 //   }
 // You must link your plugin against libprotobuf and libprotoc.
 //

@@ -85,7 +85,7 @@ namespace converter {
 class LIBPROTOBUF_EXPORT JsonObjectWriter : public StructuredObjectWriter {
  public:
   JsonObjectWriter(StringPiece indent_string,
-                   google::protobuf::io::CodedOutputStream* out)
+                   google::leap_protobuf::io::CodedOutputStream* out)
       : element_(new Element(/*parent=*/nullptr, /*is_json_object=*/false)),
         stream_(out),
         sink_(out),
@@ -148,7 +148,7 @@ class LIBPROTOBUF_EXPORT JsonObjectWriter : public StructuredObjectWriter {
  private:
   class LIBPROTOBUF_EXPORT ByteSinkWrapper : public strings::ByteSink {
    public:
-    explicit ByteSinkWrapper(google::protobuf::io::CodedOutputStream* stream)
+    explicit ByteSinkWrapper(google::leap_protobuf::io::CodedOutputStream* stream)
         : stream_(stream) {}
     virtual ~ByteSinkWrapper() {}
 
@@ -158,7 +158,7 @@ class LIBPROTOBUF_EXPORT JsonObjectWriter : public StructuredObjectWriter {
     }
 
    private:
-    google::protobuf::io::CodedOutputStream* stream_;
+    google::leap_protobuf::io::CodedOutputStream* stream_;
 
     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(ByteSinkWrapper);
   };
@@ -209,7 +209,7 @@ class LIBPROTOBUF_EXPORT JsonObjectWriter : public StructuredObjectWriter {
   void WriteChar(const char c) { stream_->WriteRaw(&c, sizeof(c)); }
 
   std::unique_ptr<Element> element_;
-  google::protobuf::io::CodedOutputStream* stream_;
+  google::leap_protobuf::io::CodedOutputStream* stream_;
   ByteSinkWrapper sink_;
   const string indent_string_;
 

@@ -55,8 +55,8 @@
 #include <google/leap_protobuf/io/gzip_stream.h>
 #include <google/leap_protobuf/io/zero_copy_stream_impl.h>
 
-using google::protobuf::io::FileInputStream;
-using google::protobuf::io::GzipInputStream;
+using google::leap_protobuf::io::FileInputStream;
+using google::leap_protobuf::io::GzipInputStream;
 
 int main(int argc, const char** argv) {
   FileInputStream fin(STDIN_FILENO);

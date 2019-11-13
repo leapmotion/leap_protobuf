@@ -35,7 +35,7 @@
 // as macro definitions for flags of these functions.
 //
 // By including this file you'll redefine open/access/etc. to
-// ::google::protobuf::internal::win32::{open/access/etc.}.
+// ::google::leap_protobuf::internal::win32::{open/access/etc.}.
 // Make sure you don't include a header that attempts to redeclare or
 // redefine these functions, that'll lead to confusing compilation
 // errors. It's best to #include this file as the last one to ensure that.

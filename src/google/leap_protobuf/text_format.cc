@@ -1867,7 +1867,7 @@ bool TextFormat::Printer::PrintAny(const Message& message,
   }
 
   // Print the "value" in text.
-  const google::protobuf::Descriptor* value_descriptor =
+  const google::leap_protobuf::Descriptor* value_descriptor =
       finder_ ? finder_->FindAnyType(message, url_prefix, full_type_name)
               : DefaultFinderFindAnyType(message, url_prefix, full_type_name);
   if (value_descriptor == NULL) {
@@ -1875,7 +1875,7 @@ bool TextFormat::Printer::PrintAny(const Message& message,
     return false;
   }
   DynamicMessageFactory factory;
-  std::unique_ptr<google::protobuf::Message> value_message(
+  std::unique_ptr<google::leap_protobuf::Message> value_message(
       factory.GetPrototype(value_descriptor)->New());
   string serialized_value = reflection->GetString(message, value_field);
   if (!value_message->ParseFromString(serialized_value)) {

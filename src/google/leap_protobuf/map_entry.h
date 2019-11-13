@@ -53,8 +53,8 @@ class MapField;
 namespace leap_protobuf {
 namespace internal {
 
-// MapEntry is the returned google::protobuf::Message when calling AddMessage of
-// google::protobuf::Reflection. In order to let it work with generated message
+// MapEntry is the returned google::leap_protobuf::Message when calling AddMessage of
+// google::leap_protobuf::Reflection. In order to let it work with generated message
 // reflection, its in-memory type is the same as generated message with the same
 // fields. However, in order to decide the in-memory type of key/value, we need
 // to know both their cpp type in generated api and proto type. In
@@ -98,7 +98,7 @@ class MapEntry
   InternalMetadataWithArena _internal_metadata_;
 
  private:
-  friend class ::google::protobuf::Arena;
+  friend class ::google::leap_protobuf::Arena;
   template <typename C, typename K, typename V,
             WireFormatLite::FieldType k_wire_type, WireFormatLite::FieldType,
             int default_enum>

@@ -32,7 +32,7 @@
 //  Based on original Protocol Buffers design by
 //  Sanjay Ghemawat, Jeff Dean, and others.
 //
-// This file exists solely to document the google::protobuf namespace.
+// This file exists solely to document the google::leap_protobuf namespace.
 // It is not compiled into anything, but it may be read by an automated
 // documentation generator.
 

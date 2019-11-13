@@ -117,7 +117,7 @@ using protobuf_unittest::TestAllTypes;
 using protobuf_unittest::TestRequired;
 using protobuf_unittest::TestRequiredMessage;
 using protobuf_unittest::NestedTestAllTypes;
-using google::protobuf::FieldMask;
+using google::leap_protobuf::FieldMask;
 
 TEST(FieldMaskUtilTest, StringFormat) {
   FieldMask mask;

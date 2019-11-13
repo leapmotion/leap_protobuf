@@ -42,7 +42,7 @@ namespace google {
 namespace leap_protobuf {
 namespace internal {
 
-// Helper class used to implement google::protobuf::Any.
+// Helper class used to implement google::leap_protobuf::Any.
 class LIBPROTOBUF_EXPORT AnyMetadata {
   typedef ArenaStringPtr UrlType;
   typedef ArenaStringPtr ValueType;
@@ -94,7 +94,7 @@ extern const char kTypeGoogleProdComPrefix[];  // "type.googleprod.com/".
 // in the type url separating the full type name.
 //
 // NOTE: this function is available publicly as:
-//   google::protobuf::Any()  // static method on the generated message type.
+//   google::leap_protobuf::Any()  // static method on the generated message type.
 bool ParseAnyTypeUrl(const string& type_url, string* full_type_name);
 
 // Get the proto type name and prefix from Any::type_url value. For example,

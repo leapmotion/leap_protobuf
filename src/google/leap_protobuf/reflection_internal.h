@@ -182,7 +182,7 @@ class RepeatedPtrFieldWrapper : public RandomAccessRepeatedFieldAccessor {
   }
 
   // Create a new T instance. For repeated message fields, T can be specified
-  // as google::protobuf::Message so we can't use "new T()" directly. In that case, value
+  // as google::leap_protobuf::Message so we can't use "new T()" directly. In that case, value
   // should be a message of the same type (it's ensured by the caller) and a
   // new message object will be created using it.
   virtual T* New(const Value* value) const = 0;

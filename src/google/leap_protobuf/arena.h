@@ -61,7 +61,7 @@ struct ArenaOptions;  // defined below
 
 namespace quality_webanswers {
 
-void TempPrivateWorkAround(::google::protobuf::ArenaOptions* arena_options);
+void TempPrivateWorkAround(::google::leap_protobuf::ArenaOptions* arena_options);
 
 }  // namespace quality_webanswers
 
@@ -73,7 +73,7 @@ class MessageLite;
 
 namespace arena_metrics {
 
-void EnableArenaMetrics(::google::protobuf::ArenaOptions* options);
+void EnableArenaMetrics(::google::leap_protobuf::ArenaOptions* options);
 
 }  // namespace arena_metrics
 
@@ -177,7 +177,7 @@ struct ArenaOptions {
   static const size_t kDefaultStartBlockSize = 256;
   static const size_t kDefaultMaxBlockSize = 8192;
 
-  friend void ::google::protobuf::arena_metrics::EnableArenaMetrics(ArenaOptions*);
+  friend void ::google::leap_protobuf::arena_metrics::EnableArenaMetrics(ArenaOptions*);
   friend void quality_webanswers::TempPrivateWorkAround(ArenaOptions*);
   friend class Arena;
   friend class ArenaOptionsTestFriend;
@@ -216,7 +216,7 @@ struct ArenaOptions {
 //
 // - The type T must have (at least) two constructors: a constructor with no
 //   arguments, called when a T is allocated on the heap; and a constructor with
-//   a google::protobuf::Arena* argument, called when a T is allocated on an arena. If the
+//   a google::leap_protobuf::Arena* argument, called when a T is allocated on an arena. If the
 //   second constructor is called with a NULL arena pointer, it must be
 //   equivalent to invoking the first (no-argument) constructor.
 //
@@ -602,8 +602,8 @@ class LIBPROTOBUF_EXPORT Arena {
   }
 
   // CreateInArenaStorage is used to implement map field. Without it,
-  // google::protobuf::Map need to call generated message's protected arena constructor,
-  // which needs to declare google::protobuf::Map as friend of generated message.
+  // google::leap_protobuf::Map need to call generated message's protected arena constructor,
+  // which needs to declare google::leap_protobuf::Map as friend of generated message.
   template <typename T>
   static void CreateInArenaStorage(T* ptr, Arena* arena) {
     CreateInArenaStorageInternal(ptr, arena,
@@ -635,7 +635,7 @@ class LIBPROTOBUF_EXPORT Arena {
 
   // These implement Own(), which registers an object for deletion (destructor
   // call and operator delete()). The second parameter has type 'true_type' if T
-  // is a subtype of ::google::protobuf::Message and 'false_type' otherwise. Collapsing
+  // is a subtype of ::google::leap_protobuf::Message and 'false_type' otherwise. Collapsing
   // all template instantiations to one for generic Message reduces code size,
   // using the virtual destructor instead.
   template <typename T>

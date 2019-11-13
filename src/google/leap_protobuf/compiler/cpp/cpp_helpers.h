@@ -104,7 +104,7 @@ string DefaultInstanceName(const Descriptor* descriptor);
 // fields.
 string ReferenceFunctionName(const Descriptor* descriptor);
 
-// Name of the base class: google::protobuf::Message or google::protobuf::MessageLite.
+// Name of the base class: google::leap_protobuf::Message or google::leap_protobuf::MessageLite.
 string SuperClassName(const Descriptor* descriptor, const Options& options);
 
 // Get the (unqualified) name that should be used for this field in C++ code.
@@ -140,7 +140,7 @@ string FieldMessageTypeName(const FieldDescriptor* field);
 // Strips ".proto" or ".protodevel" from the end of a filename.
 LIBPROTOC_EXPORT string StripProto(const string& filename);
 
-// Get the C++ type name for a primitive type (e.g. "double", "::google::protobuf::int32", etc.).
+// Get the C++ type name for a primitive type (e.g. "double", "::google::leap_protobuf::int32", etc.).
 // Note:  non-built-in type names will be qualified, meaning they will start
 // with a ::.  If you are using the type as a template parameter, you will
 // need to insure there is a space between the < and the ::, because the
@@ -200,7 +200,7 @@ inline bool PublicUnknownFieldsAccessors(const Descriptor* message) {
 }
 
 // Returns the optimize mode for <file>, respecting <options.enforce_lite>.
-::google::protobuf::FileOptions_OptimizeMode GetOptimizeFor(
+::google::leap_protobuf::FileOptions_OptimizeMode GetOptimizeFor(
     const FileDescriptor* file, const Options& options);
 
 // Determines whether unknown fields will be stored in an UnknownFieldSet or
@@ -313,7 +313,7 @@ void GenerateUtf8CheckCodeForCord(const FieldDescriptor* field,
                                   const std::map<string, string>& variables,
                                   const char* parameters, io::Printer* printer);
 
-inline ::google::protobuf::FileOptions_OptimizeMode GetOptimizeFor(
+inline ::google::leap_protobuf::FileOptions_OptimizeMode GetOptimizeFor(
     const FileDescriptor* file, const Options& options) {
   return options.enforce_lite
       ? FileOptions::LITE_RUNTIME

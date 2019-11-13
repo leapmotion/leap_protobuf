@@ -69,41 +69,41 @@ static const int64 kTypeUrlSize = 19;
 // returns it.
 // When the option with the given name is not found, default_value is returned.
 LIBPROTOBUF_EXPORT bool GetBoolOptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, bool default_value);
 
 // Returns int64 option value. If the option isn't found, returns the
 // default_value.
 LIBPROTOBUF_EXPORT int64 GetInt64OptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, int64 default_value);
 
 // Returns double option value. If the option isn't found, returns the
 // default_value.
 LIBPROTOBUF_EXPORT double GetDoubleOptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, double default_value);
 
 // Returns string option value. If the option isn't found, returns the
 // default_value.
 LIBPROTOBUF_EXPORT string GetStringOptionOrDefault(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name, const string& default_value);
 
 // Returns a boolean value contained in Any type.
 // TODO(skarvaje): Make these utilities dealing with Any types more generic,
 // add more error checking and move to a more public/sharable location so others
 // can use.
-LIBPROTOBUF_EXPORT bool GetBoolFromAny(const google::protobuf::Any& any);
+LIBPROTOBUF_EXPORT bool GetBoolFromAny(const google::leap_protobuf::Any& any);
 
 // Returns int64 value contained in Any type.
-LIBPROTOBUF_EXPORT int64 GetInt64FromAny(const google::protobuf::Any& any);
+LIBPROTOBUF_EXPORT int64 GetInt64FromAny(const google::leap_protobuf::Any& any);
 
 // Returns double value contained in Any type.
-LIBPROTOBUF_EXPORT double GetDoubleFromAny(const google::protobuf::Any& any);
+LIBPROTOBUF_EXPORT double GetDoubleFromAny(const google::leap_protobuf::Any& any);
 
 // Returns string value contained in Any type.
-LIBPROTOBUF_EXPORT string GetStringFromAny(const google::protobuf::Any& any);
+LIBPROTOBUF_EXPORT string GetStringFromAny(const google::leap_protobuf::Any& any);
 
 // Returns the type string without the url prefix. e.g.: If the passed type is
 // 'type.googleapis.com/tech.type.Bool', the returned value is 'tech.type.Bool'.
@@ -119,40 +119,40 @@ LIBPROTOBUF_EXPORT const string GetFullTypeWithUrl(StringPiece simple_type);
 
 // Finds and returns option identified by name and option_name within the
 // provided map. Returns nullptr if none found.
-const google::protobuf::Option* FindOptionOrNull(
-    const google::protobuf::RepeatedPtrField<google::protobuf::Option>& options,
+const google::leap_protobuf::Option* FindOptionOrNull(
+    const google::leap_protobuf::RepeatedPtrField<google::leap_protobuf::Option>& options,
     const string& option_name);
 
 // Finds and returns the field identified by field_name in the passed tech Type
 // object. Returns nullptr if none found.
-const google::protobuf::Field* FindFieldInTypeOrNull(
-    const google::protobuf::Type* type, StringPiece field_name);
+const google::leap_protobuf::Field* FindFieldInTypeOrNull(
+    const google::leap_protobuf::Type* type, StringPiece field_name);
 
 // Similar to FindFieldInTypeOrNull, but this looks up fields with given
 // json_name.
-const google::protobuf::Field* FindJsonFieldInTypeOrNull(
-    const google::protobuf::Type* type, StringPiece json_name);
+const google::leap_protobuf::Field* FindJsonFieldInTypeOrNull(
+    const google::leap_protobuf::Type* type, StringPiece json_name);
 
 // Similar to FindFieldInTypeOrNull, but this looks up fields by number.
-const google::protobuf::Field* FindFieldInTypeByNumberOrNull(
-    const google::protobuf::Type* type, int32 number);
+const google::leap_protobuf::Field* FindFieldInTypeByNumberOrNull(
+    const google::leap_protobuf::Type* type, int32 number);
 
 // Finds and returns the EnumValue identified by enum_name in the passed tech
 // Enum object. Returns nullptr if none found.
-const google::protobuf::EnumValue* FindEnumValueByNameOrNull(
-    const google::protobuf::Enum* enum_type, StringPiece enum_name);
+const google::leap_protobuf::EnumValue* FindEnumValueByNameOrNull(
+    const google::leap_protobuf::Enum* enum_type, StringPiece enum_name);
 
 // Finds and returns the EnumValue identified by value in the passed tech
 // Enum object. Returns nullptr if none found.
-const google::protobuf::EnumValue* FindEnumValueByNumberOrNull(
-    const google::protobuf::Enum* enum_type, int32 value);
+const google::leap_protobuf::EnumValue* FindEnumValueByNumberOrNull(
+    const google::leap_protobuf::Enum* enum_type, int32 value);
 
 // Finds and returns the EnumValue identified by enum_name without underscore in
 // the passed tech Enum object. Returns nullptr if none found.
 // For Ex. if enum_name is ACTIONANDADVENTURE it can get accepted if
 // EnumValue's name is action_and_adventure or ACTION_AND_ADVENTURE.
-const google::protobuf::EnumValue* FindEnumValueByNameWithoutUnderscoreOrNull(
-    const google::protobuf::Enum* enum_type, StringPiece enum_name);
+const google::leap_protobuf::EnumValue* FindEnumValueByNameWithoutUnderscoreOrNull(
+    const google::leap_protobuf::Enum* enum_type, StringPiece enum_name);
 
 // Converts input to camel-case and returns it.
 LIBPROTOBUF_EXPORT string ToCamelCase(const StringPiece input);
@@ -171,11 +171,11 @@ LIBPROTOBUF_EXPORT bool IsWellKnownType(const string& type_name);
 LIBPROTOBUF_EXPORT bool IsValidBoolString(const string& bool_string);
 
 // Returns true if "field" is a protobuf map field based on its type.
-LIBPROTOBUF_EXPORT bool IsMap(const google::protobuf::Field& field,
-           const google::protobuf::Type& type);
+LIBPROTOBUF_EXPORT bool IsMap(const google::leap_protobuf::Field& field,
+           const google::leap_protobuf::Type& type);
 
 // Returns true if the given type has special MessageSet wire format.
-bool IsMessageSetWireFormat(const google::protobuf::Type& type);
+bool IsMessageSetWireFormat(const google::leap_protobuf::Type& type);
 
 // Infinity/NaN-aware conversion to string.
 LIBPROTOBUF_EXPORT string DoubleAsString(double value);

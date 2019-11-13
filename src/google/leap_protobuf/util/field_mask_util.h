@@ -44,7 +44,7 @@ namespace leap_protobuf {
 namespace util {
 
 class LIBPROTOBUF_EXPORT FieldMaskUtil {
-  typedef google::protobuf::FieldMask FieldMask;
+  typedef google::leap_protobuf::FieldMask FieldMask;
 
  public:
   // Converts FieldMask to/from string, formatted by separating each path

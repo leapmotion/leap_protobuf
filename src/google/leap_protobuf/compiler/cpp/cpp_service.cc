@@ -69,7 +69,7 @@ void ServiceGenerator::GenerateDeclarations(io::Printer* printer) {
 
 void ServiceGenerator::GenerateInterface(io::Printer* printer) {
   printer->Print(vars_,
-    "class $dllexport$$classname$ : public ::google::protobuf::Service {\n"
+    "class $dllexport$$classname$ : public ::google::leap_protobuf::Service {\n"
     " protected:\n"
     "  // This class should be treated as an abstract interface.\n"
     "  inline $classname$() {};\n"
@@ -81,7 +81,7 @@ void ServiceGenerator::GenerateInterface(io::Printer* printer) {
     "\n"
     "typedef $classname$_Stub Stub;\n"
     "\n"
-    "static const ::google::protobuf::ServiceDescriptor* descriptor();\n"
+    "static const ::google::leap_protobuf::ServiceDescriptor* descriptor();\n"
     "\n");
 
   GenerateMethodSignatures(VIRTUAL, printer);
@@ -90,16 +90,16 @@ void ServiceGenerator::GenerateInterface(io::Printer* printer) {
     "\n"
     "// implements Service ----------------------------------------------\n"
     "\n"
-    "const ::google::protobuf::ServiceDescriptor* GetDescriptor();\n"
-    "void CallMethod(const ::google::protobuf::MethodDescriptor* method,\n"
-    "                ::google::protobuf::RpcController* controller,\n"
-    "                const ::google::protobuf::Message* request,\n"
-    "                ::google::protobuf::Message* response,\n"
-    "                ::google::protobuf::Closure* done);\n"
-    "const ::google::protobuf::Message& GetRequestPrototype(\n"
-    "  const ::google::protobuf::MethodDescriptor* method) const;\n"
-    "const ::google::protobuf::Message& GetResponsePrototype(\n"
-    "  const ::google::protobuf::MethodDescriptor* method) const;\n");
+    "const ::google::leap_protobuf::ServiceDescriptor* GetDescriptor();\n"
+    "void CallMethod(const ::google::leap_protobuf::MethodDescriptor* method,\n"
+    "                ::google::leap_protobuf::RpcController* controller,\n"
+    "                const ::google::leap_protobuf::Message* request,\n"
+    "                ::google::leap_protobuf::Message* response,\n"
+    "                ::google::leap_protobuf::Closure* done);\n"
+    "const ::google::leap_protobuf::Message& GetRequestPrototype(\n"
+    "  const ::google::leap_protobuf::MethodDescriptor* method) const;\n"
+    "const ::google::leap_protobuf::Message& GetResponsePrototype(\n"
+    "  const ::google::leap_protobuf::MethodDescriptor* method) const;\n");
 
   printer->Outdent();
   printer->Print(vars_,
@@ -118,12 +118,12 @@ void ServiceGenerator::GenerateStubDefinition(io::Printer* printer) {
   printer->Indent();
 
   printer->Print(vars_,
-    "$classname$_Stub(::google::protobuf::RpcChannel* channel);\n"
-    "$classname$_Stub(::google::protobuf::RpcChannel* channel,\n"
-    "                 ::google::protobuf::Service::ChannelOwnership ownership);\n"
+    "$classname$_Stub(::google::leap_protobuf::RpcChannel* channel);\n"
+    "$classname$_Stub(::google::leap_protobuf::RpcChannel* channel,\n"
+    "                 ::google::leap_protobuf::Service::ChannelOwnership ownership);\n"
     "~$classname$_Stub();\n"
     "\n"
-    "inline ::google::protobuf::RpcChannel* channel() { return channel_; }\n"
+    "inline ::google::leap_protobuf::RpcChannel* channel() { return channel_; }\n"
     "\n"
     "// implements $classname$ ------------------------------------------\n"
     "\n");
@@ -133,7 +133,7 @@ void ServiceGenerator::GenerateStubDefinition(io::Printer* printer) {
   printer->Outdent();
   printer->Print(vars_,
     " private:\n"
-    "  ::google::protobuf::RpcChannel* channel_;\n"
+    "  ::google::leap_protobuf::RpcChannel* channel_;\n"
     "  bool owns_channel_;\n"
     "  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS($classname$_Stub);\n"
     "};\n"
@@ -151,10 +151,10 @@ void ServiceGenerator::GenerateMethodSignatures(
     sub_vars["virtual"] = virtual_or_non == VIRTUAL ? "virtual " : "";
 
     printer->Print(sub_vars,
-      "$virtual$void $name$(::google::protobuf::RpcController* controller,\n"
+      "$virtual$void $name$(::google::leap_protobuf::RpcController* controller,\n"
       "                     const $input_type$* request,\n"
       "                     $output_type$* response,\n"
-      "                     ::google::protobuf::Closure* done);\n");
+      "                     ::google::leap_protobuf::Closure* done);\n");
   }
 }
 
@@ -178,12 +178,12 @@ void ServiceGenerator::GenerateImplementation(io::Printer* printer) {
       vars_,
       "$classname$::~$classname$() {}\n"
       "\n"
-      "const ::google::protobuf::ServiceDescriptor* $classname$::descriptor() {\n"
+      "const ::google::leap_protobuf::ServiceDescriptor* $classname$::descriptor() {\n"
       "  $file_namespace$::protobuf_AssignDescriptorsOnce();\n"
       "  return $file_namespace$::file_level_service_descriptors[$index$];\n"
       "}\n"
       "\n"
-      "const ::google::protobuf::ServiceDescriptor* $classname$::GetDescriptor() {\n"
+      "const ::google::leap_protobuf::ServiceDescriptor* $classname$::GetDescriptor() {\n"
       "  return descriptor();\n"
       "}\n"
       "\n");
@@ -196,13 +196,13 @@ void ServiceGenerator::GenerateImplementation(io::Printer* printer) {
 
   // Generate stub implementation.
   printer->Print(vars_,
-    "$classname$_Stub::$classname$_Stub(::google::protobuf::RpcChannel* channel)\n"
+    "$classname$_Stub::$classname$_Stub(::google::leap_protobuf::RpcChannel* channel)\n"
     "  : channel_(channel), owns_channel_(false) {}\n"
     "$classname$_Stub::$classname$_Stub(\n"
-    "    ::google::protobuf::RpcChannel* channel,\n"
-    "    ::google::protobuf::Service::ChannelOwnership ownership)\n"
+    "    ::google::leap_protobuf::RpcChannel* channel,\n"
+    "    ::google::leap_protobuf::Service::ChannelOwnership ownership)\n"
     "  : channel_(channel),\n"
-    "    owns_channel_(ownership == ::google::protobuf::Service::STUB_OWNS_CHANNEL) {}\n"
+    "    owns_channel_(ownership == ::google::leap_protobuf::Service::STUB_OWNS_CHANNEL) {}\n"
     "$classname$_Stub::~$classname$_Stub() {\n"
     "  if (owns_channel_) delete channel_;\n"
     "}\n"
@@ -222,10 +222,10 @@ void ServiceGenerator::GenerateNotImplementedMethods(io::Printer* printer) {
     sub_vars["output_type"] = ClassName(method->output_type(), true);
 
     printer->Print(sub_vars,
-      "void $classname$::$name$(::google::protobuf::RpcController* controller,\n"
+      "void $classname$::$name$(::google::leap_protobuf::RpcController* controller,\n"
       "                         const $input_type$*,\n"
       "                         $output_type$*,\n"
-      "                         ::google::protobuf::Closure* done) {\n"
+      "                         ::google::leap_protobuf::Closure* done) {\n"
       "  controller->SetFailed(\"Method $name$() not implemented.\");\n"
       "  done->Run();\n"
       "}\n"
@@ -236,11 +236,11 @@ void ServiceGenerator::GenerateNotImplementedMethods(io::Printer* printer) {
 void ServiceGenerator::GenerateCallMethod(io::Printer* printer) {
   printer->Print(
       vars_,
-      "void $classname$::CallMethod(const ::google::protobuf::MethodDescriptor* method,\n"
-      "                             ::google::protobuf::RpcController* controller,\n"
-      "                             const ::google::protobuf::Message* request,\n"
-      "                             ::google::protobuf::Message* response,\n"
-      "                             ::google::protobuf::Closure* done) {\n"
+      "void $classname$::CallMethod(const ::google::leap_protobuf::MethodDescriptor* method,\n"
+      "                             ::google::leap_protobuf::RpcController* controller,\n"
+      "                             const ::google::leap_protobuf::Message* request,\n"
+      "                             ::google::leap_protobuf::Message* response,\n"
+      "                             ::google::leap_protobuf::Closure* done) {\n"
       "  GOOGLE_DCHECK_EQ(method->service(), "
       "$file_namespace$::file_level_service_descriptors[$index$]);\n"
       "  switch(method->index()) {\n");
@@ -258,8 +258,8 @@ void ServiceGenerator::GenerateCallMethod(io::Printer* printer) {
     printer->Print(sub_vars,
       "    case $index$:\n"
       "      $name$(controller,\n"
-      "             ::google::protobuf::down_cast<const $input_type$*>(request),\n"
-      "             ::google::protobuf::down_cast< $output_type$*>(response),\n"
+      "             ::google::leap_protobuf::down_cast<const $input_type$*>(request),\n"
+      "             ::google::leap_protobuf::down_cast< $output_type$*>(response),\n"
       "             done);\n"
       "      break;\n");
   }
@@ -277,14 +277,14 @@ void ServiceGenerator::GenerateGetPrototype(RequestOrResponse which,
                                             io::Printer* printer) {
   if (which == REQUEST) {
     printer->Print(vars_,
-      "const ::google::protobuf::Message& $classname$::GetRequestPrototype(\n");
+      "const ::google::leap_protobuf::Message& $classname$::GetRequestPrototype(\n");
   } else {
     printer->Print(vars_,
-      "const ::google::protobuf::Message& $classname$::GetResponsePrototype(\n");
+      "const ::google::leap_protobuf::Message& $classname$::GetResponsePrototype(\n");
   }
 
   printer->Print(vars_,
-    "    const ::google::protobuf::MethodDescriptor* method) const {\n"
+    "    const ::google::leap_protobuf::MethodDescriptor* method) const {\n"
     "  GOOGLE_DCHECK_EQ(method->service(), descriptor());\n"
     "  switch(method->index()) {\n");
 
@@ -305,7 +305,7 @@ void ServiceGenerator::GenerateGetPrototype(RequestOrResponse which,
   printer->Print(
     "    default:\n"
     "      GOOGLE_LOG(FATAL) << \"Bad method index; this should never happen.\";\n"
-    "      return *::google::protobuf::MessageFactory::generated_factory()\n"
+    "      return *::google::leap_protobuf::MessageFactory::generated_factory()\n"
     "          ->GetPrototype(method->$input_or_output$_type());\n"
     "  }\n"
     "}\n"
@@ -324,10 +324,10 @@ void ServiceGenerator::GenerateStubMethods(io::Printer* printer) {
     sub_vars["output_type"] = ClassName(method->output_type(), true);
 
     printer->Print(sub_vars,
-      "void $classname$_Stub::$name$(::google::protobuf::RpcController* controller,\n"
+      "void $classname$_Stub::$name$(::google::leap_protobuf::RpcController* controller,\n"
       "                              const $input_type$* request,\n"
       "                              $output_type$* response,\n"
-      "                              ::google::protobuf::Closure* done) {\n"
+      "                              ::google::leap_protobuf::Closure* done) {\n"
       "  channel_->CallMethod(descriptor()->method($index$),\n"
       "                       controller, request, response, done);\n"
       "}\n");

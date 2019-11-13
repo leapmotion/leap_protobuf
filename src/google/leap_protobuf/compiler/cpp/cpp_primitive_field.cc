@@ -91,7 +91,7 @@ void SetPrimitiveVariables(const FieldDescriptor* descriptor,
     (*variables)["fixed_size"] = SimpleItoa(fixed_size);
   }
   (*variables)["wire_format_field_type"] =
-      "::google::protobuf::internal::WireFormatLite::" + FieldDescriptorProto_Type_Name(
+      "::google::leap_protobuf::internal::WireFormatLite::" + FieldDescriptorProto_Type_Name(
           static_cast<FieldDescriptorProto_Type>(descriptor->type()));
   (*variables)["full_name"] = descriptor->full_name();
 }
@@ -165,7 +165,7 @@ void PrimitiveFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
   printer->Print(variables_,
     "$set_hasbit$\n"
-    "DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<\n"
+    "DO_((::google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<\n"
     "         $type$, $wire_format_field_type$>(\n"
     "       input, &$name$_)));\n");
 }
@@ -173,14 +173,14 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
 void PrimitiveFieldGenerator::
 GenerateSerializeWithCachedSizes(io::Printer* printer) const {
   printer->Print(variables_,
-    "::google::protobuf::internal::WireFormatLite::Write$declared_type$("
+    "::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$("
       "$number$, this->$name$(), output);\n");
 }
 
 void PrimitiveFieldGenerator::
 GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
   printer->Print(variables_,
-    "target = ::google::protobuf::internal::WireFormatLite::Write$declared_type$ToArray("
+    "target = ::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$ToArray("
       "$number$, this->$name$(), target);\n");
 }
 
@@ -190,7 +190,7 @@ GenerateByteSize(io::Printer* printer) const {
   if (fixed_size == -1) {
     printer->Print(variables_,
       "total_size += $tag_size$ +\n"
-      "  ::google::protobuf::internal::WireFormatLite::$declared_type$Size(\n"
+      "  ::google::leap_protobuf::internal::WireFormatLite::$declared_type$Size(\n"
       "    this->$name$());\n");
   } else {
     printer->Print(variables_,
@@ -249,7 +249,7 @@ void PrimitiveOneofFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
   printer->Print(variables_,
     "clear_$oneof_name$();\n"
-    "DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<\n"
+    "DO_((::google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<\n"
     "         $type$, $wire_format_field_type$>(\n"
     "       input, &$field_member$)));\n"
     "set_has_$name$();\n");
@@ -276,7 +276,7 @@ RepeatedPrimitiveFieldGenerator::~RepeatedPrimitiveFieldGenerator() {}
 void RepeatedPrimitiveFieldGenerator::
 GeneratePrivateMembers(io::Printer* printer) const {
   printer->Print(variables_,
-    "::google::protobuf::RepeatedField< $type$ > $name$_;\n");
+    "::google::leap_protobuf::RepeatedField< $type$ > $name$_;\n");
   if (descriptor_->is_packed() &&
       HasGeneratedMethods(descriptor_->file(), options_)) {
     printer->Print(variables_,
@@ -297,11 +297,11 @@ GenerateAccessorDeclarations(io::Printer* printer) const {
                  "$deprecated_attr$void ${$add_$name$$}$($type$ value);\n");
   printer->Annotate("{", "}", descriptor_);
   printer->Print(variables_,
-                 "$deprecated_attr$const ::google::protobuf::RepeatedField< $type$ >&\n"
+                 "$deprecated_attr$const ::google::leap_protobuf::RepeatedField< $type$ >&\n"
                  "    $name$() const;\n");
   printer->Annotate("name", descriptor_);
   printer->Print(variables_,
-                 "$deprecated_attr$::google::protobuf::RepeatedField< $type$ >*\n"
+                 "$deprecated_attr$::google::leap_protobuf::RepeatedField< $type$ >*\n"
                  "    ${$mutable_$name$$}$();\n");
   printer->Annotate("{", "}", descriptor_);
 }
@@ -321,12 +321,12 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
     "  $name$_.Add(value);\n"
     "  // @@protoc_insertion_point(field_add:$full_name$)\n"
     "}\n"
-    "inline const ::google::protobuf::RepeatedField< $type$ >&\n"
+    "inline const ::google::leap_protobuf::RepeatedField< $type$ >&\n"
     "$classname$::$name$() const {\n"
     "  // @@protoc_insertion_point(field_list:$full_name$)\n"
     "  return $name$_;\n"
     "}\n"
-    "inline ::google::protobuf::RepeatedField< $type$ >*\n"
+    "inline ::google::leap_protobuf::RepeatedField< $type$ >*\n"
     "$classname$::mutable_$name$() {\n"
     "  // @@protoc_insertion_point(field_mutable_list:$full_name$)\n"
     "  return &$name$_;\n"
@@ -361,7 +361,7 @@ GenerateCopyConstructorCode(io::Printer* printer) const {
 void RepeatedPrimitiveFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
   printer->Print(variables_,
-    "DO_((::google::protobuf::internal::WireFormatLite::$repeated_reader$<\n"
+    "DO_((::google::leap_protobuf::internal::WireFormatLite::$repeated_reader$<\n"
     "         $type$, $wire_format_field_type$>(\n"
     "       $tag_size$, $tag$u, input, this->mutable_$name$())));\n");
 }
@@ -369,7 +369,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
 void RepeatedPrimitiveFieldGenerator::
 GenerateMergeFromCodedStreamWithPacking(io::Printer* printer) const {
   printer->Print(variables_,
-    "DO_((::google::protobuf::internal::WireFormatLite::$packed_reader$<\n"
+    "DO_((::google::leap_protobuf::internal::WireFormatLite::$packed_reader$<\n"
     "         $type$, $wire_format_field_type$>(\n"
     "       input, this->mutable_$name$())));\n");
 }
@@ -381,11 +381,11 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) const {
     // Write the tag and the size.
     printer->Print(variables_,
       "if (this->$name$_size() > 0) {\n"
-      "  ::google::protobuf::internal::WireFormatLite::WriteTag("
+      "  ::google::leap_protobuf::internal::WireFormatLite::WriteTag("
           "$number$, "
-          "::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, "
+          "::google::leap_protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, "
           "output);\n"
-      "  output->WriteVarint32(static_cast< ::google::protobuf::uint32>(\n"
+      "  output->WriteVarint32(static_cast< ::google::leap_protobuf::uint32>(\n"
       "      _$name$_cached_byte_size_));\n");
 
     if (FixedSize(descriptor_->type()) > 0) {
@@ -393,7 +393,7 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) const {
       // WireFormatLite to access the contents of this->$name$_ to save a branch
       // here.
       printer->Print(variables_,
-        "  ::google::protobuf::internal::WireFormatLite::Write$declared_type$Array(\n"
+        "  ::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$Array(\n"
         "    this->$name$().data(), this->$name$_size(), output);\n");
       array_written = true;  // Wrote array all at once
     }
@@ -404,11 +404,11 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) const {
         "for (int i = 0, n = this->$name$_size(); i < n; i++) {\n");
     if (descriptor_->is_packed()) {
       printer->Print(variables_,
-        "  ::google::protobuf::internal::WireFormatLite::Write$declared_type$NoTag(\n"
+        "  ::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$NoTag(\n"
         "    this->$name$(i), output);\n");
     } else {
       printer->Print(variables_,
-        "  ::google::protobuf::internal::WireFormatLite::Write$declared_type$(\n"
+        "  ::google::leap_protobuf::internal::WireFormatLite::Write$declared_type$(\n"
         "    $number$, this->$name$(i), output);\n");
     }
     printer->Print("}\n");
@@ -421,19 +421,19 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
     // Write the tag and the size.
     printer->Print(variables_,
       "if (this->$name$_size() > 0) {\n"
-      "  target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(\n"
+      "  target = ::google::leap_protobuf::internal::WireFormatLite::WriteTagToArray(\n"
       "    $number$,\n"
-      "    ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,\n"
+      "    ::google::leap_protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,\n"
       "    target);\n"
-      "  target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(\n"
-      "      static_cast< ::google::protobuf::int32>(\n"
+      "  target = ::google::leap_protobuf::io::CodedOutputStream::WriteVarint32ToArray(\n"
+      "      static_cast< ::google::leap_protobuf::int32>(\n"
       "          _$name$_cached_byte_size_), target);\n"
-      "  target = ::google::protobuf::internal::WireFormatLite::\n"
+      "  target = ::google::leap_protobuf::internal::WireFormatLite::\n"
       "    Write$declared_type$NoTagToArray(this->$name$_, target);\n"
       "}\n");
   } else {
     printer->Print(variables_,
-      "target = ::google::protobuf::internal::WireFormatLite::\n"
+      "target = ::google::leap_protobuf::internal::WireFormatLite::\n"
       "  Write$declared_type$ToArray($number$, this->$name$_, target);\n");
   }
 }
@@ -445,7 +445,7 @@ GenerateByteSize(io::Printer* printer) const {
   int fixed_size = FixedSize(descriptor_->type());
   if (fixed_size == -1) {
     printer->Print(variables_,
-      "size_t data_size = ::google::protobuf::internal::WireFormatLite::\n"
+      "size_t data_size = ::google::leap_protobuf::internal::WireFormatLite::\n"
       "  $declared_type$Size(this->$name$_);\n");
   } else {
     printer->Print(variables_,
@@ -457,10 +457,10 @@ GenerateByteSize(io::Printer* printer) const {
     printer->Print(variables_,
       "if (data_size > 0) {\n"
       "  total_size += $tag_size$ +\n"
-      "    ::google::protobuf::internal::WireFormatLite::Int32Size(\n"
-      "        static_cast< ::google::protobuf::int32>(data_size));\n"
+      "    ::google::leap_protobuf::internal::WireFormatLite::Int32Size(\n"
+      "        static_cast< ::google::leap_protobuf::int32>(data_size));\n"
       "}\n"
-      "int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);\n"
+      "int cached_size = ::google::leap_protobuf::internal::ToCachedSize(data_size);\n"
       "GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();\n"
       "_$name$_cached_byte_size_ = cached_size;\n"
       "GOOGLE_SAFE_CONCURRENT_WRITES_END();\n"
@@ -468,7 +468,7 @@ GenerateByteSize(io::Printer* printer) const {
   } else {
     printer->Print(variables_,
       "total_size += $tag_size$ *\n"
-      "              ::google::protobuf::internal::FromIntSize(this->$name$_size());\n"
+      "              ::google::leap_protobuf::internal::FromIntSize(this->$name$_size());\n"
       "total_size += data_size;\n");
   }
   printer->Outdent();

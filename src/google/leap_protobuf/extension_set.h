@@ -160,7 +160,7 @@ class MessageSetFieldSkipper;
 class LIBPROTOBUF_EXPORT ExtensionSet {
  public:
   ExtensionSet();
-  explicit ExtensionSet(::google::protobuf::Arena* arena);
+  explicit ExtensionSet(::google::leap_protobuf::Arena* arena);
   ~ExtensionSet();
 
   // These are called at startup by protocol-compiler-generated code to
@@ -276,7 +276,7 @@ class LIBPROTOBUF_EXPORT ExtensionSet {
   MessageLite* UnsafeArenaReleaseMessage(const FieldDescriptor* descriptor,
                                          MessageFactory* factory);
 #undef desc
-  ::google::protobuf::Arena* GetArenaNoVirtual() const { return arena_; }
+  ::google::leap_protobuf::Arena* GetArenaNoVirtual() const { return arena_; }
 
   // repeated fields -------------------------------------------------
 
@@ -453,7 +453,7 @@ class LIBPROTOBUF_EXPORT ExtensionSet {
     LazyMessageExtension() {}
     virtual ~LazyMessageExtension() {}
 
-    virtual LazyMessageExtension* New(::google::protobuf::Arena* arena) const = 0;
+    virtual LazyMessageExtension* New(::google::leap_protobuf::Arena* arena) const = 0;
     virtual const MessageLite& GetMessage(
         const MessageLite& prototype) const = 0;
     virtual MessageLite* MutableMessage(const MessageLite& prototype) = 0;
@@ -735,7 +735,7 @@ class LIBPROTOBUF_EXPORT ExtensionSet {
     return map_.flat + flat_size_;
   }
 
-  ::google::protobuf::Arena* arena_;
+  ::google::leap_protobuf::Arena* arena_;
 
   // Manual memory-management:
   // map_.flat is an allocated array of flat_capacity_ elements.
@@ -919,7 +919,7 @@ template<> inline void RepeatedPrimitiveTypeTraits<TYPE>::Add(             \
 }                                                                          \
 template<> inline const RepeatedField<TYPE>*                               \
     RepeatedPrimitiveTypeTraits<TYPE>::GetDefaultRepeatedField() {         \
-  ::google::protobuf::GoogleOnceInit(                                                          \
+  ::google::leap_protobuf::GoogleOnceInit(                                                          \
       &repeated_primitive_generic_type_traits_once_init_,                  \
       &RepeatedPrimitiveGenericTypeTraits::InitializeDefaultRepeatedFields); \
   return RepeatedPrimitiveGenericTypeTraits::                              \
@@ -1025,7 +1025,7 @@ class LIBPROTOBUF_EXPORT RepeatedStringTypeTraits {
   }
 
   static const RepeatedFieldType* GetDefaultRepeatedField() {
-    ::google::protobuf::GoogleOnceInit(&repeated_string_type_traits_once_init_,
+    ::google::leap_protobuf::GoogleOnceInit(&repeated_string_type_traits_once_init_,
                    &InitializeDefaultRepeatedFields);
     return default_repeated_field_;
   }
@@ -1208,7 +1208,7 @@ class RepeatedMessageTypeTraits {
     // See notes above in RepeatedEnumTypeTraits::GetRepeated(): same
     // casting hack applies here, because a RepeatedPtrField<MessageLite>
     // cannot naturally become a RepeatedPtrType<Type> even though Type is
-    // presumably a message. google::protobuf::Message goes through similar contortions
+    // presumably a message. google::leap_protobuf::Message goes through similar contortions
     // with a reinterpret_cast<>.
     return *reinterpret_cast<const RepeatedPtrField<Type>*>(
         set.GetRawRepeatedField(number, GetDefaultRepeatedField()));
@@ -1236,7 +1236,7 @@ LIBPROTOBUF_EXPORT extern ProtobufOnceType repeated_message_generic_type_traits_
 // message-type repeated field extensions.
 class LIBPROTOBUF_EXPORT RepeatedMessageGenericTypeTraits {
  public:
-  typedef RepeatedPtrField<::google::protobuf::MessageLite*> RepeatedFieldType;
+  typedef RepeatedPtrField<::google::leap_protobuf::MessageLite*> RepeatedFieldType;
  private:
   template<typename Type> friend class RepeatedMessageTypeTraits;
   static void InitializeDefaultRepeatedFields();
@@ -1247,7 +1247,7 @@ class LIBPROTOBUF_EXPORT RepeatedMessageGenericTypeTraits {
 template<typename Type> inline
     const typename RepeatedMessageTypeTraits<Type>::RepeatedFieldType*
     RepeatedMessageTypeTraits<Type>::GetDefaultRepeatedField() {
-  ::google::protobuf::GoogleOnceInit(
+  ::google::leap_protobuf::GoogleOnceInit(
       &repeated_message_generic_type_traits_once_init_,
       &RepeatedMessageGenericTypeTraits::InitializeDefaultRepeatedFields);
   return reinterpret_cast<const RepeatedFieldType*>(
@@ -1312,98 +1312,98 @@ class ExtensionIdentifier {
 #define GOOGLE_PROTOBUF_EXTENSION_ACCESSORS(CLASSNAME)                        \
   /* Has, Size, Clear */                                                      \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline bool HasExtension(                                                   \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) const {   \
     return _extensions_.Has(id.number());                                     \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline void ClearExtension(                                                 \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) {         \
     _extensions_.ClearExtension(id.number());                                 \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline int ExtensionSize(                                                   \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) const {   \
     return _extensions_.ExtensionSize(id.number());                           \
   }                                                                           \
                                                                               \
   /* Singular accessors */                                                    \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Singular::ConstType GetExtension(        \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) const {   \
     return _proto_TypeTraits::Get(id.number(), _extensions_,                  \
                                   id.default_value());                        \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Singular::MutableType MutableExtension(  \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) {         \
     return _proto_TypeTraits::Mutable(id.number(), _field_type,               \
                                       &_extensions_);                         \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline void SetExtension(                                                   \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id,           \
       typename _proto_TypeTraits::Singular::ConstType value) {                \
     _proto_TypeTraits::Set(id.number(), _field_type, value, &_extensions_);   \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline void SetAllocatedExtension(                                          \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id,           \
       typename _proto_TypeTraits::Singular::MutableType value) {              \
     _proto_TypeTraits::SetAllocated(id.number(), _field_type,                 \
                                     value, &_extensions_);                    \
   }                                                                           \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline void UnsafeArenaSetAllocatedExtension(                               \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id,           \
       typename _proto_TypeTraits::Singular::MutableType value) {              \
     _proto_TypeTraits::UnsafeArenaSetAllocated(id.number(), _field_type,      \
                                                value, &_extensions_);         \
   }                                                                           \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Singular::MutableType ReleaseExtension(  \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) {         \
     return _proto_TypeTraits::Release(id.number(), _field_type,               \
                                       &_extensions_);                         \
   }                                                                           \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Singular::MutableType                    \
       UnsafeArenaReleaseExtension(                                            \
-          const ::google::protobuf::internal::ExtensionIdentifier<                      \
+          const ::google::leap_protobuf::internal::ExtensionIdentifier<                      \
             CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) {     \
     return _proto_TypeTraits::UnsafeArenaRelease(id.number(), _field_type,    \
                                                  &_extensions_);              \
@@ -1411,49 +1411,49 @@ class ExtensionIdentifier {
                                                                               \
   /* Repeated accessors */                                                    \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Repeated::ConstType GetExtension(        \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id,           \
       int index) const {                                                      \
     return _proto_TypeTraits::Get(id.number(), _extensions_, index);          \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Repeated::MutableType MutableExtension(  \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id,           \
       int index) {                                                            \
     return _proto_TypeTraits::Mutable(id.number(), index, &_extensions_);     \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline void SetExtension(                                                   \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id,           \
       int index, typename _proto_TypeTraits::Repeated::ConstType value) {     \
     _proto_TypeTraits::Set(id.number(), index, value, &_extensions_);         \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Repeated::MutableType AddExtension(      \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id) {         \
     return _proto_TypeTraits::Add(id.number(), _field_type, &_extensions_);   \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline void AddExtension(                                                   \
-      const ::google::protobuf::internal::ExtensionIdentifier<                          \
+      const ::google::leap_protobuf::internal::ExtensionIdentifier<                          \
         CLASSNAME, _proto_TypeTraits, _field_type, _is_packed>& id,           \
       typename _proto_TypeTraits::Repeated::ConstType value) {                \
     _proto_TypeTraits::Add(id.number(), _field_type, _is_packed,              \
@@ -1461,22 +1461,22 @@ class ExtensionIdentifier {
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline const typename _proto_TypeTraits::Repeated::RepeatedFieldType&       \
       GetRepeatedExtension(                                                   \
-          const ::google::protobuf::internal::ExtensionIdentifier<                      \
+          const ::google::leap_protobuf::internal::ExtensionIdentifier<                      \
             CLASSNAME, _proto_TypeTraits, _field_type,                        \
             _is_packed>& id) const {                                          \
     return _proto_TypeTraits::GetRepeated(id.number(), _extensions_);         \
   }                                                                           \
                                                                               \
   template <typename _proto_TypeTraits,                                       \
-            ::google::protobuf::internal::FieldType _field_type,                        \
+            ::google::leap_protobuf::internal::FieldType _field_type,                        \
             bool _is_packed>                                                  \
   inline typename _proto_TypeTraits::Repeated::RepeatedFieldType*             \
       MutableRepeatedExtension(                                               \
-          const ::google::protobuf::internal::ExtensionIdentifier<                      \
+          const ::google::leap_protobuf::internal::ExtensionIdentifier<                      \
               CLASSNAME, _proto_TypeTraits, _field_type,                      \
               _is_packed>& id) {                                              \
     return _proto_TypeTraits::MutableRepeated(id.number(), _field_type,       \

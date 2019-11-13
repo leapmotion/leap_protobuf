@@ -54,12 +54,12 @@ struct UnknownFieldHandlerLite {
                    io::CodedInputStream* input,
                    int tag) {
     GOOGLE_DCHECK(!table.unknown_field_set);
-    ::google::protobuf::io::StringOutputStream unknown_fields_string(
+    ::google::leap_protobuf::io::StringOutputStream unknown_fields_string(
         MutableUnknownFields(msg, table.arena_offset));
-    ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+    ::google::leap_protobuf::io::CodedOutputStream unknown_fields_stream(
         &unknown_fields_string, false);
 
-    return ::google::protobuf::internal::WireFormatLite::SkipField(
+    return ::google::leap_protobuf::internal::WireFormatLite::SkipField(
         input, tag, &unknown_fields_stream);
   }
 
@@ -67,9 +67,9 @@ struct UnknownFieldHandlerLite {
                      int tag, int value) {
     GOOGLE_DCHECK(!table.unknown_field_set);
 
-    ::google::protobuf::io::StringOutputStream unknown_fields_string(
+    ::google::leap_protobuf::io::StringOutputStream unknown_fields_string(
         MutableUnknownFields(msg, table.arena_offset));
-    ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+    ::google::leap_protobuf::io::CodedOutputStream unknown_fields_stream(
         &unknown_fields_string, false);
     unknown_fields_stream.WriteVarint32(tag);
     unknown_fields_stream.WriteVarint32(value);
@@ -86,9 +86,9 @@ struct UnknownFieldHandlerLite {
     const MessageLite* prototype = table.default_instance();
 
     GOOGLE_DCHECK(!table.unknown_field_set);
-    ::google::protobuf::io::StringOutputStream unknown_fields_string(
+    ::google::leap_protobuf::io::StringOutputStream unknown_fields_string(
         MutableUnknownFields(msg, table.arena_offset));
-    ::google::protobuf::io::CodedOutputStream unknown_fields_stream(
+    ::google::leap_protobuf::io::CodedOutputStream unknown_fields_stream(
         &unknown_fields_string, false);
     return extensions->ParseField(
         tag, input, prototype, &unknown_fields_stream);

@@ -342,7 +342,7 @@ std::string GetPropertyName(const FieldDescriptor* descriptor) {
 }
 
 std::string GetOutputFile(
-    const google::protobuf::FileDescriptor* descriptor,
+    const google::leap_protobuf::FileDescriptor* descriptor,
     const std::string file_extension,
     const bool generate_directories,
     const std::string base_namespace,

@@ -780,7 +780,7 @@ bool IsIntegralFieldWithStringJSType(const FieldDescriptor* field) {
     case FieldDescriptor::CPPTYPE_UINT64:
       // The default value of JSType is JS_NORMAL, which behaves the same as
       // JS_NUMBER.
-      return field->options().jstype() == google::protobuf::FieldOptions::JS_STRING;
+      return field->options().jstype() == google::leap_protobuf::FieldOptions::JS_STRING;
     default:
       return false;
   }
@@ -3641,7 +3641,7 @@ bool Generator::GenerateAll(const std::vector<const FileDescriptor*>& files,
     // Generate one output file per input (.proto) file.
 
     for (int i = 0; i < files.size(); i++) {
-      const google::protobuf::FileDescriptor* file = files[i];
+      const google::leap_protobuf::FileDescriptor* file = files[i];
 
       string filename =
           options.output_dir + "/" + GetJSFilename(options, file->name());

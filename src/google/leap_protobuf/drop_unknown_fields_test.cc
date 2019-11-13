@@ -42,7 +42,7 @@ using unittest_drop_unknown_fields::FooWithExtraFields;
 namespace leap_protobuf {
 
 TEST(DropUnknownFieldsTest, GeneratedMessageDefaultDrop) {
-  ::google::protobuf::internal::SetProto3PreserveUnknownsDefault(false);
+  ::google::leap_protobuf::internal::SetProto3PreserveUnknownsDefault(false);
   FooWithExtraFields foo_with_extra_fields;
   foo_with_extra_fields.set_int32_value(1);
   foo_with_extra_fields.set_enum_value(FooWithExtraFields::QUX);
@@ -63,7 +63,7 @@ TEST(DropUnknownFieldsTest, GeneratedMessageDefaultDrop) {
 }
 
 TEST(DropUnknownFieldsTest, GeneratedMessageDefaultPreserve) {
-  ::google::protobuf::internal::SetProto3PreserveUnknownsDefault(true);
+  ::google::leap_protobuf::internal::SetProto3PreserveUnknownsDefault(true);
   FooWithExtraFields foo_with_extra_fields;
   foo_with_extra_fields.set_int32_value(1);
   foo_with_extra_fields.set_enum_value(FooWithExtraFields::QUX);
@@ -90,8 +90,8 @@ TEST(DropUnknownFieldsTest, DynamicMessageDefaultDrop) {
   foo_with_extra_fields.set_enum_value(FooWithExtraFields::QUX);
   foo_with_extra_fields.set_extra_int32_value(2);
 
-  google::protobuf::DynamicMessageFactory factory;
-  std::unique_ptr<google::protobuf::Message> foo(
+  google::leap_protobuf::DynamicMessageFactory factory;
+  std::unique_ptr<google::leap_protobuf::Message> foo(
       factory.GetPrototype(Foo::descriptor())->New());
   ASSERT_TRUE(foo->ParseFromString(foo_with_extra_fields.SerializeAsString()));
   EXPECT_TRUE(foo->GetReflection()->GetUnknownFields(*foo).empty());
@@ -110,8 +110,8 @@ TEST(DropUnknownFieldsTest, DynamicMessageDefaultPreserve) {
   foo_with_extra_fields.set_enum_value(FooWithExtraFields::QUX);
   foo_with_extra_fields.set_extra_int32_value(2);
 
-  google::protobuf::DynamicMessageFactory factory;
-  std::unique_ptr<google::protobuf::Message> foo(
+  google::leap_protobuf::DynamicMessageFactory factory;
+  std::unique_ptr<google::leap_protobuf::Message> foo(
       factory.GetPrototype(Foo::descriptor())->New());
   ASSERT_TRUE(foo->ParseFromString(foo_with_extra_fields.SerializeAsString()));
   EXPECT_FALSE(foo->GetReflection()->GetUnknownFields(*foo).empty());

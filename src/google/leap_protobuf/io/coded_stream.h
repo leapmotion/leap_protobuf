@@ -889,7 +889,7 @@ class LIBPROTOBUF_EXPORT CodedOutputStream {
   // that wants deterministic serialization by default needs to call
   // SetDefaultSerializationDeterministic() or ensure on its own that another
   // thread has done so.
-  friend void ::google::protobuf::internal::MapTestForceDeterministic();
+  friend void ::google::leap_protobuf::internal::MapTestForceDeterministic();
   static void SetDefaultSerializationDeterministic() {
     default_serialization_deterministic_.store(true, std::memory_order_relaxed);
   }

@@ -23,46 +23,46 @@ namespace google {
 namespace leap_protobuf {
 class SourceContextDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<SourceContext>
+  ::google::leap_protobuf::internal::ExplicitlyConstructed<SourceContext>
       _instance;
 } _SourceContext_default_instance_;
 }  // namespace leap_protobuf
 }  // namespace google
-namespace leap_protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto {
+namespace protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto {
 static void InitDefaultsSourceContext() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::google::protobuf::_SourceContext_default_instance_;
-    new (ptr) ::google::protobuf::SourceContext();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+    void* ptr = &::google::leap_protobuf::_SourceContext_default_instance_;
+    new (ptr) ::google::leap_protobuf::SourceContext();
+    ::google::leap_protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::google::protobuf::SourceContext::InitAsDefaultInstance();
+  ::google::leap_protobuf::SourceContext::InitAsDefaultInstance();
 }
 
-LIBPROTOBUF_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_SourceContext =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSourceContext}, {}};
+LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_SourceContext =
+    {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsSourceContext}, {}};
 
 void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_SourceContext.base);
+  ::google::leap_protobuf::internal::InitSCC(&scc_info_SourceContext.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[1];
+::google::leap_protobuf::Metadata file_level_metadata[1];
 
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const ::google::leap_protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::protobuf::SourceContext, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::SourceContext, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::protobuf::SourceContext, file_name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::SourceContext, file_name_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::google::protobuf::SourceContext)},
+static const ::google::leap_protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, sizeof(::google::leap_protobuf::SourceContext)},
 };
 
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::google::protobuf::_SourceContext_default_instance_),
+static ::google::leap_protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::leap_protobuf::Message*>(&::google::leap_protobuf::_SourceContext_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -73,14 +73,14 @@ void protobuf_AssignDescriptors() {
 }
 
 void protobuf_AssignDescriptorsOnce() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
+  static ::google::leap_protobuf::internal::once_flag once;
+  ::google::leap_protobuf::internal::call_once(once, protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
+  ::google::leap_protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
 }
 
 void AddDescriptorsImpl() {
@@ -94,15 +94,15 @@ void AddDescriptorsImpl() {
       "text\242\002\003GPB\252\002\036Google.Protobuf.WellKnownTy"
       "pesb\006proto3"
   };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+  ::google::leap_protobuf::DescriptorPool::InternalAddGeneratedFile(
       descriptor, 251);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+  ::google::leap_protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/leap_protobuf/source_context.proto", &protobuf_RegisterTypes);
 }
 
 void AddDescriptors() {
-  static ::google::protobuf::internal::once_flag once;
-  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
+  static ::google::leap_protobuf::internal::once_flag once;
+  ::google::leap_protobuf::internal::call_once(once, AddDescriptorsImpl);
 }
 // Force AddDescriptors() to be called at dynamic initialization time.
 struct StaticDescriptorInitializer {
@@ -110,7 +110,7 @@ struct StaticDescriptorInitializer {
     AddDescriptors();
   }
 } static_descriptor_initializer;
-}  // namespace leap_protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto
+}  // namespace protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto
 namespace google {
 namespace leap_protobuf {
 
@@ -123,25 +123,25 @@ const int SourceContext::kFileNameFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SourceContext::SourceContext()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
+  : ::google::leap_protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::leap_protobuf::internal::InitSCC(
       &protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto::scc_info_SourceContext.base);
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.SourceContext)
 }
 SourceContext::SourceContext(const SourceContext& from)
-  : ::google::protobuf::Message(),
+  : ::google::leap_protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  file_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_name_.UnsafeSetDefault(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.file_name().size() > 0) {
-    file_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_name_);
+    file_name_.AssignWithDefault(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), from.file_name_);
   }
   // @@protoc_insertion_point(copy_constructor:google.protobuf.SourceContext)
 }
 
 void SourceContext::SharedCtor() {
-  file_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_name_.UnsafeSetDefault(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 SourceContext::~SourceContext() {
@@ -150,52 +150,52 @@ SourceContext::~SourceContext() {
 }
 
 void SourceContext::SharedDtor() {
-  file_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_name_.DestroyNoArena(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void SourceContext::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* SourceContext::descriptor() {
+const ::google::leap_protobuf::Descriptor* SourceContext::descriptor() {
   ::protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const SourceContext& SourceContext::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto::scc_info_SourceContext.base);
+  ::google::leap_protobuf::internal::InitSCC(&protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto::scc_info_SourceContext.base);
   return *internal_default_instance();
 }
 
 
 void SourceContext::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.protobuf.SourceContext)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::google::leap_protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  file_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_name_.ClearToEmptyNoArena(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
 bool SourceContext::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
+    ::google::leap_protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
+  ::google::leap_protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.SourceContext)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::google::leap_protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+    switch (::google::leap_protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // string file_name = 1;
       case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+        if (static_cast< ::google::leap_protobuf::uint8>(tag) ==
+            static_cast< ::google::leap_protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::leap_protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_file_name()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          DO_(::google::leap_protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->file_name().data(), static_cast<int>(this->file_name().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
+            ::google::leap_protobuf::internal::WireFormatLite::PARSE,
             "google.protobuf.SourceContext.file_name"));
         } else {
           goto handle_unusual;
@@ -208,7 +208,7 @@ bool SourceContext::MergePartialFromCodedStream(
         if (tag == 0) {
           goto success;
         }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
+        DO_(::google::leap_protobuf::internal::WireFormat::SkipField(
               input, tag, _internal_metadata_.mutable_unknown_fields()));
         break;
       }
@@ -224,49 +224,49 @@ failure:
 }
 
 void SourceContext::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
+    ::google::leap_protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.SourceContext)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::google::leap_protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string file_name = 1;
   if (this->file_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    ::google::leap_protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file_name().data(), static_cast<int>(this->file_name().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      ::google::leap_protobuf::internal::WireFormatLite::SERIALIZE,
       "google.protobuf.SourceContext.file_name");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::google::leap_protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->file_name(), output);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::leap_protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
   // @@protoc_insertion_point(serialize_end:google.protobuf.SourceContext)
 }
 
-::google::protobuf::uint8* SourceContext::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
+::google::leap_protobuf::uint8* SourceContext::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::leap_protobuf::uint8* target) const {
   (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SourceContext)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::google::leap_protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string file_name = 1;
   if (this->file_name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+    ::google::leap_protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->file_name().data(), static_cast<int>(this->file_name().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      ::google::leap_protobuf::internal::WireFormatLite::SERIALIZE,
       "google.protobuf.SourceContext.file_name");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+      ::google::leap_protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->file_name(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::leap_protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:google.protobuf.SourceContext)
   return target;
@@ -276,32 +276,32 @@ size_t SourceContext::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.protobuf.SourceContext)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+      ::google::leap_protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::leap_protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
   // string file_name = 1;
   if (this->file_name().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::leap_protobuf::internal::WireFormatLite::StringSize(
         this->file_name());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  int cached_size = ::google::leap_protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
 }
 
-void SourceContext::MergeFrom(const ::google::protobuf::Message& from) {
+void SourceContext::MergeFrom(const ::google::leap_protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.SourceContext)
   GOOGLE_DCHECK_NE(&from, this);
   const SourceContext* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const SourceContext>(
+      ::google::leap_protobuf::internal::DynamicCastToGenerated<const SourceContext>(
           &from);
   if (source == NULL) {
   // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.SourceContext)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+    ::google::leap_protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.SourceContext)
     MergeFrom(*source);
@@ -312,16 +312,16 @@ void SourceContext::MergeFrom(const SourceContext& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SourceContext)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  ::google::leap_protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from.file_name().size() > 0) {
 
-    file_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_name_);
+    file_name_.AssignWithDefault(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), from.file_name_);
   }
 }
 
-void SourceContext::CopyFrom(const ::google::protobuf::Message& from) {
+void SourceContext::CopyFrom(const ::google::leap_protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.SourceContext)
   if (&from == this) return;
   Clear();
@@ -345,12 +345,12 @@ void SourceContext::Swap(SourceContext* other) {
 }
 void SourceContext::InternalSwap(SourceContext* other) {
   using std::swap;
-  file_name_.Swap(&other->file_name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  file_name_.Swap(&other->file_name_, &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata SourceContext::GetMetadata() const {
+::google::leap_protobuf::Metadata SourceContext::GetMetadata() const {
   protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobuf_2fsource_5fcontext_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -361,8 +361,8 @@ void SourceContext::InternalSwap(SourceContext* other) {
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::protobuf::SourceContext* Arena::CreateMaybeMessage< ::google::protobuf::SourceContext >(Arena* arena) {
-  return Arena::CreateInternal< ::google::protobuf::SourceContext >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::SourceContext* Arena::CreateMaybeMessage< ::google::leap_protobuf::SourceContext >(Arena* arena) {
+  return Arena::CreateInternal< ::google::leap_protobuf::SourceContext >(arena);
 }
 }  // namespace leap_protobuf
 }  // namespace google

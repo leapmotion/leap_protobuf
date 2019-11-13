@@ -7,12 +7,12 @@
 
 #include "google/leap_protobuf/compiler/plugin.h"
 
-using google::protobuf::FileDescriptorProto;
-using google::protobuf::FileDescriptor;
-using google::protobuf::DescriptorPool;
-using google::protobuf::io::Printer;
-using google::protobuf::util::SchemaGroupStripper;
-using google::protobuf::util::SchemaAddZeroEnumValue;
+using google::leap_protobuf::FileDescriptorProto;
+using google::leap_protobuf::FileDescriptor;
+using google::leap_protobuf::DescriptorPool;
+using google::leap_protobuf::io::Printer;
+using google::leap_protobuf::util::SchemaGroupStripper;
+using google::leap_protobuf::util::SchemaAddZeroEnumValue;
 
 namespace google {
 namespace leap_protobuf {
@@ -83,7 +83,7 @@ class GoGoProtoGenerator : public CodeGenerator {
     std::vector<std::pair<string,string>> option_pairs;
     ParseGeneratorParameter(parameter, &option_pairs);
 
-    std::unique_ptr<google::protobuf::io::ZeroCopyOutputStream> output(
+    std::unique_ptr<google::leap_protobuf::io::ZeroCopyOutputStream> output(
         context->Open(basename + ".proto"));
     string content = new_pool_.BuildFile(new_file)->DebugString();
     Printer printer(output.get(), '$');
@@ -98,6 +98,6 @@ class GoGoProtoGenerator : public CodeGenerator {
 }  // namespace google
 
 int main(int argc, char* argv[]) {
-  google::protobuf::compiler::GoGoProtoGenerator generator;
-  return google::protobuf::compiler::PluginMain(argc, argv, &generator);
+  google::leap_protobuf::compiler::GoGoProtoGenerator generator;
+  return google::leap_protobuf::compiler::PluginMain(argc, argv, &generator);
 }

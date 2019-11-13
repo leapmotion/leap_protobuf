@@ -195,7 +195,7 @@ class MockDescriptor {
 
  private:
   // Allows access to GetLocationPath.
-  friend class ::google::protobuf::io::Printer;
+  friend class ::google::leap_protobuf::io::Printer;
 
   // Copies the pre-stored path to output.
   void GetLocationPath(std::vector<int>* output) const { *output = path_; }

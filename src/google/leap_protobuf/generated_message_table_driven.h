@@ -183,13 +183,13 @@ bool MergePartialFromCodedStreamLite(MessageLite* msg, const ParseTable& table,
 template <typename Entry>
 bool ParseMap(io::CodedInputStream* input, void* map_field) {
   typedef typename MapEntryToMapField<Entry>::MapFieldType MapFieldType;
-  typedef google::protobuf::Map<typename Entry::EntryKeyType,
+  typedef google::leap_protobuf::Map<typename Entry::EntryKeyType,
                       typename Entry::EntryValueType>
       MapType;
   typedef typename Entry::template Parser<MapFieldType, MapType> ParserType;
 
   ParserType parser(static_cast<MapFieldType*>(map_field));
-  return ::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(input,
+  return ::google::leap_protobuf::internal::WireFormatLite::ReadMessageNoVirtual(input,
                                                                   &parser);
 }
 

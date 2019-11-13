@@ -33,18 +33,18 @@
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_google_2fprotobuf_2ftimestamp_2eproto LIBPROTOBUF_EXPORT
 
-namespace leap_protobuf_google_2fprotobuf_2ftimestamp_2eproto {
+namespace protobuf_google_2fprotobuf_2ftimestamp_2eproto {
 // Internal implementation detail -- do not use these members.
 struct LIBPROTOBUF_EXPORT TableStruct {
-  static const ::google::protobuf::internal::ParseTableField entries[];
-  static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[1];
-  static const ::google::protobuf::internal::FieldMetadata field_metadata[];
-  static const ::google::protobuf::internal::SerializationTable serialization_table[];
-  static const ::google::protobuf::uint32 offsets[];
+  static const ::google::leap_protobuf::internal::ParseTableField entries[];
+  static const ::google::leap_protobuf::internal::AuxillaryParseTableField aux[];
+  static const ::google::leap_protobuf::internal::ParseTable schema[1];
+  static const ::google::leap_protobuf::internal::FieldMetadata field_metadata[];
+  static const ::google::leap_protobuf::internal::SerializationTable serialization_table[];
+  static const ::google::leap_protobuf::uint32 offsets[];
 };
 void LIBPROTOBUF_EXPORT AddDescriptors();
-}  // namespace leap_protobuf_google_2fprotobuf_2ftimestamp_2eproto
+}  // namespace protobuf_google_2fprotobuf_2ftimestamp_2eproto
 namespace google {
 namespace leap_protobuf {
 class Timestamp;
@@ -54,7 +54,7 @@ LIBPROTOBUF_EXPORT extern TimestampDefaultTypeInternal _Timestamp_default_instan
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::Timestamp* Arena::CreateMaybeMessage<::google::protobuf::Timestamp>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::Timestamp* Arena::CreateMaybeMessage<::google::leap_protobuf::Timestamp>(Arena*);
 }  // namespace leap_protobuf
 }  // namespace google
 namespace google {
@@ -62,7 +62,7 @@ namespace leap_protobuf {
 
 // ===================================================================
 
-class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Timestamp) */ {
+class LIBPROTOBUF_EXPORT Timestamp : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Timestamp) */ {
  public:
   Timestamp();
   virtual ~Timestamp();
@@ -88,13 +88,13 @@ class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@pro
     return *this;
   }
   #endif
-  inline ::google::protobuf::Arena* GetArena() const final {
+  inline ::google::leap_protobuf::Arena* GetArena() const final {
     return GetArenaNoVirtual();
   }
   inline void* GetMaybeArenaPointer() const final {
     return MaybeArenaPtr();
   }
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const Timestamp& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -117,11 +117,11 @@ class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@pro
     return CreateMaybeMessage<Timestamp>(NULL);
   }
 
-  Timestamp* New(::google::protobuf::Arena* arena) const final {
+  Timestamp* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<Timestamp>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const Timestamp& from);
   void MergeFrom(const Timestamp& from);
   void Clear() final;
@@ -129,11 +129,11 @@ class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@pro
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -142,12 +142,12 @@ class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@pro
   void SetCachedSize(int size) const final;
   void InternalSwap(Timestamp* other);
   protected:
-  explicit Timestamp(::google::protobuf::Arena* arena);
+  explicit Timestamp(::google::leap_protobuf::Arena* arena);
   private:
   static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::google::protobuf::Arena* arena);
+  inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
   }
   inline void* MaybeArenaPtr() const {
@@ -155,7 +155,7 @@ class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@pro
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -164,25 +164,25 @@ class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@pro
   // int64 seconds = 1;
   void clear_seconds();
   static const int kSecondsFieldNumber = 1;
-  ::google::protobuf::int64 seconds() const;
-  void set_seconds(::google::protobuf::int64 value);
+  ::google::leap_protobuf::int64 seconds() const;
+  void set_seconds(::google::leap_protobuf::int64 value);
 
   // int32 nanos = 2;
   void clear_nanos();
   static const int kNanosFieldNumber = 2;
-  ::google::protobuf::int32 nanos() const;
-  void set_nanos(::google::protobuf::int32 value);
+  ::google::leap_protobuf::int32 nanos() const;
+  void set_nanos(::google::leap_protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:google.protobuf.Timestamp)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::google::protobuf::int64 seconds_;
-  ::google::protobuf::int32 nanos_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::leap_protobuf::int64 seconds_;
+  ::google::leap_protobuf::int32 nanos_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2ftimestamp_2eproto::TableStruct;
 };
 // ===================================================================
@@ -200,11 +200,11 @@ class LIBPROTOBUF_EXPORT Timestamp : public ::google::protobuf::Message /* @@pro
 inline void Timestamp::clear_seconds() {
   seconds_ = GOOGLE_LONGLONG(0);
 }
-inline ::google::protobuf::int64 Timestamp::seconds() const {
+inline ::google::leap_protobuf::int64 Timestamp::seconds() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Timestamp.seconds)
   return seconds_;
 }
-inline void Timestamp::set_seconds(::google::protobuf::int64 value) {
+inline void Timestamp::set_seconds(::google::leap_protobuf::int64 value) {
   
   seconds_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Timestamp.seconds)
@@ -214,11 +214,11 @@ inline void Timestamp::set_seconds(::google::protobuf::int64 value) {
 inline void Timestamp::clear_nanos() {
   nanos_ = 0;
 }
-inline ::google::protobuf::int32 Timestamp::nanos() const {
+inline ::google::leap_protobuf::int32 Timestamp::nanos() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Timestamp.nanos)
   return nanos_;
 }
-inline void Timestamp::set_nanos(::google::protobuf::int32 value) {
+inline void Timestamp::set_nanos(::google::leap_protobuf::int32 value) {
   
   nanos_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Timestamp.nanos)

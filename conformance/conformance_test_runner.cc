@@ -68,7 +68,7 @@
 
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
-using google::protobuf::StringAppendF;
+using google::leap_protobuf::StringAppendF;
 using std::string;
 using std::vector;
 
@@ -82,7 +82,7 @@ using std::vector;
 
 // Test runner that spawns the process being tested and communicates with it
 // over a pipe.
-class ForkPipeRunner : public google::protobuf::ConformanceTestRunner {
+class ForkPipeRunner : public google::leap_protobuf::ConformanceTestRunner {
  public:
   ForkPipeRunner(const std::string &executable)
       : child_pid_(-1), executable_(executable) {}
@@ -287,7 +287,7 @@ void ParseFailureList(const char *filename, std::vector<string>* failure_list) {
 
 int main(int argc, char *argv[]) {
   char *program;
-  google::protobuf::ConformanceTestSuite suite;
+  google::leap_protobuf::ConformanceTestSuite suite;
 
   string failure_list_filename;
   std::vector<string> failure_list;

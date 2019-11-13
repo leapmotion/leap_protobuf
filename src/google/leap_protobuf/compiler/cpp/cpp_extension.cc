@@ -116,8 +116,8 @@ void ExtensionGenerator::GenerateDeclaration(io::Printer* printer) {
 
   printer->Print(vars,
     "static const int $constant_name$ = $number$;\n"
-    "$qualifier$ ::google::protobuf::internal::ExtensionIdentifier< $extendee$,\n"
-    "    ::google::protobuf::internal::$type_traits$, $field_type$, $packed$ >\n"
+    "$qualifier$ ::google::leap_protobuf::internal::ExtensionIdentifier< $extendee$,\n"
+    "    ::google::leap_protobuf::internal::$type_traits$, $field_type$, $packed$ >\n"
     "  $name$;\n"
     );
 }
@@ -161,8 +161,8 @@ void ExtensionGenerator::GenerateDefinition(io::Printer* printer) {
   }
 
   printer->Print(vars,
-    "::google::protobuf::internal::ExtensionIdentifier< $extendee$,\n"
-    "    ::google::protobuf::internal::$type_traits$, $field_type$, $packed$ >\n"
+    "::google::leap_protobuf::internal::ExtensionIdentifier< $extendee$,\n"
+    "    ::google::leap_protobuf::internal::$type_traits$, $field_type$, $packed$ >\n"
     "  $name$($constant_name$, $default$);\n");
 }
 

@@ -745,8 +745,8 @@ TEST(WireFormatTest, RepeatedScalarsDifferentTagSizes) {
   }
 
   // Make sure that we have a variety of tag sizes.
-  const google::protobuf::Descriptor* desc = msg1.GetDescriptor();
-  const google::protobuf::FieldDescriptor* field;
+  const google::leap_protobuf::Descriptor* desc = msg1.GetDescriptor();
+  const google::leap_protobuf::FieldDescriptor* field;
   field = desc->FindFieldByName("repeated_fixed32");
   ASSERT_TRUE(field != NULL);
   ASSERT_EQ(1, WireFormat::TagSize(field->number(), field->type()));

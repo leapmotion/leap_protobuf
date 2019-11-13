@@ -1944,11 +1944,11 @@ class ParentSavingFieldComparator : public util::FieldComparator {
   ParentSavingFieldComparator() {}
 
   virtual ComparisonResult Compare(
-      const google::protobuf::Message& message_1,
-      const google::protobuf::Message& message_2,
-      const google::protobuf::FieldDescriptor* field,
+      const google::leap_protobuf::Message& message_1,
+      const google::leap_protobuf::Message& message_2,
+      const google::leap_protobuf::FieldDescriptor* field,
       int index_1, int index_2,
-      const google::protobuf::util::FieldContext* field_context) {
+      const google::leap_protobuf::util::FieldContext* field_context) {
     if (field_context)
       parent_fields_ = *(field_context->parent_fields());
     if (field->cpp_type() == FieldDescriptor::CPPTYPE_MESSAGE) {
@@ -1958,12 +1958,12 @@ class ParentSavingFieldComparator : public util::FieldComparator {
     }
   }
 
-  std::vector<google::protobuf::util::MessageDifferencer::SpecificField> parent_fields() {
+  std::vector<google::leap_protobuf::util::MessageDifferencer::SpecificField> parent_fields() {
     return parent_fields_;
   }
 
  private:
-  std::vector<google::protobuf::util::MessageDifferencer::SpecificField> parent_fields_;
+  std::vector<google::leap_protobuf::util::MessageDifferencer::SpecificField> parent_fields_;
 };
 
 // Tests if MessageDifferencer sends the parent fields in the FieldContext
@@ -2894,7 +2894,7 @@ TEST_F(ComparisonTest, MapIgnoreKeyTest) {
 }
 
 TEST_F(ComparisonTest, MapRoundTripSyncTest) {
-  google::protobuf::TextFormat::Parser parser;
+  google::leap_protobuf::TextFormat::Parser parser;
   unittest::TestMap map_reflection1;
 
   // By setting via reflection, data exists in repeated field.
@@ -2910,7 +2910,7 @@ TEST_F(ComparisonTest, MapRoundTripSyncTest) {
 }
 
 TEST_F(ComparisonTest, MapEntryPartialTest) {
-  google::protobuf::TextFormat::Parser parser;
+  google::leap_protobuf::TextFormat::Parser parser;
   unittest::TestMap map1;
   unittest::TestMap map2;
 
@@ -2932,7 +2932,7 @@ TEST_F(ComparisonTest, MapEntryPartialTest) {
 }
 
 TEST_F(ComparisonTest, MapEntryPartialEmptyKeyTest) {
-  google::protobuf::TextFormat::Parser parser;
+  google::leap_protobuf::TextFormat::Parser parser;
   unittest::TestMap map1;
   unittest::TestMap map2;
   ASSERT_TRUE(parser.ParseFromString("map_int32_foreign_message {}", &map1));
@@ -2961,7 +2961,7 @@ class LengthMapKeyComparator
 };
 
 TEST_F(ComparisonTest, MapEntryCustomMapKeyComparator) {
-  google::protobuf::TextFormat::Parser parser;
+  google::leap_protobuf::TextFormat::Parser parser;
   protobuf_unittest::TestMap msg1;
   protobuf_unittest::TestMap msg2;
 

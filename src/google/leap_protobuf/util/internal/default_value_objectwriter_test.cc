@@ -41,7 +41,7 @@ namespace util {
 namespace converter {
 namespace testing {
 
-using google::protobuf::testing::DefaultValueTest;
+using google::leap_protobuf::testing::DefaultValueTest;
 
 // Base class for setting up required state for running default values tests on
 // different descriptors.

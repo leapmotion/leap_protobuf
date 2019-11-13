@@ -711,8 +711,8 @@ class LIBPROTOBUF_EXPORT MessageDifferencer {
 
   // Compares all the unknown fields in two messages.
   bool CompareUnknownFields(const Message& message1, const Message& message2,
-                            const google::protobuf::UnknownFieldSet&,
-                            const google::protobuf::UnknownFieldSet&,
+                            const google::leap_protobuf::UnknownFieldSet&,
+                            const google::leap_protobuf::UnknownFieldSet&,
                             std::vector<SpecificField>* parent_fields);
 
   // Compares the specified messages for the requested field lists. The field

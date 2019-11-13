@@ -50,14 +50,14 @@ namespace leap_protobuf {
 namespace util {
 namespace converter {
 
-using google::protobuf::internal::WireFormatLite;
+using google::leap_protobuf::internal::WireFormatLite;
 using util::error::INVALID_ARGUMENT;
 using util::Status;
 using util::StatusOr;
 
 
 ProtoStreamObjectWriter::ProtoStreamObjectWriter(
-    TypeResolver* type_resolver, const google::protobuf::Type& type,
+    TypeResolver* type_resolver, const google::leap_protobuf::Type& type,
     strings::ByteSink* output, ErrorListener* listener,
     const ProtoStreamObjectWriter::Options& options)
     : ProtoWriter(type_resolver, type, output, listener),
@@ -69,7 +69,7 @@ ProtoStreamObjectWriter::ProtoStreamObjectWriter(
 }
 
 ProtoStreamObjectWriter::ProtoStreamObjectWriter(
-    const TypeInfo* typeinfo, const google::protobuf::Type& type,
+    const TypeInfo* typeinfo, const google::leap_protobuf::Type& type,
     strings::ByteSink* output, ErrorListener* listener)
     : ProtoWriter(typeinfo, type, output, listener),
       master_type_(type),
@@ -316,7 +316,7 @@ void ProtoStreamObjectWriter::AnyWriter::StartAny(const DataPiece& value) {
     type_url_ = s.ValueOrDie();
   }
   // Resolve the type url, and report an error if we failed to resolve it.
-  StatusOr<const google::protobuf::Type*> resolved_type =
+  StatusOr<const google::leap_protobuf::Type*> resolved_type =
       parent_->typeinfo()->ResolveTypeUrl(type_url_);
   if (!resolved_type.ok()) {
     parent_->InvalidValue("Any", resolved_type.status().error_message());
@@ -324,7 +324,7 @@ void ProtoStreamObjectWriter::AnyWriter::StartAny(const DataPiece& value) {
     return;
   }
   // At this point, type is never null.
-  const google::protobuf::Type* type = resolved_type.ValueOrDie();
+  const google::leap_protobuf::Type* type = resolved_type.ValueOrDie();
 
   well_known_type_render_ = FindTypeRenderer(type_url_);
   if (well_known_type_render_ != nullptr ||
@@ -558,7 +558,7 @@ ProtoStreamObjectWriter* ProtoStreamObjectWriter::StartObject(
     return this;
   }
 
-  const google::protobuf::Field* field = BeginNamed(name, false);
+  const google::leap_protobuf::Field* field = BeginNamed(name, false);
   if (field == nullptr) return this;
 
   if (IsStruct(*field)) {
@@ -764,7 +764,7 @@ ProtoStreamObjectWriter* ProtoStreamObjectWriter::StartList(StringPiece name) {
   }
 
   // name is not empty
-  const google::protobuf::Field* field = Lookup(name);
+  const google::leap_protobuf::Field* field = Lookup(name);
   if (field == nullptr) {
     IncrementInvalidDepth();
     return this;
@@ -931,7 +931,7 @@ Status ProtoStreamObjectWriter::RenderTimestamp(ProtoStreamObjectWriter* ow,
 
   int64 seconds;
   int32 nanos;
-  if (!::google::protobuf::internal::ParseTime(value.ToString(), &seconds,
+  if (!::google::leap_protobuf::internal::ParseTime(value.ToString(), &seconds,
                                                &nanos)) {
     return Status(INVALID_ARGUMENT, StrCat("Invalid time format: ", value));
   }
@@ -962,7 +962,7 @@ Status ProtoStreamObjectWriter::RenderFieldMask(ProtoStreamObjectWriter* ow,
 // conversions as much as possible. Because ToSnakeCase sometimes returns the
 // wrong value.
   std::unique_ptr<ResultCallback1<util::Status, StringPiece> > callback(
-      ::google::protobuf::NewPermanentCallback(&RenderOneFieldPath, ow));
+      ::google::leap_protobuf::NewPermanentCallback(&RenderOneFieldPath, ow));
   return DecodeCompactFieldMaskPaths(data.str(), callback.get());
 }
 
@@ -1054,7 +1054,7 @@ ProtoStreamObjectWriter* ProtoStreamObjectWriter::RenderDataPiece(
     return this;
   }
 
-  const google::protobuf::Field* field = nullptr;
+  const google::leap_protobuf::Field* field = nullptr;
   if (current_->IsMap()) {
     if (!ValidMapKey(name)) return this;
 
@@ -1184,7 +1184,7 @@ void ProtoStreamObjectWriter::InitRendererMap() {
       &ProtoStreamObjectWriter::RenderWrapperType;
   (*renderers_)["type.googleapis.com/google.protobuf.Value"] =
       &ProtoStreamObjectWriter::RenderStructValue;
-  ::google::protobuf::internal::OnShutdown(&DeleteRendererMap);
+  ::google::leap_protobuf::internal::OnShutdown(&DeleteRendererMap);
 }
 
 void ProtoStreamObjectWriter::DeleteRendererMap() {
@@ -1194,7 +1194,7 @@ void ProtoStreamObjectWriter::DeleteRendererMap() {
 
 ProtoStreamObjectWriter::TypeRenderer*
 ProtoStreamObjectWriter::FindTypeRenderer(const string& type_url) {
-  ::google::protobuf::GoogleOnceInit(&writer_renderers_init_, &InitRendererMap);
+  ::google::leap_protobuf::GoogleOnceInit(&writer_renderers_init_, &InitRendererMap);
   return FindOrNull(*renderers_, type_url);
 }
 
@@ -1237,34 +1237,34 @@ void ProtoStreamObjectWriter::PopOneElement() {
   current_.reset(current_->pop<Item>());
 }
 
-bool ProtoStreamObjectWriter::IsMap(const google::protobuf::Field& field) {
+bool ProtoStreamObjectWriter::IsMap(const google::leap_protobuf::Field& field) {
   if (field.type_url().empty() ||
-      field.kind() != google::protobuf::Field_Kind_TYPE_MESSAGE ||
+      field.kind() != google::leap_protobuf::Field_Kind_TYPE_MESSAGE ||
       field.cardinality() !=
-          google::protobuf::Field_Cardinality_CARDINALITY_REPEATED) {
+          google::leap_protobuf::Field_Cardinality_CARDINALITY_REPEATED) {
     return false;
   }
-  const google::protobuf::Type* field_type =
+  const google::leap_protobuf::Type* field_type =
       typeinfo()->GetTypeByTypeUrl(field.type_url());
 
-  return google::protobuf::util::converter::IsMap(field, *field_type);
+  return google::leap_protobuf::util::converter::IsMap(field, *field_type);
 }
 
-bool ProtoStreamObjectWriter::IsAny(const google::protobuf::Field& field) {
+bool ProtoStreamObjectWriter::IsAny(const google::leap_protobuf::Field& field) {
   return GetTypeWithoutUrl(field.type_url()) == kAnyType;
 }
 
-bool ProtoStreamObjectWriter::IsStruct(const google::protobuf::Field& field) {
+bool ProtoStreamObjectWriter::IsStruct(const google::leap_protobuf::Field& field) {
   return GetTypeWithoutUrl(field.type_url()) == kStructType;
 }
 
 bool ProtoStreamObjectWriter::IsStructValue(
-    const google::protobuf::Field& field) {
+    const google::leap_protobuf::Field& field) {
   return GetTypeWithoutUrl(field.type_url()) == kStructValueType;
 }
 
 bool ProtoStreamObjectWriter::IsStructListValue(
-    const google::protobuf::Field& field) {
+    const google::leap_protobuf::Field& field) {
   return GetTypeWithoutUrl(field.type_url()) == kStructListValueType;
 }
 

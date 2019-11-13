@@ -42,7 +42,7 @@
 #include <gtest/gtest.h>
 
 namespace google {
-namespace atu = ::google::protobuf::compiler::annotation_test_util;
+namespace atu = ::google::leap_protobuf::compiler::annotation_test_util;
 
 namespace leap_protobuf {
 namespace compiler {
@@ -59,7 +59,7 @@ class CppMetadataTest : public ::testing::Test {
                        string* pb_h, GeneratedCodeInfo* pb_h_info,
                        string* proto_h, GeneratedCodeInfo* proto_h_info,
                        string* pb_cc) {
-    google::protobuf::compiler::CommandLineInterface cli;
+    google::leap_protobuf::compiler::CommandLineInterface cli;
     CppGenerator cpp_generator;
     cli.RegisterGenerator("--cpp_out", &cpp_generator, "");
     string cpp_out =

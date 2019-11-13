@@ -51,8 +51,8 @@ namespace util {
 
 // Utility functions for Timestamp and Duration.
 class LIBPROTOBUF_EXPORT TimeUtil {
-  typedef google::protobuf::Timestamp Timestamp;
-  typedef google::protobuf::Duration Duration;
+  typedef google::leap_protobuf::Timestamp Timestamp;
+  typedef google::leap_protobuf::Duration Duration;
 
  public:
   // The min/max Timestamp/Duration values we support.
@@ -238,7 +238,7 @@ inline Duration operator%(const Duration& d1, const Duration& d2) {
 }
 
 inline std::ostream& operator<<(std::ostream& out, const Duration& d) {
-  out << google::protobuf::util::TimeUtil::ToString(d);
+  out << google::leap_protobuf::util::TimeUtil::ToString(d);
   return out;
 }
 
@@ -285,7 +285,7 @@ inline Timestamp operator-(const Timestamp& t, const Duration& d) {
 LIBPROTOBUF_EXPORT Duration operator-(const Timestamp& t1, const Timestamp& t2);
 
 inline std::ostream& operator<<(std::ostream& out, const Timestamp& t) {
-  out << google::protobuf::util::TimeUtil::ToString(t);
+  out << google::leap_protobuf::util::TimeUtil::ToString(t);
   return out;
 }
 

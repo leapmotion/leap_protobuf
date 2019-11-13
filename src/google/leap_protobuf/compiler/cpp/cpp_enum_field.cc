@@ -129,8 +129,8 @@ void EnumFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
   printer->Print(variables_,
     "int value;\n"
-    "DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<\n"
-    "         int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(\n"
+    "DO_((::google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<\n"
+    "         int, ::google::leap_protobuf::internal::WireFormatLite::TYPE_ENUM>(\n"
     "       input, &value)));\n");
   if (HasPreservingUnknownEnumSemantics(descriptor_->file())) {
     printer->Print(variables_,
@@ -143,13 +143,13 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
       printer->Print(variables_,
         "} else {\n"
         "  mutable_unknown_fields()->AddVarint(\n"
-        "      $number$, static_cast< ::google::protobuf::uint64>(value));\n");
+        "      $number$, static_cast< ::google::leap_protobuf::uint64>(value));\n");
     } else {
       printer->Print(
         "} else {\n"
         "  unknown_fields_stream.WriteVarint32($tag$u);\n"
         "  unknown_fields_stream.WriteVarint32(\n"
-        "      static_cast< ::google::protobuf::uint32>(value));\n",
+        "      static_cast< ::google::leap_protobuf::uint32>(value));\n",
         "tag", SimpleItoa(internal::WireFormat::MakeTag(descriptor_)));
     }
     printer->Print(variables_,
@@ -160,14 +160,14 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
 void EnumFieldGenerator::
 GenerateSerializeWithCachedSizes(io::Printer* printer) const {
   printer->Print(variables_,
-    "::google::protobuf::internal::WireFormatLite::WriteEnum(\n"
+    "::google::leap_protobuf::internal::WireFormatLite::WriteEnum(\n"
     "  $number$, this->$name$(), output);\n");
 }
 
 void EnumFieldGenerator::
 GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
   printer->Print(variables_,
-    "target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(\n"
+    "target = ::google::leap_protobuf::internal::WireFormatLite::WriteEnumToArray(\n"
     "  $number$, this->$name$(), target);\n");
 }
 
@@ -175,7 +175,7 @@ void EnumFieldGenerator::
 GenerateByteSize(io::Printer* printer) const {
   printer->Print(variables_,
     "total_size += $tag_size$ +\n"
-    "  ::google::protobuf::internal::WireFormatLite::EnumSize(this->$name$());\n");
+    "  ::google::leap_protobuf::internal::WireFormatLite::EnumSize(this->$name$());\n");
 }
 
 // ===================================================================
@@ -243,7 +243,7 @@ RepeatedEnumFieldGenerator::~RepeatedEnumFieldGenerator() {}
 void RepeatedEnumFieldGenerator::
 GeneratePrivateMembers(io::Printer* printer) const {
   printer->Print(variables_,
-    "::google::protobuf::RepeatedField<int> $name$_;\n");
+    "::google::leap_protobuf::RepeatedField<int> $name$_;\n");
   if (descriptor_->is_packed() &&
       HasGeneratedMethods(descriptor_->file(), options_)) {
     printer->Print(variables_,
@@ -265,10 +265,10 @@ GenerateAccessorDeclarations(io::Printer* printer) const {
   printer->Annotate("{", "}", descriptor_);
   printer->Print(
       variables_,
-      "$deprecated_attr$const ::google::protobuf::RepeatedField<int>& $name$() const;\n");
+      "$deprecated_attr$const ::google::leap_protobuf::RepeatedField<int>& $name$() const;\n");
   printer->Annotate("name", descriptor_);
   printer->Print(variables_,
-                 "$deprecated_attr$::google::protobuf::RepeatedField<int>* "
+                 "$deprecated_attr$::google::leap_protobuf::RepeatedField<int>* "
                  "${$mutable_$name$$}$();\n");
   printer->Annotate("{", "}", descriptor_);
 }
@@ -298,12 +298,12 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
     "  $name$_.Add(value);\n"
     "  // @@protoc_insertion_point(field_add:$full_name$)\n"
     "}\n"
-    "inline const ::google::protobuf::RepeatedField<int>&\n"
+    "inline const ::google::leap_protobuf::RepeatedField<int>&\n"
     "$classname$::$name$() const {\n"
     "  // @@protoc_insertion_point(field_list:$full_name$)\n"
     "  return $name$_;\n"
     "}\n"
-    "inline ::google::protobuf::RepeatedField<int>*\n"
+    "inline ::google::leap_protobuf::RepeatedField<int>*\n"
     "$classname$::mutable_$name$() {\n"
     "  // @@protoc_insertion_point(field_mutable_list:$full_name$)\n"
     "  return &$name$_;\n"
@@ -335,8 +335,8 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
   // Don't use ReadRepeatedPrimitive here so that the enum can be validated.
   printer->Print(variables_,
     "int value;\n"
-    "DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<\n"
-    "         int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(\n"
+    "DO_((::google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<\n"
+    "         int, ::google::leap_protobuf::internal::WireFormatLite::TYPE_ENUM>(\n"
     "       input, &value)));\n");
   if (HasPreservingUnknownEnumSemantics(descriptor_->file())) {
     printer->Print(variables_,
@@ -349,13 +349,13 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
       printer->Print(variables_,
         "} else {\n"
         "  mutable_unknown_fields()->AddVarint(\n"
-        "      $number$, static_cast< ::google::protobuf::uint64>(value));\n");
+        "      $number$, static_cast< ::google::leap_protobuf::uint64>(value));\n");
     } else {
       printer->Print(
         "} else {\n"
         "  unknown_fields_stream.WriteVarint32(tag);\n"
         "  unknown_fields_stream.WriteVarint32(\n"
-        "      static_cast< ::google::protobuf::uint32>(value));\n");
+        "      static_cast< ::google::leap_protobuf::uint32>(value));\n");
     }
     printer->Print("}\n");
   }
@@ -367,7 +367,7 @@ GenerateMergeFromCodedStreamWithPacking(io::Printer* printer) const {
       // This path is rarely executed, so we use a non-inlined implementation.
     if (HasPreservingUnknownEnumSemantics(descriptor_->file())) {
       printer->Print(variables_,
-        "DO_((::google::protobuf::internal::"
+        "DO_((::google::leap_protobuf::internal::"
                     "WireFormatLite::ReadPackedEnumPreserveUnknowns(\n"
         "       input,\n"
         "       $number$,\n"
@@ -376,7 +376,7 @@ GenerateMergeFromCodedStreamWithPacking(io::Printer* printer) const {
         "       this->mutable_$name$())));\n");
     } else if (UseUnknownFieldSet(descriptor_->file(), options_)) {
       printer->Print(variables_,
-        "DO_((::google::protobuf::internal::WireFormat::ReadPackedEnumPreserveUnknowns(\n"
+        "DO_((::google::leap_protobuf::internal::WireFormat::ReadPackedEnumPreserveUnknowns(\n"
         "       input,\n"
         "       $number$,\n"
         "       $type$_IsValid,\n"
@@ -384,7 +384,7 @@ GenerateMergeFromCodedStreamWithPacking(io::Printer* printer) const {
         "       this->mutable_$name$())));\n");
     } else {
       printer->Print(variables_,
-        "DO_((::google::protobuf::internal::"
+        "DO_((::google::leap_protobuf::internal::"
                      "WireFormatLite::ReadPackedEnumPreserveUnknowns(\n"
         "       input,\n"
         "       $number$,\n"
@@ -394,14 +394,14 @@ GenerateMergeFromCodedStreamWithPacking(io::Printer* printer) const {
     }
   } else {
     printer->Print(variables_,
-      "::google::protobuf::uint32 length;\n"
+      "::google::leap_protobuf::uint32 length;\n"
       "DO_(input->ReadVarint32(&length));\n"
-      "::google::protobuf::io::CodedInputStream::Limit limit = "
+      "::google::leap_protobuf::io::CodedInputStream::Limit limit = "
           "input->PushLimit(static_cast<int>(length));\n"
       "while (input->BytesUntilLimit() > 0) {\n"
       "  int value;\n"
-      "  DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<\n"
-      "         int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(\n"
+      "  DO_((::google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<\n"
+      "         int, ::google::leap_protobuf::internal::WireFormatLite::TYPE_ENUM>(\n"
       "       input, &value)));\n");
     if (HasPreservingUnknownEnumSemantics(descriptor_->file())) {
       printer->Print(variables_,
@@ -414,12 +414,12 @@ GenerateMergeFromCodedStreamWithPacking(io::Printer* printer) const {
       if (UseUnknownFieldSet(descriptor_->file(), options_)) {
         printer->Print(variables_,
         "  mutable_unknown_fields()->AddVarint(\n"
-        "      $number$, static_cast< ::google::protobuf::uint64>(value));\n");
+        "      $number$, static_cast< ::google::leap_protobuf::uint64>(value));\n");
       } else {
         printer->Print(variables_,
         "    unknown_fields_stream.WriteVarint32(tag);\n"
         "    unknown_fields_stream.WriteVarint32(\n"
-        "        static_cast< ::google::protobuf::uint32>(value));\n");
+        "        static_cast< ::google::leap_protobuf::uint32>(value));\n");
       }
       printer->Print(
       "  }\n");
@@ -436,23 +436,23 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) const {
     // Write the tag and the size.
     printer->Print(variables_,
       "if (this->$name$_size() > 0) {\n"
-      "  ::google::protobuf::internal::WireFormatLite::WriteTag(\n"
+      "  ::google::leap_protobuf::internal::WireFormatLite::WriteTag(\n"
       "    $number$,\n"
-      "    ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,\n"
+      "    ::google::leap_protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,\n"
       "    output);\n"
       "  output->WriteVarint32(\n"
-      "      static_cast< ::google::protobuf::uint32>(_$name$_cached_byte_size_));\n"
+      "      static_cast< ::google::leap_protobuf::uint32>(_$name$_cached_byte_size_));\n"
       "}\n");
   }
   printer->Print(variables_,
       "for (int i = 0, n = this->$name$_size(); i < n; i++) {\n");
   if (descriptor_->is_packed()) {
     printer->Print(variables_,
-      "  ::google::protobuf::internal::WireFormatLite::WriteEnumNoTag(\n"
+      "  ::google::leap_protobuf::internal::WireFormatLite::WriteEnumNoTag(\n"
       "    this->$name$(i), output);\n");
   } else {
     printer->Print(variables_,
-      "  ::google::protobuf::internal::WireFormatLite::WriteEnum(\n"
+      "  ::google::leap_protobuf::internal::WireFormatLite::WriteEnum(\n"
       "    $number$, this->$name$(i), output);\n");
   }
   printer->Print("}\n");
@@ -464,19 +464,19 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
     // Write the tag and the size.
     printer->Print(variables_,
       "if (this->$name$_size() > 0) {\n"
-      "  target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(\n"
+      "  target = ::google::leap_protobuf::internal::WireFormatLite::WriteTagToArray(\n"
       "    $number$,\n"
-      "    ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,\n"
+      "    ::google::leap_protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,\n"
       "    target);\n"
-      "  target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray("
-      "      static_cast< ::google::protobuf::uint32>(\n"
+      "  target = ::google::leap_protobuf::io::CodedOutputStream::WriteVarint32ToArray("
+      "      static_cast< ::google::leap_protobuf::uint32>(\n"
       "          _$name$_cached_byte_size_), target);\n"
-      "  target = ::google::protobuf::internal::WireFormatLite::WriteEnumNoTagToArray(\n"
+      "  target = ::google::leap_protobuf::internal::WireFormatLite::WriteEnumNoTagToArray(\n"
       "    this->$name$_, target);\n"
       "}\n");
   } else {
     printer->Print(variables_,
-      "target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(\n"
+      "target = ::google::leap_protobuf::internal::WireFormatLite::WriteEnumToArray(\n"
       "  $number$, this->$name$_, target);\n");
   }
 }
@@ -490,7 +490,7 @@ GenerateByteSize(io::Printer* printer) const {
   printer->Indent();
   printer->Print(variables_,
       "for (unsigned int i = 0; i < count; i++) {\n"
-      "  data_size += ::google::protobuf::internal::WireFormatLite::EnumSize(\n"
+      "  data_size += ::google::leap_protobuf::internal::WireFormatLite::EnumSize(\n"
       "    this->$name$(static_cast<int>(i)));\n"
       "}\n");
 
@@ -498,10 +498,10 @@ GenerateByteSize(io::Printer* printer) const {
     printer->Print(variables_,
       "if (data_size > 0) {\n"
       "  total_size += $tag_size$ +\n"
-      "    ::google::protobuf::internal::WireFormatLite::Int32Size(\n"
-      "        static_cast< ::google::protobuf::int32>(data_size));\n"
+      "    ::google::leap_protobuf::internal::WireFormatLite::Int32Size(\n"
+      "        static_cast< ::google::leap_protobuf::int32>(data_size));\n"
       "}\n"
-      "int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);\n"
+      "int cached_size = ::google::leap_protobuf::internal::ToCachedSize(data_size);\n"
       "GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();\n"
       "_$name$_cached_byte_size_ = cached_size;\n"
       "GOOGLE_SAFE_CONCURRENT_WRITES_END();\n"

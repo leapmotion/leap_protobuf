@@ -21,7 +21,7 @@ bool SerializeDelimitedToOstream(const MessageLite& message, std::ostream* outpu
 }
 
 bool ParseDelimitedFromZeroCopyStream(MessageLite* message, io::ZeroCopyInputStream* input, bool* clean_eof) {
-  google::protobuf::io::CodedInputStream coded_input(input);
+  google::leap_protobuf::io::CodedInputStream coded_input(input);
   return ParseDelimitedFromCodedStream(message, &coded_input, clean_eof);
 }
 
@@ -37,7 +37,7 @@ bool ParseDelimitedFromCodedStream(MessageLite* message, io::CodedInputStream* i
   }
 
   // Tell the stream not to read beyond that size.
-  google::protobuf::io::CodedInputStream::Limit limit = input->PushLimit(size);
+  google::leap_protobuf::io::CodedInputStream::Limit limit = input->PushLimit(size);
 
   // Parse the message.
   if (!message->MergeFromCodedStream(input)) return false;
@@ -50,7 +50,7 @@ bool ParseDelimitedFromCodedStream(MessageLite* message, io::CodedInputStream* i
 }
 
 bool SerializeDelimitedToZeroCopyStream(const MessageLite& message, io::ZeroCopyOutputStream* output) {
-  google::protobuf::io::CodedOutputStream coded_output(output);
+  google::leap_protobuf::io::CodedOutputStream coded_output(output);
   return SerializeDelimitedToCodedStream(message, &coded_output);
 }
 

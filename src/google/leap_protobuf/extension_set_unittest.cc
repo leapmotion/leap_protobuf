@@ -208,9 +208,9 @@ TEST(ExtensionSetTest, ReleaseExtension) {
 }
 
 TEST(ExtensionSetTest, ArenaUnsafeArenaSetAllocatedAndRelease) {
-  ::google::protobuf::Arena arena;
+  ::google::leap_protobuf::Arena arena;
   unittest::TestAllExtensions* message =
-      ::google::protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena);
+      ::google::leap_protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena);
   unittest::ForeignMessage extension;
   message->UnsafeArenaSetAllocatedExtension(
       unittest::optional_foreign_message_extension,
@@ -258,9 +258,9 @@ TEST(ExtensionSetTest, UnsafeArenaSetAllocatedAndRelease) {
 }
 
 TEST(ExtensionSetTest, ArenaUnsafeArenaReleaseOfHeapAlloc) {
-  ::google::protobuf::Arena arena;
+  ::google::leap_protobuf::Arena arena;
   unittest::TestAllExtensions* message =
-      ::google::protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena);
+      ::google::leap_protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena);
   unittest::ForeignMessage* extension = new unittest::ForeignMessage;
   message->SetAllocatedExtension(
       unittest::optional_foreign_message_extension,
@@ -392,17 +392,17 @@ TEST(ExtensionSetTest, SwapExtensionBothFull) {
 }
 
 TEST(ExtensionSetTest, ArenaSetAllExtension) {
-  ::google::protobuf::Arena arena1;
+  ::google::leap_protobuf::Arena arena1;
   unittest::TestAllExtensions* message1 =
-      ::google::protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);
+      ::google::leap_protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);
   TestUtil::SetAllExtensions(message1);
   TestUtil::ExpectAllExtensionsSet(*message1);
 }
 
 TEST(ExtensionSetTest, ArenaCopyConstructor) {
-  ::google::protobuf::Arena arena1;
+  ::google::leap_protobuf::Arena arena1;
   unittest::TestAllExtensions* message1 =
-      ::google::protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);
+      ::google::leap_protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);
   TestUtil::SetAllExtensions(message1);
   unittest::TestAllExtensions message2(*message1);
   arena1.Reset();
@@ -410,9 +410,9 @@ TEST(ExtensionSetTest, ArenaCopyConstructor) {
 }
 
 TEST(ExtensionSetTest, ArenaMergeFrom) {
-  ::google::protobuf::Arena arena1;
+  ::google::leap_protobuf::Arena arena1;
   unittest::TestAllExtensions* message1 =
-      ::google::protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);
+      ::google::leap_protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);
   TestUtil::SetAllExtensions(message1);
   unittest::TestAllExtensions message2;
   message2.MergeFrom(*message1);
@@ -421,9 +421,9 @@ TEST(ExtensionSetTest, ArenaMergeFrom) {
 }
 
 TEST(ExtensionSetTest, ArenaSetAllocatedMessageAndRelease) {
-  ::google::protobuf::Arena arena;
+  ::google::leap_protobuf::Arena arena;
   unittest::TestAllExtensions* message =
-      ::google::protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena);
+      ::google::leap_protobuf::Arena::CreateMessage<unittest::TestAllExtensions>(&arena);
   EXPECT_FALSE(message->HasExtension(
       unittest::optional_foreign_message_extension));
   // Add a extension using SetAllocatedExtension
@@ -444,8 +444,8 @@ TEST(ExtensionSetTest, ArenaSetAllocatedMessageAndRelease) {
 }
 
 TEST(ExtensionSetTest, SwapExtensionBothFullWithArena) {
-  ::google::protobuf::Arena arena1;
-  std::unique_ptr<google::protobuf::Arena> arena2(new ::google::protobuf::Arena());
+  ::google::leap_protobuf::Arena arena1;
+  std::unique_ptr<google::leap_protobuf::Arena> arena2(new ::google::leap_protobuf::Arena());
 
   unittest::TestAllExtensions* message1 =
       Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);
@@ -467,7 +467,7 @@ TEST(ExtensionSetTest, SwapExtensionBothFullWithArena) {
   arena2.reset(NULL);
   TestUtil::ExpectAllExtensionsSet(*message1);
   // Test corner cases, when one is empty and other is not.
-  ::google::protobuf::Arena arena3, arena4;
+  ::google::leap_protobuf::Arena arena3, arena4;
 
   unittest::TestAllExtensions* message3 =
       Arena::CreateMessage<unittest::TestAllExtensions>(&arena3);
@@ -480,8 +480,8 @@ TEST(ExtensionSetTest, SwapExtensionBothFullWithArena) {
 }
 
 TEST(ExtensionSetTest, SwapFieldsOfExtensionBothFullWithArena) {
-  google::protobuf::Arena arena1;
-  google::protobuf::Arena* arena2 = new ::google::protobuf::Arena();
+  google::leap_protobuf::Arena arena1;
+  google::leap_protobuf::Arena* arena2 = new ::google::leap_protobuf::Arena();
 
   unittest::TestAllExtensions* message1 =
       Arena::CreateMessage<unittest::TestAllExtensions>(&arena1);

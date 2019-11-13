@@ -48,7 +48,7 @@ namespace leap_protobuf {
 namespace util {
 namespace {
 
-using google::protobuf::testing::MapIn;
+using google::leap_protobuf::testing::MapIn;
 using proto3::FOO;
 using proto3::BAR;
 using proto3::TestMessage;

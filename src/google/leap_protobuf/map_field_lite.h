@@ -105,7 +105,7 @@ class MapFieldLite {
   Arena* arena_;
   Map<Key, T> map_;
 
-  friend class ::google::protobuf::Arena;
+  friend class ::google::leap_protobuf::Arena;
 };
 
 // True if IsInitialized() is true for value field in all elements of t. T is

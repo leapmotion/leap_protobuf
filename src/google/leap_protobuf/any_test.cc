@@ -53,7 +53,7 @@ TEST(AnyTest, TestPackAndUnpackAny) {
   // We can pack a Any message inside another Any message.
   protobuf_unittest::TestAny submessage;
   submessage.set_int32_value(12345);
-  google::protobuf::Any any;
+  google::leap_protobuf::Any any;
   any.PackFrom(submessage);
   protobuf_unittest::TestAny message;
   message.mutable_any_value()->PackFrom(any);
@@ -70,17 +70,17 @@ TEST(AnyTest, TestPackAndUnpackAny) {
 TEST(AnyTest, TestIs) {
   protobuf_unittest::TestAny submessage;
   submessage.set_int32_value(12345);
-  google::protobuf::Any any;
+  google::leap_protobuf::Any any;
   any.PackFrom(submessage);
   ASSERT_TRUE(any.ParseFromString(any.SerializeAsString()));
   EXPECT_TRUE(any.Is<protobuf_unittest::TestAny>());
-  EXPECT_FALSE(any.Is<google::protobuf::Any>());
+  EXPECT_FALSE(any.Is<google::leap_protobuf::Any>());
 
   protobuf_unittest::TestAny message;
   message.mutable_any_value()->PackFrom(any);
   ASSERT_TRUE(message.ParseFromString(message.SerializeAsString()));
   EXPECT_FALSE(message.any_value().Is<protobuf_unittest::TestAny>());
-  EXPECT_TRUE(message.any_value().Is<google::protobuf::Any>());
+  EXPECT_TRUE(message.any_value().Is<google::leap_protobuf::Any>());
 }
 
 }  // namespace

@@ -92,7 +92,7 @@ template <typename ImplicitWeakType>
 class ImplicitWeakTypeHandler {
  public:
   typedef ImplicitWeakType Type;
-  typedef ::google::protobuf::MessageLite WeakType;
+  typedef ::google::leap_protobuf::MessageLite WeakType;
   static const bool Moveable = false;
 
   // With implicit weak fields, we need separate NewFromPrototype and
@@ -100,27 +100,27 @@ class ImplicitWeakTypeHandler {
   // strong dependency on the message type, and it just delegates to the
   // GenericTypeHandler. The latter avoids creating a strong dependency, by
   // simply calling MessageLite::New.
-  static inline ::google::protobuf::MessageLite* NewFromPrototype(
-      const ::google::protobuf::MessageLite* prototype, ::google::protobuf::Arena* arena = NULL) {
+  static inline ::google::leap_protobuf::MessageLite* NewFromPrototype(
+      const ::google::leap_protobuf::MessageLite* prototype, ::google::leap_protobuf::Arena* arena = NULL) {
     return prototype->New(arena);
   }
 
-  static inline void Delete(::google::protobuf::MessageLite* value, Arena* arena) {
+  static inline void Delete(::google::leap_protobuf::MessageLite* value, Arena* arena) {
     if (arena == NULL) {
       delete value;
     }
   }
-  static inline ::google::protobuf::Arena* GetArena(::google::protobuf::MessageLite* value) {
+  static inline ::google::leap_protobuf::Arena* GetArena(::google::leap_protobuf::MessageLite* value) {
     return value->GetArena();
   }
-  static inline void* GetMaybeArenaPointer(::google::protobuf::MessageLite* value) {
+  static inline void* GetMaybeArenaPointer(::google::leap_protobuf::MessageLite* value) {
     return value->GetArena();
   }
-  static inline void Clear(::google::protobuf::MessageLite* value) {
+  static inline void Clear(::google::leap_protobuf::MessageLite* value) {
     value->Clear();
   }
-  static void Merge(const ::google::protobuf::MessageLite& from,
-                    ::google::protobuf::MessageLite* to) {
+  static void Merge(const ::google::leap_protobuf::MessageLite& from,
+                    ::google::leap_protobuf::MessageLite* to) {
     to->CheckTypeAndMergeFrom(from);
   }
   static inline size_t SpaceUsedLong(const Type& value) {

@@ -48,7 +48,7 @@ namespace {
 // When we are generating code for implicit weak fields, we need to insert some
 // additional casts. These functions return the casted expression if
 // implicit_weak_field is true but otherwise return the original expression.
-// Ordinarily a static_cast is enough to cast google::protobuf::MessageLite* to a class
+// Ordinarily a static_cast is enough to cast google::leap_protobuf::MessageLite* to a class
 // deriving from it, but we need a reinterpret_cast in cases where the generated
 // message is forward-declared but its full definition is not visible.
 string StaticCast(const string& type, const string& expression,
@@ -114,7 +114,7 @@ MessageFieldGenerator::~MessageFieldGenerator() {}
 void MessageFieldGenerator::
 GeneratePrivateMembers(io::Printer* printer) const {
   if (implicit_weak_field_) {
-    printer->Print(variables_, "::google::protobuf::MessageLite* $name$_;\n");
+    printer->Print(variables_, "::google::leap_protobuf::MessageLite* $name$_;\n");
   } else {
     printer->Print(variables_, "$type$* $name$_;\n");
   }
@@ -128,8 +128,8 @@ GenerateAccessorDeclarations(io::Printer* printer) const {
     // the field without creating a strong dependency on the message type.
     printer->Print(variables_,
        "private:\n"
-       "const ::google::protobuf::MessageLite& _internal_$name$() const;\n"
-       "::google::protobuf::MessageLite* _internal_mutable_$name$();\n"
+       "const ::google::leap_protobuf::MessageLite& _internal_$name$() const;\n"
+       "::google::leap_protobuf::MessageLite* _internal_mutable_$name$();\n"
        "public:\n");
   } else {
     // This inline accessor directly returns member field and is used in
@@ -169,30 +169,30 @@ void MessageFieldGenerator::GenerateNonInlineAccessorDefinitions(
     io::Printer* printer) const {
   if (implicit_weak_field_) {
     printer->Print(variables_,
-      "const ::google::protobuf::MessageLite& $classname$::_internal_$name$() const {\n"
+      "const ::google::leap_protobuf::MessageLite& $classname$::_internal_$name$() const {\n"
       "  if ($name$_ != NULL) {\n"
       "    return *$name$_;\n"
       "  } else if (&$type_default_instance$ != NULL) {\n"
-      "    return *reinterpret_cast<const ::google::protobuf::MessageLite*>(\n"
+      "    return *reinterpret_cast<const ::google::leap_protobuf::MessageLite*>(\n"
       "        &$type_default_instance$);\n"
       "  } else {\n"
       "    return "
-      "*::google::protobuf::internal::ImplicitWeakMessage::default_instance();\n"
+      "*::google::leap_protobuf::internal::ImplicitWeakMessage::default_instance();\n"
       "  }\n"
       "}\n");
   }
   if (SupportsArenas(descriptor_)) {
     if (implicit_weak_field_) {
       printer->Print(variables_,
-        "::google::protobuf::MessageLite* $classname$::_internal_mutable_$name$() {\n"
+        "::google::leap_protobuf::MessageLite* $classname$::_internal_mutable_$name$() {\n"
         "  $set_hasbit$\n"
         "  if ($name$_ == NULL) {\n"
         "    if (&$type_default_instance$ == NULL) {\n"
-        "      $name$_ = ::google::protobuf::Arena::CreateMessage<\n"
-        "          ::google::protobuf::internal::ImplicitWeakMessage>(\n"
+        "      $name$_ = ::google::leap_protobuf::Arena::CreateMessage<\n"
+        "          ::google::leap_protobuf::internal::ImplicitWeakMessage>(\n"
         "              GetArenaNoVirtual());\n"
         "    } else {\n"
-        "      $name$_ = reinterpret_cast<const ::google::protobuf::MessageLite*>(\n"
+        "      $name$_ = reinterpret_cast<const ::google::leap_protobuf::MessageLite*>(\n"
         "          &$type_default_instance$)->New(GetArenaNoVirtual());\n"
         "    }\n"
         "  }\n"
@@ -219,13 +219,13 @@ void MessageFieldGenerator::GenerateNonInlineAccessorDefinitions(
       "}\n");
   } else if (implicit_weak_field_) {
     printer->Print(variables_,
-        "::google::protobuf::MessageLite* $classname$::_internal_mutable_$name$() {\n"
+        "::google::leap_protobuf::MessageLite* $classname$::_internal_mutable_$name$() {\n"
         "  $set_hasbit$\n"
         "  if ($name$_ == NULL) {\n"
         "    if (&$type_default_instance$ == NULL) {\n"
-        "      $name$_ = new ::google::protobuf::internal::ImplicitWeakMessage;\n"
+        "      $name$_ = new ::google::leap_protobuf::internal::ImplicitWeakMessage;\n"
         "    } else {\n"
-        "      $name$_ = reinterpret_cast<const ::google::protobuf::MessageLite*>(\n"
+        "      $name$_ = reinterpret_cast<const ::google::leap_protobuf::MessageLite*>(\n"
         "          &$type_default_instance$)->New();\n"
         "    }\n"
         "  }\n"
@@ -259,7 +259,7 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
   if (SupportsArenas(descriptor_)) {
     printer->Print(variables_,
       "  if (GetArenaNoVirtual() != NULL) {\n"
-      "    temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);\n"
+      "    temp = ::google::leap_protobuf::internal::DuplicateIfNonNull(temp);\n"
       "  }\n");
   }
   printer->Print(variables_,
@@ -286,7 +286,7 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
     "    auto* p = CreateMaybeMessage<$type$>(GetArenaNoVirtual());\n");
   if (implicit_weak_field_) {
     printer->Print(variables_,
-      "    $name$_ = reinterpret_cast<::google::protobuf::MessageLite*>(p);\n");
+      "    $name$_ = reinterpret_cast<::google::leap_protobuf::MessageLite*>(p);\n");
   } else {
     printer->Print(variables_,
       "    $name$_ = p;\n");
@@ -301,12 +301,12 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
   // the slow fallback function.
   printer->Print(variables_,
     "inline void $classname$::set_allocated_$name$($type$* $name$) {\n"
-    "  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();\n");
+    "  ::google::leap_protobuf::Arena* message_arena = GetArenaNoVirtual();\n");
   printer->Print(variables_,
     "  if (message_arena == NULL) {\n");
   if (IsCrossFileMessage(descriptor_)) {
     printer->Print(variables_,
-      "    delete reinterpret_cast< ::google::protobuf::MessageLite*>($name$_);\n");
+      "    delete reinterpret_cast< ::google::leap_protobuf::MessageLite*>($name$_);\n");
   } else {
     printer->Print(variables_,
       "    delete $name$_;\n");
@@ -319,19 +319,19 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
     // We have to read the arena through the virtual method, because the type
     // isn't defined in this file.
     printer->Print(variables_,
-      "    ::google::protobuf::Arena* submessage_arena =\n"
-      "      reinterpret_cast<::google::protobuf::MessageLite*>($name$)->GetArena();\n");
+      "    ::google::leap_protobuf::Arena* submessage_arena =\n"
+      "      reinterpret_cast<::google::leap_protobuf::MessageLite*>($name$)->GetArena();\n");
   } else if (!SupportsArenas(descriptor_->message_type())) {
     printer->Print(variables_,
-      "    ::google::protobuf::Arena* submessage_arena = NULL;\n");
+      "    ::google::leap_protobuf::Arena* submessage_arena = NULL;\n");
   } else {
     printer->Print(variables_,
-      "    ::google::protobuf::Arena* submessage_arena =\n"
-      "      ::google::protobuf::Arena::GetArena($name$);\n");
+      "    ::google::leap_protobuf::Arena* submessage_arena =\n"
+      "      ::google::leap_protobuf::Arena::GetArena($name$);\n");
   }
   printer->Print(variables_,
     "    if (message_arena != submessage_arena) {\n"
-    "      $name$ = ::google::protobuf::internal::GetOwnedMessage(\n"
+    "      $name$ = ::google::leap_protobuf::internal::GetOwnedMessage(\n"
     "          message_arena, $name$, submessage_arena);\n"
     "    }\n"
     "    $set_hasbit$\n"
@@ -430,15 +430,15 @@ void MessageFieldGenerator::
 GenerateMergeFromCodedStream(io::Printer* printer) const {
   if (implicit_weak_field_) {
     printer->Print(variables_,
-      "DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(\n"
+      "DO_(::google::leap_protobuf::internal::WireFormatLite::ReadMessage(\n"
       "     input, _internal_mutable_$name$()));\n");
   } else if (descriptor_->type() == FieldDescriptor::TYPE_MESSAGE) {
     printer->Print(variables_,
-      "DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(\n"
+      "DO_(::google::leap_protobuf::internal::WireFormatLite::ReadMessage(\n"
       "     input, mutable_$name$()));\n");
   } else {
     printer->Print(variables_,
-      "DO_(::google::protobuf::internal::WireFormatLite::ReadGroup(\n"
+      "DO_(::google::leap_protobuf::internal::WireFormatLite::ReadGroup(\n"
       "      $number$, input, mutable_$name$()));\n");
   }
 }
@@ -446,14 +446,14 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
 void MessageFieldGenerator::
 GenerateSerializeWithCachedSizes(io::Printer* printer) const {
   printer->Print(variables_,
-    "::google::protobuf::internal::WireFormatLite::Write$stream_writer$(\n"
+    "::google::leap_protobuf::internal::WireFormatLite::Write$stream_writer$(\n"
     "  $number$, this->_internal_$name$(), output);\n");
 }
 
 void MessageFieldGenerator::
 GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
   printer->Print(variables_,
-    "target = ::google::protobuf::internal::WireFormatLite::\n"
+    "target = ::google::leap_protobuf::internal::WireFormatLite::\n"
     "  InternalWrite$declared_type$ToArray(\n"
     "    $number$, this->_internal_$name$(), deterministic, target);\n");
 }
@@ -462,7 +462,7 @@ void MessageFieldGenerator::
 GenerateByteSize(io::Printer* printer) const {
   printer->Print(variables_,
     "total_size += $tag_size$ +\n"
-    "  ::google::protobuf::internal::WireFormatLite::$declared_type$Size(\n"
+    "  ::google::leap_protobuf::internal::WireFormatLite::$declared_type$Size(\n"
     "    *$field_member$);\n");
 }
 
@@ -481,7 +481,7 @@ void MessageOneofFieldGenerator::GenerateNonInlineAccessorDefinitions(
     io::Printer* printer) const {
   printer->Print(variables_,
     "void $classname$::set_allocated_$name$($type$* $name$) {\n"
-    "  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();\n"
+    "  ::google::leap_protobuf::Arena* message_arena = GetArenaNoVirtual();\n"
     "  clear_$oneof_name$();\n"
     "  if ($name$) {\n");
   if (SupportsArenas(descriptor_->message_type()) &&
@@ -489,19 +489,19 @@ void MessageOneofFieldGenerator::GenerateNonInlineAccessorDefinitions(
     // We have to read the arena through the virtual method, because the type
     // isn't defined in this file.
     printer->Print(variables_,
-      "    ::google::protobuf::Arena* submessage_arena =\n"
-      "      reinterpret_cast<::google::protobuf::MessageLite*>($name$)->GetArena();\n");
+      "    ::google::leap_protobuf::Arena* submessage_arena =\n"
+      "      reinterpret_cast<::google::leap_protobuf::MessageLite*>($name$)->GetArena();\n");
   } else if (!SupportsArenas(descriptor_->message_type())) {
     printer->Print(variables_,
-      "    ::google::protobuf::Arena* submessage_arena = NULL;\n");
+      "    ::google::leap_protobuf::Arena* submessage_arena = NULL;\n");
   } else {
     printer->Print(variables_,
-      "    ::google::protobuf::Arena* submessage_arena =\n"
-      "      ::google::protobuf::Arena::GetArena($name$);\n");
+      "    ::google::leap_protobuf::Arena* submessage_arena =\n"
+      "      ::google::leap_protobuf::Arena::GetArena($name$);\n");
   }
   printer->Print(variables_,
     "    if (message_arena != submessage_arena) {\n"
-    "      $name$ = ::google::protobuf::internal::GetOwnedMessage(\n"
+    "      $name$ = ::google::leap_protobuf::internal::GetOwnedMessage(\n"
     "          message_arena, $name$, submessage_arena);\n"
     "    }\n"
     "    set_has_$name$();\n"
@@ -528,7 +528,7 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
   if (SupportsArenas(descriptor_)) {
     printer->Print(variables_,
       "    if (GetArenaNoVirtual() != NULL) {\n"
-      "      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);\n"
+      "      temp = ::google::leap_protobuf::internal::DuplicateIfNonNull(temp);\n"
       "    }\n");
   }
   printer->Print(variables_,
@@ -641,7 +641,7 @@ RepeatedMessageFieldGenerator::~RepeatedMessageFieldGenerator() {}
 void RepeatedMessageFieldGenerator::
 GeneratePrivateMembers(io::Printer* printer) const {
   printer->Print(variables_,
-    "::google::protobuf::RepeatedPtrField< $type$ > $name$_;\n");
+    "::google::leap_protobuf::RepeatedPtrField< $type$ > $name$_;\n");
 }
 
 void RepeatedMessageFieldGenerator::
@@ -650,7 +650,7 @@ GenerateAccessorDeclarations(io::Printer* printer) const {
                  "$deprecated_attr$$type$* ${$mutable_$name$$}$(int index);\n");
   printer->Annotate("{", "}", descriptor_);
   printer->Print(variables_,
-                 "$deprecated_attr$::google::protobuf::RepeatedPtrField< $type$ >*\n"
+                 "$deprecated_attr$::google::leap_protobuf::RepeatedPtrField< $type$ >*\n"
                  "    ${$mutable_$name$$}$();\n");
   printer->Annotate("{", "}", descriptor_);
 
@@ -660,7 +660,7 @@ GenerateAccessorDeclarations(io::Printer* printer) const {
   printer->Print(variables_, "$deprecated_attr$$type$* ${$add_$name$$}$();\n");
   printer->Annotate("{", "}", descriptor_);
   printer->Print(variables_,
-    "$deprecated_attr$const ::google::protobuf::RepeatedPtrField< $type$ >&\n"
+    "$deprecated_attr$const ::google::leap_protobuf::RepeatedPtrField< $type$ >&\n"
     "    $name$() const;\n");
   printer->Annotate("name", descriptor_);
 }
@@ -674,7 +674,7 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
     "$type_reference_function$"
     "  return $name$_.Mutable(index);\n"
     "}\n"
-    "inline ::google::protobuf::RepeatedPtrField< $type$ >*\n"
+    "inline ::google::leap_protobuf::RepeatedPtrField< $type$ >*\n"
     "$classname$::mutable_$name$() {\n"
     "  // @@protoc_insertion_point(field_mutable_list:$full_name$)\n"
     "$type_reference_function$"
@@ -704,7 +704,7 @@ GenerateInlineAccessorDefinitions(io::Printer* printer) const {
     "}\n");
 
   printer->Print(variables_,
-    "inline const ::google::protobuf::RepeatedPtrField< $type$ >&\n"
+    "inline const ::google::leap_protobuf::RepeatedPtrField< $type$ >&\n"
     "$classname$::$name$() const {\n"
     "  // @@protoc_insertion_point(field_list:$full_name$)\n"
     "$type_reference_function$"
@@ -718,7 +718,7 @@ GenerateClearingCode(io::Printer* printer) const {
     printer->Print(
         variables_,
         "CastToBase(&$name$_)->Clear<"
-        "::google::protobuf::internal::ImplicitWeakTypeHandler<$type$>>();\n");
+        "::google::leap_protobuf::internal::ImplicitWeakTypeHandler<$type$>>();\n");
   } else {
     printer->Print(variables_, "$name$_.Clear();\n");
   }
@@ -730,7 +730,7 @@ GenerateMergingCode(io::Printer* printer) const {
     printer->Print(
         variables_,
         "CastToBase(&$name$_)->MergeFrom<"
-        "::google::protobuf::internal::ImplicitWeakTypeHandler<$type$>>(CastToBase("
+        "::google::leap_protobuf::internal::ImplicitWeakTypeHandler<$type$>>(CastToBase("
         "from.$name$_));\n");
   } else {
     printer->Print(variables_, "$name$_.MergeFrom(from.$name$_);\n");
@@ -754,19 +754,19 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
   if (descriptor_->type() == FieldDescriptor::TYPE_MESSAGE) {
     if (implicit_weak_field_) {
       printer->Print(variables_,
-        "DO_(::google::protobuf::internal::WireFormatLite::"
+        "DO_(::google::leap_protobuf::internal::WireFormatLite::"
         "ReadMessage(input, CastToBase(&$name$_)->AddWeak(\n"
-        "    reinterpret_cast<const ::google::protobuf::MessageLite*>(\n"
+        "    reinterpret_cast<const ::google::leap_protobuf::MessageLite*>(\n"
         "        &$type_default_instance$))));\n");
     } else {
       printer->Print(variables_,
-        "DO_(::google::protobuf::internal::WireFormatLite::"
+        "DO_(::google::leap_protobuf::internal::WireFormatLite::"
         "ReadMessage(\n"
         "      input, add_$name$()));\n");
     }
   } else {
     printer->Print(variables_,
-      "DO_(::google::protobuf::internal::WireFormatLite::"
+      "DO_(::google::leap_protobuf::internal::WireFormatLite::"
       "ReadGroup($number$, input, add_$name$()));\n");
   }
 }
@@ -776,13 +776,13 @@ GenerateSerializeWithCachedSizes(io::Printer* printer) const {
   printer->Print(variables_,
     "for (unsigned int i = 0,\n"
     "    n = static_cast<unsigned int>(this->$name$_size()); i < n; i++) {\n"
-    "  ::google::protobuf::internal::WireFormatLite::Write$stream_writer$(\n"
+    "  ::google::leap_protobuf::internal::WireFormatLite::Write$stream_writer$(\n"
     "    $number$,\n");
   if (implicit_weak_field_) {
     printer->Print(
         variables_,
         "    CastToBase($name$_).Get<"
-        "::google::protobuf::internal::ImplicitWeakTypeHandler<$type$>>("
+        "::google::leap_protobuf::internal::ImplicitWeakTypeHandler<$type$>>("
         "static_cast<int>(i)),\n");
   } else {
     printer->Print(variables_,
@@ -798,7 +798,7 @@ GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
   printer->Print(variables_,
     "for (unsigned int i = 0,\n"
     "    n = static_cast<unsigned int>(this->$name$_size()); i < n; i++) {\n"
-    "  target = ::google::protobuf::internal::WireFormatLite::\n"
+    "  target = ::google::leap_protobuf::internal::WireFormatLite::\n"
     "    InternalWrite$declared_type$ToArray(\n"
     "      $number$, this->$name$(static_cast<int>(i)), deterministic, target);\n"
     "}\n");
@@ -814,12 +814,12 @@ GenerateByteSize(io::Printer* printer) const {
     "total_size += $tag_size$UL * count;\n"
     "for (unsigned int i = 0; i < count; i++) {\n"
     "  total_size +=\n"
-    "    ::google::protobuf::internal::WireFormatLite::$declared_type$Size(\n");
+    "    ::google::leap_protobuf::internal::WireFormatLite::$declared_type$Size(\n");
   if (implicit_weak_field_) {
     printer->Print(
         variables_,
         "      CastToBase($name$_).Get<"
-        "::google::protobuf::internal::ImplicitWeakTypeHandler<$type$>>("
+        "::google::leap_protobuf::internal::ImplicitWeakTypeHandler<$type$>>("
         "static_cast<int>(i)));\n");
   } else {
     printer->Print(variables_,

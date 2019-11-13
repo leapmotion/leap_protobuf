@@ -61,7 +61,7 @@
 //
 //     // implements MyService ---------------------------------------
 //
-//     void Foo(google::protobuf::RpcController* controller,
+//     void Foo(google::leap_protobuf::RpcController* controller,
 //              const MyRequest* request,
 //              MyResponse* response,
 //              Closure* done) {

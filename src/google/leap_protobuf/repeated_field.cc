@@ -63,7 +63,7 @@ void** RepeatedPtrFieldBase::InternalExtend(int extend_amount) {
     rep_ = reinterpret_cast<Rep*>(::operator new(bytes));
   } else {
     rep_ = reinterpret_cast<Rep*>(
-        ::google::protobuf::Arena::CreateArray<char>(arena, bytes));
+        ::google::leap_protobuf::Arena::CreateArray<char>(arena, bytes));
   }
 #if defined(__GXX_DELETE_WITH_SIZE__) || defined(__cpp_sized_deallocation)
   const int old_total_size = total_size_;
@@ -103,17 +103,17 @@ void RepeatedPtrFieldBase::CloseGap(int start, int num) {
   rep_->allocated_size -= num;
 }
 
-google::protobuf::MessageLite* RepeatedPtrFieldBase::AddWeak(
-    const google::protobuf::MessageLite* prototype) {
+google::leap_protobuf::MessageLite* RepeatedPtrFieldBase::AddWeak(
+    const google::leap_protobuf::MessageLite* prototype) {
   if (rep_ != NULL && current_size_ < rep_->allocated_size) {
-    return reinterpret_cast<google::protobuf::MessageLite*>(
+    return reinterpret_cast<google::leap_protobuf::MessageLite*>(
         rep_->elements[current_size_++]);
   }
   if (!rep_ || rep_->allocated_size == total_size_) {
     Reserve(total_size_ + 1);
   }
   ++rep_->allocated_size;
-  google::protobuf::MessageLite* result = prototype ? prototype->New(arena_) :
+  google::leap_protobuf::MessageLite* result = prototype ? prototype->New(arena_) :
       Arena::CreateMessage<ImplicitWeakMessage>(arena_);
   rep_->elements[current_size_++] = result;
   return result;

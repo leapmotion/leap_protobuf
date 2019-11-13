@@ -44,7 +44,7 @@ bool ImplicitWeakMessage::MergePartialFromCodedStream(io::CodedInputStream* inpu
   return WireFormatLite::SkipMessage(input, &coded_stream);
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<ImplicitWeakMessage>
+::google::leap_protobuf::internal::ExplicitlyConstructed<ImplicitWeakMessage>
     implicit_weak_message_default_instance;
 GOOGLE_PROTOBUF_DECLARE_ONCE(implicit_weak_message_once_init_);
 
@@ -53,7 +53,7 @@ void InitImplicitWeakMessageDefaultInstance() {
 }
 
 const ImplicitWeakMessage* ImplicitWeakMessage::default_instance() {
-  ::google::protobuf::GoogleOnceInit(&implicit_weak_message_once_init_,
+  ::google::leap_protobuf::GoogleOnceInit(&implicit_weak_message_once_init_,
                  &InitImplicitWeakMessageDefaultInstance);
   return &implicit_weak_message_default_instance.get();
 }

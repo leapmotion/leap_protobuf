@@ -10,9 +10,9 @@
 
 #include <fstream>
 
-using google::protobuf::FieldDescriptor;
-using google::protobuf::Message;
-using google::protobuf::Reflection;
+using google::leap_protobuf::FieldDescriptor;
+using google::leap_protobuf::Message;
+using google::leap_protobuf::Reflection;
 
 
 class DataGroupStripper {

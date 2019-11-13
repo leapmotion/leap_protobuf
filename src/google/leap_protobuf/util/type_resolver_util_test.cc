@@ -49,11 +49,11 @@ namespace google {
 namespace leap_protobuf {
 namespace util {
 namespace {
-using google::protobuf::Type;
-using google::protobuf::Enum;
-using google::protobuf::Field;
-using google::protobuf::Option;
-using google::protobuf::BoolValue;
+using google::leap_protobuf::Type;
+using google::leap_protobuf::Enum;
+using google::leap_protobuf::Field;
+using google::leap_protobuf::Option;
+using google::leap_protobuf::BoolValue;
 
 static const char kUrlPrefix[] = "type.googleapis.com";
 

@@ -54,26 +54,26 @@ class LIBPROTOBUF_EXPORT TypeInfo {
   // corresponding type cannot be found, returns a NOT_FOUND error status.
   //
   // This TypeInfo class retains the ownership of the returned pointer.
-  virtual util::StatusOr<const google::protobuf::Type*> ResolveTypeUrl(
+  virtual util::StatusOr<const google::leap_protobuf::Type*> ResolveTypeUrl(
       StringPiece type_url) const = 0;
 
   // Resolves a type url into a Type. Like ResolveTypeUrl() but returns
   // NULL if the type url is invalid or the type cannot be found.
   //
   // This TypeInfo class retains the ownership of the returned pointer.
-  virtual const google::protobuf::Type* GetTypeByTypeUrl(
+  virtual const google::leap_protobuf::Type* GetTypeByTypeUrl(
       StringPiece type_url) const = 0;
 
   // Resolves a type url for an enum. Returns NULL if the type url is
   // invalid or the type cannot be found.
   //
   // This TypeInfo class retains the ownership of the returned pointer.
-  virtual const google::protobuf::Enum* GetEnumByTypeUrl(
+  virtual const google::leap_protobuf::Enum* GetEnumByTypeUrl(
       StringPiece type_url) const = 0;
 
   // Looks up a field in the specified type given a CamelCase name.
-  virtual const google::protobuf::Field* FindField(
-      const google::protobuf::Type* type,
+  virtual const google::leap_protobuf::Field* FindField(
+      const google::leap_protobuf::Type* type,
       StringPiece camel_case_name) const = 0;
 
   // Creates a TypeInfo object that looks up type information from a

@@ -36,18 +36,18 @@
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_google_2fprotobuf_2ftype_2eproto LIBPROTOBUF_EXPORT
 
-namespace leap_protobuf_google_2fprotobuf_2ftype_2eproto {
+namespace protobuf_google_2fprotobuf_2ftype_2eproto {
 // Internal implementation detail -- do not use these members.
 struct LIBPROTOBUF_EXPORT TableStruct {
-  static const ::google::protobuf::internal::ParseTableField entries[];
-  static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[5];
-  static const ::google::protobuf::internal::FieldMetadata field_metadata[];
-  static const ::google::protobuf::internal::SerializationTable serialization_table[];
-  static const ::google::protobuf::uint32 offsets[];
+  static const ::google::leap_protobuf::internal::ParseTableField entries[];
+  static const ::google::leap_protobuf::internal::AuxillaryParseTableField aux[];
+  static const ::google::leap_protobuf::internal::ParseTable schema[5];
+  static const ::google::leap_protobuf::internal::FieldMetadata field_metadata[];
+  static const ::google::leap_protobuf::internal::SerializationTable serialization_table[];
+  static const ::google::leap_protobuf::uint32 offsets[];
 };
 void LIBPROTOBUF_EXPORT AddDescriptors();
-}  // namespace leap_protobuf_google_2fprotobuf_2ftype_2eproto
+}  // namespace protobuf_google_2fprotobuf_2ftype_2eproto
 namespace google {
 namespace leap_protobuf {
 class Enum;
@@ -69,11 +69,11 @@ LIBPROTOBUF_EXPORT extern TypeDefaultTypeInternal _Type_default_instance_;
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::Enum* Arena::CreateMaybeMessage<::google::protobuf::Enum>(Arena*);
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::EnumValue* Arena::CreateMaybeMessage<::google::protobuf::EnumValue>(Arena*);
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::Field* Arena::CreateMaybeMessage<::google::protobuf::Field>(Arena*);
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::Option* Arena::CreateMaybeMessage<::google::protobuf::Option>(Arena*);
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::Type* Arena::CreateMaybeMessage<::google::protobuf::Type>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::Enum* Arena::CreateMaybeMessage<::google::leap_protobuf::Enum>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::EnumValue* Arena::CreateMaybeMessage<::google::leap_protobuf::EnumValue>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::Field* Arena::CreateMaybeMessage<::google::leap_protobuf::Field>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::Option* Arena::CreateMaybeMessage<::google::leap_protobuf::Option>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::Type* Arena::CreateMaybeMessage<::google::leap_protobuf::Type>(Arena*);
 }  // namespace leap_protobuf
 }  // namespace google
 namespace google {
@@ -99,22 +99,22 @@ enum Field_Kind {
   Field_Kind_TYPE_SFIXED64 = 16,
   Field_Kind_TYPE_SINT32 = 17,
   Field_Kind_TYPE_SINT64 = 18,
-  Field_Kind_Field_Kind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  Field_Kind_Field_Kind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+  Field_Kind_Field_Kind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32min,
+  Field_Kind_Field_Kind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32max
 };
 LIBPROTOBUF_EXPORT bool Field_Kind_IsValid(int value);
 const Field_Kind Field_Kind_Kind_MIN = Field_Kind_TYPE_UNKNOWN;
 const Field_Kind Field_Kind_Kind_MAX = Field_Kind_TYPE_SINT64;
 const int Field_Kind_Kind_ARRAYSIZE = Field_Kind_Kind_MAX + 1;
 
-LIBPROTOBUF_EXPORT const ::google::protobuf::EnumDescriptor* Field_Kind_descriptor();
+LIBPROTOBUF_EXPORT const ::google::leap_protobuf::EnumDescriptor* Field_Kind_descriptor();
 inline const ::std::string& Field_Kind_Name(Field_Kind value) {
-  return ::google::protobuf::internal::NameOfEnum(
+  return ::google::leap_protobuf::internal::NameOfEnum(
     Field_Kind_descriptor(), value);
 }
 inline bool Field_Kind_Parse(
     const ::std::string& name, Field_Kind* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Field_Kind>(
+  return ::google::leap_protobuf::internal::ParseNamedEnum<Field_Kind>(
     Field_Kind_descriptor(), name, value);
 }
 enum Field_Cardinality {
@@ -122,48 +122,48 @@ enum Field_Cardinality {
   Field_Cardinality_CARDINALITY_OPTIONAL = 1,
   Field_Cardinality_CARDINALITY_REQUIRED = 2,
   Field_Cardinality_CARDINALITY_REPEATED = 3,
-  Field_Cardinality_Field_Cardinality_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  Field_Cardinality_Field_Cardinality_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+  Field_Cardinality_Field_Cardinality_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32min,
+  Field_Cardinality_Field_Cardinality_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32max
 };
 LIBPROTOBUF_EXPORT bool Field_Cardinality_IsValid(int value);
 const Field_Cardinality Field_Cardinality_Cardinality_MIN = Field_Cardinality_CARDINALITY_UNKNOWN;
 const Field_Cardinality Field_Cardinality_Cardinality_MAX = Field_Cardinality_CARDINALITY_REPEATED;
 const int Field_Cardinality_Cardinality_ARRAYSIZE = Field_Cardinality_Cardinality_MAX + 1;
 
-LIBPROTOBUF_EXPORT const ::google::protobuf::EnumDescriptor* Field_Cardinality_descriptor();
+LIBPROTOBUF_EXPORT const ::google::leap_protobuf::EnumDescriptor* Field_Cardinality_descriptor();
 inline const ::std::string& Field_Cardinality_Name(Field_Cardinality value) {
-  return ::google::protobuf::internal::NameOfEnum(
+  return ::google::leap_protobuf::internal::NameOfEnum(
     Field_Cardinality_descriptor(), value);
 }
 inline bool Field_Cardinality_Parse(
     const ::std::string& name, Field_Cardinality* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Field_Cardinality>(
+  return ::google::leap_protobuf::internal::ParseNamedEnum<Field_Cardinality>(
     Field_Cardinality_descriptor(), name, value);
 }
 enum Syntax {
   SYNTAX_PROTO2 = 0,
   SYNTAX_PROTO3 = 1,
-  Syntax_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  Syntax_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+  Syntax_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32min,
+  Syntax_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::leap_protobuf::kint32max
 };
 LIBPROTOBUF_EXPORT bool Syntax_IsValid(int value);
 const Syntax Syntax_MIN = SYNTAX_PROTO2;
 const Syntax Syntax_MAX = SYNTAX_PROTO3;
 const int Syntax_ARRAYSIZE = Syntax_MAX + 1;
 
-LIBPROTOBUF_EXPORT const ::google::protobuf::EnumDescriptor* Syntax_descriptor();
+LIBPROTOBUF_EXPORT const ::google::leap_protobuf::EnumDescriptor* Syntax_descriptor();
 inline const ::std::string& Syntax_Name(Syntax value) {
-  return ::google::protobuf::internal::NameOfEnum(
+  return ::google::leap_protobuf::internal::NameOfEnum(
     Syntax_descriptor(), value);
 }
 inline bool Syntax_Parse(
     const ::std::string& name, Syntax* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Syntax>(
+  return ::google::leap_protobuf::internal::ParseNamedEnum<Syntax>(
     Syntax_descriptor(), name, value);
 }
 // ===================================================================
 
-class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Type) */ {
+class LIBPROTOBUF_EXPORT Type : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Type) */ {
  public:
   Type();
   virtual ~Type();
@@ -189,13 +189,13 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
     return *this;
   }
   #endif
-  inline ::google::protobuf::Arena* GetArena() const final {
+  inline ::google::leap_protobuf::Arena* GetArena() const final {
     return GetArenaNoVirtual();
   }
   inline void* GetMaybeArenaPointer() const final {
     return MaybeArenaPtr();
   }
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const Type& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -218,11 +218,11 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
     return CreateMaybeMessage<Type>(NULL);
   }
 
-  Type* New(::google::protobuf::Arena* arena) const final {
+  Type* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<Type>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const Type& from);
   void MergeFrom(const Type& from);
   void Clear() final;
@@ -230,11 +230,11 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -243,12 +243,12 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
   void SetCachedSize(int size) const final;
   void InternalSwap(Type* other);
   protected:
-  explicit Type(::google::protobuf::Arena* arena);
+  explicit Type(::google::leap_protobuf::Arena* arena);
   private:
   static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::google::protobuf::Arena* arena);
+  inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
   }
   inline void* MaybeArenaPtr() const {
@@ -256,7 +256,7 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -266,12 +266,12 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
   int fields_size() const;
   void clear_fields();
   static const int kFieldsFieldNumber = 2;
-  ::google::protobuf::Field* mutable_fields(int index);
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Field >*
+  ::google::leap_protobuf::Field* mutable_fields(int index);
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Field >*
       mutable_fields();
-  const ::google::protobuf::Field& fields(int index) const;
-  ::google::protobuf::Field* add_fields();
-  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Field >&
+  const ::google::leap_protobuf::Field& fields(int index) const;
+  ::google::leap_protobuf::Field* add_fields();
+  const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Field >&
       fields() const;
 
   // repeated string oneofs = 3;
@@ -293,19 +293,19 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
   #endif
   void add_oneofs(const char* value);
   void add_oneofs(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& oneofs() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_oneofs();
+  const ::google::leap_protobuf::RepeatedPtrField< ::std::string>& oneofs() const;
+  ::google::leap_protobuf::RepeatedPtrField< ::std::string>* mutable_oneofs();
 
   // repeated .google.protobuf.Option options = 4;
   int options_size() const;
   void clear_options();
   static const int kOptionsFieldNumber = 4;
-  ::google::protobuf::Option* mutable_options(int index);
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+  ::google::leap_protobuf::Option* mutable_options(int index);
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
       mutable_options();
-  const ::google::protobuf::Option& options(int index) const;
-  ::google::protobuf::Option* add_options();
-  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+  const ::google::leap_protobuf::Option& options(int index) const;
+  ::google::leap_protobuf::Option* add_options();
+  const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
       options() const;
 
   // string name = 1;
@@ -336,41 +336,41 @@ class LIBPROTOBUF_EXPORT Type : public ::google::protobuf::Message /* @@protoc_i
   void clear_source_context();
   static const int kSourceContextFieldNumber = 5;
   private:
-  const ::google::protobuf::SourceContext& _internal_source_context() const;
+  const ::google::leap_protobuf::SourceContext& _internal_source_context() const;
   public:
-  const ::google::protobuf::SourceContext& source_context() const;
-  ::google::protobuf::SourceContext* release_source_context();
-  ::google::protobuf::SourceContext* mutable_source_context();
-  void set_allocated_source_context(::google::protobuf::SourceContext* source_context);
+  const ::google::leap_protobuf::SourceContext& source_context() const;
+  ::google::leap_protobuf::SourceContext* release_source_context();
+  ::google::leap_protobuf::SourceContext* mutable_source_context();
+  void set_allocated_source_context(::google::leap_protobuf::SourceContext* source_context);
   void unsafe_arena_set_allocated_source_context(
-      ::google::protobuf::SourceContext* source_context);
-  ::google::protobuf::SourceContext* unsafe_arena_release_source_context();
+      ::google::leap_protobuf::SourceContext* source_context);
+  ::google::leap_protobuf::SourceContext* unsafe_arena_release_source_context();
 
   // .google.protobuf.Syntax syntax = 6;
   void clear_syntax();
   static const int kSyntaxFieldNumber = 6;
-  ::google::protobuf::Syntax syntax() const;
-  void set_syntax(::google::protobuf::Syntax value);
+  ::google::leap_protobuf::Syntax syntax() const;
+  void set_syntax(::google::leap_protobuf::Syntax value);
 
   // @@protoc_insertion_point(class_scope:google.protobuf.Type)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Field > fields_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> oneofs_;
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option > options_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::SourceContext* source_context_;
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Field > fields_;
+  ::google::leap_protobuf::RepeatedPtrField< ::std::string> oneofs_;
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option > options_;
+  ::google::leap_protobuf::internal::ArenaStringPtr name_;
+  ::google::leap_protobuf::SourceContext* source_context_;
   int syntax_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2ftype_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Field) */ {
+class LIBPROTOBUF_EXPORT Field : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Field) */ {
  public:
   Field();
   virtual ~Field();
@@ -396,13 +396,13 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
     return *this;
   }
   #endif
-  inline ::google::protobuf::Arena* GetArena() const final {
+  inline ::google::leap_protobuf::Arena* GetArena() const final {
     return GetArenaNoVirtual();
   }
   inline void* GetMaybeArenaPointer() const final {
     return MaybeArenaPtr();
   }
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const Field& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -425,11 +425,11 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
     return CreateMaybeMessage<Field>(NULL);
   }
 
-  Field* New(::google::protobuf::Arena* arena) const final {
+  Field* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<Field>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const Field& from);
   void MergeFrom(const Field& from);
   void Clear() final;
@@ -437,11 +437,11 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -450,12 +450,12 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
   void SetCachedSize(int size) const final;
   void InternalSwap(Field* other);
   protected:
-  explicit Field(::google::protobuf::Arena* arena);
+  explicit Field(::google::leap_protobuf::Arena* arena);
   private:
   static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::google::protobuf::Arena* arena);
+  inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
   }
   inline void* MaybeArenaPtr() const {
@@ -463,7 +463,7 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -515,7 +515,7 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
     Field_Kind_Kind_MAX;
   static const int Kind_ARRAYSIZE =
     Field_Kind_Kind_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
+  static inline const ::google::leap_protobuf::EnumDescriptor*
   Kind_descriptor() {
     return Field_Kind_descriptor();
   }
@@ -545,7 +545,7 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
     Field_Cardinality_Cardinality_MAX;
   static const int Cardinality_ARRAYSIZE =
     Field_Cardinality_Cardinality_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
+  static inline const ::google::leap_protobuf::EnumDescriptor*
   Cardinality_descriptor() {
     return Field_Cardinality_descriptor();
   }
@@ -563,12 +563,12 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
   int options_size() const;
   void clear_options();
   static const int kOptionsFieldNumber = 9;
-  ::google::protobuf::Option* mutable_options(int index);
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+  ::google::leap_protobuf::Option* mutable_options(int index);
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
       mutable_options();
-  const ::google::protobuf::Option& options(int index) const;
-  ::google::protobuf::Option* add_options();
-  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+  const ::google::leap_protobuf::Option& options(int index) const;
+  ::google::leap_protobuf::Option* add_options();
+  const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
       options() const;
 
   // string name = 4;
@@ -666,26 +666,26 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
   // .google.protobuf.Field.Kind kind = 1;
   void clear_kind();
   static const int kKindFieldNumber = 1;
-  ::google::protobuf::Field_Kind kind() const;
-  void set_kind(::google::protobuf::Field_Kind value);
+  ::google::leap_protobuf::Field_Kind kind() const;
+  void set_kind(::google::leap_protobuf::Field_Kind value);
 
   // .google.protobuf.Field.Cardinality cardinality = 2;
   void clear_cardinality();
   static const int kCardinalityFieldNumber = 2;
-  ::google::protobuf::Field_Cardinality cardinality() const;
-  void set_cardinality(::google::protobuf::Field_Cardinality value);
+  ::google::leap_protobuf::Field_Cardinality cardinality() const;
+  void set_cardinality(::google::leap_protobuf::Field_Cardinality value);
 
   // int32 number = 3;
   void clear_number();
   static const int kNumberFieldNumber = 3;
-  ::google::protobuf::int32 number() const;
-  void set_number(::google::protobuf::int32 value);
+  ::google::leap_protobuf::int32 number() const;
+  void set_number(::google::leap_protobuf::int32 value);
 
   // int32 oneof_index = 7;
   void clear_oneof_index();
   static const int kOneofIndexFieldNumber = 7;
-  ::google::protobuf::int32 oneof_index() const;
-  void set_oneof_index(::google::protobuf::int32 value);
+  ::google::leap_protobuf::int32 oneof_index() const;
+  void set_oneof_index(::google::leap_protobuf::int32 value);
 
   // bool packed = 8;
   void clear_packed();
@@ -696,26 +696,26 @@ class LIBPROTOBUF_EXPORT Field : public ::google::protobuf::Message /* @@protoc_
   // @@protoc_insertion_point(class_scope:google.protobuf.Field)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option > options_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::internal::ArenaStringPtr type_url_;
-  ::google::protobuf::internal::ArenaStringPtr json_name_;
-  ::google::protobuf::internal::ArenaStringPtr default_value_;
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option > options_;
+  ::google::leap_protobuf::internal::ArenaStringPtr name_;
+  ::google::leap_protobuf::internal::ArenaStringPtr type_url_;
+  ::google::leap_protobuf::internal::ArenaStringPtr json_name_;
+  ::google::leap_protobuf::internal::ArenaStringPtr default_value_;
   int kind_;
   int cardinality_;
-  ::google::protobuf::int32 number_;
-  ::google::protobuf::int32 oneof_index_;
+  ::google::leap_protobuf::int32 number_;
+  ::google::leap_protobuf::int32 oneof_index_;
   bool packed_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2ftype_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Enum) */ {
+class LIBPROTOBUF_EXPORT Enum : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Enum) */ {
  public:
   Enum();
   virtual ~Enum();
@@ -741,13 +741,13 @@ class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_i
     return *this;
   }
   #endif
-  inline ::google::protobuf::Arena* GetArena() const final {
+  inline ::google::leap_protobuf::Arena* GetArena() const final {
     return GetArenaNoVirtual();
   }
   inline void* GetMaybeArenaPointer() const final {
     return MaybeArenaPtr();
   }
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const Enum& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -770,11 +770,11 @@ class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_i
     return CreateMaybeMessage<Enum>(NULL);
   }
 
-  Enum* New(::google::protobuf::Arena* arena) const final {
+  Enum* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<Enum>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const Enum& from);
   void MergeFrom(const Enum& from);
   void Clear() final;
@@ -782,11 +782,11 @@ class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_i
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -795,12 +795,12 @@ class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_i
   void SetCachedSize(int size) const final;
   void InternalSwap(Enum* other);
   protected:
-  explicit Enum(::google::protobuf::Arena* arena);
+  explicit Enum(::google::leap_protobuf::Arena* arena);
   private:
   static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::google::protobuf::Arena* arena);
+  inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
   }
   inline void* MaybeArenaPtr() const {
@@ -808,7 +808,7 @@ class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_i
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -818,24 +818,24 @@ class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_i
   int enumvalue_size() const;
   void clear_enumvalue();
   static const int kEnumvalueFieldNumber = 2;
-  ::google::protobuf::EnumValue* mutable_enumvalue(int index);
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::EnumValue >*
+  ::google::leap_protobuf::EnumValue* mutable_enumvalue(int index);
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::EnumValue >*
       mutable_enumvalue();
-  const ::google::protobuf::EnumValue& enumvalue(int index) const;
-  ::google::protobuf::EnumValue* add_enumvalue();
-  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::EnumValue >&
+  const ::google::leap_protobuf::EnumValue& enumvalue(int index) const;
+  ::google::leap_protobuf::EnumValue* add_enumvalue();
+  const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::EnumValue >&
       enumvalue() const;
 
   // repeated .google.protobuf.Option options = 3;
   int options_size() const;
   void clear_options();
   static const int kOptionsFieldNumber = 3;
-  ::google::protobuf::Option* mutable_options(int index);
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+  ::google::leap_protobuf::Option* mutable_options(int index);
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
       mutable_options();
-  const ::google::protobuf::Option& options(int index) const;
-  ::google::protobuf::Option* add_options();
-  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+  const ::google::leap_protobuf::Option& options(int index) const;
+  ::google::leap_protobuf::Option* add_options();
+  const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
       options() const;
 
   // string name = 1;
@@ -866,40 +866,40 @@ class LIBPROTOBUF_EXPORT Enum : public ::google::protobuf::Message /* @@protoc_i
   void clear_source_context();
   static const int kSourceContextFieldNumber = 4;
   private:
-  const ::google::protobuf::SourceContext& _internal_source_context() const;
+  const ::google::leap_protobuf::SourceContext& _internal_source_context() const;
   public:
-  const ::google::protobuf::SourceContext& source_context() const;
-  ::google::protobuf::SourceContext* release_source_context();
-  ::google::protobuf::SourceContext* mutable_source_context();
-  void set_allocated_source_context(::google::protobuf::SourceContext* source_context);
+  const ::google::leap_protobuf::SourceContext& source_context() const;
+  ::google::leap_protobuf::SourceContext* release_source_context();
+  ::google::leap_protobuf::SourceContext* mutable_source_context();
+  void set_allocated_source_context(::google::leap_protobuf::SourceContext* source_context);
   void unsafe_arena_set_allocated_source_context(
-      ::google::protobuf::SourceContext* source_context);
-  ::google::protobuf::SourceContext* unsafe_arena_release_source_context();
+      ::google::leap_protobuf::SourceContext* source_context);
+  ::google::leap_protobuf::SourceContext* unsafe_arena_release_source_context();
 
   // .google.protobuf.Syntax syntax = 5;
   void clear_syntax();
   static const int kSyntaxFieldNumber = 5;
-  ::google::protobuf::Syntax syntax() const;
-  void set_syntax(::google::protobuf::Syntax value);
+  ::google::leap_protobuf::Syntax syntax() const;
+  void set_syntax(::google::leap_protobuf::Syntax value);
 
   // @@protoc_insertion_point(class_scope:google.protobuf.Enum)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::EnumValue > enumvalue_;
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option > options_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::SourceContext* source_context_;
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::EnumValue > enumvalue_;
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option > options_;
+  ::google::leap_protobuf::internal::ArenaStringPtr name_;
+  ::google::leap_protobuf::SourceContext* source_context_;
   int syntax_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2ftype_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.EnumValue) */ {
+class LIBPROTOBUF_EXPORT EnumValue : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.EnumValue) */ {
  public:
   EnumValue();
   virtual ~EnumValue();
@@ -925,13 +925,13 @@ class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@pro
     return *this;
   }
   #endif
-  inline ::google::protobuf::Arena* GetArena() const final {
+  inline ::google::leap_protobuf::Arena* GetArena() const final {
     return GetArenaNoVirtual();
   }
   inline void* GetMaybeArenaPointer() const final {
     return MaybeArenaPtr();
   }
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const EnumValue& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -954,11 +954,11 @@ class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@pro
     return CreateMaybeMessage<EnumValue>(NULL);
   }
 
-  EnumValue* New(::google::protobuf::Arena* arena) const final {
+  EnumValue* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<EnumValue>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const EnumValue& from);
   void MergeFrom(const EnumValue& from);
   void Clear() final;
@@ -966,11 +966,11 @@ class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@pro
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -979,12 +979,12 @@ class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@pro
   void SetCachedSize(int size) const final;
   void InternalSwap(EnumValue* other);
   protected:
-  explicit EnumValue(::google::protobuf::Arena* arena);
+  explicit EnumValue(::google::leap_protobuf::Arena* arena);
   private:
   static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::google::protobuf::Arena* arena);
+  inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
   }
   inline void* MaybeArenaPtr() const {
@@ -992,7 +992,7 @@ class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@pro
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1002,12 +1002,12 @@ class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@pro
   int options_size() const;
   void clear_options();
   static const int kOptionsFieldNumber = 3;
-  ::google::protobuf::Option* mutable_options(int index);
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+  ::google::leap_protobuf::Option* mutable_options(int index);
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
       mutable_options();
-  const ::google::protobuf::Option& options(int index) const;
-  ::google::protobuf::Option* add_options();
-  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+  const ::google::leap_protobuf::Option& options(int index) const;
+  ::google::leap_protobuf::Option* add_options();
+  const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
       options() const;
 
   // string name = 1;
@@ -1036,25 +1036,25 @@ class LIBPROTOBUF_EXPORT EnumValue : public ::google::protobuf::Message /* @@pro
   // int32 number = 2;
   void clear_number();
   static const int kNumberFieldNumber = 2;
-  ::google::protobuf::int32 number() const;
-  void set_number(::google::protobuf::int32 value);
+  ::google::leap_protobuf::int32 number() const;
+  void set_number(::google::leap_protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:google.protobuf.EnumValue)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option > options_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::int32 number_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option > options_;
+  ::google::leap_protobuf::internal::ArenaStringPtr name_;
+  ::google::leap_protobuf::int32 number_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2ftype_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
 
-class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Option) */ {
+class LIBPROTOBUF_EXPORT Option : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Option) */ {
  public:
   Option();
   virtual ~Option();
@@ -1080,13 +1080,13 @@ class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc
     return *this;
   }
   #endif
-  inline ::google::protobuf::Arena* GetArena() const final {
+  inline ::google::leap_protobuf::Arena* GetArena() const final {
     return GetArenaNoVirtual();
   }
   inline void* GetMaybeArenaPointer() const final {
     return MaybeArenaPtr();
   }
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const Option& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -1109,11 +1109,11 @@ class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc
     return CreateMaybeMessage<Option>(NULL);
   }
 
-  Option* New(::google::protobuf::Arena* arena) const final {
+  Option* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<Option>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const Option& from);
   void MergeFrom(const Option& from);
   void Clear() final;
@@ -1121,11 +1121,11 @@ class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -1134,12 +1134,12 @@ class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc
   void SetCachedSize(int size) const final;
   void InternalSwap(Option* other);
   protected:
-  explicit Option(::google::protobuf::Arena* arena);
+  explicit Option(::google::leap_protobuf::Arena* arena);
   private:
   static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::google::protobuf::Arena* arena);
+  inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
   }
   inline void* MaybeArenaPtr() const {
@@ -1147,7 +1147,7 @@ class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -1181,26 +1181,26 @@ class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc
   void clear_value();
   static const int kValueFieldNumber = 2;
   private:
-  const ::google::protobuf::Any& _internal_value() const;
+  const ::google::leap_protobuf::Any& _internal_value() const;
   public:
-  const ::google::protobuf::Any& value() const;
-  ::google::protobuf::Any* release_value();
-  ::google::protobuf::Any* mutable_value();
-  void set_allocated_value(::google::protobuf::Any* value);
+  const ::google::leap_protobuf::Any& value() const;
+  ::google::leap_protobuf::Any* release_value();
+  ::google::leap_protobuf::Any* mutable_value();
+  void set_allocated_value(::google::leap_protobuf::Any* value);
   void unsafe_arena_set_allocated_value(
-      ::google::protobuf::Any* value);
-  ::google::protobuf::Any* unsafe_arena_release_value();
+      ::google::leap_protobuf::Any* value);
+  ::google::leap_protobuf::Any* unsafe_arena_release_value();
 
   // @@protoc_insertion_point(class_scope:google.protobuf.Option)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::google::protobuf::internal::ArenaStringPtr name_;
-  ::google::protobuf::Any* value_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::leap_protobuf::internal::ArenaStringPtr name_;
+  ::google::leap_protobuf::Any* value_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2ftype_2eproto::TableStruct;
 };
 // ===================================================================
@@ -1216,7 +1216,7 @@ class LIBPROTOBUF_EXPORT Option : public ::google::protobuf::Message /* @@protoc
 
 // string name = 1;
 inline void Type::clear_name() {
-  name_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  name_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& Type::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Type.name)
@@ -1224,40 +1224,40 @@ inline const ::std::string& Type::name() const {
 }
 inline void Type::set_name(const ::std::string& value) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.Type.name)
 }
 #if LANG_CXX11
 inline void Type::set_name(::std::string&& value) {
   
   name_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.Type.name)
 }
 #endif
 inline void Type::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.Type.name)
 }
 inline void Type::set_name(const char* value,
     size_t size) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.Type.name)
 }
 inline ::std::string* Type::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.Type.name)
-  return name_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* Type::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.Type.name)
   
-  return name_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void Type::set_allocated_name(::std::string* name) {
   if (name != NULL) {
@@ -1265,7 +1265,7 @@ inline void Type::set_allocated_name(::std::string* name) {
   } else {
     
   }
-  name_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name,
+  name_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), name,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.Type.name)
 }
@@ -1273,7 +1273,7 @@ inline ::std::string* Type::unsafe_arena_release_name() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Type.name)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return name_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return name_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void Type::unsafe_arena_set_allocated_name(
@@ -1284,7 +1284,7 @@ inline void Type::unsafe_arena_set_allocated_name(
   } else {
     
   }
-  name_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  name_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       name, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.Type.name)
 }
@@ -1296,24 +1296,24 @@ inline int Type::fields_size() const {
 inline void Type::clear_fields() {
   fields_.Clear();
 }
-inline ::google::protobuf::Field* Type::mutable_fields(int index) {
+inline ::google::leap_protobuf::Field* Type::mutable_fields(int index) {
   // @@protoc_insertion_point(field_mutable:google.protobuf.Type.fields)
   return fields_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::google::protobuf::Field >*
+inline ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Field >*
 Type::mutable_fields() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.Type.fields)
   return &fields_;
 }
-inline const ::google::protobuf::Field& Type::fields(int index) const {
+inline const ::google::leap_protobuf::Field& Type::fields(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.Type.fields)
   return fields_.Get(index);
 }
-inline ::google::protobuf::Field* Type::add_fields() {
+inline ::google::leap_protobuf::Field* Type::add_fields() {
   // @@protoc_insertion_point(field_add:google.protobuf.Type.fields)
   return fields_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Field >&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Field >&
 Type::fields() const {
   // @@protoc_insertion_point(field_list:google.protobuf.Type.fields)
   return fields_;
@@ -1377,12 +1377,12 @@ inline void Type::add_oneofs(const char* value, size_t size) {
   oneofs_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:google.protobuf.Type.oneofs)
 }
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::std::string>&
 Type::oneofs() const {
   // @@protoc_insertion_point(field_list:google.protobuf.Type.oneofs)
   return oneofs_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+inline ::google::leap_protobuf::RepeatedPtrField< ::std::string>*
 Type::mutable_oneofs() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.Type.oneofs)
   return &oneofs_;
@@ -1395,24 +1395,24 @@ inline int Type::options_size() const {
 inline void Type::clear_options() {
   options_.Clear();
 }
-inline ::google::protobuf::Option* Type::mutable_options(int index) {
+inline ::google::leap_protobuf::Option* Type::mutable_options(int index) {
   // @@protoc_insertion_point(field_mutable:google.protobuf.Type.options)
   return options_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+inline ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
 Type::mutable_options() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.Type.options)
   return &options_;
 }
-inline const ::google::protobuf::Option& Type::options(int index) const {
+inline const ::google::leap_protobuf::Option& Type::options(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.Type.options)
   return options_.Get(index);
 }
-inline ::google::protobuf::Option* Type::add_options() {
+inline ::google::leap_protobuf::Option* Type::add_options() {
   // @@protoc_insertion_point(field_add:google.protobuf.Type.options)
   return options_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
 Type::options() const {
   // @@protoc_insertion_point(field_list:google.protobuf.Type.options)
   return options_;
@@ -1422,50 +1422,50 @@ Type::options() const {
 inline bool Type::has_source_context() const {
   return this != internal_default_instance() && source_context_ != NULL;
 }
-inline const ::google::protobuf::SourceContext& Type::_internal_source_context() const {
+inline const ::google::leap_protobuf::SourceContext& Type::_internal_source_context() const {
   return *source_context_;
 }
-inline const ::google::protobuf::SourceContext& Type::source_context() const {
-  const ::google::protobuf::SourceContext* p = source_context_;
+inline const ::google::leap_protobuf::SourceContext& Type::source_context() const {
+  const ::google::leap_protobuf::SourceContext* p = source_context_;
   // @@protoc_insertion_point(field_get:google.protobuf.Type.source_context)
-  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::SourceContext*>(
-      &::google::protobuf::_SourceContext_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::google::leap_protobuf::SourceContext*>(
+      &::google::leap_protobuf::_SourceContext_default_instance_);
 }
-inline ::google::protobuf::SourceContext* Type::release_source_context() {
+inline ::google::leap_protobuf::SourceContext* Type::release_source_context() {
   // @@protoc_insertion_point(field_release:google.protobuf.Type.source_context)
   
-  ::google::protobuf::SourceContext* temp = source_context_;
+  ::google::leap_protobuf::SourceContext* temp = source_context_;
   if (GetArenaNoVirtual() != NULL) {
-    temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    temp = ::google::leap_protobuf::internal::DuplicateIfNonNull(temp);
   }
   source_context_ = NULL;
   return temp;
 }
-inline ::google::protobuf::SourceContext* Type::unsafe_arena_release_source_context() {
+inline ::google::leap_protobuf::SourceContext* Type::unsafe_arena_release_source_context() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Type.source_context)
   
-  ::google::protobuf::SourceContext* temp = source_context_;
+  ::google::leap_protobuf::SourceContext* temp = source_context_;
   source_context_ = NULL;
   return temp;
 }
-inline ::google::protobuf::SourceContext* Type::mutable_source_context() {
+inline ::google::leap_protobuf::SourceContext* Type::mutable_source_context() {
   
   if (source_context_ == NULL) {
-    auto* p = CreateMaybeMessage<::google::protobuf::SourceContext>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::google::leap_protobuf::SourceContext>(GetArenaNoVirtual());
     source_context_ = p;
   }
   // @@protoc_insertion_point(field_mutable:google.protobuf.Type.source_context)
   return source_context_;
 }
-inline void Type::set_allocated_source_context(::google::protobuf::SourceContext* source_context) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+inline void Type::set_allocated_source_context(::google::leap_protobuf::SourceContext* source_context) {
+  ::google::leap_protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(source_context_);
+    delete reinterpret_cast< ::google::leap_protobuf::MessageLite*>(source_context_);
   }
   if (source_context) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
+    ::google::leap_protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      source_context = ::google::protobuf::internal::GetOwnedMessage(
+      source_context = ::google::leap_protobuf::internal::GetOwnedMessage(
           message_arena, source_context, submessage_arena);
     }
     
@@ -1480,11 +1480,11 @@ inline void Type::set_allocated_source_context(::google::protobuf::SourceContext
 inline void Type::clear_syntax() {
   syntax_ = 0;
 }
-inline ::google::protobuf::Syntax Type::syntax() const {
+inline ::google::leap_protobuf::Syntax Type::syntax() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Type.syntax)
-  return static_cast< ::google::protobuf::Syntax >(syntax_);
+  return static_cast< ::google::leap_protobuf::Syntax >(syntax_);
 }
-inline void Type::set_syntax(::google::protobuf::Syntax value) {
+inline void Type::set_syntax(::google::leap_protobuf::Syntax value) {
   
   syntax_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Type.syntax)
@@ -1498,11 +1498,11 @@ inline void Type::set_syntax(::google::protobuf::Syntax value) {
 inline void Field::clear_kind() {
   kind_ = 0;
 }
-inline ::google::protobuf::Field_Kind Field::kind() const {
+inline ::google::leap_protobuf::Field_Kind Field::kind() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.kind)
-  return static_cast< ::google::protobuf::Field_Kind >(kind_);
+  return static_cast< ::google::leap_protobuf::Field_Kind >(kind_);
 }
-inline void Field::set_kind(::google::protobuf::Field_Kind value) {
+inline void Field::set_kind(::google::leap_protobuf::Field_Kind value) {
   
   kind_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Field.kind)
@@ -1512,11 +1512,11 @@ inline void Field::set_kind(::google::protobuf::Field_Kind value) {
 inline void Field::clear_cardinality() {
   cardinality_ = 0;
 }
-inline ::google::protobuf::Field_Cardinality Field::cardinality() const {
+inline ::google::leap_protobuf::Field_Cardinality Field::cardinality() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.cardinality)
-  return static_cast< ::google::protobuf::Field_Cardinality >(cardinality_);
+  return static_cast< ::google::leap_protobuf::Field_Cardinality >(cardinality_);
 }
-inline void Field::set_cardinality(::google::protobuf::Field_Cardinality value) {
+inline void Field::set_cardinality(::google::leap_protobuf::Field_Cardinality value) {
   
   cardinality_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Field.cardinality)
@@ -1526,11 +1526,11 @@ inline void Field::set_cardinality(::google::protobuf::Field_Cardinality value) 
 inline void Field::clear_number() {
   number_ = 0;
 }
-inline ::google::protobuf::int32 Field::number() const {
+inline ::google::leap_protobuf::int32 Field::number() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.number)
   return number_;
 }
-inline void Field::set_number(::google::protobuf::int32 value) {
+inline void Field::set_number(::google::leap_protobuf::int32 value) {
   
   number_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Field.number)
@@ -1538,7 +1538,7 @@ inline void Field::set_number(::google::protobuf::int32 value) {
 
 // string name = 4;
 inline void Field::clear_name() {
-  name_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  name_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& Field::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.name)
@@ -1546,40 +1546,40 @@ inline const ::std::string& Field::name() const {
 }
 inline void Field::set_name(const ::std::string& value) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.Field.name)
 }
 #if LANG_CXX11
 inline void Field::set_name(::std::string&& value) {
   
   name_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.Field.name)
 }
 #endif
 inline void Field::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.Field.name)
 }
 inline void Field::set_name(const char* value,
     size_t size) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.Field.name)
 }
 inline ::std::string* Field::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.Field.name)
-  return name_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* Field::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.Field.name)
   
-  return name_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void Field::set_allocated_name(::std::string* name) {
   if (name != NULL) {
@@ -1587,7 +1587,7 @@ inline void Field::set_allocated_name(::std::string* name) {
   } else {
     
   }
-  name_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name,
+  name_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), name,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.Field.name)
 }
@@ -1595,7 +1595,7 @@ inline ::std::string* Field::unsafe_arena_release_name() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Field.name)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return name_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return name_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void Field::unsafe_arena_set_allocated_name(
@@ -1606,14 +1606,14 @@ inline void Field::unsafe_arena_set_allocated_name(
   } else {
     
   }
-  name_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  name_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       name, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.Field.name)
 }
 
 // string type_url = 6;
 inline void Field::clear_type_url() {
-  type_url_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  type_url_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& Field::type_url() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.type_url)
@@ -1621,40 +1621,40 @@ inline const ::std::string& Field::type_url() const {
 }
 inline void Field::set_type_url(const ::std::string& value) {
   
-  type_url_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  type_url_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.Field.type_url)
 }
 #if LANG_CXX11
 inline void Field::set_type_url(::std::string&& value) {
   
   type_url_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.Field.type_url)
 }
 #endif
 inline void Field::set_type_url(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  type_url_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  type_url_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.Field.type_url)
 }
 inline void Field::set_type_url(const char* value,
     size_t size) {
   
-  type_url_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  type_url_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.Field.type_url)
 }
 inline ::std::string* Field::mutable_type_url() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.Field.type_url)
-  return type_url_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return type_url_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* Field::release_type_url() {
   // @@protoc_insertion_point(field_release:google.protobuf.Field.type_url)
   
-  return type_url_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return type_url_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void Field::set_allocated_type_url(::std::string* type_url) {
   if (type_url != NULL) {
@@ -1662,7 +1662,7 @@ inline void Field::set_allocated_type_url(::std::string* type_url) {
   } else {
     
   }
-  type_url_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type_url,
+  type_url_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), type_url,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.Field.type_url)
 }
@@ -1670,7 +1670,7 @@ inline ::std::string* Field::unsafe_arena_release_type_url() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Field.type_url)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return type_url_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return type_url_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void Field::unsafe_arena_set_allocated_type_url(
@@ -1681,7 +1681,7 @@ inline void Field::unsafe_arena_set_allocated_type_url(
   } else {
     
   }
-  type_url_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  type_url_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       type_url, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.Field.type_url)
 }
@@ -1690,11 +1690,11 @@ inline void Field::unsafe_arena_set_allocated_type_url(
 inline void Field::clear_oneof_index() {
   oneof_index_ = 0;
 }
-inline ::google::protobuf::int32 Field::oneof_index() const {
+inline ::google::leap_protobuf::int32 Field::oneof_index() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.oneof_index)
   return oneof_index_;
 }
-inline void Field::set_oneof_index(::google::protobuf::int32 value) {
+inline void Field::set_oneof_index(::google::leap_protobuf::int32 value) {
   
   oneof_index_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Field.oneof_index)
@@ -1721,24 +1721,24 @@ inline int Field::options_size() const {
 inline void Field::clear_options() {
   options_.Clear();
 }
-inline ::google::protobuf::Option* Field::mutable_options(int index) {
+inline ::google::leap_protobuf::Option* Field::mutable_options(int index) {
   // @@protoc_insertion_point(field_mutable:google.protobuf.Field.options)
   return options_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+inline ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
 Field::mutable_options() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.Field.options)
   return &options_;
 }
-inline const ::google::protobuf::Option& Field::options(int index) const {
+inline const ::google::leap_protobuf::Option& Field::options(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.options)
   return options_.Get(index);
 }
-inline ::google::protobuf::Option* Field::add_options() {
+inline ::google::leap_protobuf::Option* Field::add_options() {
   // @@protoc_insertion_point(field_add:google.protobuf.Field.options)
   return options_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
 Field::options() const {
   // @@protoc_insertion_point(field_list:google.protobuf.Field.options)
   return options_;
@@ -1746,7 +1746,7 @@ Field::options() const {
 
 // string json_name = 10;
 inline void Field::clear_json_name() {
-  json_name_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  json_name_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& Field::json_name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.json_name)
@@ -1754,40 +1754,40 @@ inline const ::std::string& Field::json_name() const {
 }
 inline void Field::set_json_name(const ::std::string& value) {
   
-  json_name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  json_name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.Field.json_name)
 }
 #if LANG_CXX11
 inline void Field::set_json_name(::std::string&& value) {
   
   json_name_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.Field.json_name)
 }
 #endif
 inline void Field::set_json_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  json_name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  json_name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.Field.json_name)
 }
 inline void Field::set_json_name(const char* value,
     size_t size) {
   
-  json_name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  json_name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.Field.json_name)
 }
 inline ::std::string* Field::mutable_json_name() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.Field.json_name)
-  return json_name_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return json_name_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* Field::release_json_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.Field.json_name)
   
-  return json_name_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return json_name_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void Field::set_allocated_json_name(::std::string* json_name) {
   if (json_name != NULL) {
@@ -1795,7 +1795,7 @@ inline void Field::set_allocated_json_name(::std::string* json_name) {
   } else {
     
   }
-  json_name_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), json_name,
+  json_name_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), json_name,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.Field.json_name)
 }
@@ -1803,7 +1803,7 @@ inline ::std::string* Field::unsafe_arena_release_json_name() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Field.json_name)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return json_name_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return json_name_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void Field::unsafe_arena_set_allocated_json_name(
@@ -1814,14 +1814,14 @@ inline void Field::unsafe_arena_set_allocated_json_name(
   } else {
     
   }
-  json_name_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  json_name_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       json_name, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.Field.json_name)
 }
 
 // string default_value = 11;
 inline void Field::clear_default_value() {
-  default_value_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  default_value_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& Field::default_value() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Field.default_value)
@@ -1829,40 +1829,40 @@ inline const ::std::string& Field::default_value() const {
 }
 inline void Field::set_default_value(const ::std::string& value) {
   
-  default_value_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  default_value_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.Field.default_value)
 }
 #if LANG_CXX11
 inline void Field::set_default_value(::std::string&& value) {
   
   default_value_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.Field.default_value)
 }
 #endif
 inline void Field::set_default_value(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  default_value_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  default_value_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.Field.default_value)
 }
 inline void Field::set_default_value(const char* value,
     size_t size) {
   
-  default_value_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  default_value_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.Field.default_value)
 }
 inline ::std::string* Field::mutable_default_value() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.Field.default_value)
-  return default_value_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return default_value_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* Field::release_default_value() {
   // @@protoc_insertion_point(field_release:google.protobuf.Field.default_value)
   
-  return default_value_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return default_value_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void Field::set_allocated_default_value(::std::string* default_value) {
   if (default_value != NULL) {
@@ -1870,7 +1870,7 @@ inline void Field::set_allocated_default_value(::std::string* default_value) {
   } else {
     
   }
-  default_value_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), default_value,
+  default_value_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), default_value,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.Field.default_value)
 }
@@ -1878,7 +1878,7 @@ inline ::std::string* Field::unsafe_arena_release_default_value() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Field.default_value)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return default_value_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return default_value_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void Field::unsafe_arena_set_allocated_default_value(
@@ -1889,7 +1889,7 @@ inline void Field::unsafe_arena_set_allocated_default_value(
   } else {
     
   }
-  default_value_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  default_value_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       default_value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.Field.default_value)
 }
@@ -1900,7 +1900,7 @@ inline void Field::unsafe_arena_set_allocated_default_value(
 
 // string name = 1;
 inline void Enum::clear_name() {
-  name_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  name_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& Enum::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Enum.name)
@@ -1908,40 +1908,40 @@ inline const ::std::string& Enum::name() const {
 }
 inline void Enum::set_name(const ::std::string& value) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.Enum.name)
 }
 #if LANG_CXX11
 inline void Enum::set_name(::std::string&& value) {
   
   name_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.Enum.name)
 }
 #endif
 inline void Enum::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.Enum.name)
 }
 inline void Enum::set_name(const char* value,
     size_t size) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.Enum.name)
 }
 inline ::std::string* Enum::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.Enum.name)
-  return name_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* Enum::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.Enum.name)
   
-  return name_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void Enum::set_allocated_name(::std::string* name) {
   if (name != NULL) {
@@ -1949,7 +1949,7 @@ inline void Enum::set_allocated_name(::std::string* name) {
   } else {
     
   }
-  name_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name,
+  name_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), name,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.Enum.name)
 }
@@ -1957,7 +1957,7 @@ inline ::std::string* Enum::unsafe_arena_release_name() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Enum.name)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return name_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return name_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void Enum::unsafe_arena_set_allocated_name(
@@ -1968,7 +1968,7 @@ inline void Enum::unsafe_arena_set_allocated_name(
   } else {
     
   }
-  name_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  name_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       name, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.Enum.name)
 }
@@ -1980,24 +1980,24 @@ inline int Enum::enumvalue_size() const {
 inline void Enum::clear_enumvalue() {
   enumvalue_.Clear();
 }
-inline ::google::protobuf::EnumValue* Enum::mutable_enumvalue(int index) {
+inline ::google::leap_protobuf::EnumValue* Enum::mutable_enumvalue(int index) {
   // @@protoc_insertion_point(field_mutable:google.protobuf.Enum.enumvalue)
   return enumvalue_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::google::protobuf::EnumValue >*
+inline ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::EnumValue >*
 Enum::mutable_enumvalue() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.Enum.enumvalue)
   return &enumvalue_;
 }
-inline const ::google::protobuf::EnumValue& Enum::enumvalue(int index) const {
+inline const ::google::leap_protobuf::EnumValue& Enum::enumvalue(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.Enum.enumvalue)
   return enumvalue_.Get(index);
 }
-inline ::google::protobuf::EnumValue* Enum::add_enumvalue() {
+inline ::google::leap_protobuf::EnumValue* Enum::add_enumvalue() {
   // @@protoc_insertion_point(field_add:google.protobuf.Enum.enumvalue)
   return enumvalue_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::google::protobuf::EnumValue >&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::EnumValue >&
 Enum::enumvalue() const {
   // @@protoc_insertion_point(field_list:google.protobuf.Enum.enumvalue)
   return enumvalue_;
@@ -2010,24 +2010,24 @@ inline int Enum::options_size() const {
 inline void Enum::clear_options() {
   options_.Clear();
 }
-inline ::google::protobuf::Option* Enum::mutable_options(int index) {
+inline ::google::leap_protobuf::Option* Enum::mutable_options(int index) {
   // @@protoc_insertion_point(field_mutable:google.protobuf.Enum.options)
   return options_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+inline ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
 Enum::mutable_options() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.Enum.options)
   return &options_;
 }
-inline const ::google::protobuf::Option& Enum::options(int index) const {
+inline const ::google::leap_protobuf::Option& Enum::options(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.Enum.options)
   return options_.Get(index);
 }
-inline ::google::protobuf::Option* Enum::add_options() {
+inline ::google::leap_protobuf::Option* Enum::add_options() {
   // @@protoc_insertion_point(field_add:google.protobuf.Enum.options)
   return options_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
 Enum::options() const {
   // @@protoc_insertion_point(field_list:google.protobuf.Enum.options)
   return options_;
@@ -2037,50 +2037,50 @@ Enum::options() const {
 inline bool Enum::has_source_context() const {
   return this != internal_default_instance() && source_context_ != NULL;
 }
-inline const ::google::protobuf::SourceContext& Enum::_internal_source_context() const {
+inline const ::google::leap_protobuf::SourceContext& Enum::_internal_source_context() const {
   return *source_context_;
 }
-inline const ::google::protobuf::SourceContext& Enum::source_context() const {
-  const ::google::protobuf::SourceContext* p = source_context_;
+inline const ::google::leap_protobuf::SourceContext& Enum::source_context() const {
+  const ::google::leap_protobuf::SourceContext* p = source_context_;
   // @@protoc_insertion_point(field_get:google.protobuf.Enum.source_context)
-  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::SourceContext*>(
-      &::google::protobuf::_SourceContext_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::google::leap_protobuf::SourceContext*>(
+      &::google::leap_protobuf::_SourceContext_default_instance_);
 }
-inline ::google::protobuf::SourceContext* Enum::release_source_context() {
+inline ::google::leap_protobuf::SourceContext* Enum::release_source_context() {
   // @@protoc_insertion_point(field_release:google.protobuf.Enum.source_context)
   
-  ::google::protobuf::SourceContext* temp = source_context_;
+  ::google::leap_protobuf::SourceContext* temp = source_context_;
   if (GetArenaNoVirtual() != NULL) {
-    temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    temp = ::google::leap_protobuf::internal::DuplicateIfNonNull(temp);
   }
   source_context_ = NULL;
   return temp;
 }
-inline ::google::protobuf::SourceContext* Enum::unsafe_arena_release_source_context() {
+inline ::google::leap_protobuf::SourceContext* Enum::unsafe_arena_release_source_context() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Enum.source_context)
   
-  ::google::protobuf::SourceContext* temp = source_context_;
+  ::google::leap_protobuf::SourceContext* temp = source_context_;
   source_context_ = NULL;
   return temp;
 }
-inline ::google::protobuf::SourceContext* Enum::mutable_source_context() {
+inline ::google::leap_protobuf::SourceContext* Enum::mutable_source_context() {
   
   if (source_context_ == NULL) {
-    auto* p = CreateMaybeMessage<::google::protobuf::SourceContext>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::google::leap_protobuf::SourceContext>(GetArenaNoVirtual());
     source_context_ = p;
   }
   // @@protoc_insertion_point(field_mutable:google.protobuf.Enum.source_context)
   return source_context_;
 }
-inline void Enum::set_allocated_source_context(::google::protobuf::SourceContext* source_context) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+inline void Enum::set_allocated_source_context(::google::leap_protobuf::SourceContext* source_context) {
+  ::google::leap_protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(source_context_);
+    delete reinterpret_cast< ::google::leap_protobuf::MessageLite*>(source_context_);
   }
   if (source_context) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
+    ::google::leap_protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      source_context = ::google::protobuf::internal::GetOwnedMessage(
+      source_context = ::google::leap_protobuf::internal::GetOwnedMessage(
           message_arena, source_context, submessage_arena);
     }
     
@@ -2095,11 +2095,11 @@ inline void Enum::set_allocated_source_context(::google::protobuf::SourceContext
 inline void Enum::clear_syntax() {
   syntax_ = 0;
 }
-inline ::google::protobuf::Syntax Enum::syntax() const {
+inline ::google::leap_protobuf::Syntax Enum::syntax() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Enum.syntax)
-  return static_cast< ::google::protobuf::Syntax >(syntax_);
+  return static_cast< ::google::leap_protobuf::Syntax >(syntax_);
 }
-inline void Enum::set_syntax(::google::protobuf::Syntax value) {
+inline void Enum::set_syntax(::google::leap_protobuf::Syntax value) {
   
   syntax_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.Enum.syntax)
@@ -2111,7 +2111,7 @@ inline void Enum::set_syntax(::google::protobuf::Syntax value) {
 
 // string name = 1;
 inline void EnumValue::clear_name() {
-  name_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  name_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& EnumValue::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.EnumValue.name)
@@ -2119,40 +2119,40 @@ inline const ::std::string& EnumValue::name() const {
 }
 inline void EnumValue::set_name(const ::std::string& value) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.EnumValue.name)
 }
 #if LANG_CXX11
 inline void EnumValue::set_name(::std::string&& value) {
   
   name_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.EnumValue.name)
 }
 #endif
 inline void EnumValue::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.EnumValue.name)
 }
 inline void EnumValue::set_name(const char* value,
     size_t size) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.EnumValue.name)
 }
 inline ::std::string* EnumValue::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.EnumValue.name)
-  return name_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* EnumValue::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.EnumValue.name)
   
-  return name_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void EnumValue::set_allocated_name(::std::string* name) {
   if (name != NULL) {
@@ -2160,7 +2160,7 @@ inline void EnumValue::set_allocated_name(::std::string* name) {
   } else {
     
   }
-  name_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name,
+  name_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), name,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.EnumValue.name)
 }
@@ -2168,7 +2168,7 @@ inline ::std::string* EnumValue::unsafe_arena_release_name() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.EnumValue.name)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return name_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return name_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void EnumValue::unsafe_arena_set_allocated_name(
@@ -2179,7 +2179,7 @@ inline void EnumValue::unsafe_arena_set_allocated_name(
   } else {
     
   }
-  name_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  name_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       name, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.EnumValue.name)
 }
@@ -2188,11 +2188,11 @@ inline void EnumValue::unsafe_arena_set_allocated_name(
 inline void EnumValue::clear_number() {
   number_ = 0;
 }
-inline ::google::protobuf::int32 EnumValue::number() const {
+inline ::google::leap_protobuf::int32 EnumValue::number() const {
   // @@protoc_insertion_point(field_get:google.protobuf.EnumValue.number)
   return number_;
 }
-inline void EnumValue::set_number(::google::protobuf::int32 value) {
+inline void EnumValue::set_number(::google::leap_protobuf::int32 value) {
   
   number_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.EnumValue.number)
@@ -2205,24 +2205,24 @@ inline int EnumValue::options_size() const {
 inline void EnumValue::clear_options() {
   options_.Clear();
 }
-inline ::google::protobuf::Option* EnumValue::mutable_options(int index) {
+inline ::google::leap_protobuf::Option* EnumValue::mutable_options(int index) {
   // @@protoc_insertion_point(field_mutable:google.protobuf.EnumValue.options)
   return options_.Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >*
+inline ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >*
 EnumValue::mutable_options() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.EnumValue.options)
   return &options_;
 }
-inline const ::google::protobuf::Option& EnumValue::options(int index) const {
+inline const ::google::leap_protobuf::Option& EnumValue::options(int index) const {
   // @@protoc_insertion_point(field_get:google.protobuf.EnumValue.options)
   return options_.Get(index);
 }
-inline ::google::protobuf::Option* EnumValue::add_options() {
+inline ::google::leap_protobuf::Option* EnumValue::add_options() {
   // @@protoc_insertion_point(field_add:google.protobuf.EnumValue.options)
   return options_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::google::protobuf::Option >&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::google::leap_protobuf::Option >&
 EnumValue::options() const {
   // @@protoc_insertion_point(field_list:google.protobuf.EnumValue.options)
   return options_;
@@ -2234,7 +2234,7 @@ EnumValue::options() const {
 
 // string name = 1;
 inline void Option::clear_name() {
-  name_.ClearToEmpty(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  name_.ClearToEmpty(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline const ::std::string& Option::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.Option.name)
@@ -2242,40 +2242,40 @@ inline const ::std::string& Option::name() const {
 }
 inline void Option::set_name(const ::std::string& value) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), value, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set:google.protobuf.Option.name)
 }
 #if LANG_CXX11
 inline void Option::set_name(::std::string&& value) {
   
   name_.Set(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
+    &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.Option.name)
 }
 #endif
 inline void Option::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_char:google.protobuf.Option.name)
 }
 inline void Option::set_name(const char* value,
     size_t size) {
   
-  name_.Set(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
+  name_.Set(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_pointer:google.protobuf.Option.name)
 }
 inline ::std::string* Option::mutable_name() {
   
   // @@protoc_insertion_point(field_mutable:google.protobuf.Option.name)
-  return name_.Mutable(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Mutable(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline ::std::string* Option::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.Option.name)
   
-  return name_.Release(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
+  return name_.Release(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), GetArenaNoVirtual());
 }
 inline void Option::set_allocated_name(::std::string* name) {
   if (name != NULL) {
@@ -2283,7 +2283,7 @@ inline void Option::set_allocated_name(::std::string* name) {
   } else {
     
   }
-  name_.SetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name,
+  name_.SetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(), name,
       GetArenaNoVirtual());
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.Option.name)
 }
@@ -2291,7 +2291,7 @@ inline ::std::string* Option::unsafe_arena_release_name() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Option.name)
   GOOGLE_DCHECK(GetArenaNoVirtual() != NULL);
   
-  return name_.UnsafeArenaRelease(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  return name_.UnsafeArenaRelease(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       GetArenaNoVirtual());
 }
 inline void Option::unsafe_arena_set_allocated_name(
@@ -2302,7 +2302,7 @@ inline void Option::unsafe_arena_set_allocated_name(
   } else {
     
   }
-  name_.UnsafeArenaSetAllocated(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  name_.UnsafeArenaSetAllocated(&::google::leap_protobuf::internal::GetEmptyStringAlreadyInited(),
       name, GetArenaNoVirtual());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:google.protobuf.Option.name)
 }
@@ -2311,50 +2311,50 @@ inline void Option::unsafe_arena_set_allocated_name(
 inline bool Option::has_value() const {
   return this != internal_default_instance() && value_ != NULL;
 }
-inline const ::google::protobuf::Any& Option::_internal_value() const {
+inline const ::google::leap_protobuf::Any& Option::_internal_value() const {
   return *value_;
 }
-inline const ::google::protobuf::Any& Option::value() const {
-  const ::google::protobuf::Any* p = value_;
+inline const ::google::leap_protobuf::Any& Option::value() const {
+  const ::google::leap_protobuf::Any* p = value_;
   // @@protoc_insertion_point(field_get:google.protobuf.Option.value)
-  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::Any*>(
-      &::google::protobuf::_Any_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::google::leap_protobuf::Any*>(
+      &::google::leap_protobuf::_Any_default_instance_);
 }
-inline ::google::protobuf::Any* Option::release_value() {
+inline ::google::leap_protobuf::Any* Option::release_value() {
   // @@protoc_insertion_point(field_release:google.protobuf.Option.value)
   
-  ::google::protobuf::Any* temp = value_;
+  ::google::leap_protobuf::Any* temp = value_;
   if (GetArenaNoVirtual() != NULL) {
-    temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    temp = ::google::leap_protobuf::internal::DuplicateIfNonNull(temp);
   }
   value_ = NULL;
   return temp;
 }
-inline ::google::protobuf::Any* Option::unsafe_arena_release_value() {
+inline ::google::leap_protobuf::Any* Option::unsafe_arena_release_value() {
   // @@protoc_insertion_point(field_unsafe_arena_release:google.protobuf.Option.value)
   
-  ::google::protobuf::Any* temp = value_;
+  ::google::leap_protobuf::Any* temp = value_;
   value_ = NULL;
   return temp;
 }
-inline ::google::protobuf::Any* Option::mutable_value() {
+inline ::google::leap_protobuf::Any* Option::mutable_value() {
   
   if (value_ == NULL) {
-    auto* p = CreateMaybeMessage<::google::protobuf::Any>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::google::leap_protobuf::Any>(GetArenaNoVirtual());
     value_ = p;
   }
   // @@protoc_insertion_point(field_mutable:google.protobuf.Option.value)
   return value_;
 }
-inline void Option::set_allocated_value(::google::protobuf::Any* value) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+inline void Option::set_allocated_value(::google::leap_protobuf::Any* value) {
+  ::google::leap_protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete reinterpret_cast< ::google::protobuf::MessageLite*>(value_);
+    delete reinterpret_cast< ::google::leap_protobuf::MessageLite*>(value_);
   }
   if (value) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
+    ::google::leap_protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(
+      value = ::google::leap_protobuf::internal::GetOwnedMessage(
           message_arena, value, submessage_arena);
     }
     
@@ -2385,20 +2385,20 @@ inline void Option::set_allocated_value(::google::protobuf::Any* value) {
 namespace google {
 namespace leap_protobuf {
 
-template <> struct is_proto_enum< ::google::protobuf::Field_Kind> : ::std::true_type {};
+template <> struct is_proto_enum< ::google::leap_protobuf::Field_Kind> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::google::protobuf::Field_Kind>() {
-  return ::google::protobuf::Field_Kind_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::google::leap_protobuf::Field_Kind>() {
+  return ::google::leap_protobuf::Field_Kind_descriptor();
 }
-template <> struct is_proto_enum< ::google::protobuf::Field_Cardinality> : ::std::true_type {};
+template <> struct is_proto_enum< ::google::leap_protobuf::Field_Cardinality> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::google::protobuf::Field_Cardinality>() {
-  return ::google::protobuf::Field_Cardinality_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::google::leap_protobuf::Field_Cardinality>() {
+  return ::google::leap_protobuf::Field_Cardinality_descriptor();
 }
-template <> struct is_proto_enum< ::google::protobuf::Syntax> : ::std::true_type {};
+template <> struct is_proto_enum< ::google::leap_protobuf::Syntax> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::google::protobuf::Syntax>() {
-  return ::google::protobuf::Syntax_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::google::leap_protobuf::Syntax>() {
+  return ::google::leap_protobuf::Syntax_descriptor();
 }
 
 }  // namespace leap_protobuf

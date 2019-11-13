@@ -45,6 +45,6 @@ int main(int argc, char* argv[]) {
   _set_abort_behavior(0, ~0);
 #endif  // !_MSC_VER
 
-  google::protobuf::compiler::MockCodeGenerator generator("test_plugin");
-  return google::protobuf::compiler::PluginMain(argc, argv, &generator);
+  google::leap_protobuf::compiler::MockCodeGenerator generator("test_plugin");
+  return google::leap_protobuf::compiler::PluginMain(argc, argv, &generator);
 }

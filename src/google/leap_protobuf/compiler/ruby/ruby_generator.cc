@@ -47,20 +47,20 @@ namespace ruby {
 // Forward decls.
 std::string IntToString(int32 value);
 std::string GetRequireName(const std::string& proto_file);
-std::string LabelForField(google::protobuf::FieldDescriptor* field);
-std::string TypeName(google::protobuf::FieldDescriptor* field);
-void GenerateMessage(const google::protobuf::Descriptor* message,
-                     google::protobuf::io::Printer* printer);
-void GenerateEnum(const google::protobuf::EnumDescriptor* en,
-                  google::protobuf::io::Printer* printer);
+std::string LabelForField(google::leap_protobuf::FieldDescriptor* field);
+std::string TypeName(google::leap_protobuf::FieldDescriptor* field);
+void GenerateMessage(const google::leap_protobuf::Descriptor* message,
+                     google::leap_protobuf::io::Printer* printer);
+void GenerateEnum(const google::leap_protobuf::EnumDescriptor* en,
+                  google::leap_protobuf::io::Printer* printer);
 void GenerateMessageAssignment(
     const std::string& prefix,
-    const google::protobuf::Descriptor* message,
-    google::protobuf::io::Printer* printer);
+    const google::leap_protobuf::Descriptor* message,
+    google::leap_protobuf::io::Printer* printer);
 void GenerateEnumAssignment(
     const std::string& prefix,
-    const google::protobuf::EnumDescriptor* en,
-    google::protobuf::io::Printer* printer);
+    const google::leap_protobuf::EnumDescriptor* en,
+    google::leap_protobuf::io::Printer* printer);
 
 std::string IntToString(int32 value) {
   std::ostringstream os;
@@ -77,7 +77,7 @@ std::string GetOutputFilename(const std::string& proto_file) {
   return GetRequireName(proto_file) + ".rb";
 }
 
-std::string LabelForField(const google::protobuf::FieldDescriptor* field) {
+std::string LabelForField(const google::leap_protobuf::FieldDescriptor* field) {
   switch (field->label()) {
     case FieldDescriptor::LABEL_OPTIONAL: return "optional";
     case FieldDescriptor::LABEL_REQUIRED: return "required";
@@ -86,7 +86,7 @@ std::string LabelForField(const google::protobuf::FieldDescriptor* field) {
   }
 }
 
-std::string TypeName(const google::protobuf::FieldDescriptor* field) {
+std::string TypeName(const google::leap_protobuf::FieldDescriptor* field) {
   switch (field->type()) {
     case FieldDescriptor::TYPE_INT32: return "int32";
     case FieldDescriptor::TYPE_INT64: return "int64";
@@ -110,8 +110,8 @@ std::string TypeName(const google::protobuf::FieldDescriptor* field) {
   }
 }
 
-void GenerateField(const google::protobuf::FieldDescriptor* field,
-                   google::protobuf::io::Printer* printer) {
+void GenerateField(const google::leap_protobuf::FieldDescriptor* field,
+                   google::leap_protobuf::io::Printer* printer) {
 
   if (field->is_map()) {
     const FieldDescriptor* key_field =
@@ -162,8 +162,8 @@ void GenerateField(const google::protobuf::FieldDescriptor* field,
   }
 }
 
-void GenerateOneof(const google::protobuf::OneofDescriptor* oneof,
-                   google::protobuf::io::Printer* printer) {
+void GenerateOneof(const google::leap_protobuf::OneofDescriptor* oneof,
+                   google::leap_protobuf::io::Printer* printer) {
   printer->Print(
       "oneof :$name$ do\n",
       "name", oneof->name());
@@ -178,8 +178,8 @@ void GenerateOneof(const google::protobuf::OneofDescriptor* oneof,
   printer->Print("end\n");
 }
 
-void GenerateMessage(const google::protobuf::Descriptor* message,
-                     google::protobuf::io::Printer* printer) {
+void GenerateMessage(const google::leap_protobuf::Descriptor* message,
+                     google::leap_protobuf::io::Printer* printer) {
 
   // Don't generate MapEntry messages -- we use the Ruby extension's native
   // support for map fields instead.
@@ -215,8 +215,8 @@ void GenerateMessage(const google::protobuf::Descriptor* message,
   }
 }
 
-void GenerateEnum(const google::protobuf::EnumDescriptor* en,
-                  google::protobuf::io::Printer* printer) {
+void GenerateEnum(const google::leap_protobuf::EnumDescriptor* en,
+                  google::leap_protobuf::io::Printer* printer) {
   printer->Print(
     "add_enum \"$name$\" do\n",
     "name", en->full_name());
@@ -295,8 +295,8 @@ std::string RubifyConstant(const std::string& name) {
 
 void GenerateMessageAssignment(
     const std::string& prefix,
-    const google::protobuf::Descriptor* message,
-    google::protobuf::io::Printer* printer) {
+    const google::leap_protobuf::Descriptor* message,
+    google::leap_protobuf::io::Printer* printer) {
 
   // Don't generate MapEntry messages -- we use the Ruby extension's native
   // support for map fields instead.
@@ -324,8 +324,8 @@ void GenerateMessageAssignment(
 
 void GenerateEnumAssignment(
     const std::string& prefix,
-    const google::protobuf::EnumDescriptor* en,
-    google::protobuf::io::Printer* printer) {
+    const google::leap_protobuf::EnumDescriptor* en,
+    google::leap_protobuf::io::Printer* printer) {
   printer->Print(
     "$prefix$$name$ = ",
     "prefix", prefix,
@@ -338,7 +338,7 @@ void GenerateEnumAssignment(
 
 int GeneratePackageModules(
     const FileDescriptor* file,
-    google::protobuf::io::Printer* printer) {
+    google::leap_protobuf::io::Printer* printer) {
   int levels = 0;
   bool need_change_to_module;
   std::string package_name;
@@ -375,7 +375,7 @@ int GeneratePackageModules(
 
 void EndPackageModules(
     int levels,
-    google::protobuf::io::Printer* printer) {
+    google::leap_protobuf::io::Printer* printer) {
   while (levels > 0) {
     levels--;
     printer->Outdent();

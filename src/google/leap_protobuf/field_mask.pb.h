@@ -33,18 +33,18 @@
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_google_2fprotobuf_2ffield_5fmask_2eproto LIBPROTOBUF_EXPORT
 
-namespace leap_protobuf_google_2fprotobuf_2ffield_5fmask_2eproto {
+namespace protobuf_google_2fprotobuf_2ffield_5fmask_2eproto {
 // Internal implementation detail -- do not use these members.
 struct LIBPROTOBUF_EXPORT TableStruct {
-  static const ::google::protobuf::internal::ParseTableField entries[];
-  static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[1];
-  static const ::google::protobuf::internal::FieldMetadata field_metadata[];
-  static const ::google::protobuf::internal::SerializationTable serialization_table[];
-  static const ::google::protobuf::uint32 offsets[];
+  static const ::google::leap_protobuf::internal::ParseTableField entries[];
+  static const ::google::leap_protobuf::internal::AuxillaryParseTableField aux[];
+  static const ::google::leap_protobuf::internal::ParseTable schema[1];
+  static const ::google::leap_protobuf::internal::FieldMetadata field_metadata[];
+  static const ::google::leap_protobuf::internal::SerializationTable serialization_table[];
+  static const ::google::leap_protobuf::uint32 offsets[];
 };
 void LIBPROTOBUF_EXPORT AddDescriptors();
-}  // namespace leap_protobuf_google_2fprotobuf_2ffield_5fmask_2eproto
+}  // namespace protobuf_google_2fprotobuf_2ffield_5fmask_2eproto
 namespace google {
 namespace leap_protobuf {
 class FieldMask;
@@ -54,7 +54,7 @@ LIBPROTOBUF_EXPORT extern FieldMaskDefaultTypeInternal _FieldMask_default_instan
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::FieldMask* Arena::CreateMaybeMessage<::google::protobuf::FieldMask>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::FieldMask* Arena::CreateMaybeMessage<::google::leap_protobuf::FieldMask>(Arena*);
 }  // namespace leap_protobuf
 }  // namespace google
 namespace google {
@@ -62,7 +62,7 @@ namespace leap_protobuf {
 
 // ===================================================================
 
-class LIBPROTOBUF_EXPORT FieldMask : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.FieldMask) */ {
+class LIBPROTOBUF_EXPORT FieldMask : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.FieldMask) */ {
  public:
   FieldMask();
   virtual ~FieldMask();
@@ -88,7 +88,7 @@ class LIBPROTOBUF_EXPORT FieldMask : public ::google::protobuf::Message /* @@pro
     return *this;
   }
   #endif
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const FieldMask& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -110,11 +110,11 @@ class LIBPROTOBUF_EXPORT FieldMask : public ::google::protobuf::Message /* @@pro
     return CreateMaybeMessage<FieldMask>(NULL);
   }
 
-  FieldMask* New(::google::protobuf::Arena* arena) const final {
+  FieldMask* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<FieldMask>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const FieldMask& from);
   void MergeFrom(const FieldMask& from);
   void Clear() final;
@@ -122,11 +122,11 @@ class LIBPROTOBUF_EXPORT FieldMask : public ::google::protobuf::Message /* @@pro
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -135,7 +135,7 @@ class LIBPROTOBUF_EXPORT FieldMask : public ::google::protobuf::Message /* @@pro
   void SetCachedSize(int size) const final;
   void InternalSwap(FieldMask* other);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
   }
   inline void* MaybeArenaPtr() const {
@@ -143,7 +143,7 @@ class LIBPROTOBUF_EXPORT FieldMask : public ::google::protobuf::Message /* @@pro
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -168,15 +168,15 @@ class LIBPROTOBUF_EXPORT FieldMask : public ::google::protobuf::Message /* @@pro
   #endif
   void add_paths(const char* value);
   void add_paths(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& paths() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_paths();
+  const ::google::leap_protobuf::RepeatedPtrField< ::std::string>& paths() const;
+  ::google::leap_protobuf::RepeatedPtrField< ::std::string>* mutable_paths();
 
   // @@protoc_insertion_point(class_scope:google.protobuf.FieldMask)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> paths_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::leap_protobuf::RepeatedPtrField< ::std::string> paths_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2ffield_5fmask_2eproto::TableStruct;
 };
 // ===================================================================
@@ -248,12 +248,12 @@ inline void FieldMask::add_paths(const char* value, size_t size) {
   paths_.Add()->assign(reinterpret_cast<const char*>(value), size);
   // @@protoc_insertion_point(field_add_pointer:google.protobuf.FieldMask.paths)
 }
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+inline const ::google::leap_protobuf::RepeatedPtrField< ::std::string>&
 FieldMask::paths() const {
   // @@protoc_insertion_point(field_list:google.protobuf.FieldMask.paths)
   return paths_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+inline ::google::leap_protobuf::RepeatedPtrField< ::std::string>*
 FieldMask::mutable_paths() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.FieldMask.paths)
   return &paths_;

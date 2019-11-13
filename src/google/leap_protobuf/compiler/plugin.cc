@@ -57,7 +57,7 @@ namespace compiler {
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::internal::win32::setmode;
+using google::leap_protobuf::internal::win32::setmode;
 #endif
 
 class GeneratorResponseContext : public GeneratorContext {

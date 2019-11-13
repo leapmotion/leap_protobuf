@@ -82,10 +82,10 @@ namespace {
 #define pipe(fds) _pipe(fds, 4096, O_BINARY)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::internal::win32::access;
-using google::protobuf::internal::win32::mkdir;
-using google::protobuf::internal::win32::open;
-using google::protobuf::internal::win32::close;
+using google::leap_protobuf::internal::win32::access;
+using google::leap_protobuf::internal::win32::mkdir;
+using google::leap_protobuf::internal::win32::open;
+using google::leap_protobuf::internal::win32::close;
 #endif
 
 #ifndef O_BINARY

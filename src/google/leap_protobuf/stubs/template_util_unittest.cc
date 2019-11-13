@@ -40,7 +40,7 @@
 #include <google/leap_protobuf/testing/googletest.h>
 #include <gtest/gtest.h>
 
-namespace GOOGLE_NAMESPACE = google::protobuf::internal;
+namespace GOOGLE_NAMESPACE = google::leap_protobuf::internal;
 
 namespace google {
 namespace leap_protobuf {

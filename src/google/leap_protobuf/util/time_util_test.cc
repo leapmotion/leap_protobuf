@@ -41,8 +41,8 @@ namespace google {
 namespace leap_protobuf {
 namespace util {
 
-using google::protobuf::Timestamp;
-using google::protobuf::Duration;
+using google::leap_protobuf::Timestamp;
+using google::leap_protobuf::Duration;
 
 namespace {
 

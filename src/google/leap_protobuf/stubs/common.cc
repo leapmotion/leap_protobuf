@@ -207,7 +207,7 @@ LogMessage& LogMessage::operator<<(const StringPiece& value) {
 }
 
 LogMessage& LogMessage::operator<<(
-    const ::google::protobuf::util::Status& status) {
+    const ::google::leap_protobuf::util::Status& status) {
   message_ += status.ToString();
   return *this;
 }

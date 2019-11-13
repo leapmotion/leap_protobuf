@@ -117,7 +117,7 @@ struct CompileAssert {
 #define GOOGLE_COMPILE_ASSERT(expr, msg) static_assert(expr, #msg)
 #else
 #define GOOGLE_COMPILE_ASSERT(expr, msg) \
-  ::google::protobuf::internal::CompileAssert<(bool(expr))> \
+  ::google::leap_protobuf::internal::CompileAssert<(bool(expr))> \
           msg[bool(expr) ? 1 : -1]; \
   (void)msg
 // Implementation details of COMPILE_ASSERT:

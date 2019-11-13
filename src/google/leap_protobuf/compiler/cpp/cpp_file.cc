@@ -179,7 +179,7 @@ void FileGenerator::GenerateHeader(io::Printer* printer) {
       "\n");
   }
 
-  // We need to specialize some templates in the ::google::protobuf namespace:
+  // We need to specialize some templates in the ::google::leap_protobuf namespace:
   GenerateProto2NamespaceEnumSpecializations(printer);
 
   printer->Print(
@@ -326,7 +326,7 @@ void FileGenerator::GenerateSourceDefaultInstance(int idx,
   printer->Print(
       "class $classname$DefaultTypeInternal {\n"
       " public:\n"
-      "  ::google::protobuf::internal::ExplicitlyConstructed<$classname$>\n"
+      "  ::google::leap_protobuf::internal::ExplicitlyConstructed<$classname$>\n"
       "      _instance;\n",
       "classname", message_generators_[idx]->classname_);
   printer->Indent();
@@ -365,7 +365,7 @@ void GenerateInternalForwardDeclarations(
     }
     string dllexport = "PROTOBUF_INTERNAL_EXPORT_" + FileLevelNamespace(msg);
     sccs.insert(std::make_pair(flns, "extern " + dllexport + weak_attr +
-                                     " ::google::protobuf::internal::SCCInfo<" +
+                                     " ::google::leap_protobuf::internal::SCCInfo<" +
                                      SimpleItoa(scc->children.size()) +
                                      "> scc_info_" + repr + ";\n"));
   }
@@ -519,7 +519,7 @@ void FileGenerator::GenerateSource(io::Printer* printer) {
       if (!IsSCCRepresentative(message_generators_[i]->descriptor_)) continue;
       string scc_name = ClassName(message_generators_[i]->descriptor_);
       printer->Print(
-          "  ::google::protobuf::internal::InitSCC(&scc_info_$scc_name$.base);\n",
+          "  ::google::leap_protobuf::internal::InitSCC(&scc_info_$scc_name$.base);\n",
           "scc_name", scc_name);
     }
     printer->Print("}\n\n");
@@ -716,18 +716,18 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
   // in the file.
 
   if (!message_generators_.empty()) {
-    printer->Print("::google::protobuf::Metadata file_level_metadata[$size$];\n", "size",
+    printer->Print("::google::leap_protobuf::Metadata file_level_metadata[$size$];\n", "size",
                    SimpleItoa(message_generators_.size()));
   }
   if (!enum_generators_.empty()) {
     printer->Print(
-        "const ::google::protobuf::EnumDescriptor* "
+        "const ::google::leap_protobuf::EnumDescriptor* "
         "file_level_enum_descriptors[$size$];\n",
         "size", SimpleItoa(enum_generators_.size()));
   }
   if (HasGenericServices(file_, options_) && file_->service_count() > 0) {
     printer->Print(
-        "const ::google::protobuf::ServiceDescriptor* "
+        "const ::google::leap_protobuf::ServiceDescriptor* "
         "file_level_service_descriptors[$size$];\n",
         "size", SimpleItoa(file_->service_count()));
   }
@@ -735,7 +735,7 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
   if (!message_generators_.empty()) {
     printer->Print(
         "\n"
-        "const ::google::protobuf::uint32 TableStruct::offsets[] "
+        "const ::google::leap_protobuf::uint32 TableStruct::offsets[] "
         "GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {\n");
     printer->Indent();
     std::vector<std::pair<size_t, size_t> > pairs;
@@ -746,7 +746,7 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
     printer->Outdent();
     printer->Print(
         "};\n"
-        "static const ::google::protobuf::internal::MigrationSchema schemas[] "
+        "static const ::google::leap_protobuf::internal::MigrationSchema schemas[] "
         "GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {\n");
     printer->Indent();
     {
@@ -761,13 +761,13 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
     printer->Print(
         "};\n"
         "\nstatic "
-        "::google::protobuf::Message const * const file_default_instances[] = {\n");
+        "::google::leap_protobuf::Message const * const file_default_instances[] = {\n");
     printer->Indent();
     for (int i = 0; i < message_generators_.size(); i++) {
       const Descriptor* descriptor = message_generators_[i]->descriptor_;
       printer->Print(
           "reinterpret_cast<const "
-          "::google::protobuf::Message*>(&$ns$::_$classname$_default_instance_),\n",
+          "::google::leap_protobuf::Message*>(&$ns$::_$classname$_default_instance_),\n",
           "classname", ClassName(descriptor), "ns", Namespace(descriptor));
     }
     printer->Outdent();
@@ -778,9 +778,9 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
     // we still need these symbols to exist
     printer->Print(
         // MSVC doesn't like empty arrays, so we add a dummy.
-        "const ::google::protobuf::uint32 TableStruct::offsets[1] = {};\n"
-        "static const ::google::protobuf::internal::MigrationSchema* schemas = NULL;\n"
-        "static const ::google::protobuf::Message* const* "
+        "const ::google::leap_protobuf::uint32 TableStruct::offsets[1] = {};\n"
+        "static const ::google::leap_protobuf::internal::MigrationSchema* schemas = NULL;\n"
+        "static const ::google::leap_protobuf::Message* const* "
         "file_default_instances = NULL;\n"
         "\n");
   }
@@ -813,8 +813,8 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
         "}\n"
         "\n"
         "void protobuf_AssignDescriptorsOnce() {\n"
-        "  static ::google::protobuf::internal::once_flag once;\n"
-        "  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);\n"
+        "  static ::google::leap_protobuf::internal::once_flag once;\n"
+        "  ::google::leap_protobuf::internal::call_once(once, protobuf_AssignDescriptors);\n"
         "}\n"
         "\n",
         "filename", file_->name(), "metadata",
@@ -839,7 +839,7 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
     // All normal messages can be done generically
     if (!message_generators_.empty()) {
       printer->Print(
-        "::google::protobuf::internal::RegisterAllTypes(file_level_metadata, $size$);\n",
+        "::google::leap_protobuf::internal::RegisterAllTypes(file_level_metadata, $size$);\n",
         "size", SimpleItoa(message_generators_.size()));
     }
 
@@ -893,13 +893,13 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
     printer->Outdent();
     printer->Print("};\n");
     printer->Print(
-        "::google::protobuf::DescriptorPool::InternalAddGeneratedFile(\n"
+        "::google::leap_protobuf::DescriptorPool::InternalAddGeneratedFile(\n"
         "    descriptor, $size$);\n",
         "size", SimpleItoa(file_data.size()));
 
     // Call MessageFactory::InternalRegisterGeneratedFile().
     printer->Print(
-      "::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(\n"
+      "::google::leap_protobuf::MessageFactory::InternalRegisterGeneratedFile(\n"
       "  \"$filename$\", &protobuf_RegisterTypes);\n",
       "filename", file_->name());
 
@@ -919,8 +919,8 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
       "}\n"
       "\n"
       "void AddDescriptors() {\n"
-        "  static ::google::protobuf::internal::once_flag once;\n"
-        "  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);\n"
+        "  static ::google::leap_protobuf::internal::once_flag once;\n"
+        "  ::google::leap_protobuf::internal::call_once(once, AddDescriptorsImpl);\n"
       "}\n");
 
     printer->Print(
@@ -962,7 +962,7 @@ void FileGenerator::GenerateInitForSCC(const SCC* scc, io::Printer* printer) {
         "classname", ClassName(message_generators_[i]->descriptor_));
     if (!IsMapEntryMessage(message_generators_[i]->descriptor_)) {
       printer->Print(
-          "  ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);\n");
+          "  ::google::leap_protobuf::internal::OnShutdownDestroyMessage(ptr);\n");
     }
     printer->Print("}\n");
   }
@@ -981,9 +981,9 @@ void FileGenerator::GenerateInitForSCC(const SCC* scc, io::Printer* printer) {
   printer->Print("}\n\n");
 
   printer->Print(
-      "$dllexport_decl$::google::protobuf::internal::SCCInfo<$size$> "
+      "$dllexport_decl$::google::leap_protobuf::internal::SCCInfo<$size$> "
       "scc_info_$scc_name$ =\n"
-      "    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), "
+      "    {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), "
       "$size$, InitDefaults$scc_name$}, {",
       "size", SimpleItoa(scc->children.size()), "scc_name",
       ClassName(scc->GetRepresentative()), "dllexport_decl",
@@ -1001,7 +1001,7 @@ void FileGenerator::GenerateTables(io::Printer* printer) {
     // TODO(ckennelly): Gate this with the same options flag to enable
     // table-driven parsing.
     printer->Print(
-        "PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField\n"
+        "PROTOBUF_CONSTEXPR_VAR ::google::leap_protobuf::internal::ParseTableField\n"
         "    const TableStruct::entries[] "
         "GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {\n");
     printer->Indent();
@@ -1016,14 +1016,14 @@ void FileGenerator::GenerateTables(io::Printer* printer) {
 
     // We need these arrays to exist, and MSVC does not like empty arrays.
     if (count == 0) {
-      printer->Print("{0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},\n");
+      printer->Print("{0, 0, 0, ::google::leap_protobuf::internal::kInvalidMask, 0, 0},\n");
     }
 
     printer->Outdent();
     printer->Print(
         "};\n"
         "\n"
-        "PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField\n"
+        "PROTOBUF_CONSTEXPR_VAR ::google::leap_protobuf::internal::AuxillaryParseTableField\n"
         "    const TableStruct::aux[] "
         "GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {\n");
     printer->Indent();
@@ -1037,13 +1037,13 @@ void FileGenerator::GenerateTables(io::Printer* printer) {
     }
 
     if (count == 0) {
-      printer->Print("::google::protobuf::internal::AuxillaryParseTableField(),\n");
+      printer->Print("::google::leap_protobuf::internal::AuxillaryParseTableField(),\n");
     }
 
     printer->Outdent();
     printer->Print(
         "};\n"
-        "PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const\n"
+        "PROTOBUF_CONSTEXPR_VAR ::google::leap_protobuf::internal::ParseTable const\n"
         "    TableStruct::schema[] "
         "GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {\n");
     printer->Indent();
@@ -1068,7 +1068,7 @@ void FileGenerator::GenerateTables(io::Printer* printer) {
 
   if (!message_generators_.empty() && options_.table_driven_serialization) {
     printer->Print(
-        "const ::google::protobuf::internal::FieldMetadata TableStruct::field_metadata[] "
+        "const ::google::leap_protobuf::internal::FieldMetadata TableStruct::field_metadata[] "
         "= {\n");
     printer->Indent();
     std::vector<int> field_metadata_offsets;
@@ -1081,7 +1081,7 @@ void FileGenerator::GenerateTables(io::Printer* printer) {
     printer->Outdent();
     printer->Print(
         "};\n"
-        "const ::google::protobuf::internal::SerializationTable "
+        "const ::google::leap_protobuf::internal::SerializationTable "
         "TableStruct::serialization_table[] = {\n");
     printer->Indent();
     // We rely on the order we layout the tables to match the order we
@@ -1172,7 +1172,7 @@ void FileGenerator::GenerateLibraryIncludes(io::Printer* printer) {
     "#endif\n"
     "\n",
     "min_header_version",
-      SimpleItoa(protobuf::internal::kMinHeaderVersionForProtoc),
+      SimpleItoa(leap_protobuf::internal::kMinHeaderVersionForProtoc),
     "protoc_version", SimpleItoa(GOOGLE_PROTOBUF_VERSION));
 
   // OK, it's now safe to #include other files.
@@ -1293,13 +1293,13 @@ void FileGenerator::GenerateGlobalStateFunctionDeclarations(
       "struct $dllexport_decl$TableStruct {\n"
       // These tables describe how to serialize and parse messages. Used
       // for table driven code.
-      "  static const ::google::protobuf::internal::ParseTableField entries[];\n"
-      "  static const ::google::protobuf::internal::AuxillaryParseTableField aux[];\n"
-      "  static const ::google::protobuf::internal::ParseTable schema[$num$];\n"
-      "  static const ::google::protobuf::internal::FieldMetadata field_metadata[];\n"
-      "  static const ::google::protobuf::internal::SerializationTable "
+      "  static const ::google::leap_protobuf::internal::ParseTableField entries[];\n"
+      "  static const ::google::leap_protobuf::internal::AuxillaryParseTableField aux[];\n"
+      "  static const ::google::leap_protobuf::internal::ParseTable schema[$num$];\n"
+      "  static const ::google::leap_protobuf::internal::FieldMetadata field_metadata[];\n"
+      "  static const ::google::leap_protobuf::internal::SerializationTable "
       "serialization_table[];\n"
-      "  static const ::google::protobuf::uint32 offsets[];\n"
+      "  static const ::google::leap_protobuf::uint32 offsets[];\n"
       "};\n",
       "file_namespace", FileLevelNamespace(file_), "dllexport_decl",
       options_.dllexport_decl.empty() ? "" : options_.dllexport_decl + " ",
@@ -1390,7 +1390,7 @@ void FileGenerator::GenerateInlineFunctionDefinitions(io::Printer* printer) {
 
 void FileGenerator::GenerateProto2NamespaceEnumSpecializations(
     io::Printer* printer) {
-  // Emit GetEnumDescriptor specializations into google::protobuf namespace:
+  // Emit GetEnumDescriptor specializations into google::leap_protobuf namespace:
   if (HasEnumDefinitions(file_)) {
     printer->Print(
         "\n"

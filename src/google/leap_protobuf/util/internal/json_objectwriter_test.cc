@@ -39,8 +39,8 @@ namespace leap_protobuf {
 namespace util {
 namespace converter {
 
-using google::protobuf::io::CodedOutputStream;
-using google::protobuf::io::StringOutputStream;
+using google::leap_protobuf::io::CodedOutputStream;
+using google::leap_protobuf::io::StringOutputStream;
 
 class JsonObjectWriterTest : public ::testing::Test {
  protected:

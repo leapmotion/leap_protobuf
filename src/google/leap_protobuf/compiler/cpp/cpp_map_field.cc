@@ -78,10 +78,10 @@ void SetMessageVariables(const FieldDescriptor* descriptor,
       (*variables)["wrapper"] = "EntryWrapper";
   }
   (*variables)["key_wire_type"] =
-      "::google::protobuf::internal::WireFormatLite::TYPE_" +
+      "::google::leap_protobuf::internal::WireFormatLite::TYPE_" +
       ToUpper(DeclaredTypeMethodName(key->type()));
   (*variables)["val_wire_type"] =
-      "::google::protobuf::internal::WireFormatLite::TYPE_" +
+      "::google::leap_protobuf::internal::WireFormatLite::TYPE_" +
       ToUpper(DeclaredTypeMethodName(val->type()));
   (*variables)["map_classname"] = ClassName(descriptor->message_type(), false);
   (*variables)["number"] = SimpleItoa(descriptor->number());
@@ -113,7 +113,7 @@ MapFieldGenerator::~MapFieldGenerator() {}
 void MapFieldGenerator::
 GeneratePrivateMembers(io::Printer* printer) const {
   printer->Print(variables_,
-                 "::google::protobuf::internal::MapField$lite$<\n"
+                 "::google::leap_protobuf::internal::MapField$lite$<\n"
                  "    $map_classname$,\n"
                  "    $key_cpp$, $val_cpp$,\n"
                  "    $key_wire_type$,\n"
@@ -125,11 +125,11 @@ void MapFieldGenerator::
 GenerateAccessorDeclarations(io::Printer* printer) const {
   printer->Print(
       variables_,
-      "$deprecated_attr$const ::google::protobuf::Map< $key_cpp$, $val_cpp$ >&\n"
+      "$deprecated_attr$const ::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >&\n"
       "    $name$() const;\n");
   printer->Annotate("name", descriptor_);
   printer->Print(variables_,
-                 "$deprecated_attr$::google::protobuf::Map< $key_cpp$, $val_cpp$ >*\n"
+                 "$deprecated_attr$::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >*\n"
                  "    ${$mutable_$name$$}$();\n");
   printer->Annotate("{", "}", descriptor_);
 }
@@ -137,12 +137,12 @@ GenerateAccessorDeclarations(io::Printer* printer) const {
 void MapFieldGenerator::
 GenerateInlineAccessorDefinitions(io::Printer* printer) const {
   printer->Print(variables_,
-      "inline const ::google::protobuf::Map< $key_cpp$, $val_cpp$ >&\n"
+      "inline const ::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >&\n"
       "$classname$::$name$() const {\n"
       "  // @@protoc_insertion_point(field_map:$full_name$)\n"
       "  return $name$_.GetMap();\n"
       "}\n"
-      "inline ::google::protobuf::Map< $key_cpp$, $val_cpp$ >*\n"
+      "inline ::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >*\n"
       "$classname$::mutable_$name$() {\n"
       "  // @@protoc_insertion_point(field_mutable_map:$full_name$)\n"
       "  return $name$_.MutableMap();\n"
@@ -183,15 +183,15 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
       value_field->type() != FieldDescriptor::TYPE_ENUM) {
     printer->Print(
         variables_,
-        "$map_classname$::Parser< ::google::protobuf::internal::MapField$lite$<\n"
+        "$map_classname$::Parser< ::google::leap_protobuf::internal::MapField$lite$<\n"
         "    $map_classname$,\n"
         "    $key_cpp$, $val_cpp$,\n"
         "    $key_wire_type$,\n"
         "    $val_wire_type$,\n"
         "    $default_enum_value$ >,\n"
-        "  ::google::protobuf::Map< $key_cpp$, $val_cpp$ > >"
+        "  ::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ > >"
         " parser(&$name$_);\n"
-        "DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(\n"
+        "DO_(::google::leap_protobuf::internal::WireFormatLite::ReadMessageNoVirtual(\n"
         "    input, &parser));\n");
     key = "parser.key()";
     value = "parser.value()";
@@ -204,7 +204,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
     printer->Print(variables_,
         "{\n"
         "  ::std::string data;\n"
-        "  DO_(::google::protobuf::internal::WireFormatLite::ReadString(input, &data));\n"
+        "  DO_(::google::leap_protobuf::internal::WireFormatLite::ReadString(input, &data));\n"
         "  DO_(entry->ParseFromString(data));\n"
         "  if ($val_cpp$_IsValid(*entry->mutable_value())) {\n"
         "    (*mutable_$name$())[entry->key()] =\n"
@@ -218,7 +218,7 @@ GenerateMergeFromCodedStream(io::Printer* printer) const {
       printer->Print(variables_,
           "    unknown_fields_stream.WriteVarint32($tag$u);\n"
           "    unknown_fields_stream.WriteVarint32(\n"
-          "        static_cast< ::google::protobuf::uint32>(data.size()));\n"
+          "        static_cast< ::google::leap_protobuf::uint32>(data.size()));\n"
           "    unknown_fields_stream.WriteString(data);\n");
     }
 
@@ -289,7 +289,7 @@ static void GenerateSerializationLoop(io::Printer* printer,
 void MapFieldGenerator::
 GenerateSerializeWithCachedSizes(io::Printer* printer) const {
   std::map<string, string> variables(variables_);
-  variables["write_entry"] = "::google::protobuf::internal::WireFormatLite::Write" +
+  variables["write_entry"] = "::google::leap_protobuf::internal::WireFormatLite::Write" +
                              variables["stream_writer"] + "(\n            " +
                              variables["number"] + ", *entry, output)";
   variables["deterministic"] = "output->IsSerializationDeterministic()";
@@ -300,7 +300,7 @@ void MapFieldGenerator::
 GenerateSerializeWithCachedSizesToArray(io::Printer* printer) const {
   std::map<string, string> variables(variables_);
   variables["write_entry"] =
-      "target = ::google::protobuf::internal::WireFormatLite::\n"
+      "target = ::google::leap_protobuf::internal::WireFormatLite::\n"
       "                   InternalWrite" + variables["declared_type"] +
       "NoVirtualToArray(\n                       " + variables["number"] +
       ", *entry, deterministic, target);\n";
@@ -321,18 +321,18 @@ void MapFieldGenerator::GenerateSerializeWithCachedSizes(
   const bool string_value = value_field->type() == FieldDescriptor::TYPE_STRING;
 
   printer->Print(variables,
-      "typedef ::google::protobuf::Map< $key_cpp$, $val_cpp$ >::const_pointer\n"
+      "typedef ::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >::const_pointer\n"
       "    ConstPtr;\n");
   if (string_key) {
     printer->Print(variables,
         "typedef ConstPtr SortItem;\n"
-        "typedef ::google::protobuf::internal::"
+        "typedef ::google::leap_protobuf::internal::"
         "CompareByDerefFirst<SortItem> Less;\n");
   } else {
     printer->Print(variables,
-        "typedef ::google::protobuf::internal::SortItem< $key_cpp$, ConstPtr > "
+        "typedef ::google::leap_protobuf::internal::SortItem< $key_cpp$, ConstPtr > "
         "SortItem;\n"
-        "typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;\n");
+        "typedef ::google::leap_protobuf::internal::CompareByFirstField<SortItem> Less;\n");
   }
   string utf8_check;
   if (string_key || string_value) {
@@ -365,9 +365,9 @@ void MapFieldGenerator::GenerateSerializeWithCachedSizes(
       "    this->$name$().size() > 1) {\n"
       "  ::std::unique_ptr<SortItem[]> items(\n"
       "      new SortItem[this->$name$().size()]);\n"
-      "  typedef ::google::protobuf::Map< $key_cpp$, $val_cpp$ >::size_type size_type;\n"
+      "  typedef ::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >::size_type size_type;\n"
       "  size_type n = 0;\n"
-      "  for (::google::protobuf::Map< $key_cpp$, $val_cpp$ >::const_iterator\n"
+      "  for (::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >::const_iterator\n"
       "      it = this->$name$().begin();\n"
       "      it != this->$name$().end(); ++it, ++n) {\n"
       "    items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);\n"
@@ -384,7 +384,7 @@ void MapFieldGenerator::GenerateSerializeWithCachedSizes(
   printer->Indent();
   GenerateSerializationLoop(
       printer, variables, SupportsArenas(descriptor_), utf8_check,
-      "for (::google::protobuf::Map< $key_cpp$, $val_cpp$ >::const_iterator\n"
+      "for (::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >::const_iterator\n"
       "    it = this->$name$().begin();\n"
       "    it != this->$name$().end(); ++it)",
       "it", true);
@@ -398,10 +398,10 @@ void MapFieldGenerator::
 GenerateByteSize(io::Printer* printer) const {
   printer->Print(variables_,
       "total_size += $tag_size$ *\n"
-      "    ::google::protobuf::internal::FromIntSize(this->$name$_size());\n"
+      "    ::google::leap_protobuf::internal::FromIntSize(this->$name$_size());\n"
       "{\n"
       "  ::std::unique_ptr<$map_classname$> entry;\n"
-      "  for (::google::protobuf::Map< $key_cpp$, $val_cpp$ >::const_iterator\n"
+      "  for (::google::leap_protobuf::Map< $key_cpp$, $val_cpp$ >::const_iterator\n"
       "      it = this->$name$().begin();\n"
       "      it != this->$name$().end(); ++it) {\n");
 
@@ -415,7 +415,7 @@ GenerateByteSize(io::Printer* printer) const {
 
   printer->Print(variables_,
       "    entry.reset($name$_.New$wrapper$(it->first, it->second));\n"
-      "    total_size += ::google::protobuf::internal::WireFormatLite::\n"
+      "    total_size += ::google::leap_protobuf::internal::WireFormatLite::\n"
       "        $declared_type$SizeNoVirtual(*entry);\n"
       "  }\n");
 

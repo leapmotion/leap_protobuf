@@ -172,7 +172,7 @@ bool WireFormat::ReadPackedEnumPreserveUnknowns(io::CodedInputStream* input,
   io::CodedInputStream::Limit limit = input->PushLimit(length);
   while (input->BytesUntilLimit() > 0) {
     int value;
-    if (!google::protobuf::internal::WireFormatLite::ReadPrimitive<
+    if (!google::leap_protobuf::internal::WireFormatLite::ReadPrimitive<
         int, WireFormatLite::TYPE_ENUM>(input, &value)) {
       return false;
     }

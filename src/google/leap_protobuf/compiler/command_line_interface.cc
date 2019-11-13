@@ -100,12 +100,12 @@ namespace {
 #if defined(_WIN32)
 // DO NOT include <io.h>, instead create functions in io_win32.{h,cc} and import
 // them like we do below.
-using google::protobuf::internal::win32::access;
-using google::protobuf::internal::win32::close;
-using google::protobuf::internal::win32::mkdir;
-using google::protobuf::internal::win32::open;
-using google::protobuf::internal::win32::setmode;
-using google::protobuf::internal::win32::write;
+using google::leap_protobuf::internal::win32::access;
+using google::leap_protobuf::internal::win32::close;
+using google::leap_protobuf::internal::win32::mkdir;
+using google::leap_protobuf::internal::win32::open;
+using google::leap_protobuf::internal::win32::setmode;
+using google::leap_protobuf::internal::win32::write;
 #endif
 
 static const char* kDefaultDirectDependenciesViolationMsg =
@@ -1534,7 +1534,7 @@ CommandLineInterface::InterpretArgument(const string& name,
       std::cout << version_info_ << std::endl;
     }
     std::cout << "libprotoc "
-         << protobuf::internal::VersionString(GOOGLE_PROTOBUF_VERSION)
+         << leap_protobuf::internal::VersionString(GOOGLE_PROTOBUF_VERSION)
          << std::endl;
     return PARSE_ARGUMENT_DONE_AND_EXIT;  // Exit without running compiler.
 
@@ -1918,7 +1918,7 @@ bool CommandLineInterface::GeneratePluginOutput(
                               &already_seen, request.mutable_proto_file());
   }
 
-  google::protobuf::compiler::Version* version =
+  google::leap_protobuf::compiler::Version* version =
       request.mutable_compiler_version();
   version->set_major(GOOGLE_PROTOBUF_VERSION / 1000000);
   version->set_minor(GOOGLE_PROTOBUF_VERSION / 1000 % 1000);

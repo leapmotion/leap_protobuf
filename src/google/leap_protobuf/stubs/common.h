@@ -138,7 +138,7 @@ std::string LIBPROTOBUF_EXPORT VersionString(int version);
 // matches the headers you compiled against.  If a version mismatch is
 // detected, the process will abort.
 #define GOOGLE_PROTOBUF_VERIFY_VERSION                                    \
-  ::google::protobuf::internal::VerifyVersion(                            \
+  ::google::leap_protobuf::internal::VerifyVersion(                            \
     GOOGLE_PROTOBUF_VERSION, GOOGLE_PROTOBUF_MIN_LIBRARY_VERSION,         \
     __FILE__)
 

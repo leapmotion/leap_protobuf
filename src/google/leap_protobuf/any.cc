@@ -63,10 +63,10 @@ void AnyMetadata::PackFrom(const Message& message) {
 
 void AnyMetadata::PackFrom(const Message& message,
                            const string& type_url_prefix) {
-  type_url_->SetNoArena(&::google::protobuf::internal::GetEmptyString(),
+  type_url_->SetNoArena(&::google::leap_protobuf::internal::GetEmptyString(),
                         GetTypeUrl(message.GetDescriptor(), type_url_prefix));
   message.SerializeToString(value_->MutableNoArena(
-      &::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      &::google::leap_protobuf::internal::GetEmptyStringAlreadyInited()));
 }
 
 bool AnyMetadata::UnpackTo(Message* message) const {

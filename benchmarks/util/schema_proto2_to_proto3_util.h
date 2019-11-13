@@ -8,12 +8,12 @@
 #include <sstream>
 #include <algorithm>
 
-using google::protobuf::Descriptor;
-using google::protobuf::DescriptorProto;
-using google::protobuf::FileDescriptorProto;
-using google::protobuf::FieldDescriptorProto;
-using google::protobuf::Message;
-using google::protobuf::EnumValueDescriptorProto;
+using google::leap_protobuf::Descriptor;
+using google::leap_protobuf::DescriptorProto;
+using google::leap_protobuf::FileDescriptorProto;
+using google::leap_protobuf::FieldDescriptorProto;
+using google::leap_protobuf::Message;
+using google::leap_protobuf::EnumValueDescriptorProto;
 
 namespace google {
 namespace leap_protobuf {

@@ -502,7 +502,7 @@ void InitAllowedProto3Extendee() {
     allowed_proto3_extendees_->insert(string("proto") + "2." + kOptionNames[i]);
   }
 
-  google::protobuf::internal::OnShutdown(&DeleteAllowedProto3Extendee);
+  google::leap_protobuf::internal::OnShutdown(&DeleteAllowedProto3Extendee);
 }
 
 // Checks whether the extendee type is allowed in proto3.
@@ -510,7 +510,7 @@ void InitAllowedProto3Extendee() {
 // instead of comparing the descriptor directly because the extensions may be
 // defined in a different pool.
 bool AllowedExtendeeInProto3(const string& name) {
-  ::google::protobuf::GoogleOnceInit(&allowed_proto3_extendees_init_, &InitAllowedProto3Extendee);
+  ::google::leap_protobuf::GoogleOnceInit(&allowed_proto3_extendees_init_, &InitAllowedProto3Extendee);
   return allowed_proto3_extendees_->find(name) !=
          allowed_proto3_extendees_->end();
 }
@@ -845,7 +845,7 @@ void InitFileDescriptorTables() {
 }
 
 inline void InitFileDescriptorTablesOnce() {
-  ::google::protobuf::GoogleOnceInit(
+  ::google::leap_protobuf::GoogleOnceInit(
       &file_descriptor_tables_once_init_, &InitFileDescriptorTables);
 }
 
@@ -1356,7 +1356,7 @@ static void InitGeneratedPool() {
 }
 
 inline void InitGeneratedPoolOnce() {
-  ::google::protobuf::GoogleOnceInit(&generated_pool_init_, &InitGeneratedPool);
+  ::google::leap_protobuf::GoogleOnceInit(&generated_pool_init_, &InitGeneratedPool);
 }
 
 }  // anonymous namespace
@@ -1803,7 +1803,7 @@ void Descriptor::ExtensionRange::CopyTo(
     DescriptorProto_ExtensionRange* proto) const {
   proto->set_start(this->start);
   proto->set_end(this->end);
-  if (options_ != &google::protobuf::ExtensionRangeOptions::default_instance()) {
+  if (options_ != &google::leap_protobuf::ExtensionRangeOptions::default_instance()) {
     *proto->mutable_options() = *options_;
   }
 }
@@ -5084,12 +5084,12 @@ void DescriptorBuilder::CheckEnumValueUniqueness(
   //     NAME_TYPE_LAST_NAME = 2,
   //   }
   PrefixRemover remover(result->name());
-  std::map<string, const google::protobuf::EnumValueDescriptor*> values;
+  std::map<string, const google::leap_protobuf::EnumValueDescriptor*> values;
   for (int i = 0; i < result->value_count(); i++) {
-    const google::protobuf::EnumValueDescriptor* value = result->value(i);
+    const google::leap_protobuf::EnumValueDescriptor* value = result->value(i);
     string stripped =
         EnumValueToPascalCase(remover.MaybeRemove(value->name()));
-    std::pair<std::map<string, const google::protobuf::EnumValueDescriptor*>::iterator,
+    std::pair<std::map<string, const google::leap_protobuf::EnumValueDescriptor*>::iterator,
               bool>
         insert_result = values.insert(std::make_pair(stripped, value));
     bool inserted = insert_result.second;
@@ -6832,7 +6832,7 @@ bool DescriptorBuilder::OptionInterpreter::SetOptionValue(
                              option_field->full_name() + "\".");
       }
       unknown_fields->AddFixed32(option_field->number(),
-          google::protobuf::internal::WireFormatLite::EncodeFloat(value));
+          google::leap_protobuf::internal::WireFormatLite::EncodeFloat(value));
       break;
     }
 
@@ -6849,7 +6849,7 @@ bool DescriptorBuilder::OptionInterpreter::SetOptionValue(
                              option_field->full_name() + "\".");
       }
       unknown_fields->AddFixed64(option_field->number(),
-          google::protobuf::internal::WireFormatLite::EncodeDouble(value));
+          google::leap_protobuf::internal::WireFormatLite::EncodeDouble(value));
       break;
     }
 
@@ -7061,7 +7061,7 @@ void DescriptorBuilder::OptionInterpreter::SetInt32(int number, int32 value,
 
     case FieldDescriptor::TYPE_SINT32:
       unknown_fields->AddVarint(number,
-          google::protobuf::internal::WireFormatLite::ZigZagEncode32(value));
+          google::leap_protobuf::internal::WireFormatLite::ZigZagEncode32(value));
       break;
 
     default:
@@ -7083,7 +7083,7 @@ void DescriptorBuilder::OptionInterpreter::SetInt64(int number, int64 value,
 
     case FieldDescriptor::TYPE_SINT64:
       unknown_fields->AddVarint(number,
-          google::protobuf::internal::WireFormatLite::ZigZagEncode64(value));
+          google::leap_protobuf::internal::WireFormatLite::ZigZagEncode64(value));
       break;
 
     default:

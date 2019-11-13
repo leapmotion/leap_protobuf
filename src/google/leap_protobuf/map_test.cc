@@ -79,16 +79,16 @@
 
 namespace google {
 
-using google::protobuf::unittest::ForeignMessage;
-using google::protobuf::unittest::TestAllTypes;
-using google::protobuf::unittest::TestMap;
-using google::protobuf::unittest::TestRecursiveMapMessage;
+using google::leap_protobuf::unittest::ForeignMessage;
+using google::leap_protobuf::unittest::TestAllTypes;
+using google::leap_protobuf::unittest::TestMap;
+using google::leap_protobuf::unittest::TestRecursiveMapMessage;
 
 namespace leap_protobuf {
 namespace internal {
 
 void MapTestForceDeterministic() {
-  ::google::protobuf::io::CodedOutputStream::SetDefaultSerializationDeterministic();
+  ::google::leap_protobuf::io::CodedOutputStream::SetDefaultSerializationDeterministic();
 }
 
 // Map API Test =====================================================
@@ -309,8 +309,8 @@ static int64 median(Iterator i0, Iterator i1) {
 }
 
 static int64 Now() {
-  return google::protobuf::util::TimeUtil::TimestampToNanoseconds(
-      google::protobuf::util::TimeUtil::GetCurrentTime());
+  return google::leap_protobuf::util::TimeUtil::TimestampToNanoseconds(
+      google::leap_protobuf::util::TimeUtil::GetCurrentTime());
 }
 
 // Arbitrary odd integers for creating test data.
@@ -895,8 +895,8 @@ TEST_F(MapImplTest, EqualRange) {
   int key = 100, key_missing = 101;
   map_[key] = 100;
 
-  std::pair<google::protobuf::Map<int32, int32>::iterator,
-            google::protobuf::Map<int32, int32>::iterator> range = map_.equal_range(key);
+  std::pair<google::leap_protobuf::Map<int32, int32>::iterator,
+            google::leap_protobuf::Map<int32, int32>::iterator> range = map_.equal_range(key);
   EXPECT_TRUE(map_.find(key) == range.first);
   EXPECT_TRUE(++map_.find(key) == range.second);
 
@@ -904,8 +904,8 @@ TEST_F(MapImplTest, EqualRange) {
   EXPECT_TRUE(map_.end() == range.first);
   EXPECT_TRUE(map_.end() == range.second);
 
-  std::pair<google::protobuf::Map<int32, int32>::const_iterator,
-            google::protobuf::Map<int32, int32>::const_iterator> const_range =
+  std::pair<google::leap_protobuf::Map<int32, int32>::const_iterator,
+            google::leap_protobuf::Map<int32, int32>::const_iterator> const_range =
       const_map_.equal_range(key);
   EXPECT_TRUE(const_map_.find(key) == const_range.first);
   EXPECT_TRUE(++const_map_.find(key) == const_range.second);
@@ -2330,7 +2330,7 @@ TEST(GeneratedMapFieldTest, MissedValueTextFormat) {
       "  key: 1234567890\n"
       "}";
 
-  EXPECT_TRUE(google::protobuf::TextFormat::ParseFromString(text, &message));
+  EXPECT_TRUE(google::leap_protobuf::TextFormat::ParseFromString(text, &message));
   EXPECT_EQ(1, message.map_int32_foreign_message().size());
   EXPECT_EQ(11, message.ByteSize());
 }
@@ -3090,7 +3090,7 @@ static void TestDeterministicSerialization(const protobuf_unittest::TestMaps& t,
   EXPECT_EQ(expected, actual);
   protobuf_unittest::TestMaps u;
   EXPECT_TRUE(u.ParseFromString(actual));
-  EXPECT_TRUE(google::protobuf::util::MessageDifferencer::Equals(u, t));
+  EXPECT_TRUE(google::leap_protobuf::util::MessageDifferencer::Equals(u, t));
 }
 
 // Helper for MapSerializationTest.  Return a 7-bit ASCII string.

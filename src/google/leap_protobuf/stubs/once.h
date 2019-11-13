@@ -120,9 +120,9 @@ class GoogleOnceDynamic {
   ProtobufOnceType state_;
 };
 
-#define GOOGLE_PROTOBUF_ONCE_TYPE ::google::protobuf::ProtobufOnceType
+#define GOOGLE_PROTOBUF_ONCE_TYPE ::google::leap_protobuf::ProtobufOnceType
 #define GOOGLE_PROTOBUF_DECLARE_ONCE(NAME) \
-  ::google::protobuf::ProtobufOnceType NAME
+  ::google::leap_protobuf::ProtobufOnceType NAME
 
 }  // namespace leap_protobuf
 }  // namespace google

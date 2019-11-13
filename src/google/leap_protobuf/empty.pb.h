@@ -33,18 +33,18 @@
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_google_2fprotobuf_2fempty_2eproto LIBPROTOBUF_EXPORT
 
-namespace leap_protobuf_google_2fprotobuf_2fempty_2eproto {
+namespace protobuf_google_2fprotobuf_2fempty_2eproto {
 // Internal implementation detail -- do not use these members.
 struct LIBPROTOBUF_EXPORT TableStruct {
-  static const ::google::protobuf::internal::ParseTableField entries[];
-  static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[1];
-  static const ::google::protobuf::internal::FieldMetadata field_metadata[];
-  static const ::google::protobuf::internal::SerializationTable serialization_table[];
-  static const ::google::protobuf::uint32 offsets[];
+  static const ::google::leap_protobuf::internal::ParseTableField entries[];
+  static const ::google::leap_protobuf::internal::AuxillaryParseTableField aux[];
+  static const ::google::leap_protobuf::internal::ParseTable schema[1];
+  static const ::google::leap_protobuf::internal::FieldMetadata field_metadata[];
+  static const ::google::leap_protobuf::internal::SerializationTable serialization_table[];
+  static const ::google::leap_protobuf::uint32 offsets[];
 };
 void LIBPROTOBUF_EXPORT AddDescriptors();
-}  // namespace leap_protobuf_google_2fprotobuf_2fempty_2eproto
+}  // namespace protobuf_google_2fprotobuf_2fempty_2eproto
 namespace google {
 namespace leap_protobuf {
 class Empty;
@@ -54,7 +54,7 @@ LIBPROTOBUF_EXPORT extern EmptyDefaultTypeInternal _Empty_default_instance_;
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> LIBPROTOBUF_EXPORT ::google::protobuf::Empty* Arena::CreateMaybeMessage<::google::protobuf::Empty>(Arena*);
+template<> LIBPROTOBUF_EXPORT ::google::leap_protobuf::Empty* Arena::CreateMaybeMessage<::google::leap_protobuf::Empty>(Arena*);
 }  // namespace leap_protobuf
 }  // namespace google
 namespace google {
@@ -62,7 +62,7 @@ namespace leap_protobuf {
 
 // ===================================================================
 
-class LIBPROTOBUF_EXPORT Empty : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Empty) */ {
+class LIBPROTOBUF_EXPORT Empty : public ::google::leap_protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.Empty) */ {
  public:
   Empty();
   virtual ~Empty();
@@ -88,13 +88,13 @@ class LIBPROTOBUF_EXPORT Empty : public ::google::protobuf::Message /* @@protoc_
     return *this;
   }
   #endif
-  inline ::google::protobuf::Arena* GetArena() const final {
+  inline ::google::leap_protobuf::Arena* GetArena() const final {
     return GetArenaNoVirtual();
   }
   inline void* GetMaybeArenaPointer() const final {
     return MaybeArenaPtr();
   }
-  static const ::google::protobuf::Descriptor* descriptor();
+  static const ::google::leap_protobuf::Descriptor* descriptor();
   static const Empty& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
@@ -117,11 +117,11 @@ class LIBPROTOBUF_EXPORT Empty : public ::google::protobuf::Message /* @@protoc_
     return CreateMaybeMessage<Empty>(NULL);
   }
 
-  Empty* New(::google::protobuf::Arena* arena) const final {
+  Empty* New(::google::leap_protobuf::Arena* arena) const final {
     return CreateMaybeMessage<Empty>(arena);
   }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ::google::leap_protobuf::Message& from) final;
+  void MergeFrom(const ::google::leap_protobuf::Message& from) final;
   void CopyFrom(const Empty& from);
   void MergeFrom(const Empty& from);
   void Clear() final;
@@ -129,11 +129,11 @@ class LIBPROTOBUF_EXPORT Empty : public ::google::protobuf::Message /* @@protoc_
 
   size_t ByteSizeLong() const final;
   bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
+      ::google::leap_protobuf::io::CodedInputStream* input) final;
   void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
+      ::google::leap_protobuf::io::CodedOutputStream* output) const final;
+  ::google::leap_protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::leap_protobuf::uint8* target) const final;
   int GetCachedSize() const final { return _cached_size_.Get(); }
 
   private:
@@ -142,12 +142,12 @@ class LIBPROTOBUF_EXPORT Empty : public ::google::protobuf::Message /* @@protoc_
   void SetCachedSize(int size) const final;
   void InternalSwap(Empty* other);
   protected:
-  explicit Empty(::google::protobuf::Arena* arena);
+  explicit Empty(::google::leap_protobuf::Arena* arena);
   private:
   static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::google::protobuf::Arena* arena);
+  inline void RegisterArenaDtor(::google::leap_protobuf::Arena* arena);
   private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+  inline ::google::leap_protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
   }
   inline void* MaybeArenaPtr() const {
@@ -155,7 +155,7 @@ class LIBPROTOBUF_EXPORT Empty : public ::google::protobuf::Message /* @@protoc_
   }
   public:
 
-  ::google::protobuf::Metadata GetMetadata() const final;
+  ::google::leap_protobuf::Metadata GetMetadata() const final;
 
   // nested types ----------------------------------------------------
 
@@ -164,11 +164,11 @@ class LIBPROTOBUF_EXPORT Empty : public ::google::protobuf::Message /* @@protoc_
   // @@protoc_insertion_point(class_scope:google.protobuf.Empty)
  private:
 
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  template <typename T> friend class ::google::protobuf::Arena::InternalHelper;
+  ::google::leap_protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  template <typename T> friend class ::google::leap_protobuf::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  mutable ::google::leap_protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_google_2fprotobuf_2fempty_2eproto::TableStruct;
 };
 // ===================================================================

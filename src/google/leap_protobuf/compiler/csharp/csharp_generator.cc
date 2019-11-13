@@ -49,7 +49,7 @@ namespace leap_protobuf {
 namespace compiler {
 namespace csharp {
 
-void GenerateFile(const google::protobuf::FileDescriptor* file,
+void GenerateFile(const google::leap_protobuf::FileDescriptor* file,
                   io::Printer* printer,
                   const Options* options) {
   ReflectionClassGenerator reflectionClassGenerator(file, options);
