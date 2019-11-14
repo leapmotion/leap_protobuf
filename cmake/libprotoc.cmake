@@ -184,6 +184,6 @@ endif()
 set_target_properties(libprotoc PROPERTIES
     COMPILE_DEFINITIONS LIBPROTOC_EXPORTS
     VERSION ${leap_protobuf_VERSION}
-    OUTPUT_NAME ${LIB_PREFIX}protoc
+    OUTPUT_NAME ${LIB_PREFIX}leap_protoc
     DEBUG_POSTFIX "${leap_protobuf_DEBUG_POSTFIX}")
 add_library(leap_protobuf::libprotoc ALIAS libprotoc)

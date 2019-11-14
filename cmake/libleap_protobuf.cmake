@@ -126,6 +126,6 @@ if(MSVC AND leap_protobuf_BUILD_SHARED_LIBS)
 endif()
 set_target_properties(libleap_protobuf PROPERTIES
     VERSION ${leap_protobuf_VERSION}
-    OUTPUT_NAME ${LIB_PREFIX}protobuf
+    OUTPUT_NAME ${LIB_PREFIX}leap_protobuf
     DEBUG_POSTFIX "${leap_protobuf_DEBUG_POSTFIX}")
 add_library(protobuf::libleap_protobuf ALIAS libleap_protobuf)
