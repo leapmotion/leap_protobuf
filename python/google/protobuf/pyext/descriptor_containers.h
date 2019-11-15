@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__
+#define GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__
 
 // Mappings and Sequences of descriptors.
 // They implement containers like fields_by_name, EnumDescriptor.values...
@@ -106,4 +106,4 @@ PyObject* NewServiceMethodsByName(const ServiceDescriptor* descriptor);
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_DESCRIPTOR_CONTAINERS_H__

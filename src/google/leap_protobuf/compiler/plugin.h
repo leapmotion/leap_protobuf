@@ -59,8 +59,8 @@
 //   On Windows, make sure to include the .exe suffix:
 //     protoc --plugin=protoc-gen-NAME=path/to/mybinary.exe --NAME_out=OUT_DIR
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_PLUGIN_H__
-#define GOOGLE_PROTOBUF_COMPILER_PLUGIN_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_PLUGIN_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_PLUGIN_H__
 
 #include <string>
 
@@ -87,4 +87,4 @@ bool GenerateCode(const CodeGeneratorRequest& request,
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_PLUGIN_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_PLUGIN_H__

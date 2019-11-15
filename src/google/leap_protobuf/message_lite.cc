@@ -103,15 +103,15 @@ string InitializationErrorMessage(const char* action,
 // call MergePartialFromCodedStream().  However, when parsing very small
 // messages, every function call introduces significant overhead.  To avoid
 // this without reproducing code, we use these forced-inline helpers.
-GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineMergeFromCodedStream(
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineMergeFromCodedStream(
     io::CodedInputStream* input, MessageLite* message);
-GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParseFromCodedStream(
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParseFromCodedStream(
     io::CodedInputStream* input, MessageLite* message);
-GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParsePartialFromCodedStream(
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParsePartialFromCodedStream(
     io::CodedInputStream* input, MessageLite* message);
-GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParseFromArray(
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParseFromArray(
     const void* data, int size, MessageLite* message);
-GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParsePartialFromArray(
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool InlineParsePartialFromArray(
     const void* data, int size, MessageLite* message);
 
 inline bool InlineMergeFromCodedStream(io::CodedInputStream* input,

@@ -30,8 +30,8 @@
 
 // ThreadUnsafeSharedPtr<T> is the same as shared_ptr<T> without the locking
 // overhread (and thread-safety).
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
+#define GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
 
 #include <algorithm>
 #include <utility>
@@ -101,4 +101,4 @@ class ThreadUnsafeSharedPtr {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__

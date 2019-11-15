@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_HAS_BITS_H__
-#define GOOGLE_PROTOBUF_HAS_BITS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_HAS_BITS_H__
+#define GOOGLE_LEAP_PROTOBUF_HAS_BITS_H__
 
 #include <google/leap_protobuf/stubs/common.h>
 #include <google/leap_protobuf/stubs/port.h>
@@ -41,18 +41,18 @@ namespace internal {
 template<size_t doublewords>
 class HasBits {
  public:
-  HasBits() GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE { Clear(); }
+  HasBits() GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE { Clear(); }
 
-  void Clear() GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE {
+  void Clear() GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE {
     memset(has_bits_, 0, sizeof(has_bits_));
   }
 
-  ::google::leap_protobuf::uint32& operator[](int index) GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE {
+  ::google::leap_protobuf::uint32& operator[](int index) GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE {
     return has_bits_[index];
   }
 
   const ::google::leap_protobuf::uint32& operator[](int index) const
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE {
     return has_bits_[index];
   }
 
@@ -102,4 +102,4 @@ inline bool HasBits<doublewords>::empty() const {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_HAS_BITS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_HAS_BITS_H__

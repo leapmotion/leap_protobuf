@@ -6820,8 +6820,8 @@ UPB_END_EXTERN_C
  * Do not edit -- your changes will be discarded when the file is
  * regenerated. */
 
-#ifndef GOOGLE_PROTOBUF_DESCRIPTOR_PROTO_UPB_H_
-#define GOOGLE_PROTOBUF_DESCRIPTOR_PROTO_UPB_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_DESCRIPTOR_PROTO_UPB_H_
+#define GOOGLE_LEAP_PROTOBUF_DESCRIPTOR_PROTO_UPB_H_
 
 
 UPB_BEGIN_EXTERN_C
@@ -7503,7 +7503,7 @@ void google_protobuf_GeneratedCodeInfo_Annotation_set_end(google_protobuf_Genera
 
 UPB_END_EXTERN_C
 
-#endif  /* GOOGLE_PROTOBUF_DESCRIPTOR_PROTO_UPB_H_ */
+#endif  /* GOOGLE_LEAP_PROTOBUF_DESCRIPTOR_PROTO_UPB_H_ */
 /*
 ** structs.int.h: structures definitions that are internal to upb.
 */

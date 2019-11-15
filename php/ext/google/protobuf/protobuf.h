@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef __GOOGLE_PROTOBUF_PHP_PROTOBUF_H__
-#define __GOOGLE_PROTOBUF_PHP_PROTOBUF_H__
+#ifndef __GOOGLE_LEAP_PROTOBUF_PHP_PROTOBUF_H__
+#define __GOOGLE_LEAP_PROTOBUF_PHP_PROTOBUF_H__
 
 #include <php.h>
 
@@ -1463,4 +1463,4 @@ static inline zval* php_proto_message_read_property(
 bool is_reserved_name(const char* name);
 bool is_valid_constant_name(const char* name);
 
-#endif  // __GOOGLE_PROTOBUF_PHP_PROTOBUF_H__
+#endif  // __GOOGLE_LEAP_PROTOBUF_PHP_PROTOBUF_H__

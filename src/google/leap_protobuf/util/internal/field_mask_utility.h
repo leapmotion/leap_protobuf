@@ -30,8 +30,8 @@
 
 // FieldMask related utility methods.
 
-#ifndef GOOGLE_PROTOBUF_UTIL_CONVERTER_FIELD_MASK_UTILITY_H__
-#define GOOGLE_PROTOBUF_UTIL_CONVERTER_FIELD_MASK_UTILITY_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_UTIL_CONVERTER_FIELD_MASK_UTILITY_H__
+#define GOOGLE_LEAP_PROTOBUF_UTIL_CONVERTER_FIELD_MASK_UTILITY_H__
 
 #include <functional>
 #include <stack>
@@ -69,4 +69,4 @@ util::Status DecodeCompactFieldMaskPaths(StringPiece paths,
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_UTIL_CONVERTER_FIELD_MASK_UTILITY_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_UTIL_CONVERTER_FIELD_MASK_UTILITY_H__

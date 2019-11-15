@@ -30,8 +30,8 @@
 
 // Defines utilities for the Timestamp and Duration well known types.
 
-#ifndef GOOGLE_PROTOBUF_UTIL_TIME_UTIL_H__
-#define GOOGLE_PROTOBUF_UTIL_TIME_UTIL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_UTIL_TIME_UTIL_H__
+#define GOOGLE_LEAP_PROTOBUF_UTIL_TIME_UTIL_H__
 
 #include <ctime>
 #include <ostream>
@@ -293,4 +293,4 @@ inline std::ostream& operator<<(std::ostream& out, const Timestamp& t) {
 
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_UTIL_TIME_UTIL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_UTIL_TIME_UTIL_H__

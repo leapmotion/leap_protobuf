@@ -32,20 +32,20 @@
 //
 // Deals with the fact that hash_map is not defined everywhere.
 
-#ifndef GOOGLE_PROTOBUF_STUBS_HASH_H__
-#define GOOGLE_PROTOBUF_STUBS_HASH_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_HASH_H__
+#define GOOGLE_LEAP_PROTOBUF_STUBS_HASH_H__
 
 #include <string.h>
 #include <google/leap_protobuf/stubs/common.h>
 
-#define GOOGLE_PROTOBUF_HAVE_HASH_MAP 1
-#define GOOGLE_PROTOBUF_HAVE_HASH_SET 1
+#define GOOGLE_LEAP_PROTOBUF_HAVE_HASH_MAP 1
+#define GOOGLE_LEAP_PROTOBUF_HAVE_HASH_SET 1
 
 // Use C++11 unordered_{map|set} if available.
 #if ((defined(_LIBCPP_STD_VER) && _LIBCPP_STD_VER >= 11) || \
     (((__cplusplus >= 201103L) || defined(__GXX_EXPERIMENTAL_CXX0X)) && \
     (__GLIBCXX__ > 20090421)))
-# define GOOGLE_PROTOBUF_HAS_CXX11_HASH
+# define GOOGLE_LEAP_PROTOBUF_HAS_CXX11_HASH
 
 // For XCode >= 4.6:  the compiler is clang with libc++.
 // For earlier XCode version: the compiler is gcc-4.2.1 with libstdc++.
@@ -57,14 +57,14 @@
 // which case <unordered_map> is not compilable without -std=c++11
 #elif defined(__APPLE_CC__)
 # if __GNUC__ >= 4
-#  define GOOGLE_PROTOBUF_HAS_TR1
+#  define GOOGLE_LEAP_PROTOBUF_HAS_TR1
 # else
 // Not tested for gcc < 4... These setting can compile under 4.2.1 though.
-#  define GOOGLE_PROTOBUF_HASH_NAMESPACE __gnu_cxx
+#  define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE __gnu_cxx
 #  include <ext/hash_map>
-#  define GOOGLE_PROTOBUF_HASH_MAP_CLASS hash_map
+#  define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS hash_map
 #  include <ext/hash_set>
-#  define GOOGLE_PROTOBUF_HASH_SET_CLASS hash_set
+#  define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS hash_set
 # endif
 
 // Version checks for gcc.
@@ -73,30 +73,30 @@
 // instructions from:
 // https://gcc.gnu.org/onlinedocs/libstdc++/manual/backwards.html
 # if __GNUC__ >= 4
-#  define GOOGLE_PROTOBUF_HAS_TR1
+#  define GOOGLE_LEAP_PROTOBUF_HAS_TR1
 # elif __GNUC__ >= 3
 #  include <backward/hash_map>
-#  define GOOGLE_PROTOBUF_HASH_MAP_CLASS hash_map
+#  define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS hash_map
 #  include <backward/hash_set>
-#  define GOOGLE_PROTOBUF_HASH_SET_CLASS hash_set
+#  define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS hash_set
 #  if __GNUC__ == 3 && __GNUC_MINOR__ == 0
-#   define GOOGLE_PROTOBUF_HASH_NAMESPACE std       // GCC 3.0
+#   define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE std       // GCC 3.0
 #  else
-#   define GOOGLE_PROTOBUF_HASH_NAMESPACE __gnu_cxx // GCC 3.1 and later
+#   define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE __gnu_cxx // GCC 3.1 and later
 #  endif
 # else
-#  define GOOGLE_PROTOBUF_HASH_NAMESPACE
+#  define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE
 #  include <hash_map>
-#  define GOOGLE_PROTOBUF_HASH_MAP_CLASS hash_map
+#  define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS hash_map
 #  include <hash_set>
-#  define GOOGLE_PROTOBUF_HASH_SET_CLASS hash_set
+#  define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS hash_set
 # endif
 
 // GCC <= 4.1 does not define std::tr1::hash for `long long int` or `long long unsigned int`
 # if __GNUC__ == 4 && defined(__GNUC_MINOR__) && __GNUC_MINOR__ <= 1
-#  undef GOOGLE_PROTOBUF_HAS_TR1
-#  undef GOOGLE_PROTOBUF_HAVE_HASH_MAP
-#  undef GOOGLE_PROTOBUF_HAVE_HASH_SET
+#  undef GOOGLE_LEAP_PROTOBUF_HAS_TR1
+#  undef GOOGLE_LEAP_PROTOBUF_HAVE_HASH_MAP
+#  undef GOOGLE_LEAP_PROTOBUF_HAVE_HASH_SET
 # endif
 
 // Version checks for MSC.
@@ -107,66 +107,66 @@
 // said, use unordered_map for MSVC 2010 and beyond is our safest bet.
 #elif defined(_MSC_VER)
 # if _MSC_VER >= 1600  // Since Visual Studio 2010
-#  define GOOGLE_PROTOBUF_HAS_CXX11_HASH
-#  define GOOGLE_PROTOBUF_HASH_COMPARE std::hash_compare
+#  define GOOGLE_LEAP_PROTOBUF_HAS_CXX11_HASH
+#  define GOOGLE_LEAP_PROTOBUF_HASH_COMPARE std::hash_compare
 # elif _MSC_VER >= 1500  // Since Visual Studio 2008
-#  define GOOGLE_PROTOBUF_HASH_NAMESPACE stdext
+#  define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE stdext
 #  include <hash_map>
-#  define GOOGLE_PROTOBUF_HASH_MAP_CLASS hash_map
+#  define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS hash_map
 #  include <hash_set>
-#  define GOOGLE_PROTOBUF_HASH_SET_CLASS hash_set
-#  define GOOGLE_PROTOBUF_HASH_COMPARE stdext::hash_compare
-#  define GOOGLE_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
+#  define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS hash_set
+#  define GOOGLE_LEAP_PROTOBUF_HASH_COMPARE stdext::hash_compare
+#  define GOOGLE_LEAP_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
 # elif _MSC_VER >= 1310
-#  define GOOGLE_PROTOBUF_HASH_NAMESPACE stdext
+#  define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE stdext
 #  include <hash_map>
-#  define GOOGLE_PROTOBUF_HASH_MAP_CLASS hash_map
+#  define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS hash_map
 #  include <hash_set>
-#  define GOOGLE_PROTOBUF_HASH_SET_CLASS hash_set
-#  define GOOGLE_PROTOBUF_HASH_COMPARE stdext::hash_compare
+#  define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS hash_set
+#  define GOOGLE_LEAP_PROTOBUF_HASH_COMPARE stdext::hash_compare
 # else
-#  define GOOGLE_PROTOBUF_HASH_NAMESPACE std
+#  define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE std
 #  include <hash_map>
-#  define GOOGLE_PROTOBUF_HASH_MAP_CLASS hash_map
+#  define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS hash_map
 #  include <hash_set>
-#  define GOOGLE_PROTOBUF_HASH_SET_CLASS hash_set
-#  define GOOGLE_PROTOBUF_HASH_COMPARE stdext::hash_compare
+#  define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS hash_set
+#  define GOOGLE_LEAP_PROTOBUF_HASH_COMPARE stdext::hash_compare
 # endif
 
 // **ADD NEW COMPILERS SUPPORT HERE.**
 // For other compilers, undefine the macro and fallback to use std::map, in
 // google/leap_protobuf/stubs/hash.h
 #else
-# undef GOOGLE_PROTOBUF_HAVE_HASH_MAP
-# undef GOOGLE_PROTOBUF_HAVE_HASH_SET
+# undef GOOGLE_LEAP_PROTOBUF_HAVE_HASH_MAP
+# undef GOOGLE_LEAP_PROTOBUF_HAVE_HASH_SET
 #endif
 
-#if defined(GOOGLE_PROTOBUF_HAS_CXX11_HASH)
-# define GOOGLE_PROTOBUF_HASH_NAMESPACE std
+#if defined(GOOGLE_LEAP_PROTOBUF_HAS_CXX11_HASH)
+# define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE std
 # include <unordered_map>
-# define GOOGLE_PROTOBUF_HASH_MAP_CLASS unordered_map
+# define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS unordered_map
 # include <unordered_set>
-# define GOOGLE_PROTOBUF_HASH_SET_CLASS unordered_set
-#elif defined(GOOGLE_PROTOBUF_HAS_TR1)
-# define GOOGLE_PROTOBUF_HASH_NAMESPACE std::tr1
+# define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS unordered_set
+#elif defined(GOOGLE_LEAP_PROTOBUF_HAS_TR1)
+# define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE std::tr1
 # include <tr1/unordered_map>
-# define GOOGLE_PROTOBUF_HASH_MAP_CLASS unordered_map
+# define GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS unordered_map
 # include <tr1/unordered_set>
-# define GOOGLE_PROTOBUF_HASH_SET_CLASS unordered_set
+# define GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS unordered_set
 #endif
 
-# define GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_START \
+# define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE_DECLARATION_START \
   namespace google {                                      \
   namespace leap_protobuf {
-# define GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_END }}
+# define GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE_DECLARATION_END }}
 
-#undef GOOGLE_PROTOBUF_HAS_CXX11_HASH
-#undef GOOGLE_PROTOBUF_HAS_TR1
+#undef GOOGLE_LEAP_PROTOBUF_HAS_CXX11_HASH
+#undef GOOGLE_LEAP_PROTOBUF_HAS_TR1
 
-#if defined(GOOGLE_PROTOBUF_HAVE_HASH_MAP) && \
-    defined(GOOGLE_PROTOBUF_HAVE_HASH_SET)
+#if defined(GOOGLE_LEAP_PROTOBUF_HAVE_HASH_MAP) && \
+    defined(GOOGLE_LEAP_PROTOBUF_HAVE_HASH_SET)
 #else
-#define GOOGLE_PROTOBUF_MISSING_HASH
+#define GOOGLE_LEAP_PROTOBUF_MISSING_HASH
 #include <map>
 #include <set>
 #endif
@@ -174,8 +174,8 @@
 namespace google {
 namespace leap_protobuf {
 
-#ifdef GOOGLE_PROTOBUF_MISSING_HASH
-#undef GOOGLE_PROTOBUF_MISSING_HASH
+#ifdef GOOGLE_LEAP_PROTOBUF_MISSING_HASH
+#undef GOOGLE_LEAP_PROTOBUF_MISSING_HASH
 
 // This system doesn't have hash_map or hash_set.  Emulate them using map and
 // set.
@@ -239,7 +239,7 @@ class hash_set : public std::set<Key, HashFcn> {
     !(defined(_LIBCPP_STD_VER) && _LIBCPP_STD_VER >= 11)
 
 template <typename Key>
-struct hash : public GOOGLE_PROTOBUF_HASH_COMPARE<Key> {
+struct hash : public GOOGLE_LEAP_PROTOBUF_HASH_COMPARE<Key> {
 };
 
 // MSVC's hash_compare<const char*> hashes based on the string contents but
@@ -253,12 +253,12 @@ class CstringLess {
 
 template <>
 struct hash<const char*>
-    : public GOOGLE_PROTOBUF_HASH_COMPARE<const char*, CstringLess> {};
+    : public GOOGLE_LEAP_PROTOBUF_HASH_COMPARE<const char*, CstringLess> {};
 
-#ifdef GOOGLE_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
+#ifdef GOOGLE_LEAP_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
 
 template <typename Key, typename HashFcn, typename EqualKey>
-struct InternalHashCompare : public GOOGLE_PROTOBUF_HASH_COMPARE<Key> {
+struct InternalHashCompare : public GOOGLE_LEAP_PROTOBUF_HASH_COMPARE<Key> {
   InternalHashCompare() {}
   InternalHashCompare(HashFcn hashfcn, EqualKey equalkey)
       : hashfcn_(hashfcn), equalkey_(equalkey) {}
@@ -275,9 +275,9 @@ template <typename Key, typename Data,
           typename EqualKey = std::equal_to<Key>,
           typename Alloc = std::allocator< std::pair<const Key, Data> > >
 class hash_map
-    : public GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_MAP_CLASS<
+    : public GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS<
           Key, Data, InternalHashCompare<Key, HashFcn, EqualKey>, Alloc> {
-  typedef GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_MAP_CLASS<
+  typedef GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS<
       Key, Data, InternalHashCompare<Key, HashFcn, EqualKey>, Alloc> BaseClass;
 
  public:
@@ -291,7 +291,7 @@ class hash_map
 template <typename Key, typename HashFcn = hash<Key>,
           typename EqualKey = std::equal_to<Key> >
 class hash_set
-    : public GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_SET_CLASS<
+    : public GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS<
           Key, InternalHashCompare<Key, HashFcn, EqualKey> > {
  public:
   hash_set(int = 0) {}
@@ -299,16 +299,16 @@ class hash_set
   HashFcn hash_function() const { return HashFcn(); }
 };
 
-#else  // GOOGLE_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
+#else  // GOOGLE_LEAP_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
 
 template <typename Key, typename Data,
           typename HashFcn = hash<Key>,
           typename EqualKey = std::equal_to<Key>,
           typename Alloc = std::allocator< std::pair<const Key, Data> > >
 class hash_map
-    : public GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_MAP_CLASS<
+    : public GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS<
           Key, Data, HashFcn, EqualKey, Alloc> {
-  typedef GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_MAP_CLASS<
+  typedef GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS<
       Key, Data, HashFcn, EqualKey, Alloc> BaseClass;
 
  public:
@@ -322,19 +322,19 @@ class hash_map
 template <typename Key, typename HashFcn = hash<Key>,
           typename EqualKey = std::equal_to<Key> >
 class hash_set
-    : public GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_SET_CLASS<
+    : public GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS<
           Key, HashFcn, EqualKey> {
  public:
   hash_set(int = 0) {}
 
   HashFcn hash_function() const { return HashFcn(); }
 };
-#endif  // GOOGLE_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
+#endif  // GOOGLE_LEAP_PROTOBUF_CONTAINERS_NEED_HASH_COMPARE
 
 #else  // defined(_MSC_VER) && !defined(_STLPORT_VERSION)
 
 template <typename Key>
-struct hash : public GOOGLE_PROTOBUF_HASH_NAMESPACE::hash<Key> {
+struct hash : public GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::hash<Key> {
 };
 
 template <typename Key>
@@ -369,9 +369,9 @@ template <typename Key, typename Data,
           typename EqualKey = std::equal_to<Key>,
           typename Alloc = std::allocator< std::pair<const Key, Data> > >
 class hash_map
-    : public GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_MAP_CLASS<
+    : public GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS<
           Key, Data, HashFcn, EqualKey, Alloc> {
-  typedef GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_MAP_CLASS<
+  typedef GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_MAP_CLASS<
       Key, Data, HashFcn, EqualKey, Alloc> BaseClass;
 
  public:
@@ -385,7 +385,7 @@ class hash_map
 template <typename Key, typename HashFcn = hash<Key>,
           typename EqualKey = std::equal_to<Key> >
 class hash_set
-    : public GOOGLE_PROTOBUF_HASH_NAMESPACE::GOOGLE_PROTOBUF_HASH_SET_CLASS<
+    : public GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE::GOOGLE_LEAP_PROTOBUF_HASH_SET_CLASS<
           Key, HashFcn, EqualKey> {
  public:
   hash_set(int = 0) {}
@@ -393,7 +393,7 @@ class hash_set
   HashFcn hash_function() const { return HashFcn(); }
 };
 
-#endif  // !GOOGLE_PROTOBUF_MISSING_HASH
+#endif  // !GOOGLE_LEAP_PROTOBUF_MISSING_HASH
 
 template <>
 struct hash<string> {
@@ -438,4 +438,4 @@ struct streq {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_HASH_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_HASH_H__

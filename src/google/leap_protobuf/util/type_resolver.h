@@ -30,8 +30,8 @@
 
 // Defines a TypeResolver for the Any message.
 
-#ifndef GOOGLE_PROTOBUF_UTIL_TYPE_RESOLVER_H__
-#define GOOGLE_PROTOBUF_UTIL_TYPE_RESOLVER_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_UTIL_TYPE_RESOLVER_H__
+#define GOOGLE_LEAP_PROTOBUF_UTIL_TYPE_RESOLVER_H__
 
 #include <string>
 
@@ -74,4 +74,4 @@ class LIBPROTOBUF_EXPORT TypeResolver {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_UTIL_TYPE_RESOLVER_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_UTIL_TYPE_RESOLVER_H__

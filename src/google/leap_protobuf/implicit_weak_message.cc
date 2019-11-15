@@ -46,7 +46,7 @@ bool ImplicitWeakMessage::MergePartialFromCodedStream(io::CodedInputStream* inpu
 
 ::google::leap_protobuf::internal::ExplicitlyConstructed<ImplicitWeakMessage>
     implicit_weak_message_default_instance;
-GOOGLE_PROTOBUF_DECLARE_ONCE(implicit_weak_message_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(implicit_weak_message_once_init_);
 
 void InitImplicitWeakMessageDefaultInstance() {
   implicit_weak_message_default_instance.DefaultConstruct();

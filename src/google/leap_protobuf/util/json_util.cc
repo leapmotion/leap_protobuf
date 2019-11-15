@@ -194,7 +194,7 @@ util::Status JsonToBinaryString(TypeResolver* resolver,
 namespace {
 const char* kTypeUrlPrefix = "type.googleapis.com";
 TypeResolver* generated_type_resolver_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(generated_type_resolver_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(generated_type_resolver_init_);
 
 string GetTypeUrl(const Message& message) {
   return string(kTypeUrlPrefix) + "/" + message.GetDescriptor()->full_name();

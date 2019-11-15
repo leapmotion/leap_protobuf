@@ -285,7 +285,7 @@ class GeneratedMessageFactory : public MessageFactory {
 };
 
 GeneratedMessageFactory* generated_message_factory_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(generated_message_factory_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(generated_message_factory_once_init_);
 
 void ShutdownGeneratedMessageFactory() {
   delete generated_message_factory_;
@@ -465,7 +465,7 @@ namespace internal {
 template<>
 #if defined(_MSC_VER) && (_MSC_VER >= 1800)
 // Note: force noinline to workaround MSVC compiler bug with /Zc:inline, issue #240
-GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
 #endif
 Message* GenericTypeHandler<Message>::NewFromPrototype(
     const Message* prototype, google::leap_protobuf::Arena* arena) {
@@ -474,7 +474,7 @@ Message* GenericTypeHandler<Message>::NewFromPrototype(
 template<>
 #if defined(_MSC_VER) && (_MSC_VER >= 1800)
 // Note: force noinline to workaround MSVC compiler bug with /Zc:inline, issue #240
-GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
 #endif
 google::leap_protobuf::Arena* GenericTypeHandler<Message>::GetArena(
     Message* value) {
@@ -483,7 +483,7 @@ google::leap_protobuf::Arena* GenericTypeHandler<Message>::GetArena(
 template<>
 #if defined(_MSC_VER) && (_MSC_VER >= 1800)
 // Note: force noinline to workaround MSVC compiler bug with /Zc:inline, issue #240
-GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
 #endif
 void* GenericTypeHandler<Message>::GetMaybeArenaPointer(
     Message* value) {

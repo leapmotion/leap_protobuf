@@ -107,8 +107,8 @@
 //     delete foo;
 //   }
 
-#ifndef GOOGLE_PROTOBUF_MESSAGE_H__
-#define GOOGLE_PROTOBUF_MESSAGE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_MESSAGE_H__
+#define GOOGLE_LEAP_PROTOBUF_MESSAGE_H__
 
 #include <iosfwd>
 #include <string>
@@ -122,8 +122,8 @@
 #include <google/leap_protobuf/descriptor.h>
 
 
-#define GOOGLE_PROTOBUF_HAS_ONEOF
-#define GOOGLE_PROTOBUF_HAS_ARENAS
+#define GOOGLE_LEAP_PROTOBUF_HAS_ONEOF
+#define GOOGLE_LEAP_PROTOBUF_HAS_ARENAS
 
 namespace google {
 namespace leap_protobuf {
@@ -953,7 +953,7 @@ class LIBPROTOBUF_EXPORT Reflection {
   template<typename T, typename Enable>
   friend class MutableRepeatedFieldRef;
   friend class ::google::leap_protobuf::python::MapReflectionFriend;
-#define GOOGLE_PROTOBUF_HAS_CEL_MAP_REFLECTION_FRIEND
+#define GOOGLE_LEAP_PROTOBUF_HAS_CEL_MAP_REFLECTION_FRIEND
   friend class ::google::leap_protobuf::expr::CelMapReflectionFriend;
   friend class internal::MapFieldReflectionTest;
   friend class internal::MapKeySorter;
@@ -1173,4 +1173,4 @@ inline RepeatedPtrField<PB>* Reflection::MutableRepeatedPtrField(
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_MESSAGE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_MESSAGE_H__

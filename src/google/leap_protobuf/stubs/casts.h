@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_CASTS_H__
-#define GOOGLE_PROTOBUF_CASTS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_CASTS_H__
+#define GOOGLE_LEAP_PROTOBUF_CASTS_H__
 
 #include <type_traits>
 
@@ -88,7 +88,7 @@ inline To down_cast(From* f) {                   // so we only accept pointers
     implicit_cast<From*, To>(0);
   }
 
-#if !defined(NDEBUG) && !defined(GOOGLE_PROTOBUF_NO_RTTI)
+#if !defined(NDEBUG) && !defined(GOOGLE_LEAP_PROTOBUF_NO_RTTI)
   assert(f == NULL || dynamic_cast<To>(f) != NULL);  // RTTI: debug mode only!
 #endif
   return static_cast<To>(f);
@@ -105,7 +105,7 @@ inline To down_cast(From& f) {
     implicit_cast<From*, ToAsPointer>(0);
   }
 
-#if !defined(NDEBUG) && !defined(GOOGLE_PROTOBUF_NO_RTTI)
+#if !defined(NDEBUG) && !defined(GOOGLE_LEAP_PROTOBUF_NO_RTTI)
   // RTTI: debug mode only!
   assert(dynamic_cast<ToAsPointer>(&f) != NULL);
 #endif
@@ -131,4 +131,4 @@ using internal::bit_cast;
 
 }  // namespace leap_protobuf
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_CASTS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_CASTS_H__

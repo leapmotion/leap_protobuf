@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_ANY_H__
-#define GOOGLE_PROTOBUF_ANY_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_ANY_H__
+#define GOOGLE_LEAP_PROTOBUF_ANY_H__
 
 #include <string>
 
@@ -115,4 +115,4 @@ bool GetAnyFieldDescriptors(const Message& message,
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_ANY_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_ANY_H__

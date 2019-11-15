@@ -35,8 +35,8 @@
 // This header is logically internal, but is made public because it is used
 // from protocol-compiler-generated code, which may reside in other components.
 
-#ifndef GOOGLE_PROTOBUF_GENERATED_MESSAGE_REFLECTION_H__
-#define GOOGLE_PROTOBUF_GENERATED_MESSAGE_REFLECTION_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_REFLECTION_H__
+#define GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_REFLECTION_H__
 
 #include <string>
 #include <vector>
@@ -98,7 +98,7 @@ class WeakFieldMap;             // weak_field_map.h
 //                  macro. For each none oneof field, the offset is related to
 //                  the start of the message object.  These can be computed at
 //                  compile time using the
-//                  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET() macro.
+//                  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET() macro.
 //                  Besides offsets for all fields, this array also contains
 //                  offsets for oneof unions. The offset of the i-th oneof union
 //                  is offsets[descriptor->field_count() + i].
@@ -691,7 +691,7 @@ class GeneratedMessageReflection final : public Reflection {
 // NULL.
 template<typename To, typename From>
 inline To dynamic_cast_if_available(From from) {
-#ifdef GOOGLE_PROTOBUF_NO_RTTI
+#ifdef GOOGLE_LEAP_PROTOBUF_NO_RTTI
   // Avoid the compiler warning about unused variables.
   (void)from;
   return NULL;
@@ -719,7 +719,7 @@ T* DynamicCastToGenerated(const Message* from) {
   const Message* unused = static_cast<T*>(NULL);
   (void)unused;
 
-#ifdef GOOGLE_PROTOBUF_NO_RTTI
+#ifdef GOOGLE_LEAP_PROTOBUF_NO_RTTI
   bool ok = &T::default_instance() ==
             from->GetReflection()->GetMessageFactory()->GetPrototype(
                 from->GetDescriptor());
@@ -754,4 +754,4 @@ LIBPROTOBUF_EXPORT void UnknownFieldSetSerializer(const uint8* base, uint32 offs
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_GENERATED_MESSAGE_REFLECTION_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_REFLECTION_H__

@@ -14,7 +14,7 @@
 #include <google/leap_protobuf/reflection_ops.h>
 #include <google/leap_protobuf/wire_format.h>
 // This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+#ifdef GOOGLE_LEAP_PROTOBUF_ENFORCE_UNIQUENESS
 #include "third_party/protobuf/version.h"
 #endif
 // @@protoc_insertion_point(includes)
@@ -30,7 +30,7 @@ class TimestampDefaultTypeInternal {
 }  // namespace google
 namespace protobuf_google_2fprotobuf_2ftimestamp_2eproto {
 static void InitDefaultsTimestamp() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_Timestamp_default_instance_;
@@ -49,16 +49,16 @@ void InitDefaults() {
 
 ::google::leap_protobuf::Metadata file_level_metadata[1];
 
-const ::google::leap_protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const ::google::leap_protobuf::uint32 TableStruct::offsets[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Timestamp, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Timestamp, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Timestamp, seconds_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Timestamp, nanos_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Timestamp, seconds_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Timestamp, nanos_),
 };
-static const ::google::leap_protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+static const ::google::leap_protobuf::internal::MigrationSchema schemas[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::google::leap_protobuf::Timestamp)},
 };
 
@@ -78,7 +78,7 @@ void protobuf_AssignDescriptorsOnce() {
   ::google::leap_protobuf::internal::call_once(once, protobuf_AssignDescriptors);
 }
 
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::leap_protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
@@ -86,7 +86,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 
 void AddDescriptorsImpl() {
   InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  static const char descriptor[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\037google/leap_protobuf/timestamp.proto\022\017googl"
       "e.protobuf\"+\n\tTimestamp\022\017\n\007seconds\030\001 \001(\003"
       "\022\r\n\005nanos\030\002 \001(\005B~\n\023com.google.protobufB\016"
@@ -414,7 +414,7 @@ void Timestamp::InternalSwap(Timestamp* other) {
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::Timestamp* Arena::CreateMaybeMessage< ::google::leap_protobuf::Timestamp >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::Timestamp* Arena::CreateMaybeMessage< ::google::leap_protobuf::Timestamp >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::Timestamp >(arena);
 }
 }  // namespace leap_protobuf

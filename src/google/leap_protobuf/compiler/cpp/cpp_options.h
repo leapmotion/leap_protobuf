@@ -30,8 +30,8 @@
 
 // Author: rennie@google.com (Jeffrey Rennie)
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_CPP_OPTIONS_H__
-#define GOOGLE_PROTOBUF_COMPILER_CPP_OPTIONS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_OPTIONS_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_OPTIONS_H__
 
 #include <string>
 
@@ -80,4 +80,4 @@ struct Options {
 
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_CPP_OPTIONS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_OPTIONS_H__

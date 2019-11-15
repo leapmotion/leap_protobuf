@@ -30,8 +30,8 @@
 
 // Defines classes for field comparison.
 
-#ifndef GOOGLE_PROTOBUF_UTIL_FIELD_COMPARATOR_H__
-#define GOOGLE_PROTOBUF_UTIL_FIELD_COMPARATOR_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_UTIL_FIELD_COMPARATOR_H__
+#define GOOGLE_LEAP_PROTOBUF_UTIL_FIELD_COMPARATOR_H__
 
 #include <map>
 #include <string>
@@ -267,4 +267,4 @@ class LIBPROTOBUF_EXPORT DefaultFieldComparator : public FieldComparator {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_UTIL_FIELD_COMPARATOR_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_UTIL_FIELD_COMPARATOR_H__

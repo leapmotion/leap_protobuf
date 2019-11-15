@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_MAP_ENTRY_H__
-#define GOOGLE_PROTOBUF_MAP_ENTRY_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_MAP_ENTRY_H__
+#define GOOGLE_LEAP_PROTOBUF_MAP_ENTRY_H__
 
 #include <google/leap_protobuf/generated_message_reflection.h>
 #include <google/leap_protobuf/map_entry_lite.h>
@@ -137,4 +137,4 @@ struct DeconstructMapEntry<MapEntry<Derived, K, V, key, value, default_enum> > {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_MAP_ENTRY_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_MAP_ENTRY_H__

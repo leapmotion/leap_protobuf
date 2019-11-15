@@ -35,8 +35,8 @@
 // This file contains miscellaneous helper code used by generated code --
 // including lite types -- but which should not be used directly by users.
 
-#ifndef GOOGLE_PROTOBUF_GENERATED_MESSAGE_UTIL_H__
-#define GOOGLE_PROTOBUF_GENERATED_MESSAGE_UTIL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_UTIL_H__
+#define GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_UTIL_H__
 
 #include <assert.h>
 #include <atomic>
@@ -73,7 +73,7 @@ namespace internal {
 #undef DEPRECATED_PROTOBUF_FIELD
 #define PROTOBUF_DEPRECATED
 
-#define GOOGLE_PROTOBUF_DEPRECATED_ATTR
+#define GOOGLE_LEAP_PROTOBUF_DEPRECATED_ATTR
 
 
 // Returns the offset of the given field within the given aggregate type.
@@ -88,7 +88,7 @@ namespace internal {
 // For Clang we use __builtin_offsetof() and suppress the warning,
 // to avoid Control Flow Integrity and UBSan vptr sanitizers from
 // crashing while trying to validate the invalid reinterpet_casts.
-#define GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TYPE, FIELD)  \
+#define GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TYPE, FIELD)  \
   _Pragma("clang diagnostic push")                                   \
   _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"")         \
   __builtin_offsetof(TYPE, FIELD)                                    \
@@ -98,7 +98,7 @@ namespace internal {
 // just use zero, GCC complains about dereferencing a NULL pointer.  We
 // choose 16 rather than some other number just in case the compiler would
 // be confused by an unaligned pointer.
-#define GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TYPE, FIELD)  \
+#define GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TYPE, FIELD)  \
   static_cast< ::google::leap_protobuf::uint32>(                           \
       reinterpret_cast<const char*>(                                 \
           &reinterpret_cast<const TYPE*>(16)->FIELD) -               \
@@ -363,4 +363,4 @@ inline void InitSCC(SCCInfoBase* scc) {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_GENERATED_MESSAGE_UTIL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_UTIL_H__

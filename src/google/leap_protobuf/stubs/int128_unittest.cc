@@ -428,7 +428,7 @@ TEST(Int128, DivideAndModRandomInputs) {
   }
 }
 
-#ifdef GOOGLE_PROTOBUF_HAS_CONSTEXPR
+#ifdef GOOGLE_LEAP_PROTOBUF_HAS_CONSTEXPR
 TEST(Int128, ConstexprTest) {
   constexpr uint128 zero;
   constexpr uint128 one = 1;
@@ -445,7 +445,7 @@ TEST(Int128, Traits) {
   EXPECT_TRUE(std::is_trivially_copy_assignable<uint128>::value);
   EXPECT_TRUE(std::is_trivially_destructible<uint128>::value);
 }
-#endif  // GOOGLE_PROTOBUF_HAS_CONSTEXPR
+#endif  // GOOGLE_LEAP_PROTOBUF_HAS_CONSTEXPR
 
 TEST(Int128, OStream) {
   struct {

@@ -32,8 +32,8 @@
 //  Based on original Protocol Buffers design by
 //  Sanjay Ghemawat, Jeff Dean, and others.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_CPP_PADDING_OPTIMIZER_H__
-#define GOOGLE_PROTOBUF_COMPILER_CPP_PADDING_OPTIMIZER_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_PADDING_OPTIMIZER_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_PADDING_OPTIMIZER_H__
 
 #include <google/leap_protobuf/compiler/cpp/cpp_message_layout_helper.h>
 
@@ -61,4 +61,4 @@ class PaddingOptimizer : public MessageLayoutHelper {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_CPP_PADDING_OPTIMIZER_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_PADDING_OPTIMIZER_H__

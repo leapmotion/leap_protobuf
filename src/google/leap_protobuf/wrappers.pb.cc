@@ -14,7 +14,7 @@
 #include <google/leap_protobuf/reflection_ops.h>
 #include <google/leap_protobuf/wire_format.h>
 // This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+#ifdef GOOGLE_LEAP_PROTOBUF_ENFORCE_UNIQUENESS
 #include "third_party/protobuf/version.h"
 #endif
 // @@protoc_insertion_point(includes)
@@ -70,7 +70,7 @@ class BytesValueDefaultTypeInternal {
 }  // namespace google
 namespace protobuf_google_2fprotobuf_2fwrappers_2eproto {
 static void InitDefaultsDoubleValue() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_DoubleValue_default_instance_;
@@ -84,7 +84,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_Double
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDoubleValue}, {}};
 
 static void InitDefaultsFloatValue() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_FloatValue_default_instance_;
@@ -98,7 +98,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_FloatV
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFloatValue}, {}};
 
 static void InitDefaultsInt64Value() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_Int64Value_default_instance_;
@@ -112,7 +112,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_Int64V
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsInt64Value}, {}};
 
 static void InitDefaultsUInt64Value() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_UInt64Value_default_instance_;
@@ -126,7 +126,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_UInt64
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUInt64Value}, {}};
 
 static void InitDefaultsInt32Value() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_Int32Value_default_instance_;
@@ -140,7 +140,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_Int32V
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsInt32Value}, {}};
 
 static void InitDefaultsUInt32Value() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_UInt32Value_default_instance_;
@@ -154,7 +154,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_UInt32
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUInt32Value}, {}};
 
 static void InitDefaultsBoolValue() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_BoolValue_default_instance_;
@@ -168,7 +168,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_BoolVa
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsBoolValue}, {}};
 
 static void InitDefaultsStringValue() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_StringValue_default_instance_;
@@ -182,7 +182,7 @@ LIBPROTOBUF_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_String
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStringValue}, {}};
 
 static void InitDefaultsBytesValue() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::_BytesValue_default_instance_;
@@ -209,63 +209,63 @@ void InitDefaults() {
 
 ::google::leap_protobuf::Metadata file_level_metadata[9];
 
-const ::google::leap_protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const ::google::leap_protobuf::uint32 TableStruct::offsets[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::DoubleValue, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::DoubleValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::DoubleValue, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::DoubleValue, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::FloatValue, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::FloatValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::FloatValue, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::FloatValue, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int64Value, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int64Value, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int64Value, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int64Value, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt64Value, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt64Value, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt64Value, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt64Value, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int32Value, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int32Value, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int32Value, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::Int32Value, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt32Value, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt32Value, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt32Value, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::UInt32Value, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BoolValue, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BoolValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BoolValue, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BoolValue, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::StringValue, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::StringValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::StringValue, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::StringValue, value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BytesValue, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BytesValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BytesValue, value_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::BytesValue, value_),
 };
-static const ::google::leap_protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+static const ::google::leap_protobuf::internal::MigrationSchema schemas[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::google::leap_protobuf::DoubleValue)},
   { 6, -1, sizeof(::google::leap_protobuf::FloatValue)},
   { 12, -1, sizeof(::google::leap_protobuf::Int64Value)},
@@ -301,7 +301,7 @@ void protobuf_AssignDescriptorsOnce() {
   ::google::leap_protobuf::internal::call_once(once, protobuf_AssignDescriptors);
 }
 
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::leap_protobuf::internal::RegisterAllTypes(file_level_metadata, 9);
@@ -309,7 +309,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 
 void AddDescriptorsImpl() {
   InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  static const char descriptor[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\036google/leap_protobuf/wrappers.proto\022\017google"
       ".protobuf\"\034\n\013DoubleValue\022\r\n\005value\030\001 \001(\001\""
       "\033\n\nFloatValue\022\r\n\005value\030\001 \001(\002\"\033\n\nInt64Val"
@@ -2645,31 +2645,31 @@ void BytesValue::InternalSwap(BytesValue* other) {
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::DoubleValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::DoubleValue >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::DoubleValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::DoubleValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::DoubleValue >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::FloatValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::FloatValue >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::FloatValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::FloatValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::FloatValue >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::Int64Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::Int64Value >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::Int64Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::Int64Value >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::Int64Value >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::UInt64Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::UInt64Value >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::UInt64Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::UInt64Value >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::UInt64Value >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::Int32Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::Int32Value >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::Int32Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::Int32Value >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::Int32Value >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::UInt32Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::UInt32Value >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::UInt32Value* Arena::CreateMaybeMessage< ::google::leap_protobuf::UInt32Value >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::UInt32Value >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::BoolValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::BoolValue >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::BoolValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::BoolValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::BoolValue >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::StringValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::StringValue >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::StringValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::StringValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::StringValue >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::BytesValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::BytesValue >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::BytesValue* Arena::CreateMaybeMessage< ::google::leap_protobuf::BytesValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::google::leap_protobuf::BytesValue >(arena);
 }
 }  // namespace leap_protobuf

@@ -325,7 +325,7 @@ string ToSnakeCase(StringPiece input) {
 }
 
 std::set<string>* well_known_types_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(well_known_types_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(well_known_types_init_);
 const char* well_known_types_name_array_[] = {
     "google.protobuf.Timestamp",   "google.protobuf.Duration",
     "google.protobuf.DoubleValue", "google.protobuf.FloatValue",

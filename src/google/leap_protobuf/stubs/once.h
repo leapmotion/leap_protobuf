@@ -39,7 +39,7 @@
 //
 // This header declares:
 // * A type called ProtobufOnceType.
-// * A macro GOOGLE_PROTOBUF_DECLARE_ONCE() which declares a variable of type
+// * A macro GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE() which declares a variable of type
 //   ProtobufOnceType.  This is the only legal way to declare such a variable.
 //   The macro may only be used at the global scope (you cannot create local or
 //   class member variables of this type).
@@ -60,7 +60,7 @@
 //
 // Example usage:
 //   void Init();
-//   GOOGLE_PROTOBUF_DECLARE_ONCE(once_init);
+//   GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(once_init);
 //
 //   // Calls Init() exactly once.
 //   void InitOnce() {
@@ -75,8 +75,8 @@
 // whatsoever to statically-initialize its synchronization primitives, so our
 // only choice is to assume that dynamic initialization is single-threaded.
 
-#ifndef GOOGLE_PROTOBUF_STUBS_ONCE_H__
-#define GOOGLE_PROTOBUF_STUBS_ONCE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_ONCE_H__
+#define GOOGLE_LEAP_PROTOBUF_STUBS_ONCE_H__
 
 #include <mutex>
 #include <utility>
@@ -120,11 +120,11 @@ class GoogleOnceDynamic {
   ProtobufOnceType state_;
 };
 
-#define GOOGLE_PROTOBUF_ONCE_TYPE ::google::leap_protobuf::ProtobufOnceType
-#define GOOGLE_PROTOBUF_DECLARE_ONCE(NAME) \
+#define GOOGLE_LEAP_PROTOBUF_ONCE_TYPE ::google::leap_protobuf::ProtobufOnceType
+#define GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(NAME) \
   ::google::leap_protobuf::ProtobufOnceType NAME
 
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_ONCE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_ONCE_H__

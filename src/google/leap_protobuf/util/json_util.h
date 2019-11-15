@@ -30,8 +30,8 @@
 
 // Utility functions to convert between protobuf binary format and proto3 JSON
 // format.
-#ifndef GOOGLE_PROTOBUF_UTIL_JSON_UTIL_H__
-#define GOOGLE_PROTOBUF_UTIL_JSON_UTIL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_UTIL_JSON_UTIL_H__
+#define GOOGLE_LEAP_PROTOBUF_UTIL_JSON_UTIL_H__
 
 #include <google/leap_protobuf/message.h>
 #include <google/leap_protobuf/util/type_resolver.h>
@@ -197,4 +197,4 @@ class LIBPROTOBUF_EXPORT ZeroCopyStreamByteSink : public strings::ByteSink {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_UTIL_JSON_UTIL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_UTIL_JSON_UTIL_H__

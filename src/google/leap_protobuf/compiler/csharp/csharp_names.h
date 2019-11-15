@@ -35,8 +35,8 @@
 // Provides a mechanism for mapping a descriptor to the
 // fully-qualified name of the corresponding C# class.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_CSHARP_NAMES_H__
-#define GOOGLE_PROTOBUF_COMPILER_CSHARP_NAMES_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_NAMES_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_NAMES_H__
 
 #include <string>
 #include <google/leap_protobuf/stubs/port.h>
@@ -101,4 +101,4 @@ string LIBPROTOC_EXPORT GetOutputFile(
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_NAMES_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_NAMES_H__

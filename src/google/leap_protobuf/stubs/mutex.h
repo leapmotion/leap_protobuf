@@ -27,8 +27,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_STUBS_MUTEX_H_
-#define GOOGLE_PROTOBUF_STUBS_MUTEX_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_MUTEX_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_MUTEX_H_
 
 #include <mutex>
 
@@ -40,7 +40,7 @@ namespace google {
 namespace leap_protobuf {
 namespace internal {
 
-#define GOOGLE_PROTOBUF_LINKER_INITIALIZED
+#define GOOGLE_LEAP_PROTOBUF_LINKER_INITIALIZED
 
 // Mutex is a natural type to wrap. As both google and other organization have
 // specialized mutexes. gRPC also provides an injection mechanism for custom
@@ -85,7 +85,7 @@ class LIBPROTOBUF_EXPORT MutexLockMaybe {
   GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MutexLockMaybe);
 };
 
-#if defined(GOOGLE_PROTOBUF_NO_THREADLOCAL)
+#if defined(GOOGLE_LEAP_PROTOBUF_NO_THREADLOCAL)
 template<typename T>
 class ThreadLocalStorage {
  public:
@@ -127,4 +127,4 @@ using internal::MutexLockMaybe;
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_MUTEX_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_MUTEX_H_

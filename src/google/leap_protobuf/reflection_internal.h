@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_REFLECTION_INTERNAL_H__
-#define GOOGLE_PROTOBUF_REFLECTION_INTERNAL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_REFLECTION_INTERNAL_H__
+#define GOOGLE_LEAP_PROTOBUF_REFLECTION_INTERNAL_H__
 
 #include <google/leap_protobuf/map_field.h>
 #include <google/leap_protobuf/reflection.h>
@@ -375,4 +375,4 @@ class RepeatedPtrFieldMessageAccessor
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_REFLECTION_INTERNAL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_REFLECTION_INTERNAL_H__

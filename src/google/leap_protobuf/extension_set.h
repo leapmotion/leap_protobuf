@@ -35,8 +35,8 @@
 // This header is logically internal, but is made public because it is used
 // from protocol-compiler-generated code, which may reside in other components.
 
-#ifndef GOOGLE_PROTOBUF_EXTENSION_SET_H__
-#define GOOGLE_PROTOBUF_EXTENSION_SET_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_EXTENSION_SET_H__
+#define GOOGLE_LEAP_PROTOBUF_EXTENSION_SET_H__
 
 #include <algorithm>
 #include <cassert>
@@ -1309,7 +1309,7 @@ class ExtensionIdentifier {
 //
 // For similar reason, we use "_field_type" and "_is_packed" as parameter names
 // below, so that "field_type" and "is_packed" can be used as field names.
-#define GOOGLE_PROTOBUF_EXTENSION_ACCESSORS(CLASSNAME)                        \
+#define GOOGLE_LEAP_PROTOBUF_EXTENSION_ACCESSORS(CLASSNAME)                        \
   /* Has, Size, Clear */                                                      \
   template <typename _proto_TypeTraits,                                       \
             ::google::leap_protobuf::internal::FieldType _field_type,                        \
@@ -1487,4 +1487,4 @@ class ExtensionIdentifier {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_EXTENSION_SET_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_EXTENSION_SET_H__

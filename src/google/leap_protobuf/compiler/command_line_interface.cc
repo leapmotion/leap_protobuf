@@ -1534,7 +1534,7 @@ CommandLineInterface::InterpretArgument(const string& name,
       std::cout << version_info_ << std::endl;
     }
     std::cout << "libprotoc "
-         << leap_protobuf::internal::VersionString(GOOGLE_PROTOBUF_VERSION)
+         << leap_protobuf::internal::VersionString(GOOGLE_LEAP_PROTOBUF_VERSION)
          << std::endl;
     return PARSE_ARGUMENT_DONE_AND_EXIT;  // Exit without running compiler.
 
@@ -1920,10 +1920,10 @@ bool CommandLineInterface::GeneratePluginOutput(
 
   google::leap_protobuf::compiler::Version* version =
       request.mutable_compiler_version();
-  version->set_major(GOOGLE_PROTOBUF_VERSION / 1000000);
-  version->set_minor(GOOGLE_PROTOBUF_VERSION / 1000 % 1000);
-  version->set_patch(GOOGLE_PROTOBUF_VERSION % 1000);
-  version->set_suffix(GOOGLE_PROTOBUF_VERSION_SUFFIX);
+  version->set_major(GOOGLE_LEAP_PROTOBUF_VERSION / 1000000);
+  version->set_minor(GOOGLE_LEAP_PROTOBUF_VERSION / 1000 % 1000);
+  version->set_patch(GOOGLE_LEAP_PROTOBUF_VERSION % 1000);
+  version->set_suffix(GOOGLE_LEAP_PROTOBUF_VERSION_SUFFIX);
 
   // Invoke the plugin.
   Subprocess subprocess;

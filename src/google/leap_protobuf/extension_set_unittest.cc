@@ -1271,7 +1271,7 @@ TEST(ExtensionSetTest, DynamicExtensions) {
     const Message& sub_message =
         message.GetReflection()->GetMessage(message, message_extension);
     const unittest::ForeignMessage* typed_sub_message =
-#ifdef GOOGLE_PROTOBUF_NO_RTTI
+#ifdef GOOGLE_LEAP_PROTOBUF_NO_RTTI
         static_cast<const unittest::ForeignMessage*>(&sub_message);
 #else
         dynamic_cast<const unittest::ForeignMessage*>(&sub_message);

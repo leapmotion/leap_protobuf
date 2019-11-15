@@ -32,8 +32,8 @@
 // point default values in .proto files, where the decimal separator
 // is always a dot.
 
-#ifndef GOOGLE_PROTOBUF_IO_STRTOD_H__
-#define GOOGLE_PROTOBUF_IO_STRTOD_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_IO_STRTOD_H__
+#define GOOGLE_LEAP_PROTOBUF_IO_STRTOD_H__
 
 namespace google {
 namespace leap_protobuf {
@@ -52,4 +52,4 @@ float SafeDoubleToFloat(double value);
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_IO_STRTOD_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_IO_STRTOD_H__

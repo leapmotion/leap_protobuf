@@ -37,8 +37,8 @@
 // protobuf library.  These implementations include Unix file descriptors
 // and C++ iostreams.  See also:  zero_copy_stream_impl_lite.h
 
-#ifndef GOOGLE_PROTOBUF_IO_ZERO_COPY_STREAM_IMPL_H__
-#define GOOGLE_PROTOBUF_IO_ZERO_COPY_STREAM_IMPL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_IO_ZERO_COPY_STREAM_IMPL_H__
+#define GOOGLE_LEAP_PROTOBUF_IO_ZERO_COPY_STREAM_IMPL_H__
 
 #include <string>
 #include <iosfwd>
@@ -352,4 +352,4 @@ class LIBPROTOBUF_EXPORT LimitingInputStream : public ZeroCopyInputStream {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_IO_ZERO_COPY_STREAM_IMPL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_IO_ZERO_COPY_STREAM_IMPL_H__

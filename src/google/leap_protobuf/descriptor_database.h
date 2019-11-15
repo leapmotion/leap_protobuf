@@ -34,8 +34,8 @@
 //
 // Interface for manipulating databases of descriptors.
 
-#ifndef GOOGLE_PROTOBUF_DESCRIPTOR_DATABASE_H__
-#define GOOGLE_PROTOBUF_DESCRIPTOR_DATABASE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_DESCRIPTOR_DATABASE_H__
+#define GOOGLE_LEAP_PROTOBUF_DESCRIPTOR_DATABASE_H__
 
 #include <map>
 #include <string>
@@ -380,4 +380,4 @@ class LIBPROTOBUF_EXPORT MergedDescriptorDatabase : public DescriptorDatabase {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_DESCRIPTOR_DATABASE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_DESCRIPTOR_DATABASE_H__

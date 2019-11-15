@@ -47,8 +47,8 @@
 //      ArrayByteSource         Reads from an array or string/StringPiece
 //      LimitedByteSource       Limits the number of bytes read from an
 
-#ifndef GOOGLE_PROTOBUF_STUBS_BYTESTREAM_H_
-#define GOOGLE_PROTOBUF_STUBS_BYTESTREAM_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_BYTESTREAM_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_BYTESTREAM_H_
 
 #include <stddef.h>
 #include <string>
@@ -345,4 +345,4 @@ class LIBPROTOBUF_EXPORT LimitByteSource : public ByteSource {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_BYTESTREAM_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_BYTESTREAM_H_

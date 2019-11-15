@@ -30,8 +30,8 @@
 
 // from google3/strings/strutil.h
 
-#ifndef GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
-#define GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_STRUTIL_H__
+#define GOOGLE_LEAP_PROTOBUF_STUBS_STRUTIL_H__
 
 #include <stdlib.h>
 #include <vector>
@@ -875,4 +875,4 @@ LIBPROTOBUF_EXPORT int UTF8FirstLetterNumBytes(const char* src, int len);
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_STRUTIL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_STRUTIL_H__

@@ -1136,7 +1136,7 @@ ProtoStreamObjectWriter* ProtoStreamObjectWriter::RenderDataPiece(
 // represented by the key.
 hash_map<string, ProtoStreamObjectWriter::TypeRenderer>*
     ProtoStreamObjectWriter::renderers_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(writer_renderers_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(writer_renderers_init_);
 
 void ProtoStreamObjectWriter::InitRendererMap() {
   renderers_ = new hash_map<string, ProtoStreamObjectWriter::TypeRenderer>();

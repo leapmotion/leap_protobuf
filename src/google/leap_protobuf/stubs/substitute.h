@@ -35,8 +35,8 @@
 #include <google/leap_protobuf/stubs/common.h>
 #include <google/leap_protobuf/stubs/strutil.h>
 
-#ifndef GOOGLE_PROTOBUF_STUBS_SUBSTITUTE_H_
-#define GOOGLE_PROTOBUF_STUBS_SUBSTITUTE_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_SUBSTITUTE_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_SUBSTITUTE_H_
 
 namespace google {
 namespace leap_protobuf {
@@ -167,4 +167,4 @@ LIBPROTOBUF_EXPORT void SubstituteAndAppend(
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif // GOOGLE_PROTOBUF_STUBS_SUBSTITUTE_H_
+#endif // GOOGLE_LEAP_PROTOBUF_STUBS_SUBSTITUTE_H_

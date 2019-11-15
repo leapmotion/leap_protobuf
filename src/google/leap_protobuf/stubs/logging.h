@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_STUBS_LOGGING_H_
-#define GOOGLE_PROTOBUF_STUBS_LOGGING_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_LOGGING_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_LOGGING_H_
 
 #include <google/leap_protobuf/stubs/macros.h>
 #include <google/leap_protobuf/stubs/port.h>
@@ -234,4 +234,4 @@ class LIBPROTOBUF_EXPORT LogSilencer {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_LOGGING_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_LOGGING_H_

@@ -316,7 +316,7 @@ namespace {
 // The first part of the pair is true iff the read was successful.  The second
 // part is buffer + (number of bytes read).  This function is always inlined,
 // so returning a pair is costless.
-GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
 ::std::pair<bool, const uint8*> ReadVarint32FromArray(
     uint32 first_byte, const uint8* buffer,
     uint32* value);
@@ -354,7 +354,7 @@ inline ::std::pair<bool, const uint8*> ReadVarint32FromArray(
   return std::make_pair(true, ptr);
 }
 
-GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE::std::pair<bool, const uint8*>
+GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE::std::pair<bool, const uint8*>
 ReadVarint64FromArray(const uint8* buffer, uint64* value);
 inline ::std::pair<bool, const uint8*> ReadVarint64FromArray(
     const uint8* buffer, uint64* value) {

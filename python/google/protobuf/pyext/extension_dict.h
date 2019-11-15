@@ -31,8 +31,8 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
+#define GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
 
 #include <Python.h>
 
@@ -82,4 +82,4 @@ ExtensionDict* NewExtensionDict(CMessage *parent);
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__

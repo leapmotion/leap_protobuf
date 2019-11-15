@@ -80,8 +80,8 @@
 //  }
 //
 
-#ifndef GOOGLE_PROTOBUF_STUBS_STATUSOR_H_
-#define GOOGLE_PROTOBUF_STUBS_STATUSOR_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_STATUSOR_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_STATUSOR_H_
 
 #include <new>
 #include <string>
@@ -256,4 +256,4 @@ inline const T& StatusOr<T>::ValueOrDie() const {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_STATUSOR_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_STATUSOR_H_

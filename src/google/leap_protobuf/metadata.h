@@ -35,8 +35,8 @@
 // Note that this is distinct from google::leap_protobuf::Metadata, which encapsulates
 // Descriptor and Reflection pointers.
 
-#ifndef GOOGLE_PROTOBUF_METADATA_H__
-#define GOOGLE_PROTOBUF_METADATA_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_METADATA_H__
+#define GOOGLE_LEAP_PROTOBUF_METADATA_H__
 
 #include <google/leap_protobuf/metadata_lite.h>
 #include <google/leap_protobuf/unknown_field_set.h>
@@ -75,4 +75,4 @@ class InternalMetadataWithArena
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_METADATA_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_METADATA_H__

@@ -47,8 +47,8 @@
 // Both of these outcomes means that we may be able to directly replace
 // some of these with boost equivalents.
 //
-#ifndef GOOGLE_PROTOBUF_TEMPLATE_UTIL_H_
-#define GOOGLE_PROTOBUF_TEMPLATE_UTIL_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_TEMPLATE_UTIL_H_
+#define GOOGLE_LEAP_PROTOBUF_TEMPLATE_UTIL_H_
 
 namespace google {
 namespace leap_protobuf {
@@ -135,4 +135,4 @@ struct or_ : public integral_constant<bool, (A::value || B::value)> {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_TEMPLATE_UTIL_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_TEMPLATE_UTIL_H_

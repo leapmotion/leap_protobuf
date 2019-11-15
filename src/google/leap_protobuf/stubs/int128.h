@@ -27,8 +27,8 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#ifndef GOOGLE_PROTOBUF_STUBS_INT128_H_
-#define GOOGLE_PROTOBUF_STUBS_INT128_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_INT128_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_INT128_H_
 
 #include <google/leap_protobuf/stubs/common.h>
 
@@ -39,9 +39,9 @@ namespace leap_protobuf {
 
 struct uint128_pod;
 
-// TODO(xiaofeng): Define GOOGLE_PROTOBUF_HAS_CONSTEXPR when constexpr is
+// TODO(xiaofeng): Define GOOGLE_LEAP_PROTOBUF_HAS_CONSTEXPR when constexpr is
 // available.
-#ifdef GOOGLE_PROTOBUF_HAS_CONSTEXPR
+#ifdef GOOGLE_LEAP_PROTOBUF_HAS_CONSTEXPR
 # define UINT128_CONSTEXPR constexpr
 #else
 # define UINT128_CONSTEXPR
@@ -380,4 +380,4 @@ inline uint128& uint128::operator--() {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_INT128_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_INT128_H_

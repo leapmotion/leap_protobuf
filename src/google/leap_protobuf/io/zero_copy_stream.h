@@ -104,8 +104,8 @@
 //   close(infd);
 //   close(outfd);
 
-#ifndef GOOGLE_PROTOBUF_IO_ZERO_COPY_STREAM_H__
-#define GOOGLE_PROTOBUF_IO_ZERO_COPY_STREAM_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_IO_ZERO_COPY_STREAM_H__
+#define GOOGLE_LEAP_PROTOBUF_IO_ZERO_COPY_STREAM_H__
 
 #include <string>
 #include <google/leap_protobuf/stubs/common.h>
@@ -245,4 +245,4 @@ class LIBPROTOBUF_EXPORT ZeroCopyOutputStream {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_IO_ZERO_COPY_STREAM_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_IO_ZERO_COPY_STREAM_H__

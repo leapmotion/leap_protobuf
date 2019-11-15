@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_ARENASTRING_H__
-#define GOOGLE_PROTOBUF_ARENASTRING_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_ARENASTRING_H__
+#define GOOGLE_LEAP_PROTOBUF_ARENASTRING_H__
 
 #include <string>
 
@@ -168,10 +168,10 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
   // Swaps internal pointers. Arena-safety semantics: this is guarded by the
   // logic in Swap()/UnsafeArenaSwap() at the message level, so this method is
   // 'unsafe' if called directly.
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Swap(ArenaStringPtr* other) {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Swap(ArenaStringPtr* other) {
     std::swap(ptr_, other->ptr_);
   }
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Swap(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Swap(
       ArenaStringPtr* other, const ::std::string* default_value, Arena* arena) {
 #ifndef NDEBUG
     // For debug builds, we swap the contents of the string, rather than the
@@ -364,14 +364,14 @@ struct LIBPROTOBUF_EXPORT ArenaStringPtr {
  private:
   ::std::string* ptr_;
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
   void CreateInstance(::google::leap_protobuf::Arena* arena,
                       const ::std::string* initial_value) {
     GOOGLE_DCHECK(initial_value != NULL);
     // uses "new ::std::string" when arena is nullptr
     ptr_ = Arena::Create< ::std::string >(arena, *initial_value);
   }
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
   void CreateInstanceNoArena(const ::std::string* initial_value) {
     GOOGLE_DCHECK(initial_value != NULL);
     ptr_ = new ::std::string(*initial_value);
@@ -400,4 +400,4 @@ inline void ArenaStringPtr::AssignWithDefault(const ::std::string* default_value
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_ARENASTRING_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_ARENASTRING_H__

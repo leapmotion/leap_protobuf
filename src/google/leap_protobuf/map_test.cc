@@ -1976,7 +1976,7 @@ TEST(GeneratedMapFieldTest, CopyAssignmentOperator) {
 }
 
 #if !defined(PROTOBUF_TEST_NO_DESCRIPTORS) || \
-        !defined(GOOGLE_PROTOBUF_NO_RTTI)
+        !defined(GOOGLE_LEAP_PROTOBUF_NO_RTTI)
 TEST(GeneratedMapFieldTest, UpcastCopyFrom) {
   // Test the CopyFrom method that takes in the generic const Message&
   // parameter.

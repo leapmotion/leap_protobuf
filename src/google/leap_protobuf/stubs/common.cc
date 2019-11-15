@@ -63,12 +63,12 @@ namespace internal {
 void VerifyVersion(int headerVersion,
                    int minLibraryVersion,
                    const char* filename) {
-  if (GOOGLE_PROTOBUF_VERSION < minLibraryVersion) {
+  if (GOOGLE_LEAP_PROTOBUF_VERSION < minLibraryVersion) {
     // Library is too old for headers.
     GOOGLE_LOG(FATAL)
       << "This program requires version " << VersionString(minLibraryVersion)
       << " of the Protocol Buffer runtime library, but the installed version "
-         "is " << VersionString(GOOGLE_PROTOBUF_VERSION) << ".  Please update "
+         "is " << VersionString(GOOGLE_LEAP_PROTOBUF_VERSION) << ".  Please update "
          "your library.  If you compiled the program yourself, make sure that "
          "your headers are from the same version of Protocol Buffers as your "
          "link-time library.  (Version verification failed in \""
@@ -80,7 +80,7 @@ void VerifyVersion(int headerVersion,
       << "This program was compiled against version "
       << VersionString(headerVersion) << " of the Protocol Buffer runtime "
          "library, which is not compatible with the installed version ("
-      << VersionString(GOOGLE_PROTOBUF_VERSION) <<  ").  Contact the program "
+      << VersionString(GOOGLE_LEAP_PROTOBUF_VERSION) <<  ").  Contact the program "
          "author for an update.  If you compiled the program yourself, make "
          "sure that your headers are from the same version of Protocol Buffers "
          "as your link-time library.  (Version verification failed in \""
@@ -111,8 +111,8 @@ string VersionString(int version) {
 
 // If the minimum logging level is not set, we default to logging messages for
 // all levels.
-#ifndef GOOGLE_PROTOBUF_MIN_LOG_LEVEL
-#define GOOGLE_PROTOBUF_MIN_LOG_LEVEL LOGLEVEL_INFO
+#ifndef GOOGLE_LEAP_PROTOBUF_MIN_LOG_LEVEL
+#define GOOGLE_LEAP_PROTOBUF_MIN_LOG_LEVEL LOGLEVEL_INFO
 #endif
 
 namespace internal {
@@ -120,7 +120,7 @@ namespace internal {
 #if defined(__ANDROID__)
 inline void DefaultLogHandler(LogLevel level, const char* filename, int line,
                               const string& message) {
-  if (level < GOOGLE_PROTOBUF_MIN_LOG_LEVEL) {
+  if (level < GOOGLE_LEAP_PROTOBUF_MIN_LOG_LEVEL) {
     return;
   }
   static const char* level_names[] = {"INFO", "WARNING", "ERROR", "FATAL"};
@@ -155,7 +155,7 @@ inline void DefaultLogHandler(LogLevel level, const char* filename, int line,
 #else
 void DefaultLogHandler(LogLevel level, const char* filename, int line,
                        const string& message) {
-  if (level < GOOGLE_PROTOBUF_MIN_LOG_LEVEL) {
+  if (level < GOOGLE_LEAP_PROTOBUF_MIN_LOG_LEVEL) {
     return;
   }
   static const char* level_names[] = { "INFO", "WARNING", "ERROR", "FATAL" };
@@ -177,7 +177,7 @@ static LogHandler* log_handler_ = &DefaultLogHandler;
 static int log_silencer_count_ = 0;
 
 static Mutex* log_silencer_count_mutex_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(log_silencer_count_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(log_silencer_count_init_);
 
 void DeleteLogSilencerCount() {
   delete log_silencer_count_mutex_;
@@ -357,7 +357,7 @@ struct ShutdownData {
 };
 
 ShutdownData* shutdown_data = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(shutdown_functions_init);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(shutdown_functions_init);
 
 void InitShutdownFunctions() {
   shutdown_data = new ShutdownData;

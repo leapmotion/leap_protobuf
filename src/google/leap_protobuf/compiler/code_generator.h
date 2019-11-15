@@ -35,8 +35,8 @@
 // Defines the abstract interface implemented by each of the language-specific
 // code generators.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_CODE_GENERATOR_H__
-#define GOOGLE_PROTOBUF_COMPILER_CODE_GENERATOR_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_CODE_GENERATOR_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_CODE_GENERATOR_H__
 
 #include <google/leap_protobuf/stubs/common.h>
 #include <string>
@@ -173,4 +173,4 @@ LIBPROTOC_EXPORT void ParseGeneratorParameter(
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_CODE_GENERATOR_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_CODE_GENERATOR_H__

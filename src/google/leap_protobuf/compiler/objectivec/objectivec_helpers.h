@@ -30,8 +30,8 @@
 
 // Helper functions for generating ObjectiveC code.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_OBJECTIVEC_HELPERS_H__
-#define GOOGLE_PROTOBUF_COMPILER_OBJECTIVEC_HELPERS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_OBJECTIVEC_HELPERS_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_OBJECTIVEC_HELPERS_H__
 
 #include <string>
 #include <vector>
@@ -290,4 +290,4 @@ class LIBPROTOC_EXPORT ImportWriter {
 }  // namespace compiler
 }  // namespace leap_protobuf
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_OBJECTIVEC_HELPERS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_OBJECTIVEC_HELPERS_H__

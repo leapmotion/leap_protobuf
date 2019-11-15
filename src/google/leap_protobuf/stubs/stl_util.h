@@ -30,8 +30,8 @@
 
 // from google3/util/gtl/stl_util.h
 
-#ifndef GOOGLE_PROTOBUF_STUBS_STL_UTIL_H__
-#define GOOGLE_PROTOBUF_STUBS_STL_UTIL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_STL_UTIL_H__
+#define GOOGLE_LEAP_PROTOBUF_STUBS_STL_UTIL_H__
 
 #include <google/leap_protobuf/stubs/common.h>
 
@@ -118,4 +118,4 @@ void STLDeleteValues(T *v) {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_STL_UTIL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_STL_UTIL_H__

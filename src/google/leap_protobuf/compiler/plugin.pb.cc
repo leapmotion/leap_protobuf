@@ -14,7 +14,7 @@
 #include <google/leap_protobuf/reflection_ops.h>
 #include <google/leap_protobuf/wire_format.h>
 // This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+#ifdef GOOGLE_LEAP_PROTOBUF_ENFORCE_UNIQUENESS
 #include "third_party/protobuf/version.h"
 #endif
 // @@protoc_insertion_point(includes)
@@ -54,7 +54,7 @@ class CodeGeneratorResponseDefaultTypeInternal {
 }  // namespace google
 namespace protobuf_google_2fprotobuf_2fcompiler_2fplugin_2eproto {
 static void InitDefaultsVersion() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::compiler::_Version_default_instance_;
@@ -68,7 +68,7 @@ LIBPROTOC_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_Version 
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsVersion}, {}};
 
 static void InitDefaultsCodeGeneratorRequest() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::compiler::_CodeGeneratorRequest_default_instance_;
@@ -84,7 +84,7 @@ LIBPROTOC_EXPORT ::google::leap_protobuf::internal::SCCInfo<2> scc_info_CodeGene
       &protobuf_google_2fprotobuf_2fcompiler_2fplugin_2eproto::scc_info_Version.base,}};
 
 static void InitDefaultsCodeGeneratorResponse_File() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::compiler::_CodeGeneratorResponse_File_default_instance_;
@@ -98,7 +98,7 @@ LIBPROTOC_EXPORT ::google::leap_protobuf::internal::SCCInfo<0> scc_info_CodeGene
     {{ATOMIC_VAR_INIT(::google::leap_protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsCodeGeneratorResponse_File}, {}};
 
 static void InitDefaultsCodeGeneratorResponse() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION;
 
   {
     void* ptr = &::google::leap_protobuf::compiler::_CodeGeneratorResponse_default_instance_;
@@ -121,55 +121,55 @@ void InitDefaults() {
 
 ::google::leap_protobuf::Metadata file_level_metadata[4];
 
-const ::google::leap_protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, _internal_metadata_),
+const ::google::leap_protobuf::uint32 TableStruct::offsets[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, _has_bits_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, major_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, minor_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, patch_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, suffix_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, major_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, minor_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, patch_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::Version, suffix_),
   1,
   2,
   3,
   0,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, _has_bits_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, file_to_generate_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, parameter_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, proto_file_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, compiler_version_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, file_to_generate_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, parameter_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, proto_file_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorRequest, compiler_version_),
   ~0u,
   0,
   ~0u,
   1,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, _has_bits_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, insertion_point_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, content_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, name_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, insertion_point_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse_File, content_),
   0,
   1,
   2,
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, _internal_metadata_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, _has_bits_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, error_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, file_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, error_),
+  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::google::leap_protobuf::compiler::CodeGeneratorResponse, file_),
   0,
   ~0u,
 };
-static const ::google::leap_protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+static const ::google::leap_protobuf::internal::MigrationSchema schemas[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, sizeof(::google::leap_protobuf::compiler::Version)},
   { 13, 22, sizeof(::google::leap_protobuf::compiler::CodeGeneratorRequest)},
   { 26, 34, sizeof(::google::leap_protobuf::compiler::CodeGeneratorResponse_File)},
@@ -195,7 +195,7 @@ void protobuf_AssignDescriptorsOnce() {
   ::google::leap_protobuf::internal::call_once(once, protobuf_AssignDescriptors);
 }
 
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::leap_protobuf::internal::RegisterAllTypes(file_level_metadata, 4);
@@ -203,7 +203,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 
 void AddDescriptorsImpl() {
   InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  static const char descriptor[] GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n%google/leap_protobuf/compiler/plugin.proto\022"
       "\030google.protobuf.compiler\032 google/protob"
       "uf/descriptor.proto\"F\n\007Version\022\r\n\005major\030"
@@ -1702,16 +1702,16 @@ void CodeGeneratorResponse::InternalSwap(CodeGeneratorResponse* other) {
 }  // namespace google
 namespace google {
 namespace leap_protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::Version* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::Version >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::Version* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::Version >(Arena* arena) {
   return Arena::CreateInternal< ::google::leap_protobuf::compiler::Version >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::CodeGeneratorRequest* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::CodeGeneratorRequest >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::CodeGeneratorRequest* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::CodeGeneratorRequest >(Arena* arena) {
   return Arena::CreateInternal< ::google::leap_protobuf::compiler::CodeGeneratorRequest >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::CodeGeneratorResponse_File* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::CodeGeneratorResponse_File >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::CodeGeneratorResponse_File* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::CodeGeneratorResponse_File >(Arena* arena) {
   return Arena::CreateInternal< ::google::leap_protobuf::compiler::CodeGeneratorResponse_File >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::CodeGeneratorResponse* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::CodeGeneratorResponse >(Arena* arena) {
+template<> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE ::google::leap_protobuf::compiler::CodeGeneratorResponse* Arena::CreateMaybeMessage< ::google::leap_protobuf::compiler::CodeGeneratorResponse >(Arena* arena) {
   return Arena::CreateInternal< ::google::leap_protobuf::compiler::CodeGeneratorResponse >(arena);
 }
 }  // namespace leap_protobuf

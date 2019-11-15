@@ -1,5 +1,5 @@
-#ifndef GOOGLE_PROTOBUF_STUBS_CALLBACK_H_
-#define GOOGLE_PROTOBUF_STUBS_CALLBACK_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_CALLBACK_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_CALLBACK_H_
 
 #include <type_traits>
 
@@ -574,4 +574,4 @@ void LIBPROTOBUF_EXPORT DoNothing();
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_CALLBACK_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_CALLBACK_H_

@@ -36,8 +36,8 @@
 // Defines MessageLite, the abstract interface implemented by all (lite
 // and non-lite) protocol message objects.
 
-#ifndef GOOGLE_PROTOBUF_MESSAGE_LITE_H__
-#define GOOGLE_PROTOBUF_MESSAGE_LITE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_MESSAGE_LITE_H__
+#define GOOGLE_LEAP_PROTOBUF_MESSAGE_LITE_H__
 
 #include <climits>
 #include <google/leap_protobuf/stubs/common.h>
@@ -429,4 +429,4 @@ void LIBPROTOBUF_EXPORT SetProto3PreserveUnknownsDefault(bool preserve);
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_MESSAGE_LITE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_MESSAGE_LITE_H__

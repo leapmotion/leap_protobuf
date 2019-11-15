@@ -48,7 +48,7 @@
 #include <google/leap_protobuf/wire_format.h>
 
 
-#define GOOGLE_PROTOBUF_HAS_ONEOF
+#define GOOGLE_LEAP_PROTOBUF_HAS_ONEOF
 
 namespace google {
 namespace leap_protobuf {

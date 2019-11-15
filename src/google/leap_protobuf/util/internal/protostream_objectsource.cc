@@ -691,7 +691,7 @@ Status ProtoStreamObjectSource::RenderFieldMask(
 
 hash_map<string, ProtoStreamObjectSource::TypeRenderer>*
     ProtoStreamObjectSource::renderers_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(source_renderers_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(source_renderers_init_);
 
 void ProtoStreamObjectSource::InitRendererMap() {
   renderers_ = new hash_map<string, ProtoStreamObjectSource::TypeRenderer>();

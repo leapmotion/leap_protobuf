@@ -37,8 +37,8 @@
 // This header is logically internal, but is made public because it is used
 // from protocol-compiler-generated code, which may reside in other components.
 
-#ifndef GOOGLE_PROTOBUF_WIRE_FORMAT_LITE_H__
-#define GOOGLE_PROTOBUF_WIRE_FORMAT_LITE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_LITE_H__
+#define GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_LITE_H__
 
 #include <string>
 
@@ -50,7 +50,7 @@
 
 // Do UTF-8 validation on string type in Debug build only
 #ifndef NDEBUG
-#define GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#define GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
 #endif
 
 // Avoid conflict with iOS where <ConditionalMacros.h> #defines TYPE_BOOL.
@@ -202,7 +202,7 @@ class LIBPROTOBUF_EXPORT WireFormatLite {
 // result is usable as a compile-time constant, which makes it usable
 // as a switch case or a template input.  WireFormatLite::MakeTag() is more
 // type-safe, though, so prefer it if possible.
-#define GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(FIELD_NUMBER, TYPE)                  \
+#define GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(FIELD_NUMBER, TYPE)                  \
   static_cast<uint32>(                                                   \
     (static_cast<uint32>(FIELD_NUMBER) << ::google::leap_protobuf::internal::WireFormatLite::kTagTypeBits) \
       | (TYPE))
@@ -218,16 +218,16 @@ class LIBPROTOBUF_EXPORT WireFormatLite {
   static const int kMessageSetTypeIdNumber = 2;
   static const int kMessageSetMessageNumber = 3;
   static const int kMessageSetItemStartTag =
-    GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetItemNumber,
+    GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetItemNumber,
                                 WireFormatLite::WIRETYPE_START_GROUP);
   static const int kMessageSetItemEndTag =
-    GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetItemNumber,
+    GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetItemNumber,
                                 WireFormatLite::WIRETYPE_END_GROUP);
   static const int kMessageSetTypeIdTag =
-    GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetTypeIdNumber,
+    GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetTypeIdNumber,
                                 WireFormatLite::WIRETYPE_VARINT);
   static const int kMessageSetMessageTag =
-    GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetMessageNumber,
+    GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(kMessageSetMessageNumber,
                                 WireFormatLite::WIRETYPE_LENGTH_DELIMITED);
 
   // Byte size of all tags of a MessageSet::Item combined.
@@ -258,7 +258,7 @@ class LIBPROTOBUF_EXPORT WireFormatLite {
   // that file to use these.
 
 #ifdef NDEBUG
-#define INL GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
+#define INL GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
 #else
 // Avoid excessive inlining in non-optimized builds. Without other optimizations
 // the inlining is not going to provide benefits anyway and the huge resulting
@@ -713,7 +713,7 @@ class LIBPROTOBUF_EXPORT WireFormatLite {
   // optimizations for primitive types that have fixed size on the wire, and
   // can be read using potentially faster paths.
   template <typename CType, enum FieldType DeclaredType>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
   static bool ReadRepeatedFixedSizePrimitive(
       int tag_size,
       uint32 tag,
@@ -722,7 +722,7 @@ class LIBPROTOBUF_EXPORT WireFormatLite {
 
   // Like ReadRepeatedFixedSizePrimitive but for packed primitive fields.
   template <typename CType, enum FieldType DeclaredType>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
   static bool ReadPackedFixedSizePrimitive(
       google::leap_protobuf::io::CodedInputStream* input, RepeatedField<CType>* value);
 
@@ -780,7 +780,7 @@ WireFormatLite::FieldTypeToCppType(FieldType type) {
 }
 
 inline uint32 WireFormatLite::MakeTag(int field_number, WireType type) {
-  return GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(field_number, type);
+  return GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(field_number, type);
 }
 
 inline WireFormatLite::WireType WireFormatLite::GetTagWireType(uint32 tag) {
@@ -890,4 +890,4 @@ inline bool WireFormatLite::ReadString(io::CodedInputStream* input,
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_WIRE_FORMAT_LITE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_LITE_H__

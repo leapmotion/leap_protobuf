@@ -61,7 +61,7 @@ void InitDefaultUnknownFieldSet() {
   internal::OnShutdown(&DeleteDefaultUnknownFieldSet);
 }
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(default_unknown_field_set_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(default_unknown_field_set_once_init_);
 }
 
 const UnknownFieldSet* UnknownFieldSet::default_instance() {

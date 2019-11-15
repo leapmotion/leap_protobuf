@@ -32,8 +32,8 @@
 //  Based on original Protocol Buffers design by
 //  Sanjay Ghemawat, Jeff Dean, and others.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_BUILDER_H__
-#define GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_BUILDER_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_JAVA_MESSAGE_BUILDER_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_JAVA_MESSAGE_BUILDER_H__
 
 #include <string>
 #include <map>
@@ -83,4 +83,4 @@ class MessageBuilderGenerator {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_MESSAGE_BUILDER_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_JAVA_MESSAGE_BUILDER_H__

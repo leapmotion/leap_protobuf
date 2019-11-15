@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_METADATA_LITE_H__
-#define GOOGLE_PROTOBUF_METADATA_LITE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_METADATA_LITE_H__
+#define GOOGLE_LEAP_PROTOBUF_METADATA_LITE_H__
 
 #include <google/leap_protobuf/stubs/common.h>
 #include <google/leap_protobuf/arena.h>
@@ -63,7 +63,7 @@ class InternalMetadataWithArenaBase {
     ptr_ = NULL;
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE const T& unknown_fields() const {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE const T& unknown_fields() const {
     if (GOOGLE_PREDICT_FALSE(have_unknown_fields())) {
       return PtrValue<Container>()->unknown_fields;
     } else {
@@ -71,7 +71,7 @@ class InternalMetadataWithArenaBase {
     }
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* mutable_unknown_fields() {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* mutable_unknown_fields() {
     if (GOOGLE_PREDICT_TRUE(have_unknown_fields())) {
       return &PtrValue<Container>()->unknown_fields;
     } else {
@@ -79,7 +79,7 @@ class InternalMetadataWithArenaBase {
     }
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE Arena* arena() const {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE Arena* arena() const {
     if (GOOGLE_PREDICT_FALSE(have_unknown_fields())) {
       return PtrValue<Container>()->arena;
     } else {
@@ -87,11 +87,11 @@ class InternalMetadataWithArenaBase {
     }
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool have_unknown_fields() const {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE bool have_unknown_fields() const {
     return PtrTag() == kTagContainer;
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Swap(Derived* other) {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Swap(Derived* other) {
     // Semantics here are that we swap only the unknown fields, not the arena
     // pointer. We cannot simply swap ptr_ with other->ptr_ because we need to
     // maintain our own arena ptr. Also, our ptr_ and other's ptr_ may be in
@@ -103,19 +103,19 @@ class InternalMetadataWithArenaBase {
     }
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void MergeFrom(const Derived& other) {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void MergeFrom(const Derived& other) {
     if (other.have_unknown_fields()) {
       static_cast<Derived*>(this)->DoMergeFrom(other.unknown_fields());
     }
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Clear() {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void Clear() {
     if (have_unknown_fields()) {
       static_cast<Derived*>(this)->DoClear();
     }
   }
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void* raw_arena_ptr() const {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void* raw_arena_ptr() const {
     return ptr_;
   }
 
@@ -133,7 +133,7 @@ class InternalMetadataWithArenaBase {
   static const intptr_t kPtrValueMask = ~kPtrTagMask;
 
   // Accessors for pointer tag and pointer value.
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE int PtrTag() const {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE int PtrTag() const {
     return reinterpret_cast<intptr_t>(ptr_) & kPtrTagMask;
   }
 
@@ -148,7 +148,7 @@ class InternalMetadataWithArenaBase {
     Arena* arena;
   };
 
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE T* mutable_unknown_fields_slow() {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE T* mutable_unknown_fields_slow() {
     Arena* my_arena = arena();
     Container* container = Arena::Create<Container>(my_arena);
     // Two-step assignment works around a bug in clang's static analyzer:
@@ -221,4 +221,4 @@ class LIBPROTOBUF_EXPORT LiteUnknownFieldSetter {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_METADATA_LITE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_METADATA_LITE_H__

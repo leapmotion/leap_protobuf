@@ -138,8 +138,8 @@
 // (3) A null StringPiece is empty.
 //     An empty StringPiece may or may not be a null StringPiece.
 
-#ifndef GOOGLE_PROTOBUF_STUBS_STRINGPIECE_H_
-#define GOOGLE_PROTOBUF_STUBS_STRINGPIECE_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_STRINGPIECE_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_STRINGPIECE_H_
 
 #include <assert.h>
 #include <stddef.h>
@@ -472,7 +472,7 @@ struct StringPiecePod {
 }  // namespace leap_protobuf
 }  // namespace google
 
-GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_START
+GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE_DECLARATION_START
 template<> struct hash<StringPiece> {
   size_t operator()(const StringPiece& s) const {
     size_t result = 0;
@@ -482,6 +482,6 @@ template<> struct hash<StringPiece> {
     return result;
   }
 };
-GOOGLE_PROTOBUF_HASH_NAMESPACE_DECLARATION_END
+GOOGLE_LEAP_PROTOBUF_HASH_NAMESPACE_DECLARATION_END
 
 #endif  // STRINGS_STRINGPIECE_H_

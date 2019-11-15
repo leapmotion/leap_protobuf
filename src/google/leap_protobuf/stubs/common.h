@@ -32,8 +32,8 @@
 //
 // Contains basic types and utilities used by the rest of the library.
 
-#ifndef GOOGLE_PROTOBUF_COMMON_H__
-#define GOOGLE_PROTOBUF_COMMON_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMMON_H__
+#define GOOGLE_LEAP_PROTOBUF_COMMON_H__
 
 #include <algorithm>
 #include <iostream>
@@ -69,7 +69,7 @@
 #include <TargetConditionals.h>  // for TARGET_OS_IPHONE
 #endif
 
-#if defined(__ANDROID__) || defined(GOOGLE_PROTOBUF_OS_ANDROID) || (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE) || defined(GOOGLE_PROTOBUF_OS_IPHONE)
+#if defined(__ANDROID__) || defined(GOOGLE_LEAP_PROTOBUF_OS_ANDROID) || (defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE) || defined(GOOGLE_LEAP_PROTOBUF_OS_IPHONE)
 #include <pthread.h>
 #endif
 
@@ -101,14 +101,14 @@ namespace internal {
 
 // The current version, represented as a single integer to make comparison
 // easier:  major * 10^6 + minor * 10^3 + micro
-#define GOOGLE_PROTOBUF_VERSION 3006000
+#define GOOGLE_LEAP_PROTOBUF_VERSION 3006000
 
 // A suffix string for alpha, beta or rc releases. Empty for stable releases.
-#define GOOGLE_PROTOBUF_VERSION_SUFFIX ""
+#define GOOGLE_LEAP_PROTOBUF_VERSION_SUFFIX ""
 
 // The minimum library version which works with the current version of the
 // headers.
-#define GOOGLE_PROTOBUF_MIN_LIBRARY_VERSION 3006000
+#define GOOGLE_LEAP_PROTOBUF_MIN_LIBRARY_VERSION 3006000
 
 // The minimum header version which works with the current version of
 // the library.  This constant should only be used by protoc's C++ code
@@ -117,7 +117,7 @@ static const int kMinHeaderVersionForLibrary = 3006000;
 
 // The minimum protoc version which works with the current version of the
 // headers.
-#define GOOGLE_PROTOBUF_MIN_PROTOC_VERSION 3006000
+#define GOOGLE_LEAP_PROTOBUF_MIN_PROTOC_VERSION 3006000
 
 // The minimum header version which works with the current version of
 // protoc.  This constant should only be used in VerifyVersion().
@@ -137,9 +137,9 @@ std::string LIBPROTOBUF_EXPORT VersionString(int version);
 // to use the protobuf library) to verify that the version you link against
 // matches the headers you compiled against.  If a version mismatch is
 // detected, the process will abort.
-#define GOOGLE_PROTOBUF_VERIFY_VERSION                                    \
+#define GOOGLE_LEAP_PROTOBUF_VERIFY_VERSION                                    \
   ::google::leap_protobuf::internal::VerifyVersion(                            \
-    GOOGLE_PROTOBUF_VERSION, GOOGLE_PROTOBUF_MIN_LIBRARY_VERSION,         \
+    GOOGLE_LEAP_PROTOBUF_VERSION, GOOGLE_LEAP_PROTOBUF_MIN_LIBRARY_VERSION,         \
     __FILE__)
 
 
@@ -234,4 +234,4 @@ using std::string;
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_COMMON_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMMON_H__

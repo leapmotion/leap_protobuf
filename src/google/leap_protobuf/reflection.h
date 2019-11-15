@@ -30,8 +30,8 @@
 
 // This header defines the RepeatedFieldRef class template used to access
 // repeated fields with protobuf reflection API.
-#ifndef GOOGLE_PROTOBUF_REFLECTION_H__
-#define GOOGLE_PROTOBUF_REFLECTION_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_REFLECTION_H__
+#define GOOGLE_LEAP_PROTOBUF_REFLECTION_H__
 
 #include <memory>
 
@@ -607,4 +607,4 @@ struct RefTypeTraits<
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_REFLECTION_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_REFLECTION_H__

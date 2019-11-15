@@ -29,8 +29,8 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__
-#define GOOGLE_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__
 
 #include <google/leap_protobuf/io/printer.h>
 #include <google/leap_protobuf/descriptor.h>
@@ -48,4 +48,4 @@ namespace csharp {
 }  // namespace compiler
 }  // namespace leap_protobuf
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_DOC_COMMENT_H__

@@ -71,7 +71,7 @@ void SetCommonFieldVariables(const FieldDescriptor* descriptor,
   (*variables)["deprecation"] = descriptor->options().deprecated()
       ? " PROTOBUF_DEPRECATED" : "";
   (*variables)["deprecated_attr"] = descriptor->options().deprecated()
-      ? "GOOGLE_PROTOBUF_DEPRECATED_ATTR " : "";
+      ? "GOOGLE_LEAP_PROTOBUF_DEPRECATED_ATTR " : "";
 
   if (HasFieldPresence(descriptor->file())) {
     (*variables)["set_hasbit"] =

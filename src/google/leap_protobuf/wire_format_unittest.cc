@@ -1120,7 +1120,7 @@ TEST_F(WireFormatInvalidInputTest, InvalidStringInUnknownGroup) {
 
 // Test differences between string and bytes.
 // Value of a string type must be valid UTF-8 string.  When UTF-8
-// validation is enabled (GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED):
+// validation is enabled (GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED):
 // WriteInvalidUTF8String:  see error message.
 // ReadInvalidUTF8String:  see error message.
 // WriteValidUTF8String: fine.
@@ -1167,7 +1167,7 @@ TEST_F(Utf8ValidationTest, WriteInvalidUTF8String) {
     WriteMessage(kInvalidUTF8String, &input, &wire_buffer);
     errors = log.GetMessages(ERROR);
   }
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   ASSERT_EQ(1, errors.size());
   EXPECT_TRUE(StartsWith(errors[0],
                          "String field 'protobuf_unittest.OneString.data' "
@@ -1176,7 +1176,7 @@ TEST_F(Utf8ValidationTest, WriteInvalidUTF8String) {
                          "'bytes' type if you intend to send raw bytes."));
 #else
   ASSERT_EQ(0, errors.size());
-#endif  // GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#endif  // GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
 }
 
 
@@ -1191,7 +1191,7 @@ TEST_F(Utf8ValidationTest, ReadInvalidUTF8String) {
     ReadMessage(wire_buffer, &output);
     errors = log.GetMessages(ERROR);
   }
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   ASSERT_EQ(1, errors.size());
   EXPECT_TRUE(StartsWith(errors[0],
                          "String field 'protobuf_unittest.OneString.data' "
@@ -1201,7 +1201,7 @@ TEST_F(Utf8ValidationTest, ReadInvalidUTF8String) {
 
 #else
   ASSERT_EQ(0, errors.size());
-#endif  // GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#endif  // GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
 }
 
 
@@ -1274,11 +1274,11 @@ TEST_F(Utf8ValidationTest, ParseRepeatedString) {
     ReadMessage(wire_buffer, &output);
     errors = log.GetMessages(ERROR);
   }
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   ASSERT_EQ(2, errors.size());
 #else
   ASSERT_EQ(0, errors.size());
-#endif  // GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#endif  // GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   EXPECT_EQ(wire_buffer, output.SerializeAsString());
 }
 
@@ -1294,7 +1294,7 @@ TEST_F(Utf8ValidationTest, OldVerifyUTF8String) {
                                  WireFormat::SERIALIZE);
     errors = log.GetMessages(ERROR);
   }
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   ASSERT_EQ(1, errors.size());
   EXPECT_TRUE(StartsWith(errors[0],
                          "String field contains invalid UTF-8 data when "

@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_GENERATED_MESSAGE_TABLE_DRIVEN_LITE_H__
-#define GOOGLE_PROTOBUF_GENERATED_MESSAGE_TABLE_DRIVEN_LITE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_TABLE_DRIVEN_LITE_H__
+#define GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_TABLE_DRIVEN_LITE_H__
 
 #include <google/leap_protobuf/generated_message_table_driven.h>
 
@@ -227,7 +227,7 @@ static inline bool HandleString(io::CodedInputStream* input, MessageLite* msg,
                                 uint32 has_bit_index, int64 offset,
                                 const void* default_ptr,
                                 const char* field_name) {
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   const char* sdata;
   size_t size;
 #endif
@@ -255,7 +255,7 @@ static inline bool HandleString(io::CodedInputStream* input, MessageLite* msg,
         return false;
       }
 
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
       sdata = value->data();
       size = value->size();
 #endif
@@ -284,7 +284,7 @@ static inline bool HandleString(io::CodedInputStream* input, MessageLite* msg,
         return false;
       }
 
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
       sdata = value->data();
       size = value->size();
 #endif
@@ -292,7 +292,7 @@ static inline bool HandleString(io::CodedInputStream* input, MessageLite* msg,
     }
   }
 
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   if (validate) {
     WireFormatLite::VerifyUtf8String(sdata, size, WireFormatLite::PARSE,
                                      field_name);
@@ -474,7 +474,7 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
         HANDLE_TYPE(BOOL, bool)
 #undef HANDLE_TYPE
         case WireFormatLite::TYPE_BYTES:
-#ifndef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifndef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
         case WireFormatLite::TYPE_STRING:
 #endif
         {
@@ -491,7 +491,7 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
           break;
         }
         case TYPE_BYTES_INLINED:
-#ifndef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifndef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
         case TYPE_STRING_INLINED:
 #endif
         {
@@ -508,7 +508,7 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
           break;
         }
         case WireFormatLite::TYPE_BYTES | kOneofMask:
-#ifndef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifndef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
         case WireFormatLite::TYPE_STRING | kOneofMask:
 #endif
         {
@@ -531,7 +531,7 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
         }
         case (WireFormatLite::TYPE_BYTES) | kRepeatedMask:
         case TYPE_BYTES_INLINED | kRepeatedMask:
-#ifndef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifndef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
         case (WireFormatLite::TYPE_STRING) | kRepeatedMask:
         case TYPE_STRING_INLINED | kRepeatedMask:
 #endif
@@ -549,7 +549,7 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
           }
           break;
         }
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
         case (WireFormatLite::TYPE_STRING): {
           Arena* const arena =
               GetArena<InternalMetadata>(msg, table.arena_offset);
@@ -727,7 +727,7 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
 
           break;
         }
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
         case TYPE_STRING_INLINED: {
           Arena* const arena =
               GetArena<InternalMetadata>(msg, table.arena_offset);
@@ -742,7 +742,7 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
           }
           break;
         }
-#endif  // GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#endif  // GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
         case TYPE_MAP: {
           if (GOOGLE_PREDICT_FALSE(!(*table.aux[field_number].maps.parse_map)(
                   input, Raw<void>(msg, offset)))) {
@@ -870,4 +870,4 @@ bool MergePartialFromCodedStreamImpl(MessageLite* msg, const ParseTable& table,
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_GENERATED_MESSAGE_TABLE_DRIVEN_LITE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_TABLE_DRIVEN_LITE_H__

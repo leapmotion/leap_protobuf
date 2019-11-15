@@ -36,8 +36,8 @@
 // generated .pb.h files and should have minimal dependencies. The methods are
 // implemented in generated_message_reflection.cc.
 
-#ifndef GOOGLE_PROTOBUF_GENERATED_ENUM_REFLECTION_H__
-#define GOOGLE_PROTOBUF_GENERATED_ENUM_REFLECTION_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_GENERATED_ENUM_REFLECTION_H__
+#define GOOGLE_LEAP_PROTOBUF_GENERATED_ENUM_REFLECTION_H__
 
 #include <string>
 
@@ -84,4 +84,4 @@ LIBPROTOBUF_EXPORT const string& NameOfEnum(const EnumDescriptor* descriptor, in
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_GENERATED_ENUM_REFLECTION_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_GENERATED_ENUM_REFLECTION_H__

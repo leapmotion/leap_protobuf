@@ -30,8 +30,8 @@
 
 // Author: petar@google.com (Petar Petrov)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
+#define GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
 
 #include <Python.h>
 
@@ -102,4 +102,4 @@ bool InitDescriptor();
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__

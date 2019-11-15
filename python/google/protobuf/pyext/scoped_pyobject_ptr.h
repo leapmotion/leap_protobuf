@@ -30,8 +30,8 @@
 
 // Author: tibell@google.com (Johan Tibell)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
+#define GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
 
 #include <google/leap_protobuf/stubs/common.h>
 
@@ -102,4 +102,4 @@ typedef ScopedPythonPtr<PyObject> ScopedPyObjectPtr;
 }  // namespace python
 }  // namespace leap_protobuf
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__

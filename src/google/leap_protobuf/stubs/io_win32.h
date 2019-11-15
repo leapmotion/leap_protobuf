@@ -42,8 +42,8 @@
 //
 // This file is only used on Windows, it's empty on other platforms.
 
-#ifndef GOOGLE_PROTOBUF_STUBS_IO_WIN32_H__
-#define GOOGLE_PROTOBUF_STUBS_IO_WIN32_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_IO_WIN32_H__
+#define GOOGLE_LEAP_PROTOBUF_STUBS_IO_WIN32_H__
 
 #if defined(_WIN32)
 
@@ -112,4 +112,4 @@ LIBPROTOBUF_EXPORT bool wcs_to_utf8(const wchar_t* input, std::string* out);
 
 #endif  // defined(_WIN32)
 
-#endif  // GOOGLE_PROTOBUF_STUBS_IO_WIN32_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_IO_WIN32_H__

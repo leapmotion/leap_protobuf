@@ -34,8 +34,8 @@
 // Please avoid using other types defined here, unless they are public
 // types within Map or MapIterator, such as Map::value_type.
 
-#ifndef GOOGLE_PROTOBUF_MAP_H__
-#define GOOGLE_PROTOBUF_MAP_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_MAP_H__
+#define GOOGLE_LEAP_PROTOBUF_MAP_H__
 
 #include <initializer_list>
 #include <iterator>
@@ -222,9 +222,9 @@ class Map {
       }
     }
 
-#if __cplusplus >= 201103L && !defined(GOOGLE_PROTOBUF_OS_APPLE) && \
-    !defined(GOOGLE_PROTOBUF_OS_NACL) &&                            \
-    !defined(GOOGLE_PROTOBUF_OS_EMSCRIPTEN)
+#if __cplusplus >= 201103L && !defined(GOOGLE_LEAP_PROTOBUF_OS_APPLE) && \
+    !defined(GOOGLE_LEAP_PROTOBUF_OS_NACL) &&                            \
+    !defined(GOOGLE_LEAP_PROTOBUF_OS_EMSCRIPTEN)
     template<class NodeType, class... Args>
     void construct(NodeType* p, Args&&... args) {
       // Clang 3.6 doesn't compile static casting to void* directly. (Issue
@@ -1216,4 +1216,4 @@ class Map {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_MAP_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_MAP_H__

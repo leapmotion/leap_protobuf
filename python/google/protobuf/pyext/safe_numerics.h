@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
+#define GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
 // Copied from chromium with only changes to the namespace.
 
 #include <limits>
@@ -161,4 +161,4 @@ inline Dest checked_numeric_cast(Source source) {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__

@@ -36,8 +36,8 @@
 // This header is logically internal, but is made public because it is used
 // from protocol-compiler-generated code, which may reside in other components.
 
-#ifndef GOOGLE_PROTOBUF_WIRE_FORMAT_H__
-#define GOOGLE_PROTOBUF_WIRE_FORMAT_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_H__
+#define GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_H__
 
 #include <string>
 #include <google/leap_protobuf/stubs/common.h>
@@ -306,7 +306,7 @@ inline size_t WireFormat::TagSize(int field_number,
 
 inline void WireFormat::VerifyUTF8String(const char* data, int size,
     WireFormat::Operation op) {
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   WireFormatLite::VerifyUtf8String(
       data, size, static_cast<WireFormatLite::Operation>(op), NULL);
 #else
@@ -318,7 +318,7 @@ inline void WireFormat::VerifyUTF8String(const char* data, int size,
 inline void WireFormat::VerifyUTF8StringNamedField(
     const char* data, int size, WireFormat::Operation op,
     const char* field_name) {
-#ifdef GOOGLE_PROTOBUF_UTF8_VALIDATION_ENABLED
+#ifdef GOOGLE_LEAP_PROTOBUF_UTF8_VALIDATION_ENABLED
   WireFormatLite::VerifyUtf8String(
       data, size, static_cast<WireFormatLite::Operation>(op), field_name);
 #else
@@ -332,4 +332,4 @@ inline void WireFormat::VerifyUTF8StringNamedField(
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_WIRE_FORMAT_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_H__

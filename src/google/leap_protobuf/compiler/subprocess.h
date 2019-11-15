@@ -30,8 +30,8 @@
 
 // Author: kenton@google.com (Kenton Varda)
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_SUBPROCESS_H__
-#define GOOGLE_PROTOBUF_COMPILER_SUBPROCESS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_SUBPROCESS_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_SUBPROCESS_H__
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN   // right...
@@ -104,4 +104,4 @@ class LIBPROTOC_EXPORT Subprocess {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_SUBPROCESS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_SUBPROCESS_H__

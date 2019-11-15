@@ -31,8 +31,8 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_MESSAGE_H__
+#define GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_MESSAGE_H__
 
 #include <Python.h>
 
@@ -356,4 +356,4 @@ extern template bool CheckAndGetInteger<uint64>(PyObject*, uint64*);
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_PYTHON_CPP_MESSAGE_H__

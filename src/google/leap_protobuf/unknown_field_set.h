@@ -35,8 +35,8 @@
 // Contains classes used to keep track of unrecognized fields seen while
 // parsing a protocol message.
 
-#ifndef GOOGLE_PROTOBUF_UNKNOWN_FIELD_SET_H__
-#define GOOGLE_PROTOBUF_UNKNOWN_FIELD_SET_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_UNKNOWN_FIELD_SET_H__
+#define GOOGLE_LEAP_PROTOBUF_UNKNOWN_FIELD_SET_H__
 
 #include <assert.h>
 #include <string>
@@ -360,4 +360,4 @@ inline void UnknownField::SetType(Type type) {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_UNKNOWN_FIELD_SET_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_UNKNOWN_FIELD_SET_H__

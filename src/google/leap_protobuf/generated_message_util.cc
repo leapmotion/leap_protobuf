@@ -66,7 +66,7 @@ double NaN() {
 }
 
 ExplicitlyConstructed<::std::string> fixed_address_empty_string;
-GOOGLE_PROTOBUF_DECLARE_ONCE(empty_string_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(empty_string_once_init_);
 
 void DeleteEmptyString() { fixed_address_empty_string.Destruct(); }
 
@@ -786,7 +786,7 @@ void InitSCC_DFS(SCCInfoBase* scc) {
 }  // namespace
 
 void InitSCCImpl(SCCInfoBase* scc) {
-  static WrappedMutex mu{GOOGLE_PROTOBUF_LINKER_INITIALIZED};
+  static WrappedMutex mu{GOOGLE_LEAP_PROTOBUF_LINKER_INITIALIZED};
   // Either the default in case no initialization is running or the id of the
   // thread that is currently initializing.
   static std::atomic<std::thread::id> runner;

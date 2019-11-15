@@ -80,7 +80,7 @@ using google::leap_protobuf::internal::win32::write;
 
 // Disable the whole test when we use tcmalloc for "draconian" heap checks, in
 // which case tcmalloc will print warnings that fail the plugin tests.
-#if !GOOGLE_PROTOBUF_HEAP_CHECK_DRACONIAN
+#if !GOOGLE_LEAP_PROTOBUF_HEAP_CHECK_DRACONIAN
 
 
 namespace {
@@ -300,8 +300,8 @@ void CommandLineInterfaceTest::RunWithArgs(std::vector<string> args) {
     cli_.AllowPlugins("prefix-");
 #ifndef GOOGLE_THIRD_PARTY_PROTOBUF
     string plugin_path;
-#ifdef GOOGLE_PROTOBUF_TEST_PLUGIN_PATH
-    plugin_path = GOOGLE_PROTOBUF_TEST_PLUGIN_PATH;
+#ifdef GOOGLE_LEAP_PROTOBUF_TEST_PLUGIN_PATH
+    plugin_path = GOOGLE_LEAP_PROTOBUF_TEST_PLUGIN_PATH;
 #else
     const char* possible_paths[] = {
       // When building with shared libraries, libtool hides the real executable
@@ -1994,8 +1994,8 @@ TEST_F(CommandLineInterfaceTest, PluginReceivesCompilerVersion) {
 
   ExpectErrorSubstring(
       StringPrintf("Saw compiler_version: %d %s",
-                   GOOGLE_PROTOBUF_VERSION,
-                   GOOGLE_PROTOBUF_VERSION_SUFFIX));
+                   GOOGLE_LEAP_PROTOBUF_VERSION,
+                   GOOGLE_LEAP_PROTOBUF_VERSION_SUFFIX));
 }
 
 TEST_F(CommandLineInterfaceTest, GeneratorPluginNotFound) {
@@ -2432,7 +2432,7 @@ INSTANTIATE_TEST_CASE_P(FileDescriptorSetSource,
                         testing::Values(PROTO_PATH, DESCRIPTOR_SET_IN));
 }  // anonymous namespace
 
-#endif  // !GOOGLE_PROTOBUF_HEAP_CHECK_DRACONIAN
+#endif  // !GOOGLE_LEAP_PROTOBUF_HEAP_CHECK_DRACONIAN
 
 }  // namespace compiler
 }  // namespace leap_protobuf

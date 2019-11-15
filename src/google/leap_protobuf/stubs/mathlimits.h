@@ -50,12 +50,12 @@
 // and <cmath> get pulled into the same translation unit. We use the ones in
 // std:: namespace explicitly for C++11
 #include <cmath>
-#define GOOGLE_PROTOBUF_USE_STD_CMATH
+#define GOOGLE_LEAP_PROTOBUF_USE_STD_CMATH
 #elif _GLIBCXX_USE_C99_MATH && !_GLIBCXX_USE_C99_FP_MACROS_DYNAMIC
 // libstdc++ <cmath> header undefines the global macros and put functions in
 // std:: namespace even before C++11. Use the ones in std:: instead too.
 #include <cmath>
-#define GOOGLE_PROTOBUF_USE_STD_CMATH
+#define GOOGLE_LEAP_PROTOBUF_USE_STD_CMATH
 #else
 #include <math.h>
 #endif
@@ -234,7 +234,7 @@ DECL_UNSIGNED_INT_LIMITS(unsigned long long int)
 // For non-Windows builds we use the std:: versions of isinf and isnan if they
 // are available; see the comment about <cmath> at the top of this file for the
 // details on why we need to do this.
-#ifdef GOOGLE_PROTOBUF_USE_STD_CMATH
+#ifdef GOOGLE_LEAP_PROTOBUF_USE_STD_CMATH
 #define ISINF std::isinf
 #define ISNAN std::isnan
 #else

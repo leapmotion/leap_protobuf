@@ -1,8 +1,8 @@
 // Adapted from the patch of kenton@google.com (Kenton Varda)
 // See https://github.com/google/leap_protobuf/pull/710 for details.
 
-#ifndef GOOGLE_PROTOBUF_UTIL_DELIMITED_MESSAGE_UTIL_H__
-#define GOOGLE_PROTOBUF_UTIL_DELIMITED_MESSAGE_UTIL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_UTIL_DELIMITED_MESSAGE_UTIL_H__
+#define GOOGLE_LEAP_PROTOBUF_UTIL_DELIMITED_MESSAGE_UTIL_H__
 
 #include <ostream>
 
@@ -63,4 +63,4 @@ bool LIBPROTOBUF_EXPORT SerializeDelimitedToCodedStream(const MessageLite& messa
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_UTIL_DELIMITED_MESSAGE_UTIL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_UTIL_DELIMITED_MESSAGE_UTIL_H__

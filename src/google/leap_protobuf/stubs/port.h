@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_STUBS_PORT_H_
-#define GOOGLE_PROTOBUF_STUBS_PORT_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_PORT_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_PORT_H_
 
 #include <assert.h>
 #include <stdlib.h>
@@ -192,7 +192,7 @@ static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);
 #endif
 #endif
 
-#define GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE GOOGLE_ATTRIBUTE_ALWAYS_INLINE
+#define GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE GOOGLE_ATTRIBUTE_ALWAYS_INLINE
 
 #ifndef GOOGLE_ATTRIBUTE_NOINLINE
 #if defined(__GNUC__) && (__GNUC__ > 3 ||(__GNUC__ == 3 && __GNUC_MINOR__ >= 1))
@@ -208,7 +208,7 @@ static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);
 #endif
 #endif
 
-#define GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE GOOGLE_ATTRIBUTE_NOINLINE
+#define GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE GOOGLE_ATTRIBUTE_NOINLINE
 
 #ifndef GOOGLE_ATTRIBUTE_FUNC_ALIGN
 #if defined(__clang__) || \
@@ -220,7 +220,7 @@ static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);
 #endif
 #endif
 
-#define GOOGLE_PROTOBUF_ATTRIBUTE_FUNC_ALIGN(bytes) \
+#define GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_FUNC_ALIGN(bytes) \
         GOOGLE_ATTRIBUTE_FUNC_ALIGN(bytes)
 
 #ifndef GOOGLE_PREDICT_TRUE
@@ -241,9 +241,9 @@ static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);
 #endif
 #endif
 
-#ifndef GOOGLE_PROTOBUF_ATTRIBUTE_RETURNS_NONNULL
+#ifndef GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_RETURNS_NONNULL
 #ifdef __GNUC__
-#define GOOGLE_PROTOBUF_ATTRIBUTE_RETURNS_NONNULL \
+#define GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_RETURNS_NONNULL \
     __attribute__((returns_nonnull))
 #endif
 #endif
@@ -261,17 +261,17 @@ static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);
 #define GOOGLE_GUARDED_BY(x)
 #define GOOGLE_ATTRIBUTE_COLD
 
-#ifdef GOOGLE_PROTOBUF_DONT_USE_UNALIGNED
-# define GOOGLE_PROTOBUF_USE_UNALIGNED 0
+#ifdef GOOGLE_LEAP_PROTOBUF_DONT_USE_UNALIGNED
+# define GOOGLE_LEAP_PROTOBUF_USE_UNALIGNED 0
 #else
 # if defined(_M_X64) || defined(__x86_64__) || defined(_M_IX86) || defined(__i386__)
-#  define GOOGLE_PROTOBUF_USE_UNALIGNED 1
+#  define GOOGLE_LEAP_PROTOBUF_USE_UNALIGNED 1
 # else
-#  define GOOGLE_PROTOBUF_USE_UNALIGNED 0
+#  define GOOGLE_LEAP_PROTOBUF_USE_UNALIGNED 0
 # endif
 #endif
 
-#define GOOGLE_PROTOBUF_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_COLD
+#define GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_COLD
 
 #if defined(ADDRESS_SANITIZER) || defined(THREAD_SANITIZER) ||\
     defined(MEMORY_SANITIZER)
@@ -313,7 +313,7 @@ inline void GOOGLE_UNALIGNED_STORE64(void *p, uint64 v) {
   __sanitizer_unaligned_store64(p, v);
 }
 
-#elif GOOGLE_PROTOBUF_USE_UNALIGNED
+#elif GOOGLE_LEAP_PROTOBUF_USE_UNALIGNED
 
 #define GOOGLE_UNALIGNED_LOAD16(_p) (*reinterpret_cast<const uint16 *>(_p))
 #define GOOGLE_UNALIGNED_LOAD32(_p) (*reinterpret_cast<const uint32 *>(_p))
@@ -355,11 +355,11 @@ inline void GOOGLE_UNALIGNED_STORE64(void *p, uint64 v) {
 }
 #endif
 
-#if defined(GOOGLE_PROTOBUF_OS_NACL) \
+#if defined(GOOGLE_LEAP_PROTOBUF_OS_NACL) \
     || (defined(__ANDROID__) && defined(__clang__) \
         && (__clang_major__ == 3 && __clang_minor__ == 8) \
         && (__clang_patchlevel__ < 275480))
-# define GOOGLE_PROTOBUF_USE_PORTABLE_LOG2
+# define GOOGLE_LEAP_PROTOBUF_USE_PORTABLE_LOG2
 #endif
 
 #if defined(_MSC_VER)
@@ -431,7 +431,7 @@ class Bits {
     // This includes arm-nacl-clang and clang in older Android NDK versions.
     // To work around this, when we build with those we use the portable
     // implementation instead.
-#if defined(__GNUC__) && !defined(GOOGLE_PROTOBUF_USE_PORTABLE_LOG2)
+#if defined(__GNUC__) && !defined(GOOGLE_LEAP_PROTOBUF_USE_PORTABLE_LOG2)
   return 63 ^ static_cast<uint32>(__builtin_clzll(n));
 #elif defined(_MSC_VER) && defined(_M_X64)
   unsigned long where;
@@ -534,9 +534,9 @@ class BigEndian {
 #define GOOGLE_ATTRIBUTE_SECTION_VARIABLE(name)
 #endif
 
-#define GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(name)
+#define GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(name)
 
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_PORT_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_PORT_H_

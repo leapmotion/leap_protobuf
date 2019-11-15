@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_TYPE_HANDLER_H__
-#define GOOGLE_PROTOBUF_TYPE_HANDLER_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_TYPE_HANDLER_H__
+#define GOOGLE_LEAP_PROTOBUF_TYPE_HANDLER_H__
 
 #include <google/leap_protobuf/arena.h>
 #include <google/leap_protobuf/wire_format_lite_inl.h>
@@ -279,24 +279,24 @@ MapTypeHandler<WireFormatLite::TYPE_MESSAGE, Type>::ByteSize(
   return WireFormatLite::MessageSizeNoVirtual(value);
 }
 
-#define GOOGLE_PROTOBUF_BYTE_SIZE(FieldType, DeclaredType)                     \
+#define GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(FieldType, DeclaredType)                     \
   template <typename Type>                                                     \
   inline int MapTypeHandler<WireFormatLite::TYPE_##FieldType, Type>::ByteSize( \
       const MapEntryAccessorType& value) {                                     \
     return static_cast<int>(WireFormatLite::DeclaredType##Size(value));        \
   }
 
-GOOGLE_PROTOBUF_BYTE_SIZE(STRING, String)
-GOOGLE_PROTOBUF_BYTE_SIZE(BYTES , Bytes)
-GOOGLE_PROTOBUF_BYTE_SIZE(INT64 , Int64)
-GOOGLE_PROTOBUF_BYTE_SIZE(UINT64, UInt64)
-GOOGLE_PROTOBUF_BYTE_SIZE(INT32 , Int32)
-GOOGLE_PROTOBUF_BYTE_SIZE(UINT32, UInt32)
-GOOGLE_PROTOBUF_BYTE_SIZE(SINT64, SInt64)
-GOOGLE_PROTOBUF_BYTE_SIZE(SINT32, SInt32)
-GOOGLE_PROTOBUF_BYTE_SIZE(ENUM  , Enum)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(STRING, String)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(BYTES , Bytes)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(INT64 , Int64)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(UINT64, UInt64)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(INT32 , Int32)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(UINT32, UInt32)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(SINT64, SInt64)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(SINT32, SInt32)
+GOOGLE_LEAP_PROTOBUF_BYTE_SIZE(ENUM  , Enum)
 
-#undef GOOGLE_PROTOBUF_BYTE_SIZE
+#undef GOOGLE_LEAP_PROTOBUF_BYTE_SIZE
 
 #define FIXED_BYTE_SIZE(FieldType, DeclaredType)                               \
   template <typename Type>                                                     \
@@ -736,4 +736,4 @@ PRIMITIVE_HANDLER_FUNCTIONS(BOOL)
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_TYPE_HANDLER_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_TYPE_HANDLER_H__

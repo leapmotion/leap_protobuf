@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_PHP_GENERATOR_H__
-#define GOOGLE_PROTOBUF_COMPILER_PHP_GENERATOR_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_PHP_GENERATOR_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_PHP_GENERATOR_H__
 
 #include <google/leap_protobuf/compiler/code_generator.h>
 #include <google/leap_protobuf/descriptor.h>
@@ -65,4 +65,4 @@ LIBPROTOC_EXPORT std::string GeneratedClassName(
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_COMPILER_PHP_GENERATOR_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_PHP_GENERATOR_H__

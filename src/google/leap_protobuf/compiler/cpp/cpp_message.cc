@@ -590,7 +590,7 @@ GenerateFieldAccessorDeclarations(io::Printer* printer) {
     // Generate accessors for extensions.  We just call a macro located in
     // extension_set.h since the accessors about 80 lines of static code.
     printer->Print(
-      "GOOGLE_PROTOBUF_EXTENSION_ACCESSORS($classname$)\n",
+      "GOOGLE_LEAP_PROTOBUF_EXTENSION_ACCESSORS($classname$)\n",
       "classname", classname_);
   }
 
@@ -1395,13 +1395,13 @@ bool MessageGenerator::GenerateParseTable(io::Printer* printer, size_t offset,
     printer->Print(vars, "-1,\n");
   } else {
     printer->Print(vars,
-                   "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
+                   "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
                    "  $classtype$, _has_bits_),\n");
   }
 
   if (descriptor_->oneof_decl_count() > 0) {
     printer->Print(vars,
-                   "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
+                   "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
                    "  $classtype$, _oneof_case_),\n");
   } else {
     printer->Print("-1,  // no _oneof_case_\n");
@@ -1409,7 +1409,7 @@ bool MessageGenerator::GenerateParseTable(io::Printer* printer, size_t offset,
 
   if (descriptor_->extension_range_count() > 0) {
     printer->Print(vars,
-                   "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classtype$, "
+                   "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classtype$, "
                    "_extensions_),\n");
   } else {
     printer->Print("-1,  // no _extensions_\n");
@@ -1420,7 +1420,7 @@ bool MessageGenerator::GenerateParseTable(io::Printer* printer, size_t offset,
   vars["ns"] = Namespace(descriptor_);
 
   printer->Print(vars,
-                 "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
+                 "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
                  "  $classtype$, _internal_metadata_),\n"
                  "&$ns$::_$classname$_default_instance_,\n");
 
@@ -1559,10 +1559,10 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
         }
       }
       printer->Print(vars,
-                     "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
+                     "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
                      "::google::leap_protobuf::internal::MapEntryHelper<$classname$::"
                      "SuperType>, $field_name$_), $tag$,"
-                     "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
+                     "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
                      "::google::leap_protobuf::internal::MapEntryHelper<$classname$::"
                      "SuperType>, _has_bits_) * 8 + $hasbit$, $type$, "
                      "$ptr$},\n");
@@ -1570,7 +1570,7 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
     return 2;
   }
   printer->Print(
-      "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
+      "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
       "_cached_size_), 0, 0, 0, NULL},\n",
       "classname", full_classname);
   std::vector<const Descriptor::ExtensionRange*> sorted_extensions;
@@ -1587,7 +1587,7 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
       const Descriptor::ExtensionRange* range =
           sorted_extensions[extension_idx];
       printer->Print(
-          "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
+          "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
           "_extensions_), $start$, $end$, "
           "::google::leap_protobuf::internal::FieldMetadata::kSpecial, "
           "reinterpret_cast<const "
@@ -1619,7 +1619,7 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
         vars["idx"] = SimpleItoa(FindMessageIndexInFile(field->message_type()));
         vars["fieldclassname"] = QualifiedClassName(field->message_type());
         printer->Print(vars,
-                       "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
+                       "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                        "classname$, $field_name$_), $tag$, $idx$, "
                        "::google::leap_protobuf::internal::FieldMetadata::kSpecial, "
                        "reinterpret_cast<const void*>(static_cast< "
@@ -1644,7 +1644,7 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
     if (field->options().weak()) {
       // TODO(gerbens) merge weak fields into ranges
       printer->Print(vars,
-                     "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
+                     "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                      "classname$, _weak_field_map_), $tag$, $tag$, "
                      "::google::leap_protobuf::internal::FieldMetadata::kSpecial, "
                      "reinterpret_cast<const "
@@ -1653,23 +1653,23 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
       vars["oneofoffset"] =
           SimpleItoa(sizeof(uint32) * field->containing_oneof()->index());
       printer->Print(vars,
-                     "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
+                     "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                      "classname$, $field_name$_), $tag$, "
-                     "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
+                     "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                      "classname$, _oneof_case_) + $oneofoffset$, "
                      "$type$, $ptr$},\n");
     } else if (HasFieldPresence(descriptor_->file()) &&
                has_bit_indices_[field->index()] != -1) {
       vars["hasbitsoffset"] = SimpleItoa(has_bit_indices_[field->index()]);
       printer->Print(vars,
-                     "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
+                     "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                      "classname$, $field_name$_), $tag$, "
-                     "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
+                     "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                      "classname$, _has_bits_) * 8 + $hasbitsoffset$, $type$, "
                      "$ptr$},\n");
     } else {
       printer->Print(vars,
-                     "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
+                     "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($"
                      "classname$, $field_name$_), $tag$, ~0u, $type$, "
                      "$ptr$},\n");
     }
@@ -1680,7 +1680,7 @@ int MessageGenerator::GenerateFieldMetadata(io::Printer* printer) {
                           ? "::google::leap_protobuf::internal::UnknownFieldSetSerializer"
                           : "::google::leap_protobuf::internal::UnknownFieldSerializerLite";
   printer->Print(
-      "{GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
+      "{GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
       "_internal_metadata_), 0, ~0u, "
       "::google::leap_protobuf::internal::FieldMetadata::kSpecial, reinterpret_cast<const "
       "void*>($serializer$)},\n",
@@ -1979,7 +1979,7 @@ size_t MessageGenerator::GenerateParseOffsets(io::Printer* printer) {
 
     printer->Print(vars,
       "{\n"
-      "  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
+      "  GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(\n"
       "    $classname$, $name$_),\n"
       "  static_cast<::google::leap_protobuf::uint32>($presence$),\n"
       "  $nwtype$, $pwtype$, $ptype$, $tag_size$\n"
@@ -2082,32 +2082,32 @@ std::pair<size_t, size_t> MessageGenerator::GenerateOffsets(
   if (HasFieldPresence(descriptor_->file()) || IsMapEntryMessage(descriptor_)) {
     printer->Print(
         variables,
-        "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
+        "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
         "_has_bits_),\n");
   } else {
     printer->Print("~0u,  // no _has_bits_\n");
   }
   printer->Print(variables,
-                 "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
+                 "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
                  "_internal_metadata_),\n");
   if (descriptor_->extension_range_count() > 0) {
     printer->Print(
         variables,
-        "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
+        "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, "
         "_extensions_),\n");
   } else {
     printer->Print("~0u,  // no _extensions_\n");
   }
   if (descriptor_->oneof_decl_count() > 0) {
     printer->Print(variables,
-                   "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
+                   "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET("
                    "$classname$, _oneof_case_[0]),\n");
   } else {
     printer->Print("~0u,  // no _oneof_case_\n");
   }
   if (num_weak_fields_ > 0) {
     printer->Print(variables,
-                   "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$,"
+                   "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$,"
                    " _weak_field_map_),\n");
   } else {
     printer->Print("~0u,  // no _weak_field_map_\n");
@@ -2124,7 +2124,7 @@ std::pair<size_t, size_t> MessageGenerator::GenerateOffsets(
                      "classname", full_classname, "name", FieldName(field));
     } else {
       printer->Print(
-          "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, $name$_)",
+          "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, $name$_)",
           "classname", full_classname, "name", FieldName(field));
     }
 
@@ -2139,7 +2139,7 @@ std::pair<size_t, size_t> MessageGenerator::GenerateOffsets(
   for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
     const OneofDescriptor* oneof = descriptor_->oneof_decl(i);
     printer->Print(
-        "GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, $name$_),\n",
+        "GOOGLE_LEAP_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET($classname$, $name$_),\n",
         "classname", full_classname, "name", oneof->name());
   }
 
@@ -2585,7 +2585,7 @@ GenerateStructors(io::Printer* printer) {
 void MessageGenerator::GenerateSourceInProto2Namespace(io::Printer* printer) {
   printer->Print(
       "template<> "
-      "GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE "
+      "GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE "
       "$classname$* Arena::CreateMaybeMessage< $classname$ >(Arena* arena) {\n"
       "  return Arena::$create_func$Internal< $classname$ >(arena);\n"
       "}\n",

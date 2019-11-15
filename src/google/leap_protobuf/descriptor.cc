@@ -480,7 +480,7 @@ typedef std::map<DescriptorIntPair, const FieldDescriptor*>
 typedef HASH_MAP<string, const SourceCodeInfo_Location*> LocationsByPathMap;
 
 std::set<string>* allowed_proto3_extendees_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(allowed_proto3_extendees_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(allowed_proto3_extendees_init_);
 
 void DeleteAllowedProto3Extendee() {
   delete allowed_proto3_extendees_;
@@ -832,7 +832,7 @@ FileDescriptorTables::~FileDescriptorTables() {}
 namespace {
 
 FileDescriptorTables* file_descriptor_tables_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(file_descriptor_tables_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(file_descriptor_tables_once_init_);
 
 void DeleteFileDescriptorTables() {
   delete file_descriptor_tables_;
@@ -1338,7 +1338,7 @@ namespace {
 
 EncodedDescriptorDatabase* generated_database_ = NULL;
 DescriptorPool* generated_pool_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(generated_pool_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(generated_pool_init_);
 
 void DeleteGeneratedPool() {
   delete generated_database_;

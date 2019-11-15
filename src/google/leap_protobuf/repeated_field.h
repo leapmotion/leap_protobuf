@@ -43,8 +43,8 @@
 // but should instead use the accessor functions generated automatically by the
 // protocol compiler.
 
-#ifndef GOOGLE_PROTOBUF_REPEATED_FIELD_H__
-#define GOOGLE_PROTOBUF_REPEATED_FIELD_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_REPEATED_FIELD_H__
+#define GOOGLE_LEAP_PROTOBUF_REPEATED_FIELD_H__
 
 #ifdef _MSC_VER
 // This is required for min/max on VS2013 only.
@@ -488,7 +488,7 @@ class LIBPROTOBUF_EXPORT RepeatedPtrFieldBase {
   template <typename TypeHandler>
   const typename TypeHandler::Type* const* data() const;
 
-  template <typename TypeHandler> GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
+  template <typename TypeHandler> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE
   void Swap(RepeatedPtrFieldBase* other);
 
   void SwapElements(int index1, int index2);
@@ -533,11 +533,11 @@ class LIBPROTOBUF_EXPORT RepeatedPtrFieldBase {
   template <typename TypeHandler>
   void AddAllocatedInternal(typename TypeHandler::Type* value, std::false_type);
 
-  template <typename TypeHandler> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+  template <typename TypeHandler> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
   void AddAllocatedSlowWithCopy(typename TypeHandler::Type* value,
                                 Arena* value_arena,
                                 Arena* my_arena);
-  template <typename TypeHandler> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+  template <typename TypeHandler> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
   void AddAllocatedSlowWithoutCopy(typename TypeHandler::Type* value);
 
   template <typename TypeHandler>
@@ -545,7 +545,7 @@ class LIBPROTOBUF_EXPORT RepeatedPtrFieldBase {
   template <typename TypeHandler>
   typename TypeHandler::Type* ReleaseLastInternal(std::false_type);
 
-  template<typename TypeHandler> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+  template<typename TypeHandler> GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
   void SwapFallback(RepeatedPtrFieldBase* other);
 
   inline Arena* GetArenaNoVirtual() const {
@@ -657,7 +657,7 @@ class GenericTypeHandler {
   }
 
   static inline void Clear(GenericType* value) { value->Clear(); }
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE
   static void Merge(const GenericType& from, GenericType* to);
   static inline size_t SpaceUsedLong(const GenericType& value) {
     return value.SpaceUsedLong();
@@ -2627,4 +2627,4 @@ UnsafeArenaAllocatedRepeatedPtrFieldBackInserter(
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_REPEATED_FIELD_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_REPEATED_FIELD_H__

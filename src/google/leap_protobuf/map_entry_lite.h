@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_MAP_ENTRY_LITE_H__
-#define GOOGLE_PROTOBUF_MAP_ENTRY_LITE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_MAP_ENTRY_LITE_H__
+#define GOOGLE_LEAP_PROTOBUF_MAP_ENTRY_LITE_H__
 
 #include <assert.h>
 
@@ -119,9 +119,9 @@ class MapEntryImpl : public Base {
   static const int kValueFieldNumber = 2;
 
   // Constants for field tag.
-  static const uint8 kKeyTag = GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(
+  static const uint8 kKeyTag = GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(
       kKeyFieldNumber, KeyTypeHandler::kWireType);
-  static const uint8 kValueTag = GOOGLE_PROTOBUF_WIRE_FORMAT_MAKE_TAG(
+  static const uint8 kValueTag = GOOGLE_LEAP_PROTOBUF_WIRE_FORMAT_MAKE_TAG(
       kValueFieldNumber, ValueTypeHandler::kWireType);
   static const size_t kTagSize = 1;
 
@@ -387,7 +387,7 @@ class MapEntryImpl : public Base {
     const Value& value() const { return *value_ptr_; }
 
    private:
-    void UseKeyAndValueFromEntry() GOOGLE_PROTOBUF_ATTRIBUTE_COLD {
+    void UseKeyAndValueFromEntry() GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_COLD {
       // Update key_ in case we need it later (because key() is called).
       // This is potentially inefficient, especially if the key is
       // expensive to copy (e.g., a long string), but this is a cold
@@ -405,7 +405,7 @@ class MapEntryImpl : public Base {
     // into map_, we are not at the end of the input.  This is unusual, but
     // allowed by the spec.
     bool ReadBeyondKeyValuePair(::google::leap_protobuf::io::CodedInputStream* input)
-        GOOGLE_PROTOBUF_ATTRIBUTE_COLD {
+        GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_COLD {
       typedef MoveHelper<KeyTypeHandler::kIsEnum,
                          KeyTypeHandler::kIsMessage,
                          KeyTypeHandler::kWireType ==
@@ -668,4 +668,4 @@ struct MapEntryHelper<MapEntryLite<T, Key, Value, kKeyFieldType,
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_MAP_ENTRY_LITE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_MAP_ENTRY_LITE_H__

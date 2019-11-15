@@ -97,8 +97,8 @@
 // use multiple threads.  RPC implementations should provide multiple
 // choices.
 
-#ifndef GOOGLE_PROTOBUF_SERVICE_H__
-#define GOOGLE_PROTOBUF_SERVICE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_SERVICE_H__
+#define GOOGLE_LEAP_PROTOBUF_SERVICE_H__
 
 #include <string>
 #include <google/leap_protobuf/stubs/common.h>
@@ -289,4 +289,4 @@ class LIBPROTOBUF_EXPORT RpcChannel {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_SERVICE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_SERVICE_H__

@@ -32,8 +32,8 @@
 //  Based on original Protocol Buffers design by
 //  Sanjay Ghemawat, Jeff Dean, and others.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_CSHARP_HELPERS_H__
-#define GOOGLE_PROTOBUF_COMPILER_CSHARP_HELPERS_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_HELPERS_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_HELPERS_H__
 
 #include <string>
 #include <google/leap_protobuf/stubs/port.h>
@@ -145,4 +145,4 @@ inline bool IsWrapperType(const FieldDescriptor* descriptor) {
 }  // namespace compiler
 }  // namespace leap_protobuf
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_CSHARP_HELPERS_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_CSHARP_HELPERS_H__

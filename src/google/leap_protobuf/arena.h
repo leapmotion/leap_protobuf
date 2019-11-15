@@ -30,8 +30,8 @@
 
 // This file defines an Arena allocator for better allocation performance.
 
-#ifndef GOOGLE_PROTOBUF_ARENA_H__
-#define GOOGLE_PROTOBUF_ARENA_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_ARENA_H__
+#define GOOGLE_LEAP_PROTOBUF_ARENA_H__
 
 #include <limits>
 #ifdef max
@@ -185,7 +185,7 @@ struct ArenaOptions {
 
 // Support for non-RTTI environments. (The metrics hooks API uses type
 // information.)
-#ifndef GOOGLE_PROTOBUF_NO_RTTI
+#ifndef GOOGLE_LEAP_PROTOBUF_NO_RTTI
 #define RTTI_TYPE_ID(type) (&typeid(type))
 #else
 #define RTTI_TYPE_ID(type) (NULL)
@@ -291,7 +291,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // This function also accepts any type T that satisfies the arena message
   // allocation protocol, documented above.
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMessage(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMessage(
       Arena* arena, Args&&... args) {
     static_assert(
         InternalHelper<T>::is_arena_constructable::value,
@@ -318,7 +318,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // if the object were allocated on the heap (except that the underlying memory
   // is obtained from the arena).
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* Create(Arena* arena,
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* Create(Arena* arena,
                                                            Args&&... args) {
     return CreateNoMessage<T>(arena, is_arena_constructable<T>(),
                               std::forward<Args>(args)...);
@@ -331,7 +331,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // (when compiled as C++11) that T is trivially default-constructible and
   // trivially destructible.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateArray(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateArray(
       Arena* arena, size_t num_elements) {
     static_assert(std::is_pod<T>::value,
                   "CreateArray requires a trivially constructible type");
@@ -369,7 +369,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // Any objects allocated on this arena are unusable after this call. It also
   // returns the total space used by the arena which is the sums of the sizes
   // of the allocated blocks. This method is not thread-safe.
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE uint64 Reset() {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE uint64 Reset() {
     // Call the reset hook
     if (on_arena_reset_ != NULL) {
       on_arena_reset_(this, hooks_cookie_, impl_.SpaceAllocated());
@@ -380,7 +380,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // Adds |object| to a list of heap-allocated objects to be freed with |delete|
   // when the arena is destroyed or reset.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE void Own(T* object) {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE void Own(T* object) {
     OwnInternal(object, std::is_convertible<T*, Message*>());
   }
 
@@ -390,7 +390,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // normally only used for objects that are placement-newed into
   // arena-allocated memory.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE void OwnDestructor(T* object) {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE void OwnDestructor(T* object) {
     if (object != NULL) {
       impl_.AddCleanup(object, &internal::arena_destruct_object<T>);
     }
@@ -400,7 +400,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // will be manually called when the arena is destroyed or reset. This differs
   // from OwnDestructor() in that any member function may be specified, not only
   // the class destructor.
-  GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE void OwnCustomDestructor(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_NOINLINE void OwnCustomDestructor(
       void* object, void (*destruct)(void*)) {
     impl_.AddCleanup(object, destruct);
   }
@@ -410,7 +410,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // latter is a virtual call, while this method is a templated call that
   // resolves at compile-time.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Arena* GetArena(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Arena* GetArena(
       const T* value) {
     return GetArenaInternal(value, is_arena_constructable<T>());
   }
@@ -469,7 +469,7 @@ class LIBPROTOBUF_EXPORT Arena {
 
  private:
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMessageInternal(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMessageInternal(
       Arena* arena, Args&&... args) {
     static_assert(
         InternalHelper<T>::is_arena_constructable::value,
@@ -485,7 +485,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // slightly different.  When the arena pointer is nullptr, it calls T()
   // instead of T(nullptr).
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMessageInternal(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMessageInternal(
       Arena* arena) {
     static_assert(
         InternalHelper<T>::is_arena_constructable::value,
@@ -498,7 +498,7 @@ class LIBPROTOBUF_EXPORT Arena {
   }
 
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateInternal(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateInternal(
       Arena* arena, Args&&... args) {
     if (arena == NULL) {
       return new T(std::forward<Args>(args)...);
@@ -520,7 +520,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // allocated type info when the hooks are in place in ArenaOptions and
   // the cookie is not null.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void* AllocateInternal(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void* AllocateInternal(
       bool skip_explicit_ownership) {
     const size_t n = internal::AlignUpTo8(sizeof(T));
     AllocHook(RTTI_TYPE_ID(T), n);
@@ -539,26 +539,26 @@ class LIBPROTOBUF_EXPORT Arena {
   // user code. These are used only internally from LazyField and Repeated
   // fields, since they are designed to work in all mode combinations.
   template <typename Msg, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Msg* DoCreateMaybeMessage(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Msg* DoCreateMaybeMessage(
       Arena* arena, std::true_type, Args&&... args) {
     return CreateMessageInternal<Msg>(arena, std::forward<Args>(args)...);
   }
 
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* DoCreateMaybeMessage(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* DoCreateMaybeMessage(
       Arena* arena, std::false_type, Args&&... args) {
     return CreateInternal<T>(arena, std::forward<Args>(args)...);
   }
 
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMaybeMessage(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateMaybeMessage(
       Arena* arena, Args&&... args) {
     return DoCreateMaybeMessage<T>(arena, is_arena_constructable<T>(),
                                    std::forward<Args>(args)...);
   }
 
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateNoMessage(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateNoMessage(
       Arena* arena, std::true_type, Args&&... args) {
     // User is constructing with Create() despite the fact that T supports arena
     // construction.  In this case we have to delegate to CreateInternal(), and
@@ -567,7 +567,7 @@ class LIBPROTOBUF_EXPORT Arena {
   }
 
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateNoMessage(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static T* CreateNoMessage(
       Arena* arena, std::false_type, Args&&... args) {
     // User is constructing with Create() and the type does not support arena
     // construction.  In this case we can delegate to CreateMaybeMessage() and
@@ -578,7 +578,7 @@ class LIBPROTOBUF_EXPORT Arena {
   // Just allocate the required size for the given type assuming the
   // type has a trivial constructor.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* CreateInternalRawArray(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* CreateInternalRawArray(
       size_t num_elements) {
     GOOGLE_CHECK_LE(num_elements, std::numeric_limits<size_t>::max() / sizeof(T))
         << "Requested size is too large to fit into size_t.";
@@ -589,13 +589,13 @@ class LIBPROTOBUF_EXPORT Arena {
   }
 
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* DoCreate(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* DoCreate(
       bool skip_explicit_ownership, Args&&... args) {
     return new (AllocateInternal<T>(skip_explicit_ownership))
         T(std::forward<Args>(args)...);
   }
   template <typename T, typename... Args>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* DoCreateMessage(Args&&... args) {
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE T* DoCreateMessage(Args&&... args) {
     return InternalHelper<T>::Construct(
         AllocateInternal<T>(InternalHelper<T>::is_destructor_skippable::value),
         this, std::forward<Args>(args)...);
@@ -639,14 +639,14 @@ class LIBPROTOBUF_EXPORT Arena {
   // all template instantiations to one for generic Message reduces code size,
   // using the virtual destructor instead.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void OwnInternal(T* object,
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void OwnInternal(T* object,
                                                            std::true_type) {
     if (object != NULL) {
       impl_.AddCleanup(object, &internal::arena_delete_object<Message>);
     }
   }
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void OwnInternal(T* object,
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE void OwnInternal(T* object,
                                                            std::false_type) {
     if (object != NULL) {
       impl_.AddCleanup(object, &internal::arena_delete_object<T>);
@@ -657,13 +657,13 @@ class LIBPROTOBUF_EXPORT Arena {
   // InternalArenaConstructable_ tags can be associated with an arena, and such
   // objects must implement a GetArenaNoVirtual() method.
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Arena* GetArenaInternal(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Arena* GetArenaInternal(
       const T* value, std::true_type) {
     return InternalHelper<T>::GetArena(value);
   }
 
   template <typename T>
-  GOOGLE_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Arena* GetArenaInternal(
+  GOOGLE_LEAP_PROTOBUF_ATTRIBUTE_ALWAYS_INLINE static Arena* GetArenaInternal(
       const T* /* value */, std::false_type) {
     return NULL;
   }
@@ -700,4 +700,4 @@ class LIBPROTOBUF_EXPORT Arena {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_ARENA_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_ARENA_H__

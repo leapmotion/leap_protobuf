@@ -81,7 +81,7 @@ inline bool is_packable(WireFormatLite::WireType type) {
 typedef hash_map<std::pair<const MessageLite*, int>,
                  ExtensionInfo> ExtensionRegistry;
 ExtensionRegistry* registry_ = NULL;
-GOOGLE_PROTOBUF_DECLARE_ONCE(registry_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(registry_init_);
 
 void DeleteRegistry() {
   delete registry_;
@@ -1911,9 +1911,9 @@ void ExtensionSet::Erase(int key) {
 // ==================================================================
 // Default repeated field instances for iterator-compatible accessors
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(repeated_primitive_generic_type_traits_once_init_);
-GOOGLE_PROTOBUF_DECLARE_ONCE(repeated_string_type_traits_once_init_);
-GOOGLE_PROTOBUF_DECLARE_ONCE(repeated_message_generic_type_traits_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(repeated_primitive_generic_type_traits_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(repeated_string_type_traits_once_init_);
+GOOGLE_LEAP_PROTOBUF_DECLARE_ONCE(repeated_message_generic_type_traits_once_init_);
 
 void RepeatedPrimitiveGenericTypeTraits::InitializeDefaultRepeatedFields() {
   default_repeated_field_int32_ = new RepeatedField<int32>;

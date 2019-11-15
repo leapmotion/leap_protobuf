@@ -35,8 +35,8 @@
 // Implements the Protocol Compiler front-end such that it may be reused by
 // custom compilers written to support other languages.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_COMMAND_LINE_INTERFACE_H__
-#define GOOGLE_PROTOBUF_COMPILER_COMMAND_LINE_INTERFACE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_COMMAND_LINE_INTERFACE_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_COMMAND_LINE_INTERFACE_H__
 
 #include <google/leap_protobuf/stubs/common.h>
 #include <google/leap_protobuf/stubs/hash.h>
@@ -432,4 +432,4 @@ class LIBPROTOC_EXPORT CommandLineInterface {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_COMMAND_LINE_INTERFACE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_COMMAND_LINE_INTERFACE_H__

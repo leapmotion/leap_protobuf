@@ -59,7 +59,7 @@ TEST(VersionTest, VersionMatchesConfig) {
   }
   version.erase(pos);
 
-  EXPECT_EQ(version, internal::VersionString(GOOGLE_PROTOBUF_VERSION));
+  EXPECT_EQ(version, internal::VersionString(GOOGLE_LEAP_PROTOBUF_VERSION));
 }
 
 #endif  // PACKAGE_VERSION

@@ -32,8 +32,8 @@
 //  Based on original Protocol Buffers design by
 //  Sanjay Ghemawat, Jeff Dean, and others.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_JAVA_DOC_COMMENT_H__
-#define GOOGLE_PROTOBUF_COMPILER_JAVA_DOC_COMMENT_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_JAVA_DOC_COMMENT_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_JAVA_DOC_COMMENT_H__
 
 #include <google/leap_protobuf/descriptor.h>
 
@@ -66,4 +66,4 @@ LIBPROTOC_EXPORT string EscapeJavadoc(const string& input);
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_JAVA_DOC_COMMENT_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_JAVA_DOC_COMMENT_H__

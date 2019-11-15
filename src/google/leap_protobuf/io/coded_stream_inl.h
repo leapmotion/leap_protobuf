@@ -33,8 +33,8 @@
 // Implements methods of coded_stream.h that need to be inlined for performance
 // reasons, but should not be defined in a public header.
 
-#ifndef GOOGLE_PROTOBUF_IO_CODED_STREAM_INL_H__
-#define GOOGLE_PROTOBUF_IO_CODED_STREAM_INL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_IO_CODED_STREAM_INL_H__
+#define GOOGLE_LEAP_PROTOBUF_IO_CODED_STREAM_INL_H__
 
 #include <google/leap_protobuf/stubs/logging.h>
 #include <google/leap_protobuf/stubs/common.h>
@@ -87,4 +87,4 @@ inline bool CodedInputStream::InternalReadRawInline(void* buffer, int size) {
 }  // namespace io
 }  // namespace leap_protobuf
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_IO_CODED_STREAM_INL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_IO_CODED_STREAM_INL_H__

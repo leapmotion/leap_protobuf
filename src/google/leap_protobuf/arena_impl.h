@@ -30,8 +30,8 @@
 
 // This file defines an Arena allocator for better allocation performance.
 
-#ifndef GOOGLE_PROTOBUF_ARENA_IMPL_H__
-#define GOOGLE_PROTOBUF_ARENA_IMPL_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_ARENA_IMPL_H__
+#define GOOGLE_LEAP_PROTOBUF_ARENA_IMPL_H__
 
 #include <atomic>
 #include <limits>
@@ -234,7 +234,7 @@ class LIBPROTOBUF_EXPORT ArenaImpl {
   };
 
   struct ThreadCache {
-#if defined(GOOGLE_PROTOBUF_NO_THREADLOCAL)
+#if defined(GOOGLE_LEAP_PROTOBUF_NO_THREADLOCAL)
     // If we are using the ThreadLocalStorage class to store the ThreadCache,
     // then the ThreadCache's default constructor has to be responsible for
     // initializing it.
@@ -247,7 +247,7 @@ class LIBPROTOBUF_EXPORT ArenaImpl {
     SerialArena* last_serial_arena;
   };
   static std::atomic<int64> lifecycle_id_generator_;
-#if defined(GOOGLE_PROTOBUF_NO_THREADLOCAL)
+#if defined(GOOGLE_LEAP_PROTOBUF_NO_THREADLOCAL)
   // Android ndk does not support GOOGLE_THREAD_LOCAL keyword so we use a custom thread
   // local storage class we implemented.
   // iOS also does not support the GOOGLE_THREAD_LOCAL keyword.
@@ -318,4 +318,4 @@ class LIBPROTOBUF_EXPORT ArenaImpl {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_ARENA_IMPL_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_ARENA_IMPL_H__

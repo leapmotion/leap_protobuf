@@ -35,8 +35,8 @@
 // Utilities for printing and parsing protocol messages in a human-readable,
 // text-based format.
 
-#ifndef GOOGLE_PROTOBUF_TEXT_FORMAT_H__
-#define GOOGLE_PROTOBUF_TEXT_FORMAT_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_TEXT_FORMAT_H__
+#define GOOGLE_LEAP_PROTOBUF_TEXT_FORMAT_H__
 
 #include <map>
 #include <memory>
@@ -611,4 +611,4 @@ inline TextFormat::ParseInfoTree* TextFormat::CreateNested(
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_TEXT_FORMAT_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_TEXT_FORMAT_H__

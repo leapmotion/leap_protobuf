@@ -30,8 +30,8 @@
 
 // From: util/task/contrib/status_macros/status_macros.h
 
-#ifndef GOOGLE_PROTOBUF_STUBS_STATUS_MACROS_H_
-#define GOOGLE_PROTOBUF_STUBS_STATUS_MACROS_H_
+#ifndef GOOGLE_LEAP_PROTOBUF_STUBS_STATUS_MACROS_H_
+#define GOOGLE_LEAP_PROTOBUF_STUBS_STATUS_MACROS_H_
 
 #include <google/leap_protobuf/stubs/common.h>
 #include <google/leap_protobuf/stubs/status.h>
@@ -86,4 +86,4 @@ Status DoAssignOrReturn(T& lhs, StatusOr<T> result) {
 }  // namespace leap_protobuf
 }  // namespace google
 
-#endif  // GOOGLE_PROTOBUF_STUBS_STATUS_H_
+#endif  // GOOGLE_LEAP_PROTOBUF_STUBS_STATUS_H_

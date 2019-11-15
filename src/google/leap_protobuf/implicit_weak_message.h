@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_IMPLICIT_WEAK_MESSAGE_H__
-#define GOOGLE_PROTOBUF_IMPLICIT_WEAK_MESSAGE_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_IMPLICIT_WEAK_MESSAGE_H__
+#define GOOGLE_LEAP_PROTOBUF_IMPLICIT_WEAK_MESSAGE_H__
 
 #include <google/leap_protobuf/io/coded_stream.h>
 #include <google/leap_protobuf/arena.h>
@@ -132,4 +132,4 @@ class ImplicitWeakTypeHandler {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_IMPLICIT_WEAK_MESSAGE_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_IMPLICIT_WEAK_MESSAGE_H__

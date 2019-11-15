@@ -34,8 +34,8 @@
 //
 // Generates C++ code for a given .proto file.
 
-#ifndef GOOGLE_PROTOBUF_COMPILER_CPP_GENERATOR_H__
-#define GOOGLE_PROTOBUF_COMPILER_CPP_GENERATOR_H__
+#ifndef GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_GENERATOR_H__
+#define GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_GENERATOR_H__
 
 #include <string>
 #include <google/leap_protobuf/compiler/code_generator.h>
@@ -69,4 +69,4 @@ class LIBPROTOC_EXPORT CppGenerator : public CodeGenerator {
 }  // namespace leap_protobuf
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_COMPILER_CPP_GENERATOR_H__
+#endif  // GOOGLE_LEAP_PROTOBUF_COMPILER_CPP_GENERATOR_H__
