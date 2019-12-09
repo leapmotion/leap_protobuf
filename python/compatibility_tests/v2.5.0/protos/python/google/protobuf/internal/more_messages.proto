@@ -31,7 +31,7 @@
 // Author: robinson@google.com (Will Robinson)
 
 
-package google.protobuf.internal;
+package google.protobug.internal;
 
 // A message where tag numbers are listed out of order, to allow us to test our
 // canonicalization of serialized output, which should always be in tag order.

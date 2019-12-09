@@ -1,21 +1,21 @@
-#include "google/protobuf/compiler/code_generator.h"
-#include "google/protobuf/io/zero_copy_stream.h"
-#include "google/protobuf/io/printer.h"
-#include "google/protobuf/descriptor.h"
-#include "google/protobuf/descriptor.pb.h"
+#include "google/protobug/compiler/code_generator.h"
+#include "google/protobug/io/zero_copy_stream.h"
+#include "google/protobug/io/printer.h"
+#include "google/protobug/descriptor.h"
+#include "google/protobug/descriptor.pb.h"
 #include "schema_proto2_to_proto3_util.h"
 
-#include "google/protobuf/compiler/plugin.h"
+#include "google/protobug/compiler/plugin.h"
 
-using google::protobuf::FileDescriptorProto;
-using google::protobuf::FileDescriptor;
-using google::protobuf::DescriptorPool;
-using google::protobuf::io::Printer;
-using google::protobuf::util::SchemaGroupStripper;
-using google::protobuf::util::SchemaAddZeroEnumValue;
+using google::protobug::FileDescriptorProto;
+using google::protobug::FileDescriptor;
+using google::protobug::DescriptorPool;
+using google::protobug::io::Printer;
+using google::protobug::util::SchemaGroupStripper;
+using google::protobug::util::SchemaAddZeroEnumValue;
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace compiler {
 
 namespace {
@@ -83,7 +83,7 @@ class GoGoProtoGenerator : public CodeGenerator {
     std::vector<std::pair<string,string>> option_pairs;
     ParseGeneratorParameter(parameter, &option_pairs);
 
-    std::unique_ptr<google::protobuf::io::ZeroCopyOutputStream> output(
+    std::unique_ptr<google::protobug::io::ZeroCopyOutputStream> output(
         context->Open(basename + ".proto"));
     string content = new_pool_.BuildFile(new_file)->DebugString();
     Printer printer(output.get(), '$');
@@ -94,10 +94,10 @@ class GoGoProtoGenerator : public CodeGenerator {
 };
 
 }  // namespace compiler
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google
 
 int main(int argc, char* argv[]) {
-  google::protobuf::compiler::GoGoProtoGenerator generator;
-  return google::protobuf::compiler::PluginMain(argc, argv, &generator);
+  google::protobug::compiler::GoGoProtoGenerator generator;
+  return google::protobug::compiler::PluginMain(argc, argv, &generator);
 }

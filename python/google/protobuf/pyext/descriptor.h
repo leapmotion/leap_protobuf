@@ -30,15 +30,15 @@
 
 // Author: petar@google.com (Petar Petrov)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_H__
 
 #include <Python.h>
 
-#include <google/protobuf/descriptor.h>
+#include <google/protobug/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 extern PyTypeObject PyMessageDescriptor_Type;
@@ -99,7 +99,7 @@ bool _CalledFromGeneratedFile(int stacklevel);
 bool InitDescriptor();
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_H__

@@ -30,7 +30,7 @@
 
 syntax = "proto3";
 
-package google.protobuf.python.internal;
+package google.protobug.python.internal;
 
 message TestPackedTypes {
   enum NestedEnum {

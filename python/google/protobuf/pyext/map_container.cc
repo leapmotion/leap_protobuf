@@ -30,19 +30,19 @@
 
 // Author: haberman@google.com (Josh Haberman)
 
-#include <google/protobuf/pyext/map_container.h>
+#include <google/protobug/pyext/map_container.h>
 
 #include <memory>
 
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/map_field.h>
-#include <google/protobuf/map.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/pyext/message_factory.h>
-#include <google/protobuf/pyext/message.h>
-#include <google/protobuf/pyext/repeated_composite_container.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/protobug/stubs/logging.h>
+#include <google/protobug/stubs/common.h>
+#include <google/protobug/map_field.h>
+#include <google/protobug/map.h>
+#include <google/protobug/message.h>
+#include <google/protobug/pyext/message_factory.h>
+#include <google/protobug/pyext/message.h>
+#include <google/protobug/pyext/repeated_composite_container.h>
+#include <google/protobug/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #define PyInt_FromLong PyLong_FromLong
@@ -50,7 +50,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 // Functions that need access to map reflection functionality.
@@ -73,7 +73,7 @@ class MapReflectionFriend {
 struct MapIterator {
   PyObject_HEAD;
 
-  std::unique_ptr<::google::protobuf::MapIterator> iter;
+  std::unique_ptr<::google::protobug::MapIterator> iter;
 
   // A pointer back to the container, so we can notice changes to the version.
   // We own a ref on this.
@@ -312,7 +312,7 @@ static MapContainer* GetMap(PyObject* obj) {
 
 Py_ssize_t MapReflectionFriend::Length(PyObject* _self) {
   MapContainer* self = GetMap(_self);
-  const google::protobuf::Message* message = self->message;
+  const google::protobug::Message* message = self->message;
   return message->GetReflection()->MapSize(*message,
                                            self->parent_field_descriptor);
 }
@@ -421,7 +421,7 @@ int MapContainer::Release() {
 // ScalarMap ///////////////////////////////////////////////////////////////////
 
 PyObject *NewScalarMapContainer(
-    CMessage* parent, const google::protobuf::FieldDescriptor* parent_field_descriptor) {
+    CMessage* parent, const google::protobug::FieldDescriptor* parent_field_descriptor) {
   if (!CheckFieldBelongsToMessage(parent_field_descriptor, parent->message)) {
     return NULL;
   }
@@ -662,7 +662,7 @@ static PyObject* GetCMessage(MessageMapContainer* self, Message* message) {
 }
 
 PyObject* NewMessageMapContainer(
-    CMessage* parent, const google::protobuf::FieldDescriptor* parent_field_descriptor,
+    CMessage* parent, const google::protobug::FieldDescriptor* parent_field_descriptor,
     CMessageClass* message_class) {
   if (!CheckFieldBelongsToMessage(parent_field_descriptor, parent->message)) {
     return NULL;
@@ -929,7 +929,7 @@ PyObject* MapReflectionFriend::GetIterator(PyObject *_self) {
     Message* message = self->GetMutableMessage();
     const Reflection* reflection = message->GetReflection();
 
-    iter->iter.reset(new ::google::protobuf::MapIterator(
+    iter->iter.reset(new ::google::protobug::MapIterator(
         reflection->MapBegin(message, self->parent_field_descriptor)));
   }
 
@@ -1016,7 +1016,7 @@ PyTypeObject MapIterator_Type = {
 bool InitMapContainers() {
   // ScalarMapContainer_Type derives from our MutableMapping type.
   ScopedPyObjectPtr containers(PyImport_ImportModule(
-      "google.protobuf.internal.containers"));
+      "google.protobug.internal.containers"));
   if (containers == NULL) {
     return false;
   }
@@ -1071,5 +1071,5 @@ bool InitMapContainers() {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google

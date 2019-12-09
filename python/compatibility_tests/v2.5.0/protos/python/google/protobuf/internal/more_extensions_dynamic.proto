@@ -35,9 +35,9 @@
 // defined in a file whose C++ type is not in the binary.
 
 
-import "google/protobuf/internal/more_extensions.proto";
+import "google/protobug/internal/more_extensions.proto";
 
-package google.protobuf.internal;
+package google.protobug.internal;
 
 message DynamicMessageType {
   optional int32 a = 1;

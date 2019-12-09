@@ -33,13 +33,13 @@
 // This module exposes the C proto inside the given Python proto, in
 // case the Python proto is implemented with a C proto.
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_PYTHON_PROTOBUF_H__
-#define GOOGLE_PROTOBUF_PYTHON_PYTHON_PROTOBUF_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_PYTHON_PROTOBUF_H__
+#define GOOGLE_PROTOBUG_PYTHON_PYTHON_PROTOBUF_H__
 
 #include <Python.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 class Message;
 
@@ -51,7 +51,7 @@ const Message* GetCProtoInsidePyProto(PyObject* msg);
 Message* MutableCProtoInsidePyProto(PyObject* msg);
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_PYTHON_PROTOBUF_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_PYTHON_PROTOBUF_H__

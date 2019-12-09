@@ -748,7 +748,7 @@ template <int N> class upb::InlinedEnvironment : public upb::Environment {
 ** upb::Message is a representation for protobuf messages.
 **
 ** However it differs from other common representations like
-** google::protobuf::Message in one key way: it does not prescribe any
+** google::protobug::Message in one key way: it does not prescribe any
 ** ownership between messages and submessages, and it relies on the
 ** client to delete each message/submessage/array/map at the appropriate
 ** time.
@@ -7192,87 +7192,87 @@ const upb_enumdef *upbdefs_google_protobuf_FileOptions_OptimizeMode_get(const vo
 
 /* Functions to test whether this message is of a certain type. */
 UPB_INLINE bool upbdefs_google_protobuf_DescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.DescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.DescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_DescriptorProto_ExtensionRange_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.DescriptorProto.ExtensionRange") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.DescriptorProto.ExtensionRange") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_DescriptorProto_ReservedRange_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.DescriptorProto.ReservedRange") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.DescriptorProto.ReservedRange") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_EnumDescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.EnumDescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.EnumDescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_EnumOptions_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.EnumOptions") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.EnumOptions") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_EnumValueDescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.EnumValueDescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.EnumValueDescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_EnumValueOptions_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.EnumValueOptions") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.EnumValueOptions") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FieldDescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.FieldDescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.FieldDescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FieldOptions_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.FieldOptions") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.FieldOptions") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FileDescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.FileDescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.FileDescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FileDescriptorSet_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.FileDescriptorSet") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.FileDescriptorSet") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FileOptions_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.FileOptions") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.FileOptions") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_MessageOptions_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.MessageOptions") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.MessageOptions") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_MethodDescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.MethodDescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.MethodDescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_MethodOptions_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.MethodOptions") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.MethodOptions") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_OneofDescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.OneofDescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.OneofDescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_ServiceDescriptorProto_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.ServiceDescriptorProto") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.ServiceDescriptorProto") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_ServiceOptions_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.ServiceOptions") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.ServiceOptions") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_SourceCodeInfo_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.SourceCodeInfo") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.SourceCodeInfo") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_SourceCodeInfo_Location_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.SourceCodeInfo.Location") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.SourceCodeInfo.Location") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_UninterpretedOption_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.UninterpretedOption") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.UninterpretedOption") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_UninterpretedOption_NamePart_is(const upb_msgdef *m) {
-  return strcmp(upb_msgdef_fullname(m), "google.protobuf.UninterpretedOption.NamePart") == 0;
+  return strcmp(upb_msgdef_fullname(m), "google.protobug.UninterpretedOption.NamePart") == 0;
 }
 
 /* Functions to test whether this enum is of a certain type. */
 UPB_INLINE bool upbdefs_google_protobuf_FieldDescriptorProto_Label_is(const upb_enumdef *e) {
-  return strcmp(upb_enumdef_fullname(e), "google.protobuf.FieldDescriptorProto.Label") == 0;
+  return strcmp(upb_enumdef_fullname(e), "google.protobug.FieldDescriptorProto.Label") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FieldDescriptorProto_Type_is(const upb_enumdef *e) {
-  return strcmp(upb_enumdef_fullname(e), "google.protobuf.FieldDescriptorProto.Type") == 0;
+  return strcmp(upb_enumdef_fullname(e), "google.protobug.FieldDescriptorProto.Type") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FieldOptions_CType_is(const upb_enumdef *e) {
-  return strcmp(upb_enumdef_fullname(e), "google.protobuf.FieldOptions.CType") == 0;
+  return strcmp(upb_enumdef_fullname(e), "google.protobug.FieldOptions.CType") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FieldOptions_JSType_is(const upb_enumdef *e) {
-  return strcmp(upb_enumdef_fullname(e), "google.protobuf.FieldOptions.JSType") == 0;
+  return strcmp(upb_enumdef_fullname(e), "google.protobug.FieldOptions.JSType") == 0;
 }
 UPB_INLINE bool upbdefs_google_protobuf_FileOptions_OptimizeMode_is(const upb_enumdef *e) {
-  return strcmp(upb_enumdef_fullname(e), "google.protobuf.FileOptions.OptimizeMode") == 0;
+  return strcmp(upb_enumdef_fullname(e), "google.protobug.FileOptions.OptimizeMode") == 0;
 }
 
 
@@ -7391,7 +7391,7 @@ UPB_END_EXTERN_C
 
 namespace upbdefs {
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 class DescriptorProto : public ::upb::reffed_ptr<const ::upb::MessageDef> {
  public:
@@ -7739,7 +7739,7 @@ class UninterpretedOption : public ::upb::reffed_ptr<const ::upb::MessageDef> {
   };
 };
 
-}  /* namespace protobuf */
+}  /* namespace protobug */
 }  /* namespace google */
 }  /* namespace upbdefs */
 

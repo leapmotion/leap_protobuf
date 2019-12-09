@@ -32,7 +32,7 @@
 
 syntax = "proto2";
 
-package google.protobuf.internal;
+package google.protobug.internal;
 
 
 message TopLevelMessage {

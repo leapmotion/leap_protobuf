@@ -28,19 +28,19 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_MAP_CONTAINER_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_MAP_CONTAINER_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_MAP_CONTAINER_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_MAP_CONTAINER_H__
 
 #include <Python.h>
 
 #include <memory>
 
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/pyext/message.h>
+#include <google/protobug/descriptor.h>
+#include <google/protobug/message.h>
+#include <google/protobug/pyext/message.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 class Message;
 
@@ -119,7 +119,7 @@ extern PyObject* NewMessageMapContainer(
     CMessageClass* message_class);
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_MAP_CONTAINER_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_MAP_CONTAINER_H__

@@ -32,9 +32,9 @@
 
 syntax = "proto2";
 
-package google.protobuf.python.internal;
+package google.protobug.python.internal;
 
-import "google/protobuf/internal/factory_test1.proto";
+import "google/protobug/internal/factory_test1.proto";
 
 
 enum Factory2Enum {

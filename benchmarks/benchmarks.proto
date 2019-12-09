@@ -30,7 +30,7 @@
 
 syntax = "proto3";
 package benchmarks;
-option java_package = "com.google.protobuf.benchmarks";
+option java_package = "com.google.protobug.benchmarks";
 
 message BenchmarkDataset {
   // Name of the benchmark dataset.  This should be unique across all datasets.

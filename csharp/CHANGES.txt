@@ -7,7 +7,7 @@ RELEASE NOTES - Code imported into Google's main protobuf repository
 ===============================================================================
 
 Everything below note this represents history of protobuf-csharp-port project
-before the code was merged into csharp/ subtree of GitHub google/protobuf
+before the code was merged into csharp/ subtree of GitHub google/protobug
 repository.
 Frozen legacy version of the original project is available in
 https://github.com/jskeet/protobuf-csharp-port.
@@ -117,7 +117,7 @@ Features:
   message it contains.
 - Added output_directory option to set the output path for the source file(s).
 - Added ignore_google_protobuf option to avoid generating code for includes 
-  from the google.protobuf package.
+  from the google.protobug package.
 - Added the LITE framework (Google.ProtoBuffersLite.dll) and the ability to
   generate code with "option optimize_for = LITE_RUNTIME;".
 - Added ability to invoke protoc.exe from within ProtoGen.exe.

@@ -31,8 +31,8 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__
 
 #include <Python.h>
 
@@ -40,10 +40,10 @@
 #include <string>
 #include <vector>
 
-#include <google/protobuf/pyext/message.h>
+#include <google/protobug/pyext/message.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 class FieldDescriptor;
 class Message;
@@ -160,7 +160,7 @@ void ReleaseLastTo(CMessage* parent,
 
 }  // namespace repeated_composite_container
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_REPEATED_COMPOSITE_CONTAINER_H__

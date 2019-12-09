@@ -28,8 +28,8 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef __GOOGLE_PROTOBUF_RUBY_PROTOBUF_H__
-#define __GOOGLE_PROTOBUF_RUBY_PROTOBUF_H__
+#ifndef __GOOGLE_PROTOBUG_RUBY_PROTOBUF_H__
+#define __GOOGLE_PROTOBUG_RUBY_PROTOBUF_H__
 
 #include <ruby/ruby.h>
 #include <ruby/vm.h>
@@ -550,4 +550,4 @@ void check_upb_status(const upb_status* status, const char* msg);
 
 extern ID descriptor_instancevar_interned;
 
-#endif  // __GOOGLE_PROTOBUF_RUBY_PROTOBUF_H__
+#endif  // __GOOGLE_PROTOBUG_RUBY_PROTOBUF_H__

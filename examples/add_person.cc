@@ -2,7 +2,7 @@
 
 #include <ctime>
 #include <fstream>
-#include <google/protobuf/util/time_util.h>
+#include <google/protobug/util/time_util.h>
 #include <iostream>
 #include <string>
 
@@ -10,7 +10,7 @@
 
 using namespace std;
 
-using google::protobuf::util::TimeUtil;
+using google::protobug::util::TimeUtil;
 
 // This function fills in a Person message based on user input.
 void PromptForAddress(tutorial::Person* person) {
@@ -63,7 +63,7 @@ void PromptForAddress(tutorial::Person* person) {
 int main(int argc, char* argv[]) {
   // Verify that the version of the library that we linked against is
   // compatible with the version of the headers we compiled against.
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  GOOGLE_PROTOBUG_VERIFY_VERSION;
 
   if (argc != 2) {
     cerr << "Usage:  " << argv[0] << " ADDRESS_BOOK_FILE" << endl;
@@ -96,7 +96,7 @@ int main(int argc, char* argv[]) {
   }
 
   // Optional:  Delete all global objects allocated by libprotobuf.
-  google::protobuf::ShutdownProtobufLibrary();
+  google::protobug::ShutdownProtobufLibrary();
 
   return 0;
 }

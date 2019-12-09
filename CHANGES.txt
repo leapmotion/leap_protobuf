@@ -90,7 +90,7 @@
   Planned Future Changes
   * Make C++ implementation C++11 only: we plan to require C++11 to build
     protobuf code starting from 3.6.0 release. Please join this github issue:
-    https://github.com/google/protobuf/issues/2780 to provide your feedback.
+    https://github.com/google/protobug/issues/2780 to provide your feedback.
 
   protoc
   * Fixed a bug introduced in 3.5.0 and protoc in Windows now accepts non-ascii
@@ -121,7 +121,7 @@
   Planned Future Changes
   * Make C++ implementation C++11 only: we plan to require C++11 to build
     protobuf code starting from 3.6.0 release. Please join this github issue:
-    https://github.com/google/protobuf/issues/2780 to provide your feedback.
+    https://github.com/google/protobug/issues/2780 to provide your feedback.
 
   General
   * Unknown fields are now preserved in proto3 for most of the language
@@ -135,7 +135,7 @@
   * Deprecated the unsafe_arena_release_* and unsafe_arena_add_allocated_*
     methods for string fields.
   * Added move constructor and move assignment to RepeatedField,
-    RepeatedPtrField and google::protobuf::Any.
+    RepeatedPtrField and google::protobug::Any.
   * Added perfect forwarding in Arena::CreateMessage
   * In-progress experimental support for implicit weak fields with lite protos.
     This feature allows the linker to strip out more unused messages and reduce
@@ -208,14 +208,14 @@
 
         For issues and discussions:
 
-          https://github.com/google/protobuf/issues/272
+          https://github.com/google/protobug/issues/272
 
       - Make C++ implementation C++11 only: we plan to require C++11 to build
         protobuf code starting from 3.5.0 or 3.6.0 release, after unknown fields
         semantic changes are finished. Please join this
         github issue:
 
-          https://github.com/google/protobuf/issues/2780
+          https://github.com/google/protobug/issues/2780
 
         to provide your feedback.
 
@@ -335,14 +335,14 @@
 
         for the timeline and follow up this github issue:
 
-          https://github.com/google/protobuf/issues/272
+          https://github.com/google/protobug/issues/272
 
         for discussion.
       - Make C++ implementation C++11 only: we plan to require C++11 to build
         protobuf code starting from 3.4.0 or 3.5.0 release. Please join this
         github issue:
 
-          https://github.com/google/protobuf/issues/2780
+          https://github.com/google/protobug/issues/2780
 
         to provide your feedback.
 
@@ -517,7 +517,7 @@
   * Moved default_instances to global variables. This allows default_instance
     addresses to be known at compile time.
   * Adding missing generic gcc 64-bit atomicops.
-  * Restore New*Callback into google::protobuf namespace since these are used
+  * Restore New*Callback into google::protobug namespace since these are used
     by the service stubs code
   * JSON support.
     * Fixed some conformance issues.
@@ -669,8 +669,8 @@
     canonicalization specification and implement the serializer using reflection
     APIs rather than relying on this API.
   * Added OneofOptions. You can now define custom options for oneof groups.
-      import "google/protobuf/descriptor.proto";
-      extend google.protobuf.OneofOptions {
+      import "google/protobug/descriptor.proto";
+      extend google.protobug.OneofOptions {
         optional int32 my_oneof_extension = 12345;
       }
       message Foo {
@@ -684,7 +684,7 @@
   * Introduced a deterministic serialization API in
     CodedOutputStream::SetSerializationDeterministic(bool). See the notes about
     deterministic serialization in the General section.
-  * Added google::protobuf::Map::swap() to swap two map fields.
+  * Added google::protobug::Map::swap() to swap two map fields.
   * Fixed a memory leak when calling Reflection::ReleaseMessage() on a message
     allocated on arena.
   * Improved error reporting when parsing text format protos.
@@ -883,8 +883,8 @@
   * Various bug fixes and improvements to the JSON support utility:
       - Duplicate map keys in JSON are now rejected (i.e., translation will
         fail).
-      - Fixed wire-format for google.protobuf.Value/ListValue.
-      - Fixed precision loss when converting google.protobuf.Timestamp.
+      - Fixed wire-format for google.protobug.Value/ListValue.
+      - Fixed precision loss when converting google.protobug.Timestamp.
       - Fixed a bug when parsing invalid UTF-8 code points.
       - Fixed a memory leak.
       - Reduced call stack usage.
@@ -962,7 +962,7 @@
     field contains non UTF-8 data.
 
   C++ (Beta)
-  * Introduced new utility functions/classes in the google/protobuf/util
+  * Introduced new utility functions/classes in the google/protobug/util
     directory:
       - MessageDifferencer: compare two proto messages and report their
                             differences.
@@ -1105,9 +1105,9 @@
       import the definition of Any:
 
         // foo.proto
-        import "google/protobuf/any.proto";
+        import "google/protobug/any.proto";
         message Foo {
-          google.protobuf.Any any_field = 1;
+          google.protobug.Any any_field = 1;
         }
         message Bar {
           int32 value = 1;
@@ -1311,7 +1311,7 @@
     APIs when creating messages. A quick example of using the arena API:
 
       {
-        google::protobuf::Arena arena;
+        google::protobug::Arena arena;
         // Allocate a protobuf message in the arena.
         MyMessage* message = Arena::CreateMessage<MyMessage>(&arena);
         // All submessages will be allocated in the same arena.
@@ -1478,7 +1478,7 @@
         optional string comment = 1;
         optional string author = 2;
       }
-      extend google.protobuf.FieldOptions {
+      extend google.protobug.FieldOptions {
         optional MyOption myoption = 12345;
       }
     This option can now be set as follows:
@@ -1552,7 +1552,7 @@
     code for new languages or inject additional code into the output of other
     code generators.  Plugins are just binaries which accept a protocol buffer
     on stdin and write a protocol buffer to stdout, so they may be written in
-    any language.  See src/google/protobuf/compiler/plugin.proto.
+    any language.  See src/google/protobug/compiler/plugin.proto.
     **WARNING**:  Plugins are experimental.  The interface may change in a
     future version.
   * If the output location ends in .zip or .jar, protoc will write its output
@@ -1603,7 +1603,7 @@
     produced by some compilers.
   * The [deprecated=true] option now causes the C++ code generator to generate
     a GCC-style deprecation annotation (no-op on other compilers).
-  * google::protobuf::GetEnumDescriptor<SomeGeneratedEnumType>() returns the
+  * google::protobug::GetEnumDescriptor<SomeGeneratedEnumType>() returns the
     EnumDescriptor for that type -- useful for templates which cannot call
     SomeGeneratedEnumType_descriptor().
   * Various optimizations and obscure bug fixes.
@@ -1689,7 +1689,7 @@
     EOF.
   * GzipInputStream and GzipOutputStream support reading/writing gzip- or
     zlib-compressed streams if zlib is available.
-    (google/protobuf/io/gzip_stream.h)
+    (google/protobug/io/gzip_stream.h)
   * DescriptorPool::FindAllExtensions() and corresponding
     DescriptorDatabase::FindAllExtensions() can be used to enumerate all
     extensions of a given type.
@@ -1820,8 +1820,8 @@
   * It is now possible to define custom "options", which are basically
     annotations which may be placed on definitions in a .proto file.
     For example, you might define a field option called "foo" like so:
-      import "google/protobuf/descriptor.proto"
-      extend google.protobuf.FieldOptions {
+      import "google/protobug/descriptor.proto"
+      extend google.protobug.FieldOptions {
         optional string foo = 12345;
       }
     Then you annotate a field using the "foo" option:

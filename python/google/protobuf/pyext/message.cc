@@ -31,7 +31,7 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#include <google/protobuf/pyext/message.h>
+#include <google/protobug/pyext/message.h>
 
 #include <map>
 #include <memory>
@@ -45,25 +45,25 @@
 #ifndef Py_TYPE
 #define Py_TYPE(ob) (((PyObject*)(ob))->ob_type)
 #endif
-#include <google/protobuf/descriptor.pb.h>
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/io/zero_copy_stream_impl_lite.h>
-#include <google/protobuf/util/message_differencer.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/text_format.h>
-#include <google/protobuf/unknown_field_set.h>
-#include <google/protobuf/pyext/descriptor.h>
-#include <google/protobuf/pyext/descriptor_pool.h>
-#include <google/protobuf/pyext/extension_dict.h>
-#include <google/protobuf/pyext/repeated_composite_container.h>
-#include <google/protobuf/pyext/repeated_scalar_container.h>
-#include <google/protobuf/pyext/map_container.h>
-#include <google/protobuf/pyext/message_factory.h>
-#include <google/protobuf/pyext/safe_numerics.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/protobug/descriptor.pb.h>
+#include <google/protobug/stubs/common.h>
+#include <google/protobug/stubs/logging.h>
+#include <google/protobug/io/coded_stream.h>
+#include <google/protobug/io/zero_copy_stream_impl_lite.h>
+#include <google/protobug/util/message_differencer.h>
+#include <google/protobug/descriptor.h>
+#include <google/protobug/message.h>
+#include <google/protobug/text_format.h>
+#include <google/protobug/unknown_field_set.h>
+#include <google/protobug/pyext/descriptor.h>
+#include <google/protobug/pyext/descriptor_pool.h>
+#include <google/protobug/pyext/extension_dict.h>
+#include <google/protobug/pyext/repeated_composite_container.h>
+#include <google/protobug/pyext/repeated_scalar_container.h>
+#include <google/protobug/pyext/map_container.h>
+#include <google/protobug/pyext/message_factory.h>
+#include <google/protobug/pyext/safe_numerics.h>
+#include <google/protobug/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #define PyInt_AsLong PyLong_AsLong
@@ -85,7 +85,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 static PyObject* kDESCRIPTOR;
@@ -99,7 +99,7 @@ namespace message_meta {
 static int InsertEmptyWeakref(PyTypeObject* base);
 
 namespace {
-// Copied oveer from internal 'google/protobuf/stubs/strutil.h'.
+// Copied oveer from internal 'google/protobug/stubs/strutil.h'.
 inline void UpperString(string * s) {
   string::iterator end = s->end();
   for (string::iterator i = s->begin(); i != end; ++i) {
@@ -182,7 +182,7 @@ static int AddDescriptors(PyObject* cls, const Descriptor* descriptor) {
   // <message descriptor>.extensions_by_name[name]
   // which was defined previously.
   for (int i = 0; i < descriptor->extension_count(); ++i) {
-    const google::protobuf::FieldDescriptor* field = descriptor->extension(i);
+    const google::protobug::FieldDescriptor* field = descriptor->extension(i);
     ScopedPyObjectPtr extension_field(PyFieldDescriptor_FromDescriptor(field));
     if (extension_field == NULL) {
       return -1;
@@ -255,7 +255,7 @@ static PyObject* New(PyTypeObject* type,
 
   if (WKT_classes == NULL) {
     ScopedPyObjectPtr well_known_types(PyImport_ImportModule(
-        "google.protobuf.internal.well_known_types"));
+        "google.protobug.internal.well_known_types"));
     GOOGLE_DCHECK(well_known_types != NULL);
 
     WKT_classes = PyObject_GetAttrString(well_known_types.get(), "WKTBASES");
@@ -866,7 +866,7 @@ PyMessageFactory* GetFactoryForMessage(CMessage* message) {
 static int MaybeReleaseOverlappingOneofField(
     CMessage* cmessage,
     const FieldDescriptor* field) {
-#ifdef GOOGLE_PROTOBUF_HAS_ONEOF
+#ifdef GOOGLE_PROTOBUG_HAS_ONEOF
   Message* message = cmessage->message;
   const Reflection* reflection = message->GetReflection();
   if (!field->containing_oneof() ||
@@ -1846,7 +1846,7 @@ static PyObject* InternalSerializeToString(
     // match a user's attempt to catch EncodeError.  So we have to look it up
     // again every time.
     ScopedPyObjectPtr message_module(PyImport_ImportModule(
-        "google.protobuf.message"));
+        "google.protobug.message"));
     if (message_module.get() == NULL) {
       return NULL;
     }
@@ -2264,7 +2264,7 @@ static PyObject* RichCompare(CMessage* self, PyObject* other, int opid) {
   if (!PyObject_TypeCheck(other, &CMessage_Type)) {
     equals = false;
   }
-  const google::protobuf::Message* other_message =
+  const google::protobug::Message* other_message =
       reinterpret_cast<CMessage*>(other)->message;
   // If messages don't have the same descriptors, they are not equal.
   if (equals &&
@@ -2272,7 +2272,7 @@ static PyObject* RichCompare(CMessage* self, PyObject* other, int opid) {
     equals = false;
   }
   // Check the message contents.
-  if (equals && !google::protobuf::util::MessageDifferencer::Equals(
+  if (equals && !google::protobug::util::MessageDifferencer::Equals(
           *self->message,
           *reinterpret_cast<CMessage*>(other)->message)) {
     equals = false;
@@ -2514,7 +2514,7 @@ PyObject* DeepCopy(CMessage* self, PyObject* arg) {
 PyObject* ToUnicode(CMessage* self) {
   // Lazy import to prevent circular dependencies
   ScopedPyObjectPtr text_format(
-      PyImport_ImportModule("google.protobuf.text_format"));
+      PyImport_ImportModule("google.protobug.text_format"));
   if (text_format == NULL) {
     return NULL;
   }
@@ -3029,7 +3029,7 @@ bool InitProto2MessageModule(PyObject *m) {
       &PyMethodDescriptor_Type));
 
   PyObject* enum_type_wrapper = PyImport_ImportModule(
-      "google.protobuf.internal.enum_type_wrapper");
+      "google.protobug.internal.enum_type_wrapper");
   if (enum_type_wrapper == NULL) {
     return false;
   }
@@ -3038,7 +3038,7 @@ bool InitProto2MessageModule(PyObject *m) {
   Py_DECREF(enum_type_wrapper);
 
   PyObject* message_module = PyImport_ImportModule(
-      "google.protobuf.message");
+      "google.protobug.message");
   if (message_module == NULL) {
     return false;
   }
@@ -3062,5 +3062,5 @@ bool InitProto2MessageModule(PyObject *m) {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google

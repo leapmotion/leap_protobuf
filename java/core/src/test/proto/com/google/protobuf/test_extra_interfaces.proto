@@ -35,16 +35,16 @@ package protobuf_unittest;
 
 message Proto1 {
   option experimental_java_message_interface =
-      "com.google.protobuf.ExtraInterfaces.HasBoolValue";
+      "com.google.protobug.ExtraInterfaces.HasBoolValue";
 
   option experimental_java_interface_extends =
-      "com.google.protobuf.ExtraInterfaces.HasByteValue";
+      "com.google.protobug.ExtraInterfaces.HasByteValue";
 
   option experimental_java_message_interface =
-      "com.google.protobuf.ExtraInterfaces.HasStringValue<Proto1>";
+      "com.google.protobug.ExtraInterfaces.HasStringValue<Proto1>";
 
   option experimental_java_builder_interface =
-      "com.google.protobuf.ExtraInterfaces.HasStringValueBuilder"
+      "com.google.protobug.ExtraInterfaces.HasStringValueBuilder"
       "<Proto1, Builder>";
 
   optional string string_value = 1;
@@ -55,7 +55,7 @@ message Proto1 {
 
 message Proto2 {
   option experimental_java_message_interface =
-      "com.google.protobuf.ExtraInterfaces.HasBoolValue";
+      "com.google.protobug.ExtraInterfaces.HasBoolValue";
 
   optional bool bool_value = 1;
 }

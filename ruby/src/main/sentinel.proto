@@ -1,5 +1,5 @@
 syntax = "proto3";
-package com.google.protobuf.jruby;
+package com.google.protobug.jruby;
 option optimize_for = CODE_SIZE;
 
 message Sentinel {

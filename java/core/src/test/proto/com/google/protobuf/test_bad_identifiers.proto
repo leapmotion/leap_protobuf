@@ -41,7 +41,7 @@ option java_generic_services = true;   // auto-added
 
 package io_protocol_tests;
 
-option java_package = "com.google.protobuf";
+option java_package = "com.google.protobug";
 option java_outer_classname = "TestBadIdentifiersProto";
 
 message TestMessage {

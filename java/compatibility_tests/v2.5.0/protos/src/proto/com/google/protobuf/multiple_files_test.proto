@@ -37,7 +37,7 @@
 // See:  http://go/proto2-generic-services-default
 option java_generic_services = true;   // auto-added
 
-import "google/protobuf/unittest.proto";
+import "google/protobug/unittest.proto";
 
 package protobuf_unittest;
 

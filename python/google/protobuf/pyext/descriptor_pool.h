@@ -28,16 +28,16 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_POOL_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_POOL_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_POOL_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_POOL_H__
 
 #include <Python.h>
 
-#include <google/protobuf/stubs/hash.h>
-#include <google/protobuf/descriptor.h>
+#include <google/protobug/stubs/hash.h>
+#include <google/protobug/descriptor.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 struct PyMessageFactory;
@@ -139,7 +139,7 @@ PyDescriptorPool* GetDescriptorPool_FromPool(const DescriptorPool* pool);
 bool InitDescriptorPool();
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_POOL_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_POOL_H__

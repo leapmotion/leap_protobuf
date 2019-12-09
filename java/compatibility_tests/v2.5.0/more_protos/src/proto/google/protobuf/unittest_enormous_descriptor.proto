@@ -36,8 +36,8 @@
 // descriptors over 64k don't break the string literal length limit in Java.
 
 
-package google.protobuf;
-option java_package = "com.google.protobuf";
+package google.protobug;
+option java_package = "com.google.protobug";
 
 // Avoid generating insanely long methods.
 option optimize_for = CODE_SIZE;

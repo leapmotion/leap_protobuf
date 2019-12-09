@@ -31,19 +31,19 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#include <google/protobuf/pyext/repeated_scalar_container.h>
+#include <google/protobug/pyext/repeated_scalar_container.h>
 
 #include <memory>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/dynamic_message.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/pyext/descriptor.h>
-#include <google/protobuf/pyext/descriptor_pool.h>
-#include <google/protobuf/pyext/message.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/protobug/stubs/common.h>
+#include <google/protobug/stubs/logging.h>
+#include <google/protobug/descriptor.h>
+#include <google/protobug/dynamic_message.h>
+#include <google/protobug/message.h>
+#include <google/protobug/pyext/descriptor.h>
+#include <google/protobug/pyext/descriptor_pool.h>
+#include <google/protobug/pyext/message.h>
+#include <google/protobug/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #define PyInt_FromLong PyLong_FromLong
@@ -56,7 +56,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 namespace repeated_scalar_container {
@@ -821,5 +821,5 @@ PyTypeObject RepeatedScalarContainer_Type = {
 };
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google

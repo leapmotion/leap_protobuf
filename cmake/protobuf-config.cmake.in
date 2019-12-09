@@ -98,9 +98,9 @@ function(protobuf_generate)
 
     add_custom_command(
       OUTPUT ${_generated_srcs}
-      COMMAND  protobuf::protoc
+      COMMAND  leap_protobuf::protoc
       ARGS --${protobuf_generate_LANGUAGE}_out ${_dll_export_decl}${CMAKE_CURRENT_BINARY_DIR} ${_protobuf_include_path} ${_abs_file}
-      DEPENDS ${ABS_FIL} protobuf::protoc
+      DEPENDS ${ABS_FIL} leap_protobuf::protoc
       COMMENT "Running ${protobuf_generate_LANGUAGE} protocol buffer compiler on ${_proto}"
       VERBATIM )
   endforeach()

@@ -35,7 +35,7 @@
 
 syntax = "proto2";
 
-package google.protobuf.python.internal;
+package google.protobug.python.internal;
 
 // Protos optimized for SPEED use a strict superset of the generated code
 // of equivalent ones optimized for CODE_SIZE, so we should optimize all our

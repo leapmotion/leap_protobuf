@@ -31,17 +31,17 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_EXTENSION_DICT_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_EXTENSION_DICT_H__
 
 #include <Python.h>
 
 #include <memory>
 
-#include <google/protobuf/pyext/message.h>
+#include <google/protobug/pyext/message.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 class Message;
 class FieldDescriptor;
@@ -79,7 +79,7 @@ ExtensionDict* NewExtensionDict(CMessage *parent);
 
 }  // namespace extension_dict
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_EXTENSION_DICT_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_EXTENSION_DICT_H__

@@ -46,14 +46,14 @@ option optimize_for = SPEED;
 option cc_enable_arenas = true;
 
 // Exercise the java_package option.
-option java_package = "com.google.protobuf.test";
+option java_package = "com.google.protobug.test";
 option csharp_namespace = "Google.Protobuf.TestProtos";
 
 // Do not set a java_outer_classname here to verify that Proto2 works without
 // one.
 
 // Test public import
-import public "google/protobuf/unittest_import_public_proto3.proto";
+import public "google/protobug/unittest_import_public_proto3.proto";
 
 message ImportMessage {
   int32 d = 1;

@@ -108,19 +108,19 @@ configure_file(protobuf-options.cmake
 
 if (protobuf_BUILD_PROTOC_BINARIES)
   export(TARGETS libprotobuf-lite libprotobuf libprotoc protoc
-    NAMESPACE protobuf::
+    NAMESPACE leap_protobuf::
     FILE ${CMAKE_INSTALL_CMAKEDIR}/protobuf-targets.cmake
   )
 else (protobuf_BUILD_PROTOC_BINARIES)
   export(TARGETS libprotobuf-lite libprotobuf
-    NAMESPACE protobuf::
+    NAMESPACE leap_protobuf::
     FILE ${CMAKE_INSTALL_CMAKEDIR}/protobuf-targets.cmake
   )
 endif (protobuf_BUILD_PROTOC_BINARIES)
 
 install(EXPORT protobuf-targets
   DESTINATION "${CMAKE_INSTALL_CMAKEDIR}"
-  NAMESPACE protobuf::
+  NAMESPACE leap_protobuf::
   COMPONENT protobuf-export)
 
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_INSTALL_CMAKEDIR}/

@@ -1,22 +1,22 @@
 #ifndef PROTOBUF_BENCHMARKS_UTIL_SCHEMA_PROTO2_TO_PROTO3_UTIL_H_
 #define PROTOBUF_BENCHMARKS_UTIL_SCHEMA_PROTO2_TO_PROTO3_UTIL_H_
 
-#include "google/protobuf/message.h"
-#include "google/protobuf/descriptor.h"
-#include "google/protobuf/descriptor.pb.h"
+#include "google/protobug/message.h"
+#include "google/protobug/descriptor.h"
+#include "google/protobug/descriptor.pb.h"
 
 #include <sstream>
 #include <algorithm>
 
-using google::protobuf::Descriptor;
-using google::protobuf::DescriptorProto;
-using google::protobuf::FileDescriptorProto;
-using google::protobuf::FieldDescriptorProto;
-using google::protobuf::Message;
-using google::protobuf::EnumValueDescriptorProto;
+using google::protobug::Descriptor;
+using google::protobug::DescriptorProto;
+using google::protobug::FileDescriptorProto;
+using google::protobug::FieldDescriptorProto;
+using google::protobug::Message;
+using google::protobug::EnumValueDescriptorProto;
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace util {
 
 class SchemaGroupStripper {
@@ -131,7 +131,7 @@ class SchemaAddZeroEnumValue {
 };
 
 }  // namespace util
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google
 
 #endif  // PROTOBUF_BENCHMARKS_UTIL_SCHEMA_PROTO2_TO_PROTO3_UTIL_H_

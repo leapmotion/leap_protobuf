@@ -33,23 +33,23 @@
 #include <unistd.h>
 
 #include "conformance.pb.h"
-#include <google/protobuf/test_messages_proto3.pb.h>
-#include <google/protobuf/test_messages_proto2.pb.h>
-#include <google/protobuf/message.h>
-#include <google/protobuf/util/json_util.h>
-#include <google/protobuf/util/type_resolver_util.h>
+#include <google/protobug/test_messages_proto3.pb.h>
+#include <google/protobug/test_messages_proto2.pb.h>
+#include <google/protobug/message.h>
+#include <google/protobug/util/json_util.h>
+#include <google/protobug/util/type_resolver_util.h>
 
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
-using google::protobuf::Descriptor;
-using google::protobuf::DescriptorPool;
-using google::protobuf::Message;
-using google::protobuf::MessageFactory;
-using google::protobuf::util::BinaryToJsonString;
-using google::protobuf::util::JsonToBinaryString;
-using google::protobuf::util::NewTypeResolverForDescriptorPool;
-using google::protobuf::util::Status;
-using google::protobuf::util::TypeResolver;
+using google::protobug::Descriptor;
+using google::protobug::DescriptorPool;
+using google::protobug::Message;
+using google::protobug::MessageFactory;
+using google::protobug::util::BinaryToJsonString;
+using google::protobug::util::JsonToBinaryString;
+using google::protobug::util::NewTypeResolverForDescriptorPool;
+using google::protobug::util::Status;
+using google::protobug::util::TypeResolver;
 using protobuf_test_messages::proto3::TestAllTypesProto3;
 using protobuf_test_messages::proto2::TestAllTypesProto2;
 using std::string;

@@ -31,7 +31,7 @@
 // This file contains messages that extend MessageSet.
 
 syntax = "proto2";
-package google.protobuf.internal;
+package google.protobug.internal;
 
 
 // A message with message_set_wire_format.

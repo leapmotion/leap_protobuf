@@ -1,8 +1,8 @@
-prune google/protobuf/internal/import_test_package
-exclude google/protobuf/internal/*_pb2.py
-exclude google/protobuf/internal/*_test.py
-exclude google/protobuf/internal/*.proto
-exclude google/protobuf/internal/test_util.py
+prune google/protobug/internal/import_test_package
+exclude google/protobug/internal/*_pb2.py
+exclude google/protobug/internal/*_test.py
+exclude google/protobug/internal/*.proto
+exclude google/protobug/internal/test_util.py
 
 recursive-include google *.cc
 recursive-include google *.h

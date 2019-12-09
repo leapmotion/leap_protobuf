@@ -123,7 +123,7 @@ cpp: protoc_middleman protoc_middleman2 cpp-benchmark initialize_submodule
 ############# JAVA RULES ##############
 
 java_benchmark_testing_files =                                      \
-	java/src/main/java/com/google/protobuf/ProtoCaliperBenchmark.java
+	java/src/main/java/com/google/protobug/ProtoCaliperBenchmark.java
 
 javac_middleman: $(java_benchmark_testing_files) protoc_middleman protoc_middleman2
 	cp -r $(srcdir)/java tmp && cd tmp/java &&  mvn clean compile assembly:single
@@ -137,7 +137,7 @@ java-benchmark: javac_middleman
 	@echo 'conf=()' >> java-benchmark
 	@echo 'data_files=""' >> java-benchmark
 	@echo 'for arg in $$@; do if [[ $${arg:0:1} == "-" ]]; then conf+=($$arg); else data_files+="$$arg,"; fi; done' >> java-benchmark
-	@echo 'java -cp '"tmp/java/target/*.jar"' com.google.caliper.runner.CaliperMain com.google.protobuf.ProtoCaliperBenchmark -i runtime '"\\"  >> java-benchmark
+	@echo 'java -cp '"tmp/java/target/*.jar"' com.google.caliper.runner.CaliperMain com.google.protobug.ProtoCaliperBenchmark -i runtime '"\\"  >> java-benchmark
 	@echo '-b serializeToByteString,serializeToByteArray,serializeToMemoryStream,'"\\"  >> java-benchmark
 	@echo 'deserializeFromByteString,deserializeFromByteArray,deserializeFromMemoryStream '"\\" >> java-benchmark
 	@echo '-DdataFile=$${data_files:0:-1} $${conf[*]}' >> java-benchmark

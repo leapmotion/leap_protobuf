@@ -95,9 +95,9 @@ function(_protobuf_find_libraries name filename)
     # Honor cache entry used by CMake 3.5 and lower.
     set(${name}_LIBRARIES "${${name}_LIBRARY}" PARENT_SCOPE)
   else()
-    get_target_property(${name}_LIBRARY_RELEASE protobuf::lib${filename}
+    get_target_property(${name}_LIBRARY_RELEASE leap_protobuf::lib${filename}
       LOCATION_RELEASE)
-    get_target_property(${name}_LIBRARY_DEBUG protobuf::lib${filename}
+    get_target_property(${name}_LIBRARY_DEBUG leap_protobuf::lib${filename}
       LOCATION_DEBUG)
 
     select_library_configurations(${name})
@@ -140,18 +140,18 @@ if(UNIX)
 endif()
 
 # Set the include directory
-get_target_property(Protobuf_INCLUDE_DIRS protobuf::libprotobuf
+get_target_property(Protobuf_INCLUDE_DIRS leap_protobuf::libprotobuf
   INTERFACE_INCLUDE_DIRECTORIES)
 
 # Set the protoc Executable
-get_target_property(Protobuf_PROTOC_EXECUTABLE protobuf::protoc
+get_target_property(Protobuf_PROTOC_EXECUTABLE leap_protobuf::protoc
   IMPORTED_LOCATION_RELEASE)
 if(NOT EXISTS "${Protobuf_PROTOC_EXECUTABLE}")
-  get_target_property(Protobuf_PROTOC_EXECUTABLE protobuf::protoc
+  get_target_property(Protobuf_PROTOC_EXECUTABLE leap_protobuf::protoc
     IMPORTED_LOCATION_DEBUG)
 endif()
 if(NOT EXISTS "${Protobuf_PROTOC_EXECUTABLE}")
-  get_target_property(Protobuf_PROTOC_EXECUTABLE protobuf::protoc
+  get_target_property(Protobuf_PROTOC_EXECUTABLE leap_protobuf::protoc
     IMPORTED_LOCATION_NOCONFIG)
 endif()
 

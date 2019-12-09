@@ -3,7 +3,7 @@ syntax = "proto2";
 package benchmarks.google_message3;
 
 option cc_enable_arenas = true;
-option java_package = "com.google.protobuf.benchmarks";
+option java_package = "com.google.protobug.benchmarks";
 
 enum Enum720 {
   ENUM_VALUE721 = 1;

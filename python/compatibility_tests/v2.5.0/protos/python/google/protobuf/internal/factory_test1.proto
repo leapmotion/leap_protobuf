@@ -31,7 +31,7 @@
 // Author: matthewtoia@google.com (Matt Toia)
 
 
-package google.protobuf.python.internal;
+package google.protobug.python.internal;
 
 
 enum Factory1Enum {

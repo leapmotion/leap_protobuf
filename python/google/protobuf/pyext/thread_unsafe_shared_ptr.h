@@ -30,17 +30,17 @@
 
 // ThreadUnsafeSharedPtr<T> is the same as shared_ptr<T> without the locking
 // overhread (and thread-safety).
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
 
 #include <algorithm>
 #include <utility>
 
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/stubs/common.h>
+#include <google/protobug/stubs/logging.h>
+#include <google/protobug/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 template <typename T>
@@ -98,7 +98,7 @@ class ThreadUnsafeSharedPtr {
 };
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_THREAD_UNSAFE_SHARED_PTR_H__

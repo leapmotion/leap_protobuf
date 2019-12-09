@@ -31,19 +31,19 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_MESSAGE_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_MESSAGE_H__
 
 #include <Python.h>
 
 #include <memory>
 #include <string>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/pyext/thread_unsafe_shared_ptr.h>
+#include <google/protobug/stubs/common.h>
+#include <google/protobug/pyext/thread_unsafe_shared_ptr.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 class Message;
 class Reflection;
@@ -316,7 +316,7 @@ PyObject* SetAllowOversizeProtos(PyObject* m, PyObject* arg);
     }
 
 
-#define FULL_MODULE_NAME "google.protobuf.pyext._message"
+#define FULL_MODULE_NAME "google.protobug.pyext._message"
 
 void FormatTypeError(PyObject* arg, char* expected_types);
 template<class T>
@@ -353,7 +353,7 @@ extern template bool CheckAndGetInteger<uint64>(PyObject*, uint64*);
 #endif
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_MESSAGE_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_MESSAGE_H__

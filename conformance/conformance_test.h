@@ -40,9 +40,9 @@
 
 #include <functional>
 #include <string>
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/util/type_resolver.h>
-#include <google/protobuf/wire_format_lite.h>
+#include <google/protobug/stubs/common.h>
+#include <google/protobug/util/type_resolver.h>
+#include <google/protobug/wire_format_lite.h>
 
 #include "third_party/jsoncpp/json.h"
 
@@ -51,14 +51,14 @@ class ConformanceRequest;
 class ConformanceResponse;
 }  // namespace conformance
 
-namespace protobuf_test_messages {
+namespace protobug_test_messages {
 namespace proto3 {
 class TestAllTypesProto3;
 }  // namespace proto3
-}  // namespace protobuf_test_messages
+}  // namespace protobug_test_messages
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 class ConformanceTestRunner {
  public:
@@ -88,7 +88,7 @@ class ConformanceTestRunner {
 //
 //    int main() {
 //      MyConformanceTestRunner runner;
-//      google::protobuf::ConformanceTestSuite suite;
+//      google::protobug::ConformanceTestSuite suite;
 //
 //      std::string output;
 //      suite.RunSuite(&runner, &output);
@@ -218,7 +218,7 @@ class ConformanceTestSuite {
   void ExpectHardParseFailureForProto(const std::string& proto,
                                       const std::string& test_name,
                                       ConformanceLevel level);
-  void TestPrematureEOFForType(google::protobuf::FieldDescriptor::Type type);
+  void TestPrematureEOFForType(google::protobug::FieldDescriptor::Type type);
   void TestIllegalTags();
   template <class MessageType>
   void TestOneofMessage (MessageType &message,
@@ -227,7 +227,7 @@ class ConformanceTestSuite {
   void TestUnknownMessage (MessageType &message,
                            bool isProto3);
   void TestValidDataForType(
-      google::protobuf::FieldDescriptor::Type,
+      google::protobug::FieldDescriptor::Type,
       std::vector<std::pair<std::string, std::string>> values);
   bool CheckSetEmpty(const std::set<string>& set_to_check,
                      const std::string& write_to_file, const std::string& msg);
@@ -256,11 +256,11 @@ class ConformanceTestSuite {
   // The set of tests that the testee opted out of;
   std::set<std::string> skipped_;
 
-  std::unique_ptr<google::protobuf::util::TypeResolver> type_resolver_;
+  std::unique_ptr<google::protobug::util::TypeResolver> type_resolver_;
   std::string type_url_;
 };
 
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google
 
 #endif  // CONFORMANCE_CONFORMANCE_TEST_H

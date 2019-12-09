@@ -28,17 +28,17 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_SAFE_NUMERICS_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_SAFE_NUMERICS_H__
 // Copied from chromium with only changes to the namespace.
 
 #include <limits>
 
-#include <google/protobuf/stubs/logging.h>
-#include <google/protobuf/stubs/common.h>
+#include <google/protobug/stubs/logging.h>
+#include <google/protobug/stubs/common.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 template <bool SameSize, bool DestLarger,
@@ -158,7 +158,7 @@ inline Dest checked_numeric_cast(Source source) {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_SAFE_NUMERICS_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_SAFE_NUMERICS_H__

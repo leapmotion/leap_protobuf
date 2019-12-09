@@ -5,14 +5,14 @@
 #include "datasets/google_message3/benchmark_message3.pb.h"
 #include "datasets/google_message4/benchmark_message4.pb.h"
 
-#include "google/protobuf/message.h"
-#include "google/protobuf/descriptor.h"
+#include "google/protobug/message.h"
+#include "google/protobug/descriptor.h"
 
 #include <fstream>
 
-using google::protobuf::FieldDescriptor;
-using google::protobuf::Message;
-using google::protobuf::Reflection;
+using google::protobug::FieldDescriptor;
+using google::protobug::Message;
+using google::protobug::Reflection;
 
 
 class DataGroupStripper {

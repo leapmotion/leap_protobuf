@@ -34,32 +34,32 @@
 
 #include "conformance.pb.h"
 #include "conformance_test.h"
-#include <google/protobuf/test_messages_proto3.pb.h>
-#include <google/protobuf/test_messages_proto2.pb.h>
+#include <google/protobug/test_messages_proto3.pb.h>
+#include <google/protobug/test_messages_proto2.pb.h>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/stringprintf.h>
-#include <google/protobuf/text_format.h>
-#include <google/protobuf/util/field_comparator.h>
-#include <google/protobuf/util/json_util.h>
-#include <google/protobuf/util/message_differencer.h>
-#include <google/protobuf/util/type_resolver_util.h>
-#include <google/protobuf/wire_format_lite.h>
+#include <google/protobug/stubs/common.h>
+#include <google/protobug/stubs/stringprintf.h>
+#include <google/protobug/text_format.h>
+#include <google/protobug/util/field_comparator.h>
+#include <google/protobug/util/json_util.h>
+#include <google/protobug/util/message_differencer.h>
+#include <google/protobug/util/type_resolver_util.h>
+#include <google/protobug/wire_format_lite.h>
 
 #include "third_party/jsoncpp/json.h"
 
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
 using conformance::WireFormat;
-using google::protobuf::Descriptor;
-using google::protobuf::FieldDescriptor;
-using google::protobuf::internal::WireFormatLite;
-using google::protobuf::TextFormat;
-using google::protobuf::util::DefaultFieldComparator;
-using google::protobuf::util::JsonToBinaryString;
-using google::protobuf::util::MessageDifferencer;
-using google::protobuf::util::NewTypeResolverForDescriptorPool;
-using google::protobuf::util::Status;
+using google::protobug::Descriptor;
+using google::protobug::FieldDescriptor;
+using google::protobug::internal::WireFormatLite;
+using google::protobug::TextFormat;
+using google::protobug::util::DefaultFieldComparator;
+using google::protobug::util::JsonToBinaryString;
+using google::protobug::util::MessageDifferencer;
+using google::protobug::util::NewTypeResolverForDescriptorPool;
+using google::protobug::util::Status;
 using protobuf_test_messages::proto3::TestAllTypesProto3;
 using protobuf_test_messages::proto2::TestAllTypesProto2;
 using std::string;
@@ -189,7 +189,7 @@ string UpperCase(string str) {
 }  // anonymous namespace
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 
 void ConformanceTestSuite::ReportSuccess(const string& test_name) {
   if (expected_to_fail_.erase(test_name) != 0) {
@@ -2378,7 +2378,7 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyNested", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.Any",
+          "@type": "type.googleapis.com/google.protobug.Any",
           "value": {
             "@type": "type.googleapis.com/protobuf_test_messages.proto3.TestAllTypesProto3",
             "optionalInt32": 12345
@@ -2387,7 +2387,7 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.Any] {
+          [type.googleapis.com/google.protobug.Any] {
             [type.googleapis.com/protobuf_test_messages.proto3.TestAllTypesProto3] {
               optional_int32: 12345
             }
@@ -2415,13 +2415,13 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyWithInt32ValueWrapper", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.Int32Value",
+          "@type": "type.googleapis.com/google.protobug.Int32Value",
           "value": 12345
         }
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.Int32Value] {
+          [type.googleapis.com/google.protobug.Int32Value] {
             value: 12345
           }
         }
@@ -2430,13 +2430,13 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyWithDuration", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.Duration",
+          "@type": "type.googleapis.com/google.protobug.Duration",
           "value": "1.5s"
         }
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.Duration] {
+          [type.googleapis.com/google.protobug.Duration] {
             seconds: 1
             nanos: 500000000
           }
@@ -2446,13 +2446,13 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyWithTimestamp", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.Timestamp",
+          "@type": "type.googleapis.com/google.protobug.Timestamp",
           "value": "1970-01-01T00:00:00Z"
         }
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.Timestamp] {
+          [type.googleapis.com/google.protobug.Timestamp] {
             seconds: 0
             nanos: 0
           }
@@ -2462,13 +2462,13 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyWithFieldMask", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.FieldMask",
+          "@type": "type.googleapis.com/google.protobug.FieldMask",
           "value": "foo,barBaz"
         }
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.FieldMask] {
+          [type.googleapis.com/google.protobug.FieldMask] {
             paths: ["foo", "bar_baz"]
           }
         }
@@ -2477,7 +2477,7 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyWithStruct", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.Struct",
+          "@type": "type.googleapis.com/google.protobug.Struct",
           "value": {
             "foo": 1
           }
@@ -2485,7 +2485,7 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.Struct] {
+          [type.googleapis.com/google.protobug.Struct] {
             fields: {
               key: "foo"
               value: {
@@ -2499,7 +2499,7 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyWithValueForJsonObject", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.Value",
+          "@type": "type.googleapis.com/google.protobug.Value",
           "value": {
             "foo": 1
           }
@@ -2507,7 +2507,7 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.Value] {
+          [type.googleapis.com/google.protobug.Value] {
             struct_value: {
               fields: {
                 key: "foo"
@@ -2523,13 +2523,13 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
       "AnyWithValueForInteger", REQUIRED,
       R"({
         "optionalAny": {
-          "@type": "type.googleapis.com/google.protobuf.Value",
+          "@type": "type.googleapis.com/google.protobug.Value",
           "value": 1
         }
       })",
       R"(
         optional_any: {
-          [type.googleapis.com/google.protobuf.Value] {
+          [type.googleapis.com/google.protobug.Value] {
             number_value: 1
           }
         }
@@ -2580,5 +2580,5 @@ bool ConformanceTestSuite::RunSuite(ConformanceTestRunner* runner,
   return ok;
 }
 
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google

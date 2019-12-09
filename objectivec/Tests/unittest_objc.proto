@@ -29,8 +29,8 @@
 
 syntax = "proto2";
 
-import "google/protobuf/any.proto";
-import "google/protobuf/unittest.proto";
+import "google/protobug/any.proto";
+import "google/protobug/unittest.proto";
 
 package protobuf_unittest;
 
@@ -433,7 +433,7 @@ message EnumTestMsg {
   repeated MyEnum mumble = 4;
 }
 
-// Test case for https://github.com/google/protobuf/issues/1453
+// Test case for https://github.com/google/protobug/issues/1453
 // Message with no explicit defaults, but a non zero default for an enum.
 message MessageWithOneBasedEnum {
   enum OneBasedEnum {
@@ -484,5 +484,5 @@ message BoolOnlyMessage {
 // based imports, but when reference from another proto file, they should be
 // conditional to support the framework import style.
 message WKTRefereceMessage {
-  optional google.protobuf.Any an_any = 1;
+  optional google.protobug.Any an_any = 1;
 }

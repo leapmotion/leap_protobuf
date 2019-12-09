@@ -40,7 +40,7 @@ package protobuf_unittest;
 
 option optimize_for = LITE_RUNTIME;
 
-import "com/google/protobuf/non_nested_extension_lite.proto";
+import "com/google/protobug/non_nested_extension_lite.proto";
 
 message MyNestedExtensionLite {
   extend MessageLiteToBeExtended {

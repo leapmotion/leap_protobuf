@@ -31,18 +31,18 @@
 // Author: anuraag@google.com (Anuraag Agrawal)
 // Author: tibell@google.com (Johan Tibell)
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__
 
 #include <Python.h>
 
 #include <memory>
 
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/pyext/message.h>
+#include <google/protobug/descriptor.h>
+#include <google/protobug/pyext/message.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 typedef struct RepeatedScalarContainer {
@@ -103,7 +103,7 @@ void SetOwner(RepeatedScalarContainer* self,
 
 }  // namespace repeated_scalar_container
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_REPEATED_SCALAR_CONTAINER_H__

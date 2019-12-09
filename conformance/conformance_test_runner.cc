@@ -61,14 +61,14 @@
 #include <unistd.h>
 #include <vector>
 
-#include <google/protobuf/stubs/stringprintf.h>
+#include <google/protobug/stubs/stringprintf.h>
 
 #include "conformance.pb.h"
 #include "conformance_test.h"
 
 using conformance::ConformanceRequest;
 using conformance::ConformanceResponse;
-using google::protobuf::StringAppendF;
+using google::protobug::StringAppendF;
 using std::string;
 using std::vector;
 
@@ -82,7 +82,7 @@ using std::vector;
 
 // Test runner that spawns the process being tested and communicates with it
 // over a pipe.
-class ForkPipeRunner : public google::protobuf::ConformanceTestRunner {
+class ForkPipeRunner : public google::protobug::ConformanceTestRunner {
  public:
   ForkPipeRunner(const std::string &executable)
       : child_pid_(-1), executable_(executable) {}
@@ -135,7 +135,7 @@ class ForkPipeRunner : public google::protobuf::ConformanceTestRunner {
   // UNIX-specific APIs.
   //
   // There is a platform-agnostic API in
-  //    src/google/protobuf/compiler/subprocess.h
+  //    src/google/protobug/compiler/subprocess.h
   //
   // However that API only supports sending a single message to the subprocess.
   // We really want to be able to send messages and receive responses one at a
@@ -287,7 +287,7 @@ void ParseFailureList(const char *filename, std::vector<string>* failure_list) {
 
 int main(int argc, char *argv[]) {
   char *program;
-  google::protobuf::ConformanceTestSuite suite;
+  google::protobug::ConformanceTestSuite suite;
 
   string failure_list_filename;
   std::vector<string> failure_list;

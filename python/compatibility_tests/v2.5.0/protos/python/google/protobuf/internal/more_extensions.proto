@@ -31,7 +31,7 @@
 // Author: robinson@google.com (Will Robinson)
 
 
-package google.protobuf.internal;
+package google.protobug.internal;
 
 
 message TopLevelMessage {

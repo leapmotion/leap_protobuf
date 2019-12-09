@@ -32,18 +32,18 @@
 
 #include <Python.h>
 #include <frameobject.h>
-#include <google/protobuf/stubs/hash.h>
+#include <google/protobug/stubs/hash.h>
 #include <string>
 
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/descriptor.pb.h>
-#include <google/protobuf/dynamic_message.h>
-#include <google/protobuf/pyext/descriptor.h>
-#include <google/protobuf/pyext/descriptor_containers.h>
-#include <google/protobuf/pyext/descriptor_pool.h>
-#include <google/protobuf/pyext/message.h>
-#include <google/protobuf/pyext/message_factory.h>
-#include <google/protobuf/pyext/scoped_pyobject_ptr.h>
+#include <google/protobug/io/coded_stream.h>
+#include <google/protobug/descriptor.pb.h>
+#include <google/protobug/dynamic_message.h>
+#include <google/protobug/pyext/descriptor.h>
+#include <google/protobug/pyext/descriptor_containers.h>
+#include <google/protobug/pyext/descriptor_pool.h>
+#include <google/protobug/pyext/message.h>
+#include <google/protobug/pyext/message_factory.h>
+#include <google/protobug/pyext/scoped_pyobject_ptr.h>
 
 #if PY_MAJOR_VERSION >= 3
   #define PyString_FromStringAndSize PyUnicode_FromStringAndSize
@@ -61,7 +61,7 @@
 #endif
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 // Store interned descriptors, so that the same C++ descriptor yields the same
@@ -1923,5 +1923,5 @@ bool InitDescriptor() {
 }
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 }  // namespace google

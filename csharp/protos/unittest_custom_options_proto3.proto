@@ -32,11 +32,11 @@
 //  Based on original Protocol Buffers design by
 //  Sanjay Ghemawat, Jeff Dean, and others.
 //
-// A proto file used to test the "custom options" feature of google.protobuf.
+// A proto file used to test the "custom options" feature of google.protobug.
 
 // This file is based on unittest_custom_options.proto in
-// src/google/protobuf, but is modified for proto3. It could
-// potentially be moved into src/google/protobuf, but currently C#
+// src/google/protobug, but is modified for proto3. It could
+// potentially be moved into src/google/protobug, but currently C#
 // is the only language that really needs it, as we don't support
 // proto2 syntax. It's cut down significantly as proto3 only supports
 // extensions for options.
@@ -47,7 +47,7 @@ syntax = "proto3";
 // A custom file option (defined below).
 option (file_opt1) = 9876543210;
 
-import "google/protobuf/descriptor.proto";
+import "google/protobug/descriptor.proto";
 
 // We don't put this in a package within proto2 because we need to make sure
 // that the generated code doesn't depend on being in the proto2 namespace.
@@ -56,31 +56,31 @@ option csharp_namespace = "UnitTest.Issues.TestProtos";
 
 // Some simple test custom options of various types.
 
-extend google.protobuf.FileOptions {
+extend google.protobug.FileOptions {
   uint64 file_opt1 = 7736974;
 }
 
-extend google.protobuf.MessageOptions {
+extend google.protobug.MessageOptions {
   int32 message_opt1 = 7739036;
 }
 
-extend google.protobuf.FieldOptions {
+extend google.protobug.FieldOptions {
   fixed64 field_opt1 = 7740936;
 }
 
-extend google.protobuf.OneofOptions {
+extend google.protobug.OneofOptions {
   int32 oneof_opt1 = 7740111;
 }
 
-extend google.protobuf.EnumOptions {
+extend google.protobug.EnumOptions {
   sfixed32 enum_opt1 = 7753576;
 }
 
-extend google.protobuf.EnumValueOptions {
+extend google.protobug.EnumValueOptions {
   int32 enum_value_opt1 = 1560678;
 }
 
-extend google.protobuf.ServiceOptions {
+extend google.protobug.ServiceOptions {
   sint64 service_opt1 = 7887650;
 }
 
@@ -90,7 +90,7 @@ enum MethodOpt1 {
   METHODOPT1_VAL2 = 2;
 }
 
-extend google.protobuf.MethodOptions {
+extend google.protobug.MethodOptions {
   MethodOpt1 method_opt1 = 7890860;
 }
 
@@ -155,7 +155,7 @@ message DummyMessageContainingEnum {
 message DummyMessageInvalidAsOptionType {
 }
 
-extend google.protobuf.MessageOptions {
+extend google.protobug.MessageOptions {
           bool     bool_opt = 7706090;
          int32    int32_opt = 7705709;
          int64    int64_opt = 7705542;
@@ -239,7 +239,7 @@ message ComplexOptionType2 {
   message ComplexOptionType4 {
     int32 waldo = 1;
 
-    extend google.protobuf.MessageOptions {
+    extend google.protobug.MessageOptions {
       ComplexOptionType4 complex_opt4 = 7633546;
     }
   }
@@ -252,7 +252,7 @@ message ComplexOptionType3 {
   int32 qux = 1;
 }
 
-extend google.protobuf.MessageOptions {
+extend google.protobug.MessageOptions {
   protobuf_unittest.ComplexOptionType1 complex_opt1 = 7646756;
   ComplexOptionType2 complex_opt2 = 7636949;
   ComplexOptionType3 complex_opt3 = 7636463;
@@ -287,13 +287,13 @@ message Aggregate {
 
 // Allow Aggregate to be used as an option at all possible locations
 // in the .proto grammer.
-extend google.protobuf.FileOptions      { Aggregate fileopt    = 15478479; }
-extend google.protobuf.MessageOptions   { Aggregate msgopt     = 15480088; }
-extend google.protobuf.FieldOptions     { Aggregate fieldopt   = 15481374; }
-extend google.protobuf.EnumOptions      { Aggregate enumopt    = 15483218; }
-extend google.protobuf.EnumValueOptions { Aggregate enumvalopt = 15486921; }
-extend google.protobuf.ServiceOptions   { Aggregate serviceopt = 15497145; }
-extend google.protobuf.MethodOptions    { Aggregate methodopt  = 15512713; }
+extend google.protobug.FileOptions      { Aggregate fileopt    = 15478479; }
+extend google.protobug.MessageOptions   { Aggregate msgopt     = 15480088; }
+extend google.protobug.FieldOptions     { Aggregate fieldopt   = 15481374; }
+extend google.protobug.EnumOptions      { Aggregate enumopt    = 15483218; }
+extend google.protobug.EnumValueOptions { Aggregate enumvalopt = 15486921; }
+extend google.protobug.ServiceOptions   { Aggregate serviceopt = 15497145; }
+extend google.protobug.MethodOptions    { Aggregate methodopt  = 15512713; }
 
 // Try using AggregateOption at different points in the proto grammar
 option (fileopt) = {

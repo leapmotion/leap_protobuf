@@ -28,15 +28,15 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_DATABASE_H__
-#define GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_DATABASE_H__
+#ifndef GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_DATABASE_H__
+#define GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_DATABASE_H__
 
 #include <Python.h>
 
-#include <google/protobuf/descriptor_database.h>
+#include <google/protobug/descriptor_database.h>
 
 namespace google {
-namespace protobuf {
+namespace protobug {
 namespace python {
 
 class PyDescriptorDatabase : public DescriptorDatabase {
@@ -69,7 +69,7 @@ class PyDescriptorDatabase : public DescriptorDatabase {
 };
 
 }  // namespace python
-}  // namespace protobuf
+}  // namespace protobug
 
 }  // namespace google
-#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_DESCRIPTOR_DATABASE_H__
+#endif  // GOOGLE_PROTOBUG_PYTHON_CPP_DESCRIPTOR_DATABASE_H__

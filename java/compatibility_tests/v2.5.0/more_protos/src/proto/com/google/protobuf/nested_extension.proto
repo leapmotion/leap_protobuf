@@ -34,7 +34,7 @@
 // a separate file to properly test the initialization of the outer class.
 
 
-import "com/google/protobuf/non_nested_extension.proto";
+import "com/google/protobug/non_nested_extension.proto";
 
 package protobuf_unittest;
 

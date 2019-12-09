@@ -34,11 +34,11 @@
 
 package protobuf_unittest;
 
-import "google/protobuf/unittest_import_lite.proto";
+import "google/protobug/unittest_import_lite.proto";
 
 option optimize_for = LITE_RUNTIME;
 
-option java_package = "com.google.protobuf";
+option java_package = "com.google.protobug";
 
 // Same as TestAllTypes but with the lite runtime.
 message TestAllTypesLite {

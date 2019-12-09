@@ -13,7 +13,7 @@ if(POLICY CMP0048)
 endif()
 
 # Project
-project(protobuf C CXX)
+project(leap_protobuf C CXX)
 
 # Add c++11 flags
 if (CYGWIN)
@@ -89,7 +89,7 @@ if(protobuf_VERBOSE)
   message(STATUS "]")
 endif()
 
-add_definitions(-DGOOGLE_PROTOBUF_CMAKE_BUILD)
+add_definitions(-DGOOGLE_PROTOBUG_CMAKE_BUILD)
 
 find_package(Threads REQUIRED)
 if (CMAKE_USE_PTHREADS_INIT)
