@@ -40,7 +40,7 @@ option csharp_namespace = "Google.Protobuf.TestProtos";
 
 import "unittest_proto3.proto";
 
-package protobuf_unittest3;
+package protobug_unittest3;
 
 // Tests maps.
 message TestMap {

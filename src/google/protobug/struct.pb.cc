@@ -140,21 +140,21 @@ static ::google::protobug::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobug::Message*>(&::google::protobug::_ListValue_default_instance_),
 };
 
-void protobuf_AssignDescriptors() {
+void protobug_AssignDescriptors() {
   AddDescriptors();
   AssignDescriptors(
       "google/protobug/struct.proto", schemas, file_default_instances, TableStruct::offsets,
       file_level_metadata, file_level_enum_descriptors, NULL);
 }
 
-void protobuf_AssignDescriptorsOnce() {
+void protobug_AssignDescriptorsOnce() {
   static ::google::protobug::internal::once_flag once;
-  ::google::protobug::internal::call_once(once, protobuf_AssignDescriptors);
+  ::google::protobug::internal::call_once(once, protobug_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUG_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
+  protobug_AssignDescriptorsOnce();
   ::google::protobug::internal::RegisterAllTypes(file_level_metadata, 4);
 }
 
@@ -195,7 +195,7 @@ struct StaticDescriptorInitializer {
 namespace google {
 namespace protobug {
 const ::google::protobug::EnumDescriptor* NullValue_descriptor() {
-  protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return protobuf_google_2fprotobug_2fstruct_2eproto::file_level_enum_descriptors[0];
 }
 bool NullValue_IsValid(int value) {
@@ -216,7 +216,7 @@ void Struct_FieldsEntry_DoNotUse::MergeFrom(const Struct_FieldsEntry_DoNotUse& o
   MergeFromInternal(other);
 }
 ::google::protobug::Metadata Struct_FieldsEntry_DoNotUse::GetMetadata() const {
-  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fstruct_2eproto::file_level_metadata[0];
 }
 void Struct_FieldsEntry_DoNotUse::MergeFrom(
@@ -279,7 +279,7 @@ void Struct::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* Struct::descriptor() {
-  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fstruct_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -597,7 +597,7 @@ void Struct::InternalSwap(Struct* other) {
 }
 
 ::google::protobug::Metadata Struct::GetMetadata() const {
-  protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fstruct_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -732,7 +732,7 @@ void Value::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* Value::descriptor() {
-  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fstruct_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -1168,7 +1168,7 @@ void Value::InternalSwap(Value* other) {
 }
 
 ::google::protobug::Metadata Value::GetMetadata() const {
-  protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fstruct_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -1227,7 +1227,7 @@ void ListValue::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* ListValue::descriptor() {
-  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fstruct_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -1428,7 +1428,7 @@ void ListValue::InternalSwap(ListValue* other) {
 }
 
 ::google::protobug::Metadata ListValue::GetMetadata() const {
-  protobuf_google_2fprotobug_2fstruct_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fstruct_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fstruct_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 

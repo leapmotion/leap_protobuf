@@ -1973,7 +1973,7 @@ void StripFieldTypeName(FileDescriptorProto* file_proto) {
 
 TEST_F(ParseDescriptorDebugTest, TestAllDescriptorTypes) {
   const FileDescriptor* original_file =
-     protobuf_unittest::TestAllTypes::descriptor()->file();
+     protobug_unittest::TestAllTypes::descriptor()->file();
   FileDescriptorProto expected;
   original_file->CopyTo(&expected);
 
@@ -1995,12 +1995,12 @@ TEST_F(ParseDescriptorDebugTest, TestAllDescriptorTypes) {
   parsed.set_name("google/protobug/unittest.proto");
   // We need the imported dependency before we can build our parsed proto
   const FileDescriptor* public_import =
-      protobuf_unittest_import::PublicImportMessage::descriptor()->file();
+      protobug_unittest_import::PublicImportMessage::descriptor()->file();
   FileDescriptorProto public_import_proto;
   public_import->CopyTo(&public_import_proto);
   ASSERT_TRUE(pool_.BuildFile(public_import_proto) != NULL);
   const FileDescriptor* import =
-       protobuf_unittest_import::ImportMessage::descriptor()->file();
+       protobug_unittest_import::ImportMessage::descriptor()->file();
   FileDescriptorProto import_proto;
   import->CopyTo(&import_proto);
   ASSERT_TRUE(pool_.BuildFile(import_proto) != NULL);
@@ -2025,7 +2025,7 @@ TEST_F(ParseDescriptorDebugTest, TestAllDescriptorTypes) {
 
 TEST_F(ParseDescriptorDebugTest, TestCustomOptions) {
   const FileDescriptor* original_file =
-     protobuf_unittest::AggregateMessage::descriptor()->file();
+     protobug_unittest::AggregateMessage::descriptor()->file();
   FileDescriptorProto expected;
   original_file->CopyTo(&expected);
 

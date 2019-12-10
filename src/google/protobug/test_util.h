@@ -37,8 +37,8 @@
 
 #include <google/protobug/unittest.pb.h>
 
-#define UNITTEST ::protobuf_unittest
-#define UNITTEST_IMPORT ::protobuf_unittest_import
+#define UNITTEST ::protobug_unittest
+#define UNITTEST_IMPORT ::protobug_unittest_import
 // Must be included when the preprocessor symbols above are defined.
 #include <google/protobug/test_util.inc>
 #undef UNITTEST
@@ -48,8 +48,8 @@
 namespace google {
 namespace protobug {
 // This file doesn't use these declarations, but some .cc files do.
-namespace unittest = ::protobuf_unittest;
-namespace unittest_import = ::protobuf_unittest_import;
+namespace unittest = ::protobug_unittest;
+namespace unittest_import = ::protobug_unittest_import;
 
 namespace TestUtil {
 

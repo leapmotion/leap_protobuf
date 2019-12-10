@@ -214,80 +214,80 @@ MapReflectionTester::MapReflectionTester(
   : base_descriptor_(base_descriptor) {
   const DescriptorPool* pool = base_descriptor->file()->pool();
 
-  map_enum_foo_ = pool->FindEnumValueByName("protobuf_unittest.MAP_ENUM_FOO");
-  map_enum_bar_ = pool->FindEnumValueByName("protobuf_unittest.MAP_ENUM_BAR");
-  map_enum_baz_ = pool->FindEnumValueByName("protobuf_unittest.MAP_ENUM_BAZ");
+  map_enum_foo_ = pool->FindEnumValueByName("protobug_unittest.MAP_ENUM_FOO");
+  map_enum_bar_ = pool->FindEnumValueByName("protobug_unittest.MAP_ENUM_BAR");
+  map_enum_baz_ = pool->FindEnumValueByName("protobug_unittest.MAP_ENUM_BAZ");
 
   foreign_c_ = pool->FindFieldByName(
-      "protobuf_unittest.ForeignMessage.c");
+      "protobug_unittest.ForeignMessage.c");
   map_int32_int32_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32Int32Entry.key");
+      "protobug_unittest.TestMap.MapInt32Int32Entry.key");
   map_int32_int32_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32Int32Entry.value");
+      "protobug_unittest.TestMap.MapInt32Int32Entry.value");
   map_int64_int64_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt64Int64Entry.key");
+      "protobug_unittest.TestMap.MapInt64Int64Entry.key");
   map_int64_int64_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt64Int64Entry.value");
+      "protobug_unittest.TestMap.MapInt64Int64Entry.value");
   map_uint32_uint32_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapUint32Uint32Entry.key");
+      "protobug_unittest.TestMap.MapUint32Uint32Entry.key");
   map_uint32_uint32_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapUint32Uint32Entry.value");
+      "protobug_unittest.TestMap.MapUint32Uint32Entry.value");
   map_uint64_uint64_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapUint64Uint64Entry.key");
+      "protobug_unittest.TestMap.MapUint64Uint64Entry.key");
   map_uint64_uint64_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapUint64Uint64Entry.value");
+      "protobug_unittest.TestMap.MapUint64Uint64Entry.value");
   map_sint32_sint32_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSint32Sint32Entry.key");
+      "protobug_unittest.TestMap.MapSint32Sint32Entry.key");
   map_sint32_sint32_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSint32Sint32Entry.value");
+      "protobug_unittest.TestMap.MapSint32Sint32Entry.value");
   map_sint64_sint64_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSint64Sint64Entry.key");
+      "protobug_unittest.TestMap.MapSint64Sint64Entry.key");
   map_sint64_sint64_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSint64Sint64Entry.value");
+      "protobug_unittest.TestMap.MapSint64Sint64Entry.value");
   map_fixed32_fixed32_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapFixed32Fixed32Entry.key");
+      "protobug_unittest.TestMap.MapFixed32Fixed32Entry.key");
   map_fixed32_fixed32_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapFixed32Fixed32Entry.value");
+      "protobug_unittest.TestMap.MapFixed32Fixed32Entry.value");
   map_fixed64_fixed64_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapFixed64Fixed64Entry.key");
+      "protobug_unittest.TestMap.MapFixed64Fixed64Entry.key");
   map_fixed64_fixed64_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapFixed64Fixed64Entry.value");
+      "protobug_unittest.TestMap.MapFixed64Fixed64Entry.value");
   map_sfixed32_sfixed32_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSfixed32Sfixed32Entry.key");
+      "protobug_unittest.TestMap.MapSfixed32Sfixed32Entry.key");
   map_sfixed32_sfixed32_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSfixed32Sfixed32Entry.value");
+      "protobug_unittest.TestMap.MapSfixed32Sfixed32Entry.value");
   map_sfixed64_sfixed64_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSfixed64Sfixed64Entry.key");
+      "protobug_unittest.TestMap.MapSfixed64Sfixed64Entry.key");
   map_sfixed64_sfixed64_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapSfixed64Sfixed64Entry.value");
+      "protobug_unittest.TestMap.MapSfixed64Sfixed64Entry.value");
   map_int32_float_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32FloatEntry.key");
+      "protobug_unittest.TestMap.MapInt32FloatEntry.key");
   map_int32_float_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32FloatEntry.value");
+      "protobug_unittest.TestMap.MapInt32FloatEntry.value");
   map_int32_double_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32DoubleEntry.key");
+      "protobug_unittest.TestMap.MapInt32DoubleEntry.key");
   map_int32_double_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32DoubleEntry.value");
+      "protobug_unittest.TestMap.MapInt32DoubleEntry.value");
   map_bool_bool_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapBoolBoolEntry.key");
+      "protobug_unittest.TestMap.MapBoolBoolEntry.key");
   map_bool_bool_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapBoolBoolEntry.value");
+      "protobug_unittest.TestMap.MapBoolBoolEntry.value");
   map_string_string_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapStringStringEntry.key");
+      "protobug_unittest.TestMap.MapStringStringEntry.key");
   map_string_string_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapStringStringEntry.value");
+      "protobug_unittest.TestMap.MapStringStringEntry.value");
   map_int32_bytes_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32BytesEntry.key");
+      "protobug_unittest.TestMap.MapInt32BytesEntry.key");
   map_int32_bytes_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32BytesEntry.value");
+      "protobug_unittest.TestMap.MapInt32BytesEntry.value");
   map_int32_enum_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32EnumEntry.key");
+      "protobug_unittest.TestMap.MapInt32EnumEntry.key");
   map_int32_enum_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32EnumEntry.value");
+      "protobug_unittest.TestMap.MapInt32EnumEntry.value");
   map_int32_foreign_message_key_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32ForeignMessageEntry.key");
+      "protobug_unittest.TestMap.MapInt32ForeignMessageEntry.key");
   map_int32_foreign_message_val_ = pool->FindFieldByName(
-      "protobuf_unittest.TestMap.MapInt32ForeignMessageEntry.value");
+      "protobug_unittest.TestMap.MapInt32ForeignMessageEntry.value");
 
   EXPECT_FALSE(map_enum_foo_ == NULL);
   EXPECT_FALSE(map_enum_bar_ == NULL);

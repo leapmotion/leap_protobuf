@@ -2342,14 +2342,14 @@ class EncodeDecodeTest : public testing::TestWithParam<EncodeDecodeTestMode> {
     unittest_proto_descriptor_set_filename_ =
         TestTempDir() + "/unittest_proto_descriptor_set.bin";
     FileDescriptorSet file_descriptor_set;
-    protobuf_unittest::TestAllTypes test_all_types;
+    protobug_unittest::TestAllTypes test_all_types;
     test_all_types.descriptor()->file()->CopyTo(file_descriptor_set.add_file());
 
-    protobuf_unittest_import::ImportMessage import_message;
+    protobug_unittest_import::ImportMessage import_message;
     import_message.descriptor()->file()->CopyTo(file_descriptor_set.add_file());
 
 
-    protobuf_unittest_import::PublicImportMessage public_import_message;
+    protobug_unittest_import::PublicImportMessage public_import_message;
     public_import_message.descriptor()->file()->CopyTo(
         file_descriptor_set.add_file());
     GOOGLE_DCHECK(file_descriptor_set.IsInitialized());
@@ -2372,7 +2372,7 @@ TEST_P(EncodeDecodeTest, Encode) {
   RedirectStdinFromFile(TestSourceDir() + "/google/protobug/"
     "testdata/text_format_unittest_data_oneof_implemented.txt");
   EXPECT_TRUE(Run("google/protobug/unittest.proto "
-                  "--encode=protobuf_unittest.TestAllTypes"));
+                  "--encode=protobug_unittest.TestAllTypes"));
   ExpectStdoutMatchesBinaryFile(TestSourceDir() +
     "/google/protobug/testdata/golden_message_oneof_implemented");
   ExpectStderrMatchesText("");
@@ -2382,7 +2382,7 @@ TEST_P(EncodeDecodeTest, Decode) {
   RedirectStdinFromFile(TestSourceDir() +
     "/google/protobug/testdata/golden_message_oneof_implemented");
   EXPECT_TRUE(Run("google/protobug/unittest.proto "
-                  "--decode=protobuf_unittest.TestAllTypes"));
+                  "--decode=protobug_unittest.TestAllTypes"));
   ExpectStdoutMatchesTextFile(TestSourceDir() +
     "/google/protobug/"
     "testdata/text_format_unittest_data_oneof_implemented.txt");
@@ -2392,14 +2392,14 @@ TEST_P(EncodeDecodeTest, Decode) {
 TEST_P(EncodeDecodeTest, Partial) {
   RedirectStdinFromText("");
   EXPECT_TRUE(Run("google/protobug/unittest.proto "
-                  "--encode=protobuf_unittest.TestRequired"));
+                  "--encode=protobug_unittest.TestRequired"));
   ExpectStdoutMatchesText("");
   ExpectStderrMatchesText(
     "warning:  Input message is missing required fields:  a, b, c\n");
 }
 
 TEST_P(EncodeDecodeTest, DecodeRaw) {
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
   message.set_optional_int32(123);
   message.set_optional_string("foo");
   string data;

@@ -179,7 +179,7 @@ void ServiceGenerator::GenerateImplementation(io::Printer* printer) {
       "$classname$::~$classname$() {}\n"
       "\n"
       "const ::google::protobug::ServiceDescriptor* $classname$::descriptor() {\n"
-      "  $file_namespace$::protobuf_AssignDescriptorsOnce();\n"
+      "  $file_namespace$::protobug_AssignDescriptorsOnce();\n"
       "  return $file_namespace$::file_level_service_descriptors[$index$];\n"
       "}\n"
       "\n"

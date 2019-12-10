@@ -30,7 +30,7 @@
 
 syntax = "proto3";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 import "google/protobug/any.proto";
 

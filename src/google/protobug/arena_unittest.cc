@@ -59,10 +59,10 @@
 
 namespace google {
 using proto2_arena_unittest::ArenaMessage;
-using protobuf_unittest::TestAllTypes;
-using protobuf_unittest::TestAllExtensions;
-using protobuf_unittest::TestOneof2;
-using protobuf_unittest::TestEmptyMessage;
+using protobug_unittest::TestAllTypes;
+using protobug_unittest::TestAllExtensions;
+using protobug_unittest::TestOneof2;
+using protobug_unittest::TestEmptyMessage;
 
 namespace protobug {
 
@@ -152,7 +152,7 @@ TEST(ArenaTest, ArenaConstructable) {
   EXPECT_TRUE(Arena::is_arena_constructable<TestAllTypes>::type::value);
   EXPECT_TRUE(Arena::is_arena_constructable<const TestAllTypes>::type::value);
   EXPECT_FALSE(Arena::is_arena_constructable<
-               protobuf_unittest_no_arena::TestNoArenaMessage>::type::value);
+               protobug_unittest_no_arena::TestNoArenaMessage>::type::value);
   EXPECT_FALSE(Arena::is_arena_constructable<Arena>::type::value);
 }
 
@@ -160,7 +160,7 @@ TEST(ArenaTest, DestructorSkippable) {
   EXPECT_TRUE(Arena::is_destructor_skippable<TestAllTypes>::type::value);
   EXPECT_TRUE(Arena::is_destructor_skippable<const TestAllTypes>::type::value);
   EXPECT_FALSE(Arena::is_destructor_skippable<
-               protobuf_unittest_no_arena::TestNoArenaMessage>::type::value);
+               protobug_unittest_no_arena::TestNoArenaMessage>::type::value);
   EXPECT_FALSE(Arena::is_destructor_skippable<Arena>::type::value);
 }
 
@@ -460,7 +460,7 @@ TEST(ArenaTest, SetAllocatedMessage) {
   arena_message->set_allocated_optional_nested_message(nested);
   EXPECT_EQ(118, arena_message->optional_nested_message().bb());
 
-  protobuf_unittest_no_arena::TestNoArenaMessage no_arena_message;
+  protobug_unittest_no_arena::TestNoArenaMessage no_arena_message;
   EXPECT_FALSE(no_arena_message.has_arena_message());
   no_arena_message.set_allocated_arena_message(NULL);
   EXPECT_FALSE(no_arena_message.has_arena_message());
@@ -1042,11 +1042,11 @@ TEST(ArenaTest, ExtensionsOnArena) {
   TestAllExtensions* message_ext =
       Arena::CreateMessage<TestAllExtensions>(&arena);
   message_ext->SetExtension(
-      protobuf_unittest::optional_int32_extension, 42);
+      protobug_unittest::optional_int32_extension, 42);
   message_ext->SetExtension(
-      protobuf_unittest::optional_string_extension, string("test"));
+      protobug_unittest::optional_string_extension, string("test"));
   message_ext->MutableExtension(
-      protobuf_unittest::optional_nested_message_extension)->set_bb(42);
+      protobug_unittest::optional_nested_message_extension)->set_bb(42);
 }
 
 TEST(ArenaTest, RepeatedFieldOnArena) {

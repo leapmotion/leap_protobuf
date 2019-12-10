@@ -36,7 +36,7 @@
 namespace google {
 namespace protobug {
 
-namespace unittest = ::protobuf_unittest;
+namespace unittest = ::protobug_unittest;
 
 class MapTestUtil {
  public:

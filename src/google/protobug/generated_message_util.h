@@ -71,7 +71,7 @@ namespace internal {
 // For internal use in the pb.cc files, deprecation warnings are suppressed
 // there.
 #undef DEPRECATED_PROTOBUF_FIELD
-#define PROTOBUF_DEPRECATED
+#define PROTOBUG_DEPRECATED
 
 #define GOOGLE_PROTOBUG_DEPRECATED_ATTR
 

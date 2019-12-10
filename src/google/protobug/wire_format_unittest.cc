@@ -734,7 +734,7 @@ TEST(WireFormatTest, ZigZag) {
 TEST(WireFormatTest, RepeatedScalarsDifferentTagSizes) {
   // At one point checks would trigger when parsing repeated fixed scalar
   // fields.
-  protobuf_unittest::TestRepeatedScalarDifferentTagSizes msg1, msg2;
+  protobug_unittest::TestRepeatedScalarDifferentTagSizes msg1, msg2;
   for (int i = 0; i < 100; ++i) {
     msg1.add_repeated_fixed32(i);
     msg1.add_repeated_int32(i);
@@ -1160,7 +1160,7 @@ class Utf8ValidationTest : public ::testing::Test {
 
 TEST_F(Utf8ValidationTest, WriteInvalidUTF8String) {
   string wire_buffer;
-  protobuf_unittest::OneString input;
+  protobug_unittest::OneString input;
   std::vector<string> errors;
   {
     ScopedMemoryLog log;
@@ -1170,7 +1170,7 @@ TEST_F(Utf8ValidationTest, WriteInvalidUTF8String) {
 #ifdef GOOGLE_PROTOBUG_UTF8_VALIDATION_ENABLED
   ASSERT_EQ(1, errors.size());
   EXPECT_TRUE(StartsWith(errors[0],
-                         "String field 'protobuf_unittest.OneString.data' "
+                         "String field 'protobug_unittest.OneString.data' "
                          "contains invalid UTF-8 data when "
                          "serializing a protocol buffer. Use the "
                          "'bytes' type if you intend to send raw bytes."));
@@ -1182,9 +1182,9 @@ TEST_F(Utf8ValidationTest, WriteInvalidUTF8String) {
 
 TEST_F(Utf8ValidationTest, ReadInvalidUTF8String) {
   string wire_buffer;
-  protobuf_unittest::OneString input;
+  protobug_unittest::OneString input;
   WriteMessage(kInvalidUTF8String, &input, &wire_buffer);
-  protobuf_unittest::OneString output;
+  protobug_unittest::OneString output;
   std::vector<string> errors;
   {
     ScopedMemoryLog log;
@@ -1194,7 +1194,7 @@ TEST_F(Utf8ValidationTest, ReadInvalidUTF8String) {
 #ifdef GOOGLE_PROTOBUG_UTF8_VALIDATION_ENABLED
   ASSERT_EQ(1, errors.size());
   EXPECT_TRUE(StartsWith(errors[0],
-                         "String field 'protobuf_unittest.OneString.data' "
+                         "String field 'protobug_unittest.OneString.data' "
                          "contains invalid UTF-8 data when "
                          "parsing a protocol buffer. Use the "
                          "'bytes' type if you intend to send raw bytes."));
@@ -1207,7 +1207,7 @@ TEST_F(Utf8ValidationTest, ReadInvalidUTF8String) {
 
 TEST_F(Utf8ValidationTest, WriteValidUTF8String) {
   string wire_buffer;
-  protobuf_unittest::OneString input;
+  protobug_unittest::OneString input;
   std::vector<string> errors;
   {
     ScopedMemoryLog log;
@@ -1219,9 +1219,9 @@ TEST_F(Utf8ValidationTest, WriteValidUTF8String) {
 
 TEST_F(Utf8ValidationTest, ReadValidUTF8String) {
   string wire_buffer;
-  protobuf_unittest::OneString input;
+  protobug_unittest::OneString input;
   WriteMessage(kValidUTF8String, &input, &wire_buffer);
-  protobuf_unittest::OneString output;
+  protobug_unittest::OneString output;
   std::vector<string> errors;
   {
     ScopedMemoryLog log;
@@ -1235,7 +1235,7 @@ TEST_F(Utf8ValidationTest, ReadValidUTF8String) {
 // Bytes: anything can pass as bytes, use invalid UTF-8 string to test
 TEST_F(Utf8ValidationTest, WriteArbitraryBytes) {
   string wire_buffer;
-  protobuf_unittest::OneBytes input;
+  protobug_unittest::OneBytes input;
   std::vector<string> errors;
   {
     ScopedMemoryLog log;
@@ -1247,9 +1247,9 @@ TEST_F(Utf8ValidationTest, WriteArbitraryBytes) {
 
 TEST_F(Utf8ValidationTest, ReadArbitraryBytes) {
   string wire_buffer;
-  protobuf_unittest::OneBytes input;
+  protobug_unittest::OneBytes input;
   WriteMessage(kInvalidUTF8String, &input, &wire_buffer);
-  protobuf_unittest::OneBytes output;
+  protobug_unittest::OneBytes output;
   std::vector<string> errors;
   {
     ScopedMemoryLog log;
@@ -1261,13 +1261,13 @@ TEST_F(Utf8ValidationTest, ReadArbitraryBytes) {
 }
 
 TEST_F(Utf8ValidationTest, ParseRepeatedString) {
-  protobuf_unittest::MoreBytes input;
+  protobug_unittest::MoreBytes input;
   input.add_data(kValidUTF8String);
   input.add_data(kInvalidUTF8String);
   input.add_data(kInvalidUTF8String);
   string wire_buffer = input.SerializeAsString();
 
-  protobuf_unittest::MoreString output;
+  protobug_unittest::MoreString output;
   std::vector<string> errors;
   {
     ScopedMemoryLog log;

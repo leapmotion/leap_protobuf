@@ -787,11 +787,11 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
 
   // ---------------------------------------------------------------
 
-  // protobuf_AssignDescriptorsOnce():  The first time it is called, calls
+  // protobug_AssignDescriptorsOnce():  The first time it is called, calls
   // AssignDescriptors().  All later times, waits for the first call to
   // complete and then returns.
     printer->Print(
-        "void protobuf_AssignDescriptors() {\n"
+        "void protobug_AssignDescriptors() {\n"
         // Make sure the file has found its way into the pool.  If a descriptor
         // is requested *during* static init then AddDescriptors() may not have
         // been called yet, so we call it manually.  Note that it's fine if
@@ -812,9 +812,9 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
     printer->Print(
         "}\n"
         "\n"
-        "void protobuf_AssignDescriptorsOnce() {\n"
+        "void protobug_AssignDescriptorsOnce() {\n"
         "  static ::google::protobug::internal::once_flag once;\n"
-        "  ::google::protobug::internal::call_once(once, protobuf_AssignDescriptors);\n"
+        "  ::google::protobug::internal::call_once(once, protobug_AssignDescriptors);\n"
         "}\n"
         "\n",
         "filename", file_->name(), "metadata",
@@ -827,13 +827,13 @@ void FileGenerator::GenerateReflectionInitializationCode(io::Printer* printer) {
             : "NULL");
 
     // Only here because of useless string reference that we don't want in
-    // protobuf_AssignDescriptorsOnce, because that is called from all the
+    // protobug_AssignDescriptorsOnce, because that is called from all the
     // GetMetadata member methods.
     printer->Print(
         "void protobuf_RegisterTypes(const ::std::string&) "
         "GOOGLE_PROTOBUG_ATTRIBUTE_COLD;\n"
         "void protobuf_RegisterTypes(const ::std::string&) {\n"
-        "  protobuf_AssignDescriptorsOnce();\n");
+        "  protobug_AssignDescriptorsOnce();\n");
     printer->Indent();
 
     // All normal messages can be done generically

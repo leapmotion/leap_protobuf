@@ -2708,9 +2708,9 @@ class MapFieldInDynamicMessageTest : public testing::Test {
 
   virtual void SetUp() {
     map_descriptor_ =
-      pool_->FindMessageTypeByName("protobuf_unittest.TestMap");
+      pool_->FindMessageTypeByName("protobug_unittest.TestMap");
     recursive_map_descriptor_ =
-        pool_->FindMessageTypeByName("protobuf_unittest.TestRecursiveMapMessage");
+        pool_->FindMessageTypeByName("protobug_unittest.TestRecursiveMapMessage");
     ASSERT_TRUE(map_descriptor_ != NULL);
     ASSERT_TRUE(recursive_map_descriptor_ != NULL);
     map_prototype_ = factory_.GetPrototype(map_descriptor_);
@@ -2993,21 +2993,21 @@ TEST(WireFormatForMapFieldTest, MapParseHelpers) {
 
   {
     // Set up.
-    protobuf_unittest::TestMap message;
+    protobug_unittest::TestMap message;
     MapTestUtil::SetMapFields(&message);
     message.SerializeToString(&data);
   }
 
   {
     // Test ParseFromString.
-    protobuf_unittest::TestMap message;
+    protobug_unittest::TestMap message;
     EXPECT_TRUE(message.ParseFromString(data));
     MapTestUtil::ExpectMapFieldsSet(message);
   }
 
   {
     // Test ParseFromIstream.
-    protobuf_unittest::TestMap message;
+    protobug_unittest::TestMap message;
     std::stringstream stream(data);
     EXPECT_TRUE(message.ParseFromIstream(&stream));
     EXPECT_TRUE(stream.eof());
@@ -3019,7 +3019,7 @@ TEST(WireFormatForMapFieldTest, MapParseHelpers) {
     string data_with_junk(data);
     data_with_junk.append("some junk on the end");
     io::ArrayInputStream stream(data_with_junk.data(), data_with_junk.size());
-    protobuf_unittest::TestMap message;
+    protobug_unittest::TestMap message;
     EXPECT_TRUE(message.ParseFromBoundedZeroCopyStream(&stream, data.size()));
     MapTestUtil::ExpectMapFieldsSet(message);
   }
@@ -3028,7 +3028,7 @@ TEST(WireFormatForMapFieldTest, MapParseHelpers) {
     // Test that ParseFromBoundedZeroCopyStream fails (but doesn't crash) if
     // EOF is reached before the expected number of bytes.
     io::ArrayInputStream stream(data.data(), data.size());
-    protobuf_unittest::TestAllTypes message;
+    protobug_unittest::TestAllTypes message;
     EXPECT_FALSE(
       message.ParseFromBoundedZeroCopyStream(&stream, data.size() + 1));
   }
@@ -3080,7 +3080,7 @@ static string DeterministicSerialization(const T& t) {
 }
 
 // Helper to test the serialization of the first arg against a golden file.
-static void TestDeterministicSerialization(const protobuf_unittest::TestMaps& t,
+static void TestDeterministicSerialization(const protobug_unittest::TestMaps& t,
                                            const string& filename) {
   string expected;
   GOOGLE_CHECK_OK(File::GetContents(
@@ -3088,7 +3088,7 @@ static void TestDeterministicSerialization(const protobuf_unittest::TestMaps& t,
       &expected, true));
   const string actual = DeterministicSerialization(t);
   EXPECT_EQ(expected, actual);
-  protobuf_unittest::TestMaps u;
+  protobug_unittest::TestMaps u;
   EXPECT_TRUE(u.ParseFromString(actual));
   EXPECT_TRUE(google::protobug::util::MessageDifferencer::Equals(u, t));
 }
@@ -3109,8 +3109,8 @@ static string ConstructKey(uint64 n) {
 
 TEST(MapSerializationTest, Deterministic) {
   const int kIters = 25;
-  protobuf_unittest::TestMaps t;
-  protobuf_unittest::TestIntIntMap inner;
+  protobug_unittest::TestMaps t;
+  protobug_unittest::TestIntIntMap inner;
   (*inner.mutable_m())[0] = (*inner.mutable_m())[10] =
       (*inner.mutable_m())[-200] = 0;
   uint64 frog = 9;
@@ -3141,8 +3141,8 @@ TEST(MapSerializationTest, Deterministic) {
 }
 
 TEST(MapSerializationTest, DeterministicSubmessage) {
-  protobuf_unittest::TestSubmessageMaps p;
-  protobuf_unittest::TestMaps t;
+  protobug_unittest::TestSubmessageMaps p;
+  protobug_unittest::TestMaps t;
   const string filename = "golden_message_maps";
   string golden;
   GOOGLE_CHECK_OK(File::GetContents(
@@ -3156,7 +3156,7 @@ TEST(MapSerializationTest, DeterministicSubmessage) {
   // randomly-chosen hash function.
   const int kAttempts = 10;
   for (int i = 0; i < kAttempts; i++) {
-    protobuf_unittest::TestSubmessageMaps q(p);
+    protobug_unittest::TestSubmessageMaps q(p);
     ASSERT_EQ(DeterministicSerialization(q), DeterministicSerialization(p));
   }
 }
@@ -3204,10 +3204,10 @@ TEST(TextFormatMapTest, ParseCorruptedString) {
       TestSourceDir() +
           "/google/protobug/testdata/golden_message_maps",
       &serialized_message, true));
-  protobuf_unittest::TestMaps message;
+  protobug_unittest::TestMaps message;
   GOOGLE_CHECK(message.ParseFromString(serialized_message));
-  TestParseCorruptedString<protobuf_unittest::TestMaps, true>(message);
-  TestParseCorruptedString<protobuf_unittest::TestMaps, false>(message);
+  TestParseCorruptedString<protobug_unittest::TestMaps, true>(message);
+  TestParseCorruptedString<protobug_unittest::TestMaps, false>(message);
 }
 
 

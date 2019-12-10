@@ -61,8 +61,8 @@
 #define DESCRIPTOR_INIT_TEST_NAME DescriptorInitializationTest
 
 #define UNITTEST_PROTO_PATH "google/protobug/unittest.proto"
-#define UNITTEST ::protobuf_unittest
-#define UNITTEST_IMPORT ::protobuf_unittest_import
+#define UNITTEST ::protobug_unittest
+#define UNITTEST_IMPORT ::protobug_unittest_import
 
 // Must include after the above macros.
 #include <google/protobug/compiler/cpp/cpp_unittest.inc>
@@ -75,14 +75,14 @@ namespace cpp {
 // Can't use an anonymous namespace here due to brokenness of Tru64 compiler.
 namespace cpp_unittest {
 
-namespace protobuf_unittest = ::protobuf_unittest;
+namespace protobug_unittest = ::protobug_unittest;
 
 TEST(GENERATED_MESSAGE_TEST_NAME, TestConflictingSymbolNames) {
   // test_bad_identifiers.proto successfully compiled, then it works.  The
   // following is just a token usage to insure that the code is, in fact,
   // being compiled and linked.
 
-  protobuf_unittest::TestConflictingSymbolNames message;
+  protobug_unittest::TestConflictingSymbolNames message;
   message.set_uint32(1);
   EXPECT_EQ(3, message.ByteSizeLong());
 
@@ -94,24 +94,24 @@ TEST(GENERATED_MESSAGE_TEST_NAME, TestConflictingSymbolNames) {
 
   // Instantiate extension template functions to test conflicting template
   // parameter names.
-  typedef protobuf_unittest::TestConflictingSymbolNamesExtension ExtensionMessage;
+  typedef protobug_unittest::TestConflictingSymbolNamesExtension ExtensionMessage;
   message.AddExtension(ExtensionMessage::repeated_int32_ext, 123);
   EXPECT_EQ(123,
             message.GetExtension(ExtensionMessage::repeated_int32_ext, 0));
 }
 
 TEST(GENERATED_MESSAGE_TEST_NAME, TestConflictingEnumNames) {
-  protobuf_unittest::TestConflictingEnumNames message;
-  message.set_conflicting_enum(protobuf_unittest::TestConflictingEnumNames_NestedConflictingEnum_and_);
+  protobug_unittest::TestConflictingEnumNames message;
+  message.set_conflicting_enum(protobug_unittest::TestConflictingEnumNames_NestedConflictingEnum_and_);
   EXPECT_EQ(1, message.conflicting_enum());
-  message.set_conflicting_enum(protobuf_unittest::TestConflictingEnumNames_NestedConflictingEnum_XOR);
+  message.set_conflicting_enum(protobug_unittest::TestConflictingEnumNames_NestedConflictingEnum_XOR);
   EXPECT_EQ(5, message.conflicting_enum());
 
 
-  protobuf_unittest::ConflictingEnum conflicting_enum;
-  conflicting_enum = protobuf_unittest::NOT_EQ;
+  protobug_unittest::ConflictingEnum conflicting_enum;
+  conflicting_enum = protobug_unittest::NOT_EQ;
   EXPECT_EQ(1, conflicting_enum);
-  conflicting_enum = protobuf_unittest::return_;
+  conflicting_enum = protobug_unittest::return_;
   EXPECT_EQ(3, conflicting_enum);
 }
 

@@ -113,10 +113,10 @@ TEST_F(SnakeCaseCamelCaseTest, RoundTripTest) {
   } while (std::next_permutation(name.begin(), name.end()));
 }
 
-using protobuf_unittest::TestAllTypes;
-using protobuf_unittest::TestRequired;
-using protobuf_unittest::TestRequiredMessage;
-using protobuf_unittest::NestedTestAllTypes;
+using protobug_unittest::TestAllTypes;
+using protobug_unittest::TestRequired;
+using protobug_unittest::TestRequiredMessage;
+using protobug_unittest::NestedTestAllTypes;
 using google::protobug::FieldMask;
 
 TEST(FieldMaskUtilTest, StringFormat) {

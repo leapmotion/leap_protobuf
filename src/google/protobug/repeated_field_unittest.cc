@@ -55,7 +55,7 @@ namespace google {
 namespace protobug {
 namespace {
 
-using ::protobuf_unittest::TestAllTypes;
+using ::protobug_unittest::TestAllTypes;
 using ::testing::ElementsAre;
 
 // Test operations on a small RepeatedField.

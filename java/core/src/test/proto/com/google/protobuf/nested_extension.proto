@@ -37,7 +37,7 @@ syntax = "proto2";
 
 import "com/google/protobug/non_nested_extension.proto";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 
 message MyNestedExtension {

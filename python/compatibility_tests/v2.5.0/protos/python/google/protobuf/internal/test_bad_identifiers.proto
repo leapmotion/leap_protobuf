@@ -31,7 +31,7 @@
 // Author: kenton@google.com (Kenton Varda)
 
 
-package protobuf_unittest;
+package protobug_unittest;
 
 option py_generic_services = true;
 

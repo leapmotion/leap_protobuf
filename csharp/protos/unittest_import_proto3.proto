@@ -36,7 +36,7 @@
 
 syntax = "proto3";
 
-package protobuf_unittest_import;
+package protobug_unittest_import;
 
 option csharp_namespace = "Google.Protobuf.TestProtos";
 

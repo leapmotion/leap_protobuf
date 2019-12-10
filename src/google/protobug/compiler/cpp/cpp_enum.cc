@@ -105,7 +105,7 @@ void EnumGenerator::GenerateDefinition(io::Printer* printer) {
     vars["prefix"] = (descriptor_->containing_type() == NULL) ?
       "" : classname_ + "_";
     vars["deprecation"] = descriptor_->value(i)->options().deprecated() ?
-        " PROTOBUF_DEPRECATED" : "";
+        " PROTOBUG_DEPRECATED" : "";
 
     if (i > 0) printer->Print(",\n");
     printer->Print(vars, "${$$prefix$$name$$}$$deprecation$ = $number$");
@@ -260,7 +260,7 @@ void EnumGenerator::GenerateMethods(int idx, io::Printer* printer) {
     printer->Print(
         vars,
         "const ::google::protobug::EnumDescriptor* $classname$_descriptor() {\n"
-        "  $file_namespace$::protobuf_AssignDescriptorsOnce();\n"
+        "  $file_namespace$::protobug_AssignDescriptorsOnce();\n"
         "  return "
         "$file_namespace$::file_level_enum_descriptors[$index_in_metadata$];\n"
         "}\n");

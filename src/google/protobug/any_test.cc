@@ -36,9 +36,9 @@ namespace protobug {
 namespace {
 
 TEST(AnyTest, TestPackAndUnpack) {
-  protobuf_unittest::TestAny submessage;
+  protobug_unittest::TestAny submessage;
   submessage.set_int32_value(12345);
-  protobuf_unittest::TestAny message;
+  protobug_unittest::TestAny message;
   message.mutable_any_value()->PackFrom(submessage);
 
   string data = message.SerializeAsString();
@@ -51,11 +51,11 @@ TEST(AnyTest, TestPackAndUnpack) {
 
 TEST(AnyTest, TestPackAndUnpackAny) {
   // We can pack a Any message inside another Any message.
-  protobuf_unittest::TestAny submessage;
+  protobug_unittest::TestAny submessage;
   submessage.set_int32_value(12345);
   google::protobug::Any any;
   any.PackFrom(submessage);
-  protobuf_unittest::TestAny message;
+  protobug_unittest::TestAny message;
   message.mutable_any_value()->PackFrom(any);
 
   string data = message.SerializeAsString();
@@ -68,18 +68,18 @@ TEST(AnyTest, TestPackAndUnpackAny) {
 }
 
 TEST(AnyTest, TestIs) {
-  protobuf_unittest::TestAny submessage;
+  protobug_unittest::TestAny submessage;
   submessage.set_int32_value(12345);
   google::protobug::Any any;
   any.PackFrom(submessage);
   ASSERT_TRUE(any.ParseFromString(any.SerializeAsString()));
-  EXPECT_TRUE(any.Is<protobuf_unittest::TestAny>());
+  EXPECT_TRUE(any.Is<protobug_unittest::TestAny>());
   EXPECT_FALSE(any.Is<google::protobug::Any>());
 
-  protobuf_unittest::TestAny message;
+  protobug_unittest::TestAny message;
   message.mutable_any_value()->PackFrom(any);
   ASSERT_TRUE(message.ParseFromString(message.SerializeAsString()));
-  EXPECT_FALSE(message.any_value().Is<protobuf_unittest::TestAny>());
+  EXPECT_FALSE(message.any_value().Is<protobug_unittest::TestAny>());
   EXPECT_TRUE(message.any_value().Is<google::protobug::Any>());
 }
 

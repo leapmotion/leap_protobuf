@@ -452,15 +452,15 @@ TEST(ReflectionOpsTest, FindExtensionInitializationErrors) {
   message.MutableExtension(unittest::TestRequired::single);
   message.AddExtension(unittest::TestRequired::multi);
   message.AddExtension(unittest::TestRequired::multi);
-  EXPECT_EQ("(protobuf_unittest.TestRequired.single).a,"
-            "(protobuf_unittest.TestRequired.single).b,"
-            "(protobuf_unittest.TestRequired.single).c,"
-            "(protobuf_unittest.TestRequired.multi)[0].a,"
-            "(protobuf_unittest.TestRequired.multi)[0].b,"
-            "(protobuf_unittest.TestRequired.multi)[0].c,"
-            "(protobuf_unittest.TestRequired.multi)[1].a,"
-            "(protobuf_unittest.TestRequired.multi)[1].b,"
-            "(protobuf_unittest.TestRequired.multi)[1].c",
+  EXPECT_EQ("(protobug_unittest.TestRequired.single).a,"
+            "(protobug_unittest.TestRequired.single).b,"
+            "(protobug_unittest.TestRequired.single).c,"
+            "(protobug_unittest.TestRequired.multi)[0].a,"
+            "(protobug_unittest.TestRequired.multi)[0].b,"
+            "(protobug_unittest.TestRequired.multi)[0].c,"
+            "(protobug_unittest.TestRequired.multi)[1].a,"
+            "(protobug_unittest.TestRequired.multi)[1].b,"
+            "(protobug_unittest.TestRequired.multi)[1].c",
             FindInitializationErrors(message));
 }
 

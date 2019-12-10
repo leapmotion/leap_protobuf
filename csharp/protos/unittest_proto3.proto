@@ -44,7 +44,7 @@ option java_outer_classname = "UnittestProto";
 
 import "unittest_import_proto3.proto";
 
-package protobuf_unittest3;
+package protobug_unittest3;
 
 // This proto includes every type of field in both singular and repeated
 // forms.
@@ -83,14 +83,14 @@ message TestAllTypes {
 
   NestedMessage single_nested_message = 18;
   ForeignMessage single_foreign_message = 19;
-  protobuf_unittest_import.ImportMessage single_import_message = 20;
+  protobug_unittest_import.ImportMessage single_import_message = 20;
 
   NestedEnum single_nested_enum = 21;
   ForeignEnum single_foreign_enum = 22;
-  protobuf_unittest_import.ImportEnum single_import_enum = 23;
+  protobug_unittest_import.ImportEnum single_import_enum = 23;
 
   // Defined in unittest_import_public.proto
-  protobuf_unittest_import.PublicImportMessage
+  protobug_unittest_import.PublicImportMessage
       single_public_import_message = 26;
 
   // Repeated
@@ -112,13 +112,13 @@ message TestAllTypes {
 
   repeated NestedMessage                        repeated_nested_message  = 48;
   repeated ForeignMessage                       repeated_foreign_message = 49;
-  repeated protobuf_unittest_import.ImportMessage repeated_import_message  = 50;
+  repeated protobug_unittest_import.ImportMessage repeated_import_message  = 50;
 
   repeated NestedEnum                           repeated_nested_enum     = 51;
   repeated ForeignEnum                          repeated_foreign_enum    = 52;
-  repeated protobuf_unittest_import.ImportEnum    repeated_import_enum     = 53;
+  repeated protobug_unittest_import.ImportEnum    repeated_import_enum     = 53;
   // Defined in unittest_import_public.proto
-  repeated protobuf_unittest_import.PublicImportMessage
+  repeated protobug_unittest_import.PublicImportMessage
       repeated_public_import_message = 54;
 
   // For oneof test

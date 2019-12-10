@@ -35,7 +35,7 @@
 // This file contains messages for testing repeated field comparison
 
 syntax = "proto2";
-package protobuf_unittest;
+package protobug_unittest;
 
 option optimize_for = SPEED;
 

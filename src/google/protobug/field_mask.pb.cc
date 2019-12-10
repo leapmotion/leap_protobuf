@@ -65,21 +65,21 @@ static ::google::protobug::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobug::Message*>(&::google::protobug::_FieldMask_default_instance_),
 };
 
-void protobuf_AssignDescriptors() {
+void protobug_AssignDescriptors() {
   AddDescriptors();
   AssignDescriptors(
       "google/protobug/field_mask.proto", schemas, file_default_instances, TableStruct::offsets,
       file_level_metadata, NULL, NULL);
 }
 
-void protobuf_AssignDescriptorsOnce() {
+void protobug_AssignDescriptorsOnce() {
   static ::google::protobug::internal::once_flag once;
-  ::google::protobug::internal::call_once(once, protobuf_AssignDescriptors);
+  ::google::protobug::internal::call_once(once, protobug_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUG_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
+  protobug_AssignDescriptorsOnce();
   ::google::protobug::internal::RegisterAllTypes(file_level_metadata, 1);
 }
 
@@ -150,7 +150,7 @@ void FieldMask::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* FieldMask::descriptor() {
-  ::protobuf_google_2fprotobug_2ffield_5fmask_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2ffield_5fmask_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ffield_5fmask_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -341,7 +341,7 @@ void FieldMask::InternalSwap(FieldMask* other) {
 }
 
 ::google::protobug::Metadata FieldMask::GetMetadata() const {
-  protobuf_google_2fprotobug_2ffield_5fmask_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ffield_5fmask_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ffield_5fmask_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 

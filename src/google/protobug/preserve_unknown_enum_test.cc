@@ -243,7 +243,7 @@ TEST(PreserveUnknownEnumTest, IntegerEnumReflectionAPI) {
 
 // Test that the EnumValue API works properly for proto2 messages as well.
 TEST(PreserveUnknownEnumTest, Proto2CatchesUnknownValues) {
-  protobuf_unittest::TestAllTypes message;  // proto2 message
+  protobug_unittest::TestAllTypes message;  // proto2 message
   const google::protobug::Reflection* r = message.GetReflection();
   const google::protobug::Descriptor* d = message.GetDescriptor();
   const google::protobug::FieldDescriptor* repeated_field =
@@ -276,7 +276,7 @@ TEST(PreserveUnknownEnumTest, Proto2CatchesUnknownValues) {
 }
 
 TEST(PreserveUnknownEnumTest, SupportsUnknownEnumValuesAPI) {
-  protobuf_unittest::TestAllTypes proto2_message;
+  protobug_unittest::TestAllTypes proto2_message;
   proto3_preserve_unknown_enum_unittest::MyMessage new_message;
 
   const google::protobug::Reflection* proto2_reflection = proto2_message.GetReflection();

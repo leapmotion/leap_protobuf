@@ -34,7 +34,7 @@
 // initialized.
 syntax = "proto2";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 
 import "google/protobug/unittest_custom_options.proto";

@@ -219,21 +219,21 @@ static ::google::protobug::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobug::Message*>(&::google::protobug::_Option_default_instance_),
 };
 
-void protobuf_AssignDescriptors() {
+void protobug_AssignDescriptors() {
   AddDescriptors();
   AssignDescriptors(
       "google/protobug/type.proto", schemas, file_default_instances, TableStruct::offsets,
       file_level_metadata, file_level_enum_descriptors, NULL);
 }
 
-void protobuf_AssignDescriptorsOnce() {
+void protobug_AssignDescriptorsOnce() {
   static ::google::protobug::internal::once_flag once;
-  ::google::protobug::internal::call_once(once, protobuf_AssignDescriptors);
+  ::google::protobug::internal::call_once(once, protobug_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUG_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
+  protobug_AssignDescriptorsOnce();
   ::google::protobug::internal::RegisterAllTypes(file_level_metadata, 5);
 }
 
@@ -294,7 +294,7 @@ struct StaticDescriptorInitializer {
 namespace google {
 namespace protobug {
 const ::google::protobug::EnumDescriptor* Field_Kind_descriptor() {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return protobuf_google_2fprotobug_2ftype_2eproto::file_level_enum_descriptors[0];
 }
 bool Field_Kind_IsValid(int value) {
@@ -349,7 +349,7 @@ const Field_Kind Field::Kind_MAX;
 const int Field::Kind_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobug::EnumDescriptor* Field_Cardinality_descriptor() {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return protobuf_google_2fprotobug_2ftype_2eproto::file_level_enum_descriptors[1];
 }
 bool Field_Cardinality_IsValid(int value) {
@@ -374,7 +374,7 @@ const Field_Cardinality Field::Cardinality_MAX;
 const int Field::Cardinality_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobug::EnumDescriptor* Syntax_descriptor() {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return protobuf_google_2fprotobug_2ftype_2eproto::file_level_enum_descriptors[2];
 }
 bool Syntax_IsValid(int value) {
@@ -489,7 +489,7 @@ void Type::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* Type::descriptor() {
-  ::protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -909,7 +909,7 @@ void Type::InternalSwap(Type* other) {
 }
 
 ::google::protobug::Metadata Type::GetMetadata() const {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -1011,7 +1011,7 @@ void Field::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* Field::descriptor() {
-  ::protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -1592,7 +1592,7 @@ void Field::InternalSwap(Field* other) {
 }
 
 ::google::protobug::Metadata Field::GetMetadata() const {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -1695,7 +1695,7 @@ void Enum::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* Enum::descriptor() {
-  ::protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -2067,7 +2067,7 @@ void Enum::InternalSwap(Enum* other) {
 }
 
 ::google::protobug::Metadata Enum::GetMetadata() const {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -2137,7 +2137,7 @@ void EnumValue::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* EnumValue::descriptor() {
-  ::protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -2424,7 +2424,7 @@ void EnumValue::InternalSwap(EnumValue* other) {
 }
 
 ::google::protobug::Metadata EnumValue::GetMetadata() const {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -2517,7 +2517,7 @@ void Option::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* Option::descriptor() {
-  ::protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -2765,7 +2765,7 @@ void Option::InternalSwap(Option* other) {
 }
 
 ::google::protobug::Metadata Option::GetMetadata() const {
-  protobuf_google_2fprotobug_2ftype_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2ftype_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2ftype_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 

@@ -414,7 +414,7 @@ TEST(GENERATED_MESSAGE_TEST_NAME, StringCharStarLength) {
 #if LANG_CXX11
 TEST(GENERATED_MESSAGE_TEST_NAME, StringMove) {
   // Verify that we trigger the move behavior on a scalar setter.
-  protobuf_unittest_no_arena::TestAllTypes message;
+  protobug_unittest_no_arena::TestAllTypes message;
   {
     string tmp(32, 'a');
 

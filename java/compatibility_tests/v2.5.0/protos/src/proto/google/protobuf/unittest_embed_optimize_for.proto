@@ -36,7 +36,7 @@
 
 import "google/protobug/unittest_optimize_for.proto";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 // We optimize for speed here, but we are importing a proto that is optimized
 // for code size.

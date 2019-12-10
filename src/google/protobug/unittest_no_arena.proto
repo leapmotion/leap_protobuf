@@ -51,8 +51,8 @@ import "google/protobug/unittest_arena.proto";
 
 // We don't put this in a package within proto2 because we need to make sure
 // that the generated code doesn't depend on being in the proto2 namespace.
-// In test_util.h we do "using namespace unittest = protobuf_unittest".
-package protobuf_unittest_no_arena;
+// In test_util.h we do "using namespace unittest = protobug_unittest".
+package protobug_unittest_no_arena;
 
 // Protos optimized for SPEED use a strict superset of the generated code
 // of equivalent ones optimized for CODE_SIZE, so we should optimize all our
@@ -101,17 +101,17 @@ message TestAllTypes {
 
   optional NestedMessage                        optional_nested_message  = 18;
   optional ForeignMessage                       optional_foreign_message = 19;
-  optional protobuf_unittest_import.ImportMessage optional_import_message  = 20;
+  optional protobug_unittest_import.ImportMessage optional_import_message  = 20;
 
   optional NestedEnum                           optional_nested_enum     = 21;
   optional ForeignEnum                          optional_foreign_enum    = 22;
-  optional protobuf_unittest_import.ImportEnum    optional_import_enum     = 23;
+  optional protobug_unittest_import.ImportEnum    optional_import_enum     = 23;
 
   optional string optional_string_piece = 24 [ctype=STRING_PIECE];
   optional string optional_cord = 25 [ctype=CORD];
 
   // Defined in unittest_import_public.proto
-  optional protobuf_unittest_import.PublicImportMessage
+  optional protobug_unittest_import.PublicImportMessage
       optional_public_import_message = 26;
 
   optional NestedMessage optional_message = 27 [lazy=true];
@@ -139,11 +139,11 @@ message TestAllTypes {
 
   repeated NestedMessage                        repeated_nested_message  = 48;
   repeated ForeignMessage                       repeated_foreign_message = 49;
-  repeated protobuf_unittest_import.ImportMessage repeated_import_message  = 50;
+  repeated protobug_unittest_import.ImportMessage repeated_import_message  = 50;
 
   repeated NestedEnum                           repeated_nested_enum     = 51;
   repeated ForeignEnum                          repeated_foreign_enum    = 52;
-  repeated protobuf_unittest_import.ImportEnum    repeated_import_enum     = 53;
+  repeated protobug_unittest_import.ImportEnum    repeated_import_enum     = 53;
 
   repeated string repeated_string_piece = 54 [ctype=STRING_PIECE];
   repeated string repeated_cord = 55 [ctype=CORD];
@@ -169,7 +169,7 @@ message TestAllTypes {
 
   optional NestedEnum  default_nested_enum  = 81 [default = BAR        ];
   optional ForeignEnum default_foreign_enum = 82 [default = FOREIGN_BAR];
-  optional protobuf_unittest_import.ImportEnum
+  optional protobug_unittest_import.ImportEnum
       default_import_enum = 83 [default = IMPORT_BAR];
 
   optional string default_string_piece = 84 [ctype=STRING_PIECE,default="abc"];

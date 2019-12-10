@@ -32,7 +32,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest.lite_equals_and_hash;
+package protobug_unittest.lite_equals_and_hash;
 
 option optimize_for = LITE_RUNTIME;
 

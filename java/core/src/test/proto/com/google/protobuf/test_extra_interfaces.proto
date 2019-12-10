@@ -31,7 +31,7 @@
 // Author: Darick Tong (darick@google.com)
 syntax = "proto2";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 message Proto1 {
   option experimental_java_message_interface =

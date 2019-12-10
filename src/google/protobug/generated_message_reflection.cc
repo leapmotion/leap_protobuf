@@ -23,6 +23,7 @@
 // OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
 // SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
 // LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON A
 // DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
@@ -2367,7 +2368,7 @@ void AssignDescriptors(
     Metadata* file_level_metadata,
     const EnumDescriptor** file_level_enum_descriptors,
     const ServiceDescriptor** file_level_service_descriptors) {
-  std::cerr << "DEBUG: FindFileByName(" << filename << ") ...\n";
+  //std::cerr << "DEBUG: FindFileByName(" << filename << ") ...\n";
   const ::google::protobug::FileDescriptor* file =
       ::google::protobug::DescriptorPool::generated_pool()->FindFileByName(filename);
   GOOGLE_CHECK(file != NULL);

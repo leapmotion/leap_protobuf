@@ -129,10 +129,10 @@ TEST(MessageDifferencerTest, RepeatedFieldInequalityTest) {
 
 TEST(MessageDifferencerTest, RepeatedFieldSetOptimizationTest) {
   util::MessageDifferencer differencer;
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
-  protobuf_unittest::TestDiffMessage::Item* item1 = msg1.add_item();
-  protobuf_unittest::TestDiffMessage::Item* item2 = msg2.add_item();
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage::Item* item1 = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item2 = msg2.add_item();
   differencer.TreatAsSet(item1->GetDescriptor()->FindFieldByName("ra"));
   differencer.TreatAsSet(item2->GetDescriptor()->FindFieldByName("ra"));
   for (int i = 0; i < 1000; i++) {
@@ -1049,10 +1049,10 @@ TEST(MessageDifferencerTest,
 
 TEST(MessageDifferencerTest, RepeatedFieldSetTest_SetOfSet) {
   // Create the testing protos
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->add_ra(1); item->add_ra(2); item->add_ra(3);
   item = msg1.add_item();
   item->add_ra(5); item->add_ra(6);
@@ -1078,13 +1078,13 @@ TEST(MessageDifferencerTest, RepeatedFieldSetTest_SetOfSet) {
 
 TEST(MessageDifferencerTest, RepeatedFieldSetTest_Combination) {
   // Create the testing protos
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   // Treat "item" as Map, with key = "a"
   // Treat "item.ra" also as Set
   // Treat "rv" as Set
   // Treat "rw" as List
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->set_a(3);
   item->add_ra(1); item->add_ra(2); item->add_ra(3);
   item = msg1.add_item();
@@ -1140,15 +1140,15 @@ TEST(MessageDifferencerTest, RepeatedFieldSetTest_Combination) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldMapTest_Partial) {
-  protobuf_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg1;
   // message msg1 {
   //   item { a: 1; b: "11" }
   // }
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->set_a(1);
   item->set_b("11");
 
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg2;
   // message msg2 {
   //   item { a: 2; b: "22" }
   //   item { a: 1; b: "11" }
@@ -1169,7 +1169,7 @@ TEST(MessageDifferencerTest, RepeatedFieldMapTest_Partial) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldSetTest_Duplicates) {
-  protobuf_unittest::TestDiffMessage a, b, c;
+  protobug_unittest::TestDiffMessage a, b, c;
   // message a: {
   //   rv: 0
   //   rv: 1
@@ -1204,7 +1204,7 @@ TEST(MessageDifferencerTest, RepeatedFieldSetTest_Duplicates) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldSetTest_PartialSimple) {
-  protobuf_unittest::TestDiffMessage a, b, c;
+  protobug_unittest::TestDiffMessage a, b, c;
   // message a: {
   //   rm { c: 1 }
   //   rm { c: 0 }
@@ -1231,7 +1231,7 @@ TEST(MessageDifferencerTest, RepeatedFieldSetTest_PartialSimple) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldSetTest_Partial) {
-  protobuf_unittest::TestDiffMessage msg1, msg2;
+  protobug_unittest::TestDiffMessage msg1, msg2;
   // message msg1: {
   //   rm { a: 1 }
   //   rm { b: 2 }
@@ -1245,7 +1245,7 @@ TEST(MessageDifferencerTest, RepeatedFieldSetTest_Partial) {
   //   rm { b: 2; c: 3 }
   //   rm { b: 2 }
   // }
-  protobuf_unittest::TestField* field = msg2.add_rm();
+  protobug_unittest::TestField* field = msg2.add_rm();
   field->set_a(1);
   field->set_c(3);
   field = msg2.add_rm();
@@ -1261,11 +1261,11 @@ TEST(MessageDifferencerTest, RepeatedFieldSetTest_Partial) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldMapTest_MultipleFieldsAsKey) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   // Treat "item" as Map, with key = ("a", "ra")
   // Treat "item.ra" as Set
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   // key => value: (1, {2, 3}) => "a"
   item->set_a(1);
   item->add_ra(2);
@@ -1338,11 +1338,11 @@ TEST(MessageDifferencerTest, RepeatedFieldMapTest_MultipleFieldsAsKey) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldMapTest_MultipleFieldPathsAsKey) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   // Treat "item" as Map, with key = ("m.a", "m.rc")
   // Treat "item.m.rc" as Set
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   // key => value: (1, {2, 3}) => "a"
   item->mutable_m()->set_a(1);
   item->mutable_m()->add_rc(2);
@@ -1421,10 +1421,10 @@ TEST(MessageDifferencerTest, RepeatedFieldMapTest_MultipleFieldPathsAsKey) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldMapTest_IgnoredKeyFields) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   // Treat "item" as Map, with key = ("a", "ra")
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->set_a(1);
   item->add_ra(2);
   item->set_b("hello");
@@ -1495,8 +1495,8 @@ class TestIgnorer : public util::MessageDifferencer::IgnoreCriteria {
 };
 
 TEST(MessageDifferencerTest, TreatRepeatedFieldAsSetWithIgnoredFields) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   TextFormat::MergeFromString("rm { a: 11\n b: 12 }", &msg1);
   TextFormat::MergeFromString("rm { a: 11\n b: 13 }", &msg2);
   util::MessageDifferencer differ;
@@ -1506,8 +1506,8 @@ TEST(MessageDifferencerTest, TreatRepeatedFieldAsSetWithIgnoredFields) {
 }
 
 TEST(MessageDifferencerTest, TreatRepeatedFieldAsMapWithIgnoredKeyFields) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   TextFormat::MergeFromString("rm { a: 11\n m { a: 12\n b: 13\n } }", &msg1);
   TextFormat::MergeFromString("rm { a: 11\n m { a: 12\n b: 14\n } }", &msg2);
   util::MessageDifferencer differ;
@@ -1543,11 +1543,11 @@ class ValueProductMapKeyComparator
 };
 
 TEST(MessageDifferencerTest, RepeatedFieldMapTest_CustomMapKeyComparator) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   // Treat "item" as Map, using custom key comparator to determine if two
   // elements have the same key.
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->add_ra(6);
   item->add_ra(35);
   item->set_b("hello");
@@ -1591,11 +1591,11 @@ class OffsetByOneMapKeyComparator
 };
 
 TEST(MessageDifferencerTest, RepeatedFieldMapTest_CustomIndexMapKeyComparator) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
   // Treat "item" as Map, using custom key comparator to determine if two
   // elements have the same key.
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->set_b("one");
   item = msg2.add_item();
   item->set_b("zero");
@@ -1617,8 +1617,8 @@ TEST(MessageDifferencerTest, RepeatedFieldMapTest_CustomIndexMapKeyComparator) {
 }
 
 TEST(MessageDifferencerTest, RepeatedFieldSetTest_Subset) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
   msg1.add_rv(3);
   msg1.add_rv(8);
@@ -1647,8 +1647,8 @@ TEST(MessageDifferencerTest, RepeatedFieldSetTest_Subset) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_Single) {
-  protobuf_unittest::TestField msg1;
-  protobuf_unittest::TestField msg2;
+  protobug_unittest::TestField msg1;
+  protobug_unittest::TestField msg2;
 
   msg1.set_c(3);
   msg1.add_rc(1);
@@ -1663,8 +1663,8 @@ TEST(MessageDifferencerTest, IgnoreField_Single) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_Repeated) {
-  protobuf_unittest::TestField msg1;
-  protobuf_unittest::TestField msg2;
+  protobug_unittest::TestField msg1;
+  protobug_unittest::TestField msg2;
 
   msg1.set_c(3);
   msg1.add_rc(1);
@@ -1681,10 +1681,10 @@ TEST(MessageDifferencerTest, IgnoreField_Repeated) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_Message) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestField* field;
+  protobug_unittest::TestField* field;
 
   field = msg1.add_rm();
   field->set_c(3);
@@ -1699,10 +1699,10 @@ TEST(MessageDifferencerTest, IgnoreField_Message) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_Group) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestDiffMessage::Item* item;
+  protobug_unittest::TestDiffMessage::Item* item;
 
   item = msg1.add_item();
   item->set_a(3);
@@ -1717,8 +1717,8 @@ TEST(MessageDifferencerTest, IgnoreField_Group) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_Missing) {
-  protobuf_unittest::TestField msg1;
-  protobuf_unittest::TestField msg2;
+  protobug_unittest::TestField msg1;
+  protobug_unittest::TestField msg2;
 
   msg1.set_c(3);
   msg1.add_rc(1);
@@ -1733,8 +1733,8 @@ TEST(MessageDifferencerTest, IgnoreField_Missing) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_Multiple) {
-  protobuf_unittest::TestField msg1;
-  protobuf_unittest::TestField msg2;
+  protobug_unittest::TestField msg1;
+  protobug_unittest::TestField msg2;
 
   msg1.set_c(3);
   msg1.add_rc(1);
@@ -1769,10 +1769,10 @@ TEST(MessageDifferencerTest, IgnoreField_Multiple) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_NestedMessage) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestField* field;
+  protobug_unittest::TestField* field;
 
   field = msg1.add_rm();
   field->set_c(3);
@@ -1789,10 +1789,10 @@ TEST(MessageDifferencerTest, IgnoreField_NestedMessage) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_NestedGroup) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestDiffMessage::Item* item;
+  protobug_unittest::TestDiffMessage::Item* item;
 
   item = msg1.add_item();
   item->set_a(3);
@@ -1809,10 +1809,10 @@ TEST(MessageDifferencerTest, IgnoreField_NestedGroup) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_InsideSet) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestDiffMessage::Item* item;
+  protobug_unittest::TestDiffMessage::Item* item;
 
   item = msg1.add_item();
   item->set_a(1);
@@ -1845,10 +1845,10 @@ TEST(MessageDifferencerTest, IgnoreField_InsideSet) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_InsideMap) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestDiffMessage::Item* item;
+  protobug_unittest::TestDiffMessage::Item* item;
 
   item = msg1.add_item();
   item->set_a(1);
@@ -1882,10 +1882,10 @@ TEST(MessageDifferencerTest, IgnoreField_InsideMap) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_DoesNotIgnoreKey) {
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestDiffMessage::Item* item;
+  protobug_unittest::TestDiffMessage::Item* item;
 
   item = msg1.add_item();
   item->set_a(1);
@@ -1908,8 +1908,8 @@ TEST(MessageDifferencerTest, IgnoreField_DoesNotIgnoreKey) {
 }
 
 TEST(MessageDifferencerTest, IgnoreField_TrumpsCompareWithFields) {
-  protobuf_unittest::TestField msg1;
-  protobuf_unittest::TestField msg2;
+  protobug_unittest::TestField msg1;
+  protobug_unittest::TestField msg2;
 
   msg1.set_c(3);
   msg1.add_rc(1);
@@ -1969,9 +1969,9 @@ class ParentSavingFieldComparator : public util::FieldComparator {
 // Tests if MessageDifferencer sends the parent fields in the FieldContext
 // parameter.
 TEST(MessageDifferencerTest, FieldContextParentFieldsTest) {
-  protobuf_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg1;
   msg1.add_rm()->set_c(1);
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg2;
   msg2.add_rm()->set_c(1);
 
   ParentSavingFieldComparator field_comparator;
@@ -2237,23 +2237,23 @@ TEST_F(ComparisonTest, RepeatedSetOptionTest) {
 TEST_F(ComparisonTest, RepeatedSetOptionTest_Ex) {
   repeated_field_as_set();
 
-  proto1ex_.ClearExtension(protobuf_unittest::repeated_nested_message_extension);
-  proto2ex_.ClearExtension(protobuf_unittest::repeated_nested_message_extension);
-  proto2ex_.AddExtension(protobuf_unittest::repeated_nested_message_extension)
+  proto1ex_.ClearExtension(protobug_unittest::repeated_nested_message_extension);
+  proto2ex_.ClearExtension(protobug_unittest::repeated_nested_message_extension);
+  proto2ex_.AddExtension(protobug_unittest::repeated_nested_message_extension)
       ->set_bb(909);
-  proto2ex_.AddExtension(protobuf_unittest::repeated_nested_message_extension)
+  proto2ex_.AddExtension(protobug_unittest::repeated_nested_message_extension)
       ->set_bb(907);
-  proto1ex_.AddExtension(protobuf_unittest::repeated_nested_message_extension)
+  proto1ex_.AddExtension(protobug_unittest::repeated_nested_message_extension)
       ->set_bb(904);
-  proto1ex_.AddExtension(protobuf_unittest::repeated_nested_message_extension)
+  proto1ex_.AddExtension(protobug_unittest::repeated_nested_message_extension)
       ->set_bb(907);
-  proto1ex_.AddExtension(protobuf_unittest::repeated_nested_message_extension)
+  proto1ex_.AddExtension(protobug_unittest::repeated_nested_message_extension)
       ->set_bb(909);
 
-  EXPECT_EQ("moved: (protobuf_unittest.repeated_nested_message_extension)[2] ->"
-            " (protobuf_unittest.repeated_nested_message_extension)[0] :"
+  EXPECT_EQ("moved: (protobug_unittest.repeated_nested_message_extension)[2] ->"
+            " (protobug_unittest.repeated_nested_message_extension)[0] :"
             " { bb: 909 }\n"
-            "deleted: (protobuf_unittest.repeated_nested_message_extension)[0]:"
+            "deleted: (protobug_unittest.repeated_nested_message_extension)[0]:"
             " { bb: 904 }\n",
             RunEx());
 }
@@ -2283,9 +2283,9 @@ TEST_F(ComparisonTest, RepeatedMapFieldTest_MessageKey) {
   // Use m as key, but use b as value.
   field_as_map("item", "m");
 
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
 
   // The following code creates one deletion, one addition and two moved fields
   // on the messages.
@@ -2325,10 +2325,10 @@ TEST_F(ComparisonTest, RepeatedMapFieldTest_MessageKey) {
 TEST_F(ComparisonTest, RepeatedFieldSetTest_SetOfSet) {
   repeated_field_as_set();
   // Create the testing protos
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
 
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->add_ra(1); item->add_ra(2); item->add_ra(3);
   item = msg1.add_item();
   item->add_ra(5); item->add_ra(6);
@@ -2363,9 +2363,9 @@ TEST_F(ComparisonTest, RepeatedMapFieldTest_RepeatedKey) {
   repeated_field_as_set();
   field_as_map("item", "rb");
 
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->add_rb("a");
   item->add_rb("b");
   item->set_b("first");
@@ -2390,10 +2390,10 @@ TEST_F(ComparisonTest, RepeatedMapFieldTest_RepeatedKey) {
 TEST_F(ComparisonTest, RepeatedMapFieldTest_RepeatedMessageKey) {
   field_as_map("item", "rm");
 
-  protobuf_unittest::TestDiffMessage msg1;
-  protobuf_unittest::TestDiffMessage msg2;
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
-  protobuf_unittest::TestField* key = item->add_rm();
+  protobug_unittest::TestDiffMessage msg1;
+  protobug_unittest::TestDiffMessage msg2;
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestField* key = item->add_rm();
   key->set_c(2); key->add_rc(10); key->add_rc(10);
   item = msg1.add_item(); key = item->add_rm();
   key->set_c(0); key->add_rc(1); key->add_rc(2);
@@ -2590,7 +2590,7 @@ TEST_F(ComparisonTest, AddDelete_FieldOrderingTest) {
   orderings_proto2_.clear_my_int();
 
   EXPECT_EQ("deleted: my_int: 1\n"
-            "added: (protobuf_unittest.my_extension_string): \"bar\"\n",
+            "added: (protobug_unittest.my_extension_string): \"bar\"\n",
             RunOrder());
 }
 
@@ -2777,8 +2777,8 @@ TEST_F(ComparisonTest, ExtensionTest) {
   proto2ex_.SetExtension(unittest::optional_int64_extension, 403);
 
   EXPECT_EQ(
-      "modified: (protobuf_unittest.optional_int32_extension): 401 -> 402\n"
-      "added: (protobuf_unittest.optional_int64_extension): 403\n",
+      "modified: (protobug_unittest.optional_int32_extension): 401 -> 402\n"
+      "added: (protobug_unittest.optional_int64_extension): 403\n",
       RunEx());
 }
 
@@ -2962,8 +2962,8 @@ class LengthMapKeyComparator
 
 TEST_F(ComparisonTest, MapEntryCustomMapKeyComparator) {
   google::protobug::TextFormat::Parser parser;
-  protobuf_unittest::TestMap msg1;
-  protobuf_unittest::TestMap msg2;
+  protobug_unittest::TestMap msg1;
+  protobug_unittest::TestMap msg2;
 
   ASSERT_TRUE(parser.ParseFromString(
       "map_string_foreign_message { key: 'key1' value { c: 1 }}", &msg1));
@@ -3028,7 +3028,7 @@ class MatchingTest : public testing::Test {
 };
 
 TEST_F(MatchingTest, StreamReporterMatching) {
-  protobuf_unittest::TestField msg1, msg2;
+  protobug_unittest::TestField msg1, msg2;
   msg1.set_c(72);
   msg2.set_c(72);
   msg1.add_rc(13);
@@ -3048,7 +3048,7 @@ TEST_F(MatchingTest, StreamReporterMatching) {
 }
 
 TEST_F(MatchingTest, DontReportMatchedWhenIgnoring) {
-  protobuf_unittest::TestField msg1, msg2;
+  protobug_unittest::TestField msg1, msg2;
   msg1.set_c(72);
   msg2.set_c(72);
   msg1.add_rc(13);
@@ -3071,8 +3071,8 @@ TEST_F(MatchingTest, DontReportMatchedWhenIgnoring) {
 }
 
 TEST_F(MatchingTest, ReportMatchedForMovedFields) {
-  protobuf_unittest::TestDiffMessage msg1, msg2;
-  protobuf_unittest::TestDiffMessage::Item* item = msg1.add_item();
+  protobug_unittest::TestDiffMessage msg1, msg2;
+  protobug_unittest::TestDiffMessage::Item* item = msg1.add_item();
   item->set_a(53);
   item->set_b("hello");
   item = msg2.add_item();
@@ -3097,9 +3097,9 @@ TEST_F(MatchingTest, ReportMatchedForMovedFields) {
 }
 
 TEST_F(MatchingTest, MatchesAppearInPostTraversalOrderForMovedFields) {
-  protobuf_unittest::TestDiffMessage msg1, msg2;
-  protobuf_unittest::TestDiffMessage::Item* item;
-  protobuf_unittest::TestField* field;
+  protobug_unittest::TestDiffMessage msg1, msg2;
+  protobug_unittest::TestDiffMessage::Item* item;
+  protobug_unittest::TestField* field;
 
   const FieldDescriptor* desc;
   const FieldDescriptor* nested_desc;
@@ -3167,9 +3167,9 @@ TEST_F(MatchingTest, MatchesAppearInPostTraversalOrderForMovedFields) {
 }
 
 TEST_F(MatchingTest, MatchAndModifiedInterleaveProperly) {
-  protobuf_unittest::TestDiffMessage msg1, msg2;
-  protobuf_unittest::TestDiffMessage::Item* item;
-  protobuf_unittest::TestField* field;
+  protobug_unittest::TestDiffMessage msg1, msg2;
+  protobug_unittest::TestDiffMessage::Item* item;
+  protobug_unittest::TestField* field;
 
   const FieldDescriptor* desc;
   const FieldDescriptor* nested_key;
@@ -3254,9 +3254,9 @@ TEST_F(MatchingTest, MatchAndModifiedInterleaveProperly) {
 }
 
 TEST_F(MatchingTest, MatchingWorksWithExtensions) {
-  protobuf_unittest::TestAllExtensions msg1, msg2;
-  protobuf_unittest::TestAllTypes::NestedMessage* nested;
-  using protobuf_unittest::repeated_nested_message_extension;
+  protobug_unittest::TestAllExtensions msg1, msg2;
+  protobug_unittest::TestAllTypes::NestedMessage* nested;
+  using protobug_unittest::repeated_nested_message_extension;
 
   const FileDescriptor* descriptor;
   const FieldDescriptor* desc;
@@ -3283,30 +3283,30 @@ TEST_F(MatchingTest, MatchingWorksWithExtensions) {
   nested->set_bb(7);
 
   EXPECT_EQ(
-      "matched: (protobuf_unittest.repeated_nested_message_extension)[0].bb ->"
-              " (protobuf_unittest.repeated_nested_message_extension)[2].bb : 7\n"
-      "moved: (protobuf_unittest.repeated_nested_message_extension)[0] ->"
-            " (protobuf_unittest.repeated_nested_message_extension)[2] :"
+      "matched: (protobug_unittest.repeated_nested_message_extension)[0].bb ->"
+              " (protobug_unittest.repeated_nested_message_extension)[2].bb : 7\n"
+      "moved: (protobug_unittest.repeated_nested_message_extension)[0] ->"
+            " (protobug_unittest.repeated_nested_message_extension)[2] :"
                 " { bb: 7 }\n"
-      "matched: (protobuf_unittest.repeated_nested_message_extension)[1].bb :"
+      "matched: (protobug_unittest.repeated_nested_message_extension)[1].bb :"
                   " 13\n"
-      "matched: (protobuf_unittest.repeated_nested_message_extension)[1] :"
+      "matched: (protobug_unittest.repeated_nested_message_extension)[1] :"
                   " { bb: 13 }\n"
-      "matched: (protobuf_unittest.repeated_nested_message_extension)[2].bb ->"
-              " (protobuf_unittest.repeated_nested_message_extension)[0].bb :"
+      "matched: (protobug_unittest.repeated_nested_message_extension)[2].bb ->"
+              " (protobug_unittest.repeated_nested_message_extension)[0].bb :"
                   " 11\n"
-      "moved: (protobuf_unittest.repeated_nested_message_extension)[2] ->"
-            " (protobuf_unittest.repeated_nested_message_extension)[0] :"
+      "moved: (protobug_unittest.repeated_nested_message_extension)[2] ->"
+            " (protobug_unittest.repeated_nested_message_extension)[0] :"
                 " { bb: 11 }\n",
       RunWithResult(&differencer, msg1, msg2, true));
 }
 
 TEST(AnyTest, Simple) {
-  protobuf_unittest::TestField value1, value2;
+  protobug_unittest::TestField value1, value2;
   value1.set_a(20);
   value2.set_a(21);
 
-  protobuf_unittest::TestAny m1, m2;
+  protobug_unittest::TestAny m1, m2;
   m1.mutable_any_value()->PackFrom(value1);
   m2.mutable_any_value()->PackFrom(value2);
   util::MessageDifferencer message_differencer;
@@ -3317,13 +3317,13 @@ TEST(AnyTest, Simple) {
 }
 
 TEST(Anytest, TreatAsSet) {
-  protobuf_unittest::TestField value1, value2;
+  protobug_unittest::TestField value1, value2;
   value1.set_a(20);
   value1.set_b(30);
   value2.set_a(20);
   value2.set_b(31);
 
-  protobuf_unittest::TestAny m1, m2;
+  protobug_unittest::TestAny m1, m2;
   m1.add_repeated_any_value()->PackFrom(value1);
   m1.add_repeated_any_value()->PackFrom(value2);
   m2.add_repeated_any_value()->PackFrom(value2);
@@ -3335,13 +3335,13 @@ TEST(Anytest, TreatAsSet) {
 }
 
 TEST(Anytest, TreatAsSet_DifferentType) {
-  protobuf_unittest::TestField value1;
+  protobug_unittest::TestField value1;
   value1.set_a(20);
   value1.set_b(30);
-  protobuf_unittest::TestDiffMessage value2;
+  protobug_unittest::TestDiffMessage value2;
   value2.add_rv(40);
 
-  protobuf_unittest::TestAny m1, m2;
+  protobug_unittest::TestAny m1, m2;
   m1.add_repeated_any_value()->PackFrom(value1);
   m1.add_repeated_any_value()->PackFrom(value2);
   m2.add_repeated_any_value()->PackFrom(value2);

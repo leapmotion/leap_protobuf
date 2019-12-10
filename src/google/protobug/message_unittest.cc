@@ -36,9 +36,9 @@
 
 #define MESSAGE_TEST_NAME MessageTest
 #define MESSAGE_FACTORY_TEST_NAME MessageFactoryTest
-#define UNITTEST_PACKAGE_NAME "protobuf_unittest"
-#define UNITTEST ::protobuf_unittest
-#define UNITTEST_IMPORT ::protobuf_unittest_import
+#define UNITTEST_PACKAGE_NAME "protobug_unittest"
+#define UNITTEST ::protobug_unittest
+#define UNITTEST_IMPORT ::protobug_unittest_import
 
 // Must include after the above macros.
 #include <google/protobug/test_util.inc>

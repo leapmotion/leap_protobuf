@@ -307,7 +307,7 @@ TEST_F(TextFormatTest, PrintUnknownFieldsHidden) {
 TEST_F(TextFormatTest, PrintUnknownMessage) {
   // Test heuristic printing of messages in an UnknownFieldSet.
 
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
 
   // Cases which should not be interpreted as sub-messages.
 
@@ -351,7 +351,7 @@ TEST_F(TextFormatTest, PrintUnknownMessage) {
 TEST_F(TextFormatTest, PrintMessageWithIndent) {
   // Test adding an initial indent to printing.
 
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
 
   message.add_repeated_string("abc");
   message.add_repeated_string("def");
@@ -373,7 +373,7 @@ TEST_F(TextFormatTest, PrintMessageWithIndent) {
 TEST_F(TextFormatTest, PrintMessageSingleLine) {
   // Test printing a message on a single line.
 
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
 
   message.add_repeated_string("abc");
   message.add_repeated_string("def");
@@ -393,7 +393,7 @@ TEST_F(TextFormatTest, PrintMessageSingleLine) {
 TEST_F(TextFormatTest, PrintBufferTooSmall) {
   // Test printing a message to a buffer that is too small.
 
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
 
   message.add_repeated_string("abc");
   message.add_repeated_string("def");
@@ -414,7 +414,7 @@ class CustomUInt32FieldValuePrinter : public TextFormat::FieldValuePrinter {
 };
 
 TEST_F(TextFormatTest, DefaultCustomFieldPrinter) {
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
 
   message.set_optional_uint32(42);
   message.add_repeated_uint32(1);
@@ -438,7 +438,7 @@ class CustomInt32FieldValuePrinter : public TextFormat::FieldValuePrinter {
 };
 
 TEST_F(TextFormatTest, FieldSpecificCustomPrinter) {
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
 
   message.set_optional_int32(42);  // This will be handled by our Printer.
   message.add_repeated_int32(42);  // This will be printed as number.
@@ -453,7 +453,7 @@ TEST_F(TextFormatTest, FieldSpecificCustomPrinter) {
 }
 
 TEST_F(TextFormatTest, FieldSpecificCustomPrinterRegisterSameFieldTwice) {
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
   TextFormat::Printer printer;
   const FieldDescriptor* const field =
       message.GetDescriptor()->FindFieldByName("optional_int32");
@@ -466,7 +466,7 @@ TEST_F(TextFormatTest, FieldSpecificCustomPrinterRegisterSameFieldTwice) {
 }
 
 TEST_F(TextFormatTest, ErrorCasesRegisteringFieldValuePrinterShouldFail) {
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
   TextFormat::Printer printer;
   // NULL printer.
   EXPECT_FALSE(printer.RegisterFieldValuePrinter(
@@ -500,7 +500,7 @@ class CustomMessageFieldValuePrinter : public TextFormat::FieldValuePrinter {
 };
 
 TEST_F(TextFormatTest, CustomPrinterForComments) {
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
   message.mutable_optional_nested_message();
   message.mutable_optional_import_message()->set_d(42);
   message.add_repeated_nested_message();
@@ -542,7 +542,7 @@ class CustomMultilineCommentPrinter : public TextFormat::FieldValuePrinter {
 };
 
 TEST_F(TextFormatTest, CustomPrinterForMultilineComments) {
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
   message.mutable_optional_nested_message();
   message.mutable_optional_import_message()->set_d(42);
   TextFormat::Printer printer;
@@ -609,7 +609,7 @@ TEST_F(TextFormatTest, CompactRepeatedFieldPrinter) {
               unittest::TestAllTypes::kRepeatedNestedMessageFieldNumber),
       new CompactRepeatedFieldPrinter));
 
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
   message.add_repeated_nested_message()->set_bb(1);
   message.add_repeated_nested_message()->set_bb(2);
   message.add_repeated_nested_message()->set_bb(3);
@@ -659,7 +659,7 @@ TEST_F(TextFormatTest, MultilineStringPrinter) {
               unittest::TestAllTypes::kOptionalStringFieldNumber),
       new MultilineStringPrinter));
 
-  protobuf_unittest::TestAllTypes message;
+  protobug_unittest::TestAllTypes message;
   message.set_optional_string("first line\nsecond line\nthird line");
 
   string text;
@@ -1163,7 +1163,7 @@ TEST_F(TextFormatTest, ParseExotic) {
 }
 
 TEST_F(TextFormatTest, PrintFieldsInIndexOrder) {
-  protobuf_unittest::TestFieldOrderings message;
+  protobug_unittest::TestFieldOrderings message;
   // Fields are listed in index order instead of field number.
   message.set_my_string("str");           // Field number 11
   message.set_my_int(12345);              // Field number 1
@@ -1172,20 +1172,20 @@ TEST_F(TextFormatTest, PrintFieldsInIndexOrder) {
   // Extension number 12.
   message
       .MutableExtension(
-          protobuf_unittest::TestExtensionOrderings2::test_ext_orderings2)
+          protobug_unittest::TestExtensionOrderings2::test_ext_orderings2)
       ->set_my_string("ext_str2");
   // Extension number 13.
   message
       .MutableExtension(
-          protobuf_unittest::TestExtensionOrderings1::test_ext_orderings1)
+          protobug_unittest::TestExtensionOrderings1::test_ext_orderings1)
       ->set_my_string("ext_str1");
   // Extension number 14.
   message
-      .MutableExtension(protobuf_unittest::TestExtensionOrderings2::
+      .MutableExtension(protobug_unittest::TestExtensionOrderings2::
                             TestExtensionOrderings3::test_ext_orderings3)
       ->set_my_string("ext_str3");
   // Extension number 50.
-  *message.MutableExtension(protobuf_unittest::my_extension_string) = "ext_str0";
+  *message.MutableExtension(protobug_unittest::my_extension_string) = "ext_str0";
 
   TextFormat::Printer printer;
   string text;
@@ -1193,28 +1193,28 @@ TEST_F(TextFormatTest, PrintFieldsInIndexOrder) {
   // By default, print in field number order.
   // my_int: 12345
   // my_string: "str"
-  // [protobuf_unittest.TestExtensionOrderings2.test_ext_orderings2] {
+  // [protobug_unittest.TestExtensionOrderings2.test_ext_orderings2] {
   //   my_string: "ext_str2"
   // }
-  // [protobuf_unittest.TestExtensionOrderings1.test_ext_orderings1] {
+  // [protobug_unittest.TestExtensionOrderings1.test_ext_orderings1] {
   //   my_string: "ext_str1"
   // }
-  // [protobuf_unittest.TestExtensionOrderings2.TestExtensionOrderings3.test_ext_orderings3]
+  // [protobug_unittest.TestExtensionOrderings2.TestExtensionOrderings3.test_ext_orderings3]
   // {
   //   my_string: "ext_str3"
   // }
-  // [protobuf_unittest.my_extension_string]: "ext_str0"
+  // [protobug_unittest.my_extension_string]: "ext_str0"
   // my_float: 0.999
   printer.PrintToString(message, &text);
   EXPECT_EQ(
       "my_int: 12345\nmy_string: "
-      "\"str\"\n[protobuf_unittest.TestExtensionOrderings2.test_ext_orderings2] "
+      "\"str\"\n[protobug_unittest.TestExtensionOrderings2.test_ext_orderings2] "
       "{\n  my_string: "
-      "\"ext_str2\"\n}\n[protobuf_unittest.TestExtensionOrderings1.test_ext_"
+      "\"ext_str2\"\n}\n[protobug_unittest.TestExtensionOrderings1.test_ext_"
       "orderings1] {\n  my_string: "
-      "\"ext_str1\"\n}\n[protobuf_unittest.TestExtensionOrderings2."
+      "\"ext_str1\"\n}\n[protobug_unittest.TestExtensionOrderings2."
       "TestExtensionOrderings3.test_ext_orderings3] {\n  my_string: "
-      "\"ext_str3\"\n}\n[protobuf_unittest.my_extension_string]: "
+      "\"ext_str3\"\n}\n[protobug_unittest.my_extension_string]: "
       "\"ext_str0\"\nmy_float: 0.999\n",
       text);
 
@@ -1222,28 +1222,28 @@ TEST_F(TextFormatTest, PrintFieldsInIndexOrder) {
   // my_string: "str"
   // my_int: 12345
   // my_float: 0.999
-  // [protobuf_unittest.TestExtensionOrderings2.test_ext_orderings2] {
+  // [protobug_unittest.TestExtensionOrderings2.test_ext_orderings2] {
   //   my_string: "ext_str2"
   // }
-  // [protobuf_unittest.TestExtensionOrderings1.test_ext_orderings1] {
+  // [protobug_unittest.TestExtensionOrderings1.test_ext_orderings1] {
   //   my_string: "ext_str1"
   // }
-  // [protobuf_unittest.TestExtensionOrderings2.TestExtensionOrderings3.test_ext_orderings3]
+  // [protobug_unittest.TestExtensionOrderings2.TestExtensionOrderings3.test_ext_orderings3]
   // {
   //   my_string: "ext_str3"
   // }
-  // [protobuf_unittest.my_extension_string]: "ext_str0"
+  // [protobug_unittest.my_extension_string]: "ext_str0"
   printer.SetPrintMessageFieldsInIndexOrder(true);
   printer.PrintToString(message, &text);
   EXPECT_EQ(
       "my_string: \"str\"\nmy_int: 12345\nmy_float: "
-      "0.999\n[protobuf_unittest.TestExtensionOrderings2.test_ext_orderings2] "
+      "0.999\n[protobug_unittest.TestExtensionOrderings2.test_ext_orderings2] "
       "{\n  my_string: "
-      "\"ext_str2\"\n}\n[protobuf_unittest.TestExtensionOrderings1.test_ext_"
+      "\"ext_str2\"\n}\n[protobug_unittest.TestExtensionOrderings1.test_ext_"
       "orderings1] {\n  my_string: "
-      "\"ext_str1\"\n}\n[protobuf_unittest.TestExtensionOrderings2."
+      "\"ext_str1\"\n}\n[protobug_unittest.TestExtensionOrderings2."
       "TestExtensionOrderings3.test_ext_orderings3] {\n  my_string: "
-      "\"ext_str3\"\n}\n[protobuf_unittest.my_extension_string]: \"ext_str0\"\n",
+      "\"ext_str3\"\n}\n[protobug_unittest.my_extension_string]: \"ext_str0\"\n",
       text);
 }
 
@@ -1522,7 +1522,7 @@ TEST_F(TextFormatParserTest, InvalidToken) {
 TEST_F(TextFormatParserTest, InvalidFieldName) {
   ExpectFailure(
       "invalid_field: somevalue\n",
-      "Message type \"protobuf_unittest.TestAllTypes\" has no field named "
+      "Message type \"protobug_unittest.TestAllTypes\" has no field named "
       "\"invalid_field\".",
       1, 14);
 }
@@ -1531,24 +1531,24 @@ TEST_F(TextFormatParserTest, InvalidCapitalization) {
   // We require that group names be exactly as they appear in the .proto.
   ExpectFailure(
       "optionalgroup {\na: 15\n}\n",
-      "Message type \"protobuf_unittest.TestAllTypes\" has no field named "
+      "Message type \"protobug_unittest.TestAllTypes\" has no field named "
       "\"optionalgroup\".",
       1, 15);
   ExpectFailure(
       "OPTIONALgroup {\na: 15\n}\n",
-      "Message type \"protobuf_unittest.TestAllTypes\" has no field named "
+      "Message type \"protobug_unittest.TestAllTypes\" has no field named "
       "\"OPTIONALgroup\".",
       1, 15);
   ExpectFailure(
       "Optional_Double: 10.0\n",
-      "Message type \"protobuf_unittest.TestAllTypes\" has no field named "
+      "Message type \"protobug_unittest.TestAllTypes\" has no field named "
       "\"Optional_Double\".",
       1, 16);
 }
 
 TEST_F(TextFormatParserTest, AllowIgnoreCapitalizationError) {
   TextFormat::Parser parser;
-  protobuf_unittest::TestAllTypes proto;
+  protobug_unittest::TestAllTypes proto;
 
   // These fields have a mismatching case.
   EXPECT_FALSE(parser.ParseFromString("Optional_Double: 10.0", &proto));
@@ -1671,7 +1671,7 @@ TEST_F(TextFormatParserTest, UnknownExtension) {
   // Non-matching delimiters.
   ExpectFailure("[blahblah]: 123",
                 "Extension \"blahblah\" is not defined or is not an "
-                "extension of \"protobuf_unittest.TestAllTypes\".",
+                "extension of \"protobug_unittest.TestAllTypes\".",
                 1, 11);
 }
 
@@ -1729,8 +1729,8 @@ TEST_F(TextFormatParserTest, PrintErrorsToStderr) {
   }
 
   ASSERT_EQ(1, errors.size());
-  EXPECT_EQ("Error parsing text-format protobuf_unittest.TestAllTypes: "
-            "1:14: Message type \"protobuf_unittest.TestAllTypes\" has no field "
+  EXPECT_EQ("Error parsing text-format protobug_unittest.TestAllTypes: "
+            "1:14: Message type \"protobug_unittest.TestAllTypes\" has no field "
             "named \"no_such_field\".",
             errors[0]);
 }
@@ -1746,7 +1746,7 @@ TEST_F(TextFormatParserTest, FailsOnTokenizationError) {
   }
 
   ASSERT_EQ(1, errors.size());
-  EXPECT_EQ("Error parsing text-format protobuf_unittest.TestAllTypes: "
+  EXPECT_EQ("Error parsing text-format protobug_unittest.TestAllTypes: "
             "1:1: Invalid control characters encountered in text.",
             errors[0]);
 }
@@ -1764,35 +1764,35 @@ class TextFormatMessageSetTest : public testing::Test {
 };
 const char TextFormatMessageSetTest::proto_debug_string_[] =
 "message_set {\n"
-"  [protobuf_unittest.TestMessageSetExtension1] {\n"
+"  [protobug_unittest.TestMessageSetExtension1] {\n"
 "    i: 23\n"
 "  }\n"
-"  [protobuf_unittest.TestMessageSetExtension2] {\n"
+"  [protobug_unittest.TestMessageSetExtension2] {\n"
 "    str: \"foo\"\n"
 "  }\n"
 "}\n";
 
 
 TEST_F(TextFormatMessageSetTest, Serialize) {
-  protobuf_unittest::TestMessageSetContainer proto;
-  protobuf_unittest::TestMessageSetExtension1* item_a =
+  protobug_unittest::TestMessageSetContainer proto;
+  protobug_unittest::TestMessageSetExtension1* item_a =
     proto.mutable_message_set()->MutableExtension(
-      protobuf_unittest::TestMessageSetExtension1::message_set_extension);
+      protobug_unittest::TestMessageSetExtension1::message_set_extension);
   item_a->set_i(23);
-  protobuf_unittest::TestMessageSetExtension2* item_b =
+  protobug_unittest::TestMessageSetExtension2* item_b =
     proto.mutable_message_set()->MutableExtension(
-      protobuf_unittest::TestMessageSetExtension2::message_set_extension);
+      protobug_unittest::TestMessageSetExtension2::message_set_extension);
   item_b->set_str("foo");
   EXPECT_EQ(proto_debug_string_, proto.DebugString());
 }
 
 TEST_F(TextFormatMessageSetTest, Deserialize) {
-  protobuf_unittest::TestMessageSetContainer proto;
+  protobug_unittest::TestMessageSetContainer proto;
   ASSERT_TRUE(TextFormat::ParseFromString(proto_debug_string_, &proto));
   EXPECT_EQ(23, proto.message_set().GetExtension(
-    protobuf_unittest::TestMessageSetExtension1::message_set_extension).i());
+    protobug_unittest::TestMessageSetExtension1::message_set_extension).i());
   EXPECT_EQ("foo", proto.message_set().GetExtension(
-    protobuf_unittest::TestMessageSetExtension2::message_set_extension).str());
+    protobug_unittest::TestMessageSetExtension2::message_set_extension).str());
 
   // Ensure that these are the only entries present.
   std::vector<const FieldDescriptor*> descriptors;

@@ -60,21 +60,21 @@ TEST_F(LiteArenaTest, MapNoHeapAllocation) {
     // Map.
     // google::protobug::internal::NoHeapChecker no_heap;
 
-    protobuf_unittest::TestArenaMapLite* from =
-        Arena::CreateMessage<protobuf_unittest::TestArenaMapLite>(arena_.get());
+    protobug_unittest::TestArenaMapLite* from =
+        Arena::CreateMessage<protobug_unittest::TestArenaMapLite>(arena_.get());
     google::protobug::MapLiteTestUtil::SetArenaMapFields(from);
     from->SerializeToString(&data);
 
-    protobuf_unittest::TestArenaMapLite* to =
-        Arena::CreateMessage<protobuf_unittest::TestArenaMapLite>(arena_.get());
+    protobug_unittest::TestArenaMapLite* to =
+        Arena::CreateMessage<protobug_unittest::TestArenaMapLite>(arena_.get());
     to->ParseFromString(data);
     google::protobug::MapLiteTestUtil::ExpectArenaMapFieldsSet(*to);
   }
 }
 
 TEST_F(LiteArenaTest, UnknownFieldMemLeak) {
-  protobuf_unittest::ForeignMessageArenaLite* message =
-      google::protobug::Arena::CreateMessage<protobuf_unittest::ForeignMessageArenaLite>(
+  protobug_unittest::ForeignMessageArenaLite* message =
+      google::protobug::Arena::CreateMessage<protobug_unittest::ForeignMessageArenaLite>(
           arena_.get());
   string data = "\012\000";
   int original_capacity = data.capacity();

@@ -355,7 +355,7 @@ TEST(GeneratedMessageReflectionTest, ReleaseLast) {
   message.Clear();
   TestUtil::SetAllFields(&message);
   ASSERT_EQ(2, message.repeated_foreign_message_size());
-  const protobuf_unittest::ForeignMessage* expected =
+  const protobug_unittest::ForeignMessage* expected =
       message.mutable_repeated_foreign_message(1);
   std::unique_ptr<Message> released(message.GetReflection()->ReleaseLast(
       &message, descriptor->FindFieldByName("repeated_foreign_message")));
@@ -378,7 +378,7 @@ TEST(GeneratedMessageReflectionTest, ReleaseLastExtensions) {
   TestUtil::SetAllExtensions(&message);
   ASSERT_EQ(2, message.ExtensionSize(
       unittest::repeated_foreign_message_extension));
-  const protobuf_unittest::ForeignMessage* expected = message.MutableExtension(
+  const protobug_unittest::ForeignMessage* expected = message.MutableExtension(
       unittest::repeated_foreign_message_extension, 1);
   std::unique_ptr<Message> released(message.GetReflection()->ReleaseLast(
       &message, descriptor->file()->FindExtensionByName(
@@ -1003,8 +1003,8 @@ TEST(GeneratedMessageReflectionTest, UsageErrors) {
       message, descriptor->FindFieldByName("optional_int64")),
     "Protocol Buffer reflection usage error:\n"
     "  Method      : google::protobug::Reflection::GetInt32\n"
-    "  Message type: protobuf_unittest\\.TestAllTypes\n"
-    "  Field       : protobuf_unittest\\.TestAllTypes\\.optional_int64\n"
+    "  Message type: protobug_unittest\\.TestAllTypes\n"
+    "  Field       : protobug_unittest\\.TestAllTypes\\.optional_int64\n"
     "  Problem     : Field is not the right type for this message:\n"
     "    Expected  : CPPTYPE_INT32\n"
     "    Field type: CPPTYPE_INT64");
@@ -1013,24 +1013,24 @@ TEST(GeneratedMessageReflectionTest, UsageErrors) {
       message, descriptor->FindFieldByName("repeated_int32")),
     "Protocol Buffer reflection usage error:\n"
     "  Method      : google::protobug::Reflection::GetInt32\n"
-    "  Message type: protobuf_unittest.TestAllTypes\n"
-    "  Field       : protobuf_unittest.TestAllTypes.repeated_int32\n"
+    "  Message type: protobug_unittest.TestAllTypes\n"
+    "  Field       : protobug_unittest.TestAllTypes.repeated_int32\n"
     "  Problem     : Field is repeated; the method requires a singular field.");
   EXPECT_DEATH(
     reflection->GetInt32(
       message, unittest::ForeignMessage::descriptor()->FindFieldByName("c")),
     "Protocol Buffer reflection usage error:\n"
     "  Method      : google::protobug::Reflection::GetInt32\n"
-    "  Message type: protobuf_unittest.TestAllTypes\n"
-    "  Field       : protobuf_unittest.ForeignMessage.c\n"
+    "  Message type: protobug_unittest.TestAllTypes\n"
+    "  Field       : protobug_unittest.ForeignMessage.c\n"
     "  Problem     : Field does not match message type.");
   EXPECT_DEATH(
     reflection->HasField(
       message, unittest::ForeignMessage::descriptor()->FindFieldByName("c")),
     "Protocol Buffer reflection usage error:\n"
     "  Method      : google::protobug::Reflection::HasField\n"
-    "  Message type: protobuf_unittest.TestAllTypes\n"
-    "  Field       : protobuf_unittest.ForeignMessage.c\n"
+    "  Message type: protobug_unittest.TestAllTypes\n"
+    "  Field       : protobug_unittest.ForeignMessage.c\n"
     "  Problem     : Field does not match message type.");
 
 #undef f

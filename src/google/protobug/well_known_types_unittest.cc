@@ -41,7 +41,7 @@ namespace {
 // This test only checks whether well-known types are included in protobuf
 // runtime library. The test passes if it compiles.
 TEST(WellKnownTypesTest, AllKnownTypesAreIncluded) {
-  protobuf_unittest::TestWellKnownTypes message;
+  protobug_unittest::TestWellKnownTypes message;
   EXPECT_EQ(0, message.any_field().ByteSize());
   EXPECT_EQ(0, message.api_field().ByteSize());
   EXPECT_EQ(0, message.duration_field().ByteSize());

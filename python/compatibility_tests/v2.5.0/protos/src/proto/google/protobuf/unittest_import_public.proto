@@ -31,7 +31,7 @@
 // Author: liujisi@google.com (Pherl Liu)
 
 
-package protobuf_unittest_import;
+package protobug_unittest_import;
 
 option java_package = "com.google.protobug.test";
 

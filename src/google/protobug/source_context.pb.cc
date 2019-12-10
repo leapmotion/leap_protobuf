@@ -65,21 +65,21 @@ static ::google::protobug::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobug::Message*>(&::google::protobug::_SourceContext_default_instance_),
 };
 
-void protobuf_AssignDescriptors() {
+void protobug_AssignDescriptors() {
   AddDescriptors();
   AssignDescriptors(
       "google/protobug/source_context.proto", schemas, file_default_instances, TableStruct::offsets,
       file_level_metadata, NULL, NULL);
 }
 
-void protobuf_AssignDescriptorsOnce() {
+void protobug_AssignDescriptorsOnce() {
   static ::google::protobug::internal::once_flag once;
-  ::google::protobug::internal::call_once(once, protobuf_AssignDescriptors);
+  ::google::protobug::internal::call_once(once, protobug_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUG_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
+  protobug_AssignDescriptorsOnce();
   ::google::protobug::internal::RegisterAllTypes(file_level_metadata, 1);
 }
 
@@ -157,7 +157,7 @@ void SourceContext::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* SourceContext::descriptor() {
-  ::protobuf_google_2fprotobug_2fsource_5fcontext_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fsource_5fcontext_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fsource_5fcontext_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -351,7 +351,7 @@ void SourceContext::InternalSwap(SourceContext* other) {
 }
 
 ::google::protobug::Metadata SourceContext::GetMetadata() const {
-  protobuf_google_2fprotobug_2fsource_5fcontext_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fsource_5fcontext_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fsource_5fcontext_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 

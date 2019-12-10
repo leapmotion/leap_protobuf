@@ -30,7 +30,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 
 message TestMessage2 {

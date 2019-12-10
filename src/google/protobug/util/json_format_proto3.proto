@@ -179,7 +179,7 @@ message TestCustomJsonName {
 }
 
 message TestExtensions {
-  .protobuf_unittest.TestAllExtensions extensions = 1;
+  .protobug_unittest.TestAllExtensions extensions = 1;
 }
 
 message TestEnumValue{

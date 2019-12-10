@@ -32,7 +32,7 @@
 
 syntax = "proto3";
 
-package protobuf_unittest_import;
+package protobug_unittest_import;
 
 option java_package = "com.google.protobug.test";
 option csharp_namespace = "Google.Protobuf.TestProtos";

@@ -37,11 +37,11 @@
 
 
 namespace google {
-namespace protobuf_unittest {}  // forward declaration
+namespace protobug_unittest {}  // forward declaration
 
 namespace protobug {
 
-namespace unittest = ::protobuf_unittest;
+namespace unittest = ::protobug_unittest;
 
 class MapTestUtilImpl {
  public:

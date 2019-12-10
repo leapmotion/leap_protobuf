@@ -40,8 +40,8 @@
 namespace google {
 namespace protobug {
 
-namespace unittest = protobuf_unittest;
-namespace unittest_import = protobuf_unittest_import;
+namespace unittest = protobug_unittest;
+namespace unittest_import = protobug_unittest_import;
 
 class TestUtilLite {
  public:

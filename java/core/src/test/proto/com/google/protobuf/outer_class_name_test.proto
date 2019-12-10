@@ -30,7 +30,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 
 // This message's name is the same with the default outer class name of this

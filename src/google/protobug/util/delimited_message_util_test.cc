@@ -18,11 +18,11 @@ TEST(DelimitedMessageUtilTest, DelimitedMessages) {
   std::stringstream stream;
 
   {
-    protobuf_unittest::TestAllTypes message1;
+    protobug_unittest::TestAllTypes message1;
     TestUtil::SetAllFields(&message1);
     EXPECT_TRUE(SerializeDelimitedToOstream(message1, &stream));
 
-    protobuf_unittest::TestPackedTypes message2;
+    protobug_unittest::TestPackedTypes message2;
     TestUtil::SetPackedFields(&message2);
     EXPECT_TRUE(SerializeDelimitedToOstream(message2, &stream));
   }
@@ -31,14 +31,14 @@ TEST(DelimitedMessageUtilTest, DelimitedMessages) {
     bool clean_eof;
     io::IstreamInputStream zstream(&stream);
 
-    protobuf_unittest::TestAllTypes message1;
+    protobug_unittest::TestAllTypes message1;
     clean_eof = true;
     EXPECT_TRUE(ParseDelimitedFromZeroCopyStream(&message1,
         &zstream, &clean_eof));
     EXPECT_FALSE(clean_eof);
     TestUtil::ExpectAllFieldsSet(message1);
 
-    protobuf_unittest::TestPackedTypes message2;
+    protobug_unittest::TestPackedTypes message2;
     clean_eof = true;
     EXPECT_TRUE(ParseDelimitedFromZeroCopyStream(&message2,
         &zstream, &clean_eof));

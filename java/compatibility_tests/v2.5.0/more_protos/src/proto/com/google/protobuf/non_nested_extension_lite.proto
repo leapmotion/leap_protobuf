@@ -33,7 +33,7 @@
 // A proto file with extensions for a MessageLite messages.
 
 
-package protobuf_unittest;
+package protobug_unittest;
 
 option optimize_for = LITE_RUNTIME;
 

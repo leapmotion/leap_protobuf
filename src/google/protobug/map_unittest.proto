@@ -37,8 +37,8 @@ import "google/protobug/unittest_no_arena.proto";
 
 // We don't put this in a package within proto2 because we need to make sure
 // that the generated code doesn't depend on being in the proto2 namespace.
-// In map_test_util.h we do "using namespace unittest = protobuf_unittest".
-package protobuf_unittest;
+// In map_test_util.h we do "using namespace unittest = protobug_unittest".
+package protobug_unittest;
 
 // Tests maps.
 message TestMap {
@@ -107,7 +107,7 @@ message TestArenaMap {
   map<int32   , bytes   > map_int32_bytes       = 15;
   map<int32   , MapEnum > map_int32_enum        = 16;
   map<int32   , ForeignMessage> map_int32_foreign_message = 17;
-  map<int32, .protobuf_unittest_no_arena.ForeignMessage>
+  map<int32, .protobug_unittest_no_arena.ForeignMessage>
       map_int32_foreign_message_no_arena = 18;
 }
 

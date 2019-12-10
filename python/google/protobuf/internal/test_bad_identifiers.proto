@@ -32,7 +32,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 option py_generic_services = true;
 

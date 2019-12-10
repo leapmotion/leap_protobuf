@@ -33,7 +33,7 @@
 // referenced in any C++ code.
 syntax = "proto2";
 
-package protobuf_unittest;
+package protobug_unittest;
 
 message TestLargeEnumValue {
   enum EnumWithLargeValue {

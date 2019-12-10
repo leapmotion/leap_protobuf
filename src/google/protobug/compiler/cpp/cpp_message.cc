@@ -1747,7 +1747,7 @@ GenerateClassMethods(io::Printer* printer) {
     if (HasDescriptorMethods(descriptor_->file(), options_)) {
       printer->Print(
           "::google::protobug::Metadata $classname$::GetMetadata() const {\n"
-          "  ::$file_namespace$::protobuf_AssignDescriptorsOnce();\n"
+          "  ::$file_namespace$::protobug_AssignDescriptorsOnce();\n"
           "  return ::$file_namespace$::file_level_metadata[$index$];\n"
           "}\n"
           "void $classname$::MergeFrom(\n"
@@ -1874,7 +1874,7 @@ GenerateClassMethods(io::Printer* printer) {
   if (HasDescriptorMethods(descriptor_->file(), options_)) {
     printer->Print(
         "::google::protobug::Metadata $classname$::GetMetadata() const {\n"
-        "  $file_namespace$::protobuf_AssignDescriptorsOnce();\n"
+        "  $file_namespace$::protobug_AssignDescriptorsOnce();\n"
         "  return ::"
         "$file_namespace$::file_level_metadata[kIndexInFileMessages];\n"
         "}\n"
@@ -2561,7 +2561,7 @@ GenerateStructors(io::Printer* printer) {
       !descriptor_->options().no_standard_descriptor_accessor()) {
     printer->Print(
         "const ::google::protobug::Descriptor* $classname$::descriptor() {\n"
-        "  ::$file_namespace$::protobuf_AssignDescriptorsOnce();\n"
+        "  ::$file_namespace$::protobug_AssignDescriptorsOnce();\n"
         "  return ::"
         "$file_namespace$::file_level_metadata[kIndexInFileMessages]."
         "descriptor;\n"

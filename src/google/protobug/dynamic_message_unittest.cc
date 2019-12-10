@@ -97,22 +97,22 @@ class DynamicMessageTest : public ::testing::TestWithParam<bool> {
     ASSERT_TRUE(pool_.BuildFile(unittest_file) != NULL);
     ASSERT_TRUE(pool_.BuildFile(unittest_no_field_presence_file) != NULL);
 
-    descriptor_ = pool_.FindMessageTypeByName("protobuf_unittest.TestAllTypes");
+    descriptor_ = pool_.FindMessageTypeByName("protobug_unittest.TestAllTypes");
     ASSERT_TRUE(descriptor_ != NULL);
     prototype_ = factory_.GetPrototype(descriptor_);
 
     extensions_descriptor_ =
-      pool_.FindMessageTypeByName("protobuf_unittest.TestAllExtensions");
+      pool_.FindMessageTypeByName("protobug_unittest.TestAllExtensions");
     ASSERT_TRUE(extensions_descriptor_ != NULL);
     extensions_prototype_ = factory_.GetPrototype(extensions_descriptor_);
 
     packed_descriptor_ =
-      pool_.FindMessageTypeByName("protobuf_unittest.TestPackedTypes");
+      pool_.FindMessageTypeByName("protobug_unittest.TestPackedTypes");
     ASSERT_TRUE(packed_descriptor_ != NULL);
     packed_prototype_ = factory_.GetPrototype(packed_descriptor_);
 
     oneof_descriptor_ =
-      pool_.FindMessageTypeByName("protobuf_unittest.TestOneof2");
+      pool_.FindMessageTypeByName("protobug_unittest.TestOneof2");
     ASSERT_TRUE(oneof_descriptor_ != NULL);
     oneof_prototype_ = factory_.GetPrototype(oneof_descriptor_);
 
@@ -208,7 +208,7 @@ TEST_P(DynamicMessageTest, Oneof) {
   const Descriptor* nested_descriptor;
   const Message* nested_prototype;
   nested_descriptor =
-      pool_.FindMessageTypeByName("protobuf_unittest.TestOneof2.NestedMessage");
+      pool_.FindMessageTypeByName("protobug_unittest.TestOneof2.NestedMessage");
   nested_prototype = factory_.GetPrototype(nested_descriptor);
   EXPECT_EQ(nested_prototype,
             &reflection->GetMessage(
@@ -216,7 +216,7 @@ TEST_P(DynamicMessageTest, Oneof) {
   const Descriptor* foogroup_descriptor;
   const Message* foogroup_prototype;
   foogroup_descriptor =
-      pool_.FindMessageTypeByName("protobuf_unittest.TestOneof2.FooGroup");
+      pool_.FindMessageTypeByName("protobug_unittest.TestOneof2.FooGroup");
   foogroup_prototype = factory_.GetPrototype(foogroup_descriptor);
   EXPECT_EQ(foogroup_prototype,
             &reflection->GetMessage(

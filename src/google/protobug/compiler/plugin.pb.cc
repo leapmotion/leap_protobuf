@@ -183,21 +183,21 @@ static ::google::protobug::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobug::Message*>(&::google::protobug::compiler::_CodeGeneratorResponse_default_instance_),
 };
 
-void protobuf_AssignDescriptors() {
+void protobug_AssignDescriptors() {
   AddDescriptors();
   AssignDescriptors(
       "google/protobug/compiler/plugin.proto", schemas, file_default_instances, TableStruct::offsets,
       file_level_metadata, NULL, NULL);
 }
 
-void protobuf_AssignDescriptorsOnce() {
+void protobug_AssignDescriptorsOnce() {
   static ::google::protobug::internal::once_flag once;
-  ::google::protobug::internal::call_once(once, protobuf_AssignDescriptors);
+  ::google::protobug::internal::call_once(once, protobug_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUG_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
+  protobug_AssignDescriptorsOnce();
   ::google::protobug::internal::RegisterAllTypes(file_level_metadata, 4);
 }
 
@@ -295,7 +295,7 @@ void Version::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* Version::descriptor() {
-  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -612,7 +612,7 @@ void Version::InternalSwap(Version* other) {
 }
 
 ::google::protobug::Metadata Version::GetMetadata() const {
-  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -678,7 +678,7 @@ void CodeGeneratorRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* CodeGeneratorRequest::descriptor() {
-  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -1018,7 +1018,7 @@ void CodeGeneratorRequest::InternalSwap(CodeGeneratorRequest* other) {
 }
 
 ::google::protobug::Metadata CodeGeneratorRequest::GetMetadata() const {
-  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -1081,7 +1081,7 @@ void CodeGeneratorResponse_File::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* CodeGeneratorResponse_File::descriptor() {
-  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -1395,7 +1395,7 @@ void CodeGeneratorResponse_File::InternalSwap(CodeGeneratorResponse_File* other)
 }
 
 ::google::protobug::Metadata CodeGeneratorResponse_File::GetMetadata() const {
-  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
@@ -1446,7 +1446,7 @@ void CodeGeneratorResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 const ::google::protobug::Descriptor* CodeGeneratorResponse::descriptor() {
-  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
@@ -1690,7 +1690,7 @@ void CodeGeneratorResponse::InternalSwap(CodeGeneratorResponse* other) {
 }
 
 ::google::protobug::Metadata CodeGeneratorResponse::GetMetadata() const {
-  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobuf_AssignDescriptorsOnce();
+  protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::protobug_AssignDescriptorsOnce();
   return ::protobuf_google_2fprotobug_2fcompiler_2fplugin_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 

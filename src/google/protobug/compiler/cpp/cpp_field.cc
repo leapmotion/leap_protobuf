@@ -69,7 +69,7 @@ void SetCommonFieldVariables(const FieldDescriptor* descriptor,
   (*variables)["tag_size"] = SimpleItoa(
     WireFormat::TagSize(descriptor->number(), descriptor->type()));
   (*variables)["deprecation"] = descriptor->options().deprecated()
-      ? " PROTOBUF_DEPRECATED" : "";
+      ? " PROTOBUG_DEPRECATED" : "";
   (*variables)["deprecated_attr"] = descriptor->options().deprecated()
       ? "GOOGLE_PROTOBUG_DEPRECATED_ATTR " : "";
 
