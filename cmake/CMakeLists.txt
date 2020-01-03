@@ -13,7 +13,7 @@ if(POLICY CMP0048)
 endif()
 
 # Project
-project(leap_protobuf C CXX)
+project(protobuf C CXX)
 
 # Add c++11 flags
 if (CYGWIN)
