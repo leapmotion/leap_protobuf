@@ -2,6 +2,8 @@
 leap_protobuf
 =============
 
+Richard Cownie, Ultraleap, 2020-01-03
+
 This is a fork of the protobuf tag v3.6.0 which has been hacked
 to change filenames and function/class/symbol names so that it can
 coexist with a vanilla protobuf-3.7.1 (or other version, I hope).
