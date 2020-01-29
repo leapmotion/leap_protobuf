@@ -140,6 +140,10 @@ else (protobuf_BUILD_SHARED_LIBS)
       endif(${flag_var} MATCHES "/MD")
     endforeach(flag_var)
   endif (MSVC AND protobuf_MSVC_STATIC_RUNTIME)
+  if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    # Need position-independent code to be linked into a .so
+    add_compile_options("-fPIC")
+  endif()
 endif (protobuf_BUILD_SHARED_LIBS)
 
 if (MSVC)
