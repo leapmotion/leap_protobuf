@@ -261,13 +261,13 @@ static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);
 #define GOOGLE_GUARDED_BY(x)
 #define GOOGLE_ATTRIBUTE_COLD
 
-#ifdef GOOGLE_PROTOBUG_DONT_USE_UNALIGNED
-# define GOOGLE_PROTOBUG_USE_UNALIGNED 0
+#ifdef GOOGLE_PROTOBUG_DONT_ED
+# define GOOGLE_PROTOBUG_ED 0
 #else
 # if defined(_M_X64) || defined(__x86_64__) || defined(_M_IX86) || defined(__i386__)
-#  define GOOGLE_PROTOBUG_USE_UNALIGNED 1
+#  define GOOGLE_PROTOBUG_ED 1
 # else
-#  define GOOGLE_PROTOBUG_USE_UNALIGNED 0
+#  define GOOGLE_PROTOBUG_ED 0
 # endif
 #endif
 
@@ -289,68 +289,68 @@ void __sanitizer_unaligned_store64(void *p, uint64_t v);
 }  // extern "C"
 #endif  // __cplusplus
 
-inline uint16 GOOGLE_UNALIGNED_LOAD16(const void *p) {
+inline uint16 PROTOBUG_UNALIGNED_LOAD16(const void *p) {
   return __sanitizer_unaligned_load16(p);
 }
 
-inline uint32 GOOGLE_UNALIGNED_LOAD32(const void *p) {
+inline uint32 PROTOBUG_UNALIGNED_LOAD32(const void *p) {
   return __sanitizer_unaligned_load32(p);
 }
 
-inline uint64 GOOGLE_UNALIGNED_LOAD64(const void *p) {
+inline uint64 PROTOBUG_UNALIGNED_LOAD64(const void *p) {
   return __sanitizer_unaligned_load64(p);
 }
 
-inline void GOOGLE_UNALIGNED_STORE16(void *p, uint16 v) {
+inline void PROTOBUG_UNALIGNED_STORE16(void *p, uint16 v) {
   __sanitizer_unaligned_store16(p, v);
 }
 
-inline void GOOGLE_UNALIGNED_STORE32(void *p, uint32 v) {
+inline void PROTOBUG_UNALIGNED_STORE32(void *p, uint32 v) {
   __sanitizer_unaligned_store32(p, v);
 }
 
-inline void GOOGLE_UNALIGNED_STORE64(void *p, uint64 v) {
+inline void PROTOBUG_UNALIGNED_STORE64(void *p, uint64 v) {
   __sanitizer_unaligned_store64(p, v);
 }
 
-#elif GOOGLE_PROTOBUG_USE_UNALIGNED
+#elif GOOGLE_PROTOBUG_ED
 
-#define GOOGLE_UNALIGNED_LOAD16(_p) (*reinterpret_cast<const uint16 *>(_p))
-#define GOOGLE_UNALIGNED_LOAD32(_p) (*reinterpret_cast<const uint32 *>(_p))
-#define GOOGLE_UNALIGNED_LOAD64(_p) (*reinterpret_cast<const uint64 *>(_p))
+#define PROTOBUG_UNALIGNED_LOAD16(_p) (*reinterpret_cast<const uint16 *>(_p))
+#define PROTOBUG_UNALIGNED_LOAD32(_p) (*reinterpret_cast<const uint32 *>(_p))
+#define PROTOBUG_UNALIGNED_LOAD64(_p) (*reinterpret_cast<const uint64 *>(_p))
 
-#define GOOGLE_UNALIGNED_STORE16(_p, _val) (*reinterpret_cast<uint16 *>(_p) = (_val))
-#define GOOGLE_UNALIGNED_STORE32(_p, _val) (*reinterpret_cast<uint32 *>(_p) = (_val))
-#define GOOGLE_UNALIGNED_STORE64(_p, _val) (*reinterpret_cast<uint64 *>(_p) = (_val))
+#define PROTOBUG_UNALIGNED_STORE16(_p, _val) (*reinterpret_cast<uint16 *>(_p) = (_val))
+#define PROTOBUG_UNALIGNED_STORE32(_p, _val) (*reinterpret_cast<uint32 *>(_p) = (_val))
+#define PROTOBUG_UNALIGNED_STORE64(_p, _val) (*reinterpret_cast<uint64 *>(_p) = (_val))
 
 #else
-inline uint16 GOOGLE_UNALIGNED_LOAD16(const void *p) {
+inline uint16 PROTOBUG_UNALIGNED_LOAD16(const void *p) {
   uint16 t;
   memcpy(&t, p, sizeof t);
   return t;
 }
 
-inline uint32 GOOGLE_UNALIGNED_LOAD32(const void *p) {
+inline uint32 PROTOBUG_UNALIGNED_LOAD32(const void *p) {
   uint32 t;
   memcpy(&t, p, sizeof t);
   return t;
 }
 
-inline uint64 GOOGLE_UNALIGNED_LOAD64(const void *p) {
+inline uint64 PROTOBUG_UNALIGNED_LOAD64(const void *p) {
   uint64 t;
   memcpy(&t, p, sizeof t);
   return t;
 }
 
-inline void GOOGLE_UNALIGNED_STORE16(void *p, uint16 v) {
+inline void PROTOBUG_UNALIGNED_STORE16(void *p, uint16 v) {
   memcpy(p, &v, sizeof v);
 }
 
-inline void GOOGLE_UNALIGNED_STORE32(void *p, uint32 v) {
+inline void PROTOBUG_UNALIGNED_STORE32(void *p, uint32 v) {
   memcpy(p, &v, sizeof v);
 }
 
-inline void GOOGLE_UNALIGNED_STORE64(void *p, uint64 v) {
+inline void PROTOBUG_UNALIGNED_STORE64(void *p, uint64 v) {
   memcpy(p, &v, sizeof v);
 }
 #endif
@@ -506,27 +506,27 @@ class BigEndian {
 
   // Functions to do unaligned loads and stores in big-endian order.
   static uint16 Load16(const void *p) {
-    return ToHost16(GOOGLE_UNALIGNED_LOAD16(p));
+    return ToHost16(PROTOBUG_UNALIGNED_LOAD16(p));
   }
 
   static void Store16(void *p, uint16 v) {
-    GOOGLE_UNALIGNED_STORE16(p, FromHost16(v));
+    PROTOBUG_UNALIGNED_STORE16(p, FromHost16(v));
   }
 
   static uint32 Load32(const void *p) {
-    return ToHost32(GOOGLE_UNALIGNED_LOAD32(p));
+    return ToHost32(PROTOBUG_UNALIGNED_LOAD32(p));
   }
 
   static void Store32(void *p, uint32 v) {
-    GOOGLE_UNALIGNED_STORE32(p, FromHost32(v));
+    PROTOBUG_UNALIGNED_STORE32(p, FromHost32(v));
   }
 
   static uint64 Load64(const void *p) {
-    return ToHost64(GOOGLE_UNALIGNED_LOAD64(p));
+    return ToHost64(PROTOBUG_UNALIGNED_LOAD64(p));
   }
 
   static void Store64(void *p, uint64 v) {
-    GOOGLE_UNALIGNED_STORE64(p, FromHost64(v));
+    PROTOBUG_UNALIGNED_STORE64(p, FromHost64(v));
   }
 };
 

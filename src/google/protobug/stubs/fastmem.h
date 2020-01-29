@@ -68,8 +68,8 @@ inline bool memeq(const char* a, const char* b, size_t n) {
     return memcmp(a, b, n) == 0;
   }
   // n >= 8
-  uint64 u = GOOGLE_UNALIGNED_LOAD64(a) ^ GOOGLE_UNALIGNED_LOAD64(b);
-  uint64 v = GOOGLE_UNALIGNED_LOAD64(a + n - 8) ^ GOOGLE_UNALIGNED_LOAD64(b + n - 8);
+  uint64 u = PROTOBUG_UNALIGNED_LOAD64(a) ^ PROTOBUG_UNALIGNED_LOAD64(b);
+  uint64 v = PROTOBUG_UNALIGNED_LOAD64(a + n - 8) ^ PROTOBUG_UNALIGNED_LOAD64(b + n - 8);
   if ((u | v) != 0) {  // The first or last 8 bytes differ.
     return false;
   }
@@ -83,8 +83,8 @@ inline bool memeq(const char* a, const char* b, size_t n) {
     return memcmp(a, b, n) == 0;
   }
   for (; n >= 16; n -= 16) {
-    uint64 x = GOOGLE_UNALIGNED_LOAD64(a) ^ GOOGLE_UNALIGNED_LOAD64(b);
-    uint64 y = GOOGLE_UNALIGNED_LOAD64(a + 8) ^ GOOGLE_UNALIGNED_LOAD64(b + 8);
+    uint64 x = PROTOBUG_UNALIGNED_LOAD64(a) ^ PROTOBUG_UNALIGNED_LOAD64(b);
+    uint64 y = PROTOBUG_UNALIGNED_LOAD64(a + 8) ^ PROTOBUG_UNALIGNED_LOAD64(b + 8);
     if ((x | y) != 0) {
       return false;
     }
@@ -92,7 +92,7 @@ inline bool memeq(const char* a, const char* b, size_t n) {
     b += 16;
   }
   // n must be 0 or 8 now because it was a multiple of 8 at the top of the loop.
-  return n == 0 || GOOGLE_UNALIGNED_LOAD64(a) == GOOGLE_UNALIGNED_LOAD64(b);
+  return n == 0 || PROTOBUG_UNALIGNED_LOAD64(a) == PROTOBUG_UNALIGNED_LOAD64(b);
 }
 
 inline int fastmemcmp_inlined(const char *a, const char *b, size_t n) {
@@ -101,12 +101,12 @@ inline int fastmemcmp_inlined(const char *a, const char *b, size_t n) {
   }
   const char* a_limit = a + n;
   while (a + sizeof(uint64) <= a_limit &&
-         GOOGLE_UNALIGNED_LOAD64(a) == GOOGLE_UNALIGNED_LOAD64(b)) {
+         PROTOBUG_UNALIGNED_LOAD64(a) == PROTOBUG_UNALIGNED_LOAD64(b)) {
     a += sizeof(uint64);
     b += sizeof(uint64);
   }
   if (a + sizeof(uint32) <= a_limit &&
-      GOOGLE_UNALIGNED_LOAD32(a) == GOOGLE_UNALIGNED_LOAD32(b)) {
+      PROTOBUG_UNALIGNED_LOAD32(a) == PROTOBUG_UNALIGNED_LOAD32(b)) {
     a += sizeof(uint32);
     b += sizeof(uint32);
   }
